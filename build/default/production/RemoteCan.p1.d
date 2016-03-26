@@ -2,9 +2,9 @@
  build/default/production/RemoteCan.p1:  \
  RemoteCan.c  \
 idCan.h  \
-../../LaurTec_PIC_libraries_v_3.3.0/inc/delay.h  \
-../../LaurTec_PIC_libraries_v_3.3.0/inc/CANlib.h  \
-../../LaurTec_PIC_libraries_v_3.3.0/inc/LCD_44780.h  \
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc/LCD_44780.h  \
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc/delay.h  \
 pic_config.h  \
-../../LaurTec_PIC_libraries_v_3.3.0/src/delay.c  \
-../../LaurTec_PIC_libraries_v_3.3.0/src/LCD_44780.c 
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc/CANlib.h  \
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src/delay.c  \
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src/LCD_44780.c 

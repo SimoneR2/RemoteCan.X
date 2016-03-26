@@ -22,7 +22,6 @@
 
 //prototipi delle funzioni
 void board_initialization(void);
-void board_initialization(void);
 void PWR_Button_Polling(void);
 void Joystick_Polling(void);
 void CAN_Send(void);
@@ -79,9 +78,24 @@ __interrupt(high_priority) void ISR_alta(void) {
             for (unsigned char i = 0; i < 8; i++) {
                 data[i] = msg.data[i];
             }
+            if (id == ECU_STATE) {
+                if (RTR_Flag == 1) { //Se è arrivata la richiesta presenza centraline
+                    pr_time_4 = time_counter;
+                    data[0] = 0x03;
+                    __delay_us(10);
+                    while (CANisTxReady() != 1);
+                    CANsendMessage(ECU_STATE, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+                    MotoreFlag = 1;
+                    AbsFlag = 0; //resetta flag
+                    SterzoFlag = 0; //resetta flag
+                }
+
+            }
         }
         PIR3bits.RXB1IF = 0;
         PIR3bits.RXB0IF = 0;
+        LATDbits.LATD2 = 1;
+        LATDbits.LATD3 = 1;
     }
 }
 
@@ -96,10 +110,10 @@ __interrupt(low_priority) void ISR_bassa(void) {
 
 void main(void) {
     board_initialization();
-    
+    JoystickConstants[X_AXIS] = 0.703;
+    JoystickConstants[Y_AXIS] = 35; //35
     while (1) {
         //[CHECK ECU]
-
         PWR_Button_Polling();
         if (power_switch == LOW) {
             dir = FWD;
@@ -111,6 +125,7 @@ void main(void) {
             while (power_switch == LOW) {
                 LCD_clear();
                 delay_ms(10);
+                LCD_initialize (16);
                 LCD_goto_line(1);
                 LCD_write_message("====================");
                 LCD_goto_line(2);
@@ -173,23 +188,24 @@ void main(void) {
 }
 
 void CAN_Send(void) {
-    //while (CANisTxReady()!=1);
+    while (CANisTxReady() != 1);
     CANsendMessage(STEERING_CHANGE, data_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
     data_speed[0] = set_speed;
     data_speed[1] = (set_speed >> 8);
     data_speed[2] = dir;
-//    while (CANisTxReady()!=1);
+    while (CANisTxReady() != 1);
     CANsendMessage(SPEED_CHANGE, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-//    while (CANisTxReady()!=1);
-    CANsendMessage(BRAKE_SIGNAL, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-LATDbits.LATD2 = 1;
-    LATDbits.LATD3 = 1;
+//    while (CANisTxReady() != 1);
+//    CANsendMessage(0b00000000100, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_1);
+
 }
 
 void LCD_Handler(void) {
     actual_speed_kmh = actual_speed / 278;
 
     LCD_clear();
+    delay_ms(1);
+    LCD_initialize (16);
     LCD_goto_line(1);
     LCD_write_message("=== VEHICLE DATA ===");
 
@@ -220,20 +236,20 @@ void CAN_interpreter(void) {
     if (id == ECU_STATE) {
         if (RTR_Flag == 1) { //Se è arrivata la richiesta presenza centraline
             pr_time_4 = time_counter;
-            data[0] = 0x03;
-            while (CANisTxReady() != 1);
-            CANsendMessage(ECU_STATE, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+            //            data[0] = 0x01;
+            //            while (CANisTxReady() != 1);
+            //            CANsendMessage(ECU_STATE, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
             MotoreFlag = 1;
             AbsFlag = 0; //resetta flag
             SterzoFlag = 0; //resetta flag
         } else {
             if (data[0] == 0x01) {
                 AbsFlag = 1;
-                
+
             }
             if (data[0] == 0x02) {
                 SterzoFlag = 1;
-                
+
             }
         }
         if (pr_time_4 - time_counter > 450) {
@@ -276,16 +292,16 @@ void Joystick_Polling(void) {
 void board_initialization(void) {
     //Inputs and Outputs Configuration
     LATA = 0x00;
-    TRISA = 0b00001111; // X-Axis / Y-Axis / 3P Switch
+    TRISA = 0b00011111; // X-Axis / Y-Axis / 3P Switch
     LATB = 0x00;
     TRISB = 0b11111011; //CAN BUS / ON-OFF SWITCH
     LATC = 0x00;
-    TRISC = 0b10110000; //USART Tx and Rx / LCD
+    TRISC = 0b11110000; //USART Tx and Rx / LCD
     LATD = 0x00;
     TRISD = 0x00; //LCD / Backlight ON/OFF
     LATE = 0x00;
     TRISE = 0x00;
-    
+
     CANInitialize(4, 6, 5, 1, 3, CAN_CONFIG_LINE_FILTER_OFF & CAN_CONFIG_SAMPLE_ONCE & CAN_CONFIG_ALL_VALID_MSG & CAN_CONFIG_DBL_BUFFER_ON); //Canbus 125kHz (da cambiare)
 
 
@@ -314,15 +330,15 @@ void board_initialization(void) {
     ADCON2bits.ADFM = 0; //Left Justified
     ADCON0bits.ADON = HIGH;
     //========================================================================
-   // LCD Initialize
-        LCD_initialize(16);
-        LCD_backlight(0);
-        LCD_clear();
-        LCD_goto_line(1);
+    // LCD Initialize
+    LCD_initialize(16);
+    //LCD_backlight(0);
+    LCD_clear();
+    LCD_goto_line(1);
 
-        LCD_write_message("Wait...");
-        LCD_goto_line(2);
-        LCD_write_message("hola muchacho");
+    LCD_write_message("Wait...");
+    LCD_goto_line(2);
+    LCD_write_message("hola muchacho");
     delay_ms(300);
 
     PORTDbits.RD2 = 0;

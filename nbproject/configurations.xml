@@ -61,7 +61,7 @@
         <property key="asmlist" value="true"/>
         <property key="define-macros" value=""/>
         <property key="extra-include-directories"
-                  value="..\..\LaurTec_PIC_libraries_v_3.3.0\inc;..\..\LaurTec_PIC_libraries_v_3.3.0\src"/>
+                  value="C:\Users\Simone\Desktop\LaurTec_PIC_libraries_v_3.3.1\inc;C:\Users\Simone\Desktop\LaurTec_PIC_libraries_v_3.3.1\src"/>
         <property key="identifier-length" value="255"/>
         <property key="operation-mode" value="free"/>
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>
