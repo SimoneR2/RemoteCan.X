@@ -19379,7 +19379,7 @@ extern __nonreentrant void _delay3(unsigned char);
 #pragma config WDTPS = 32768
 
 
-#pragma config PBADEN = ON
+#pragma config PBADEN = OFF
 #pragma config LPT1OSC = OFF
 #pragma config MCLRE = ON
 
@@ -19392,6 +19392,10 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config CP0 = OFF
 #pragma config CP1 = OFF
+#pragma config CP2 = OFF
+#pragma config CP3 = OFF
+#pragma config CP4 = OFF
+#pragma config CP5 = OFF
 
 
 #pragma config CPB = OFF
@@ -19400,6 +19404,10 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config WRT0 = OFF
 #pragma config WRT1 = OFF
+#pragma config WRT2 = OFF
+#pragma config WRT3 = OFF
+#pragma config WRT4 = OFF
+#pragma config WRT5 = OFF
 
 
 #pragma config WRTC = OFF
@@ -19409,11 +19417,15 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config EBTR0 = OFF
 #pragma config EBTR1 = OFF
+#pragma config EBTR2 = OFF
+#pragma config EBTR3 = OFF
+#pragma config EBTR4 = OFF
+#pragma config EBTR5 = OFF
 
 
 #pragma config EBTRB = OFF
 
-# 49 "../../Drive/librerie/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h"
+# 50 "../../LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h"
 typedef unsigned char BYTE;
 
 
@@ -19427,7 +19439,7 @@ BYTE RTR;
 
 } CANmessage;
 
-# 67
+# 68
 enum CAN_OP_MODE
 {
 CAN_OP_MODE_NORMAL = 0b00000000,
@@ -19437,7 +19449,7 @@ CAN_OP_MODE_LISTEN = 0b01100000,
 CAN_OP_MODE_CONFIG = 0b10000000
 };
 
-# 80
+# 81
 enum CAN_CONFIG_FLAGS
 {
 CAN_CONFIG_DEFAULT = 0b11111111,
@@ -19469,7 +19481,7 @@ CAN_CONFIG_VALID_STD_MSG = 0b10111111,
 CAN_CONFIG_ALL_VALID_MSG = 0b10011111
 };
 
-# 116
+# 117
 enum CAN_TX_MSG_FLAGS
 {
 CAN_TX_PRIORITY_MASK= 0b00000011,
@@ -19488,14 +19500,14 @@ CAN_NORMAL_TX_FRAME = 0b10111111
 
 };
 
-# 138
+# 139
 enum CAN_MASK
 {
 CAN_MASK_B1 = 1,
 CAN_MASK_B2 = 2,
 };
 
-# 148
+# 149
 enum CAN_FILTER
 {
 CAN_FILTER_B1_F1,
@@ -19506,14 +19518,14 @@ CAN_FILTER_B2_F3,
 CAN_FILTER_B2_F4
 };
 
-# 162
+# 163
 enum CAN_RX_ERRORS
 {
 CAN_RX_BUFFER_1_OVFL = 0b00000001,
 CAN_RX_BUFFER_2_OVFL = 0b00000010
 };
 
-# 173
+# 174
 void CANOperationMode (enum CAN_OP_MODE mode);
 void CANInitialize (BYTE propSeg, BYTE phaseSeg1, BYTE phaseSeg2,BYTE SJW, BYTE BRP, enum CAN_CONFIG_FLAGS flags);
 
@@ -19536,7 +19548,7 @@ BYTE CANgetRXerrorCount (void);
 BYTE CANisBusOFF (void);
 void CANAbortMessages (void);
 
-# 206
+# 207
 void CANOperationMode (enum CAN_OP_MODE mode)
 {
 CANCON = mode;
@@ -19544,7 +19556,7 @@ CANCON = mode;
 while((CANSTAT & 0b11100000) != mode );
 }
 
-# 218
+# 219
 void CANInitialize (BYTE propSeg, BYTE phaseSeg1, BYTE phaseSeg2,BYTE SJW, BYTE BRP, enum CAN_CONFIG_FLAGS flags)
 {
 BYTE FilterConfig1;
@@ -19581,6 +19593,7 @@ BRGCON3bits.WAKFIL = 1;
 RXB0CON = flags & CAN_CONFIG_MSG_BITS;
 if ( (flags & CAN_CONFIG_DBL_BUFFER_BIT)== CAN_CONFIG_DBL_BUFFER_ON )
 RXB0CONbits.RXB0DBEN = 1;
+
 RXB1CON = RXB0CON;
 
 
@@ -19850,7 +19863,7 @@ return;
 }
 }
 
-# 527
+# 529
 BYTE CANreceiveMessage (CANmessage *msg)
 {
 BYTE tamp;
@@ -19959,7 +19972,7 @@ return (error);
 }
 }
 
-# 639
+# 641
 void CANSetMask(enum CAN_MASK numBuffer, unsigned long mask, enum CAN_CONFIG_FLAGS type)
 { unsigned long tamp;
 
@@ -20064,7 +20077,7 @@ RXM1SIDH = (unsigned char) tamp;
 }
 }
 
-# 747
+# 749
 void CANSetFilter(enum CAN_FILTER numBuffer, unsigned long filter, enum CAN_CONFIG_FLAGS type)
 {
 unsigned long tamp;
@@ -20397,13 +20410,13 @@ RXF5SIDH = (unsigned char) tamp;
 
 }
 
-# 1084
+# 1086
 void CANAbortMessages (void)
 {
 CANCONbits.ABAT = 1;
 }
 
-# 1093
+# 1095
 BYTE CANisBusOFF (void)
 {
 return (COMSTATbits.TXBO);
@@ -20417,7 +20430,7 @@ BYTE CANisTXpassive (void)
 return (COMSTATbits.TXBP);
 }
 
-# 1110
+# 1112
 BYTE CANisRXpassive (void)
 {
 return (COMSTATbits.RXBP);
@@ -20439,31 +20452,31 @@ BYTE CANisRXwarningON (void)
 return (COMSTATbits.RXWARN);
 }
 
-# 1135
+# 1137
 BYTE CANgetTXerrorCount (void)
 {
 return (TXERRCNT);
 }
 
-# 1144
+# 1146
 BYTE CANgetRXerrorCount (void)
 {
 return (RXERRCNT);
 }
 
-# 1153
+# 1155
 BYTE CANisTxReady (void)
 {
 return (!TXB0CONbits.TXREQ || !TXB1CONbits.TXREQ || !TXB2CONbits.TXREQ);
 }
 
-# 1162
+# 1164
 BYTE CANisRxReady (void)
 {
 return (RXB0CONbits.RXFUL || RXB1CONbits.RXFUL);
 }
 
-# 74 "../../Drive/librerie/LaurTec_PIC_libraries_v_3.3.0/inc\delay.h"
+# 74 "../../LaurTec_PIC_libraries_v_3.3.0/inc\delay.h"
 void delay_ms (unsigned int value_ms);
 
 # 88
@@ -20472,8 +20485,8 @@ void delay_s (unsigned char value_s);
 # 102
 void delay_set_quartz (unsigned char frequency);
 
-# 49 "../../Drive/librerie/LaurTec_PIC_libraries_v_3.3.0/src\delay.c"
-volatile unsigned char delay_quartz_frequency_value = 20;
+# 49 "../../LaurTec_PIC_libraries_v_3.3.0/src\delay.c"
+volatile unsigned char delay_quartz_frequency_value = 16;
 volatile unsigned int clock_counter_reference = 0;
 
 # 61
@@ -20579,7 +20592,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 165 "../../Drive/librerie/LaurTec_PIC_libraries_v_3.3.0/inc\LCD_44780.h"
+# 165 "../../LaurTec_PIC_libraries_v_3.3.0/inc\LCD_44780.h"
 void LCD_enable_pulse (void);
 
 # 184
@@ -20624,22 +20637,22 @@ void LCD_backlight(unsigned char active);
 # 370
 void LCD_initialize(unsigned char quartz_frequency);
 
-# 49 "../../Drive/librerie/LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c"
+# 49 "../../LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c"
 void LCD_enable_pulse (void) {
 
-LATBbits.LATB3 = 1;
+LATCbits.LATC1 = 1;
 delay_ms (1);
-LATBbits.LATB3 = 0;
+LATCbits.LATC1 = 0;
 delay_ms (1);
 }
 
 # 61
 void LCD_send_command (unsigned char D3, unsigned char D2, unsigned char D1, unsigned char D0) {
 
-LATBbits.LATB4 = D0;
-LATBbits.LATB5 = D1;
-LATBbits.LATB6 = D2;
-LATBbits.LATB7 = D3;
+LATCbits.LATC2 = D0;
+LATCbits.LATC3 = D1;
+LATDbits.LATD0 = D2;
+LATDbits.LATD1 = D3;
 LCD_enable_pulse ();
 }
 
@@ -20710,7 +20723,7 @@ void LCD_write_char (unsigned char value) {
 
 unsigned char D3,D2,D1,D0;
 
-LATBbits.LATB1 = 1;
+LATEbits.LATE2 = 1;
 
 
 D3 = (value & 0b10000000) >> 7;
@@ -20728,7 +20741,7 @@ D0 = (value & 0b00000001);
 
 LCD_send_command (D3,D2,D1,D0);
 
-LATBbits.LATB1 = 0;
+LATEbits.LATE2 = 0;
 }
 
 # 178
@@ -20817,7 +20830,7 @@ LCD_send_command (1,1,active,blinking);
 
 void LCD_backlight (unsigned char active) {
 
-LATCbits.LATC2 = active;
+LATCbits.LATC4 = active;
 }
 
 
@@ -20827,9 +20840,9 @@ void LCD_initialize (unsigned char quartz_frequency) {
 
 delay_set_quartz (quartz_frequency);
 
-LATBbits.LATB1 = 0x00;
-LATBbits.LATB3 = 0x00;
-LATBbits.LATB2 = 0x00;
+LATEbits.LATE2 = 0x00;
+LATCbits.LATC1 = 0x00;
+LATCbits.LATC0 = 0x00;
 
 delay_ms (100);
 LCD_send_command (0,0,1,1);
@@ -21022,11 +21035,11 @@ PIR2bits.TMR3IF = 0;
 
 void main(void) {
 board_initialization();
+
 while (1) {
 
 
 PWR_Button_Polling();
-
 if (power_switch == 0) {
 dir = 0;
 set_speed = 0;
@@ -21034,9 +21047,9 @@ data_steering [0] = 90;
 data_brake [0] = 0;
 data_brake [1] = 1;
 CAN_Send();
-
 while (power_switch == 0) {
 LCD_clear();
+delay_ms(10);
 LCD_goto_line(1);
 LCD_write_message("====================");
 LCD_goto_line(2);
@@ -21045,7 +21058,7 @@ LCD_goto_line(3);
 LCD_write_message("Turn the switch ON! ");
 LCD_goto_line(4);
 LCD_write_message("====================");
-if ((time_counter - pr_time_1) >= 50) {
+if ((time_counter - pr_time_1) >= 30) {
 pr_time_1 = time_counter;
 PORTDbits.RD7 = ~PORTDbits.RD7;
 }
@@ -21099,15 +21112,17 @@ LCD_Handler();
 }
 
 void CAN_Send(void) {
-while (!CANisTxReady());
+
 CANsendMessage(0b00000000101, data_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 data_speed[0] = set_speed;
 data_speed[1] = (set_speed >> 8);
 data_speed[2] = dir;
-while (!CANisTxReady());
+
 CANsendMessage(0b00000000011, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-while (!CANisTxReady());
+
 CANsendMessage(0b00000000100, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+LATDbits.LATD2 = 1;
+LATDbits.LATD3 = 1;
 }
 
 void LCD_Handler(void) {
@@ -21153,11 +21168,11 @@ SterzoFlag = 0;
 } else {
 if (data[0] == 0x01) {
 AbsFlag = 1;
-PORTCbits.RC5 = 0;
+
 }
 if (data[0] == 0x02) {
 SterzoFlag = 1;
-PORTCbits.RC4 = 0;
+
 }
 }
 if (pr_time_4 - time_counter > 450) {
@@ -21170,7 +21185,7 @@ left_speed = data[1];
 left_speed = ((left_speed << 8) | (data[0]));
 right_speed = data[3];
 right_speed = ((right_speed << 8) | (data[2]));
-actual_speed = (right_speed+left_speed)/2;
+actual_speed = (right_speed + left_speed) / 2;
 }
 
 if (id == 0b00000001001) {
@@ -21245,6 +21260,8 @@ LCD_clear();
 LCD_goto_line(1);
 
 LCD_write_message("Wait...");
+LCD_goto_line(2);
+LCD_write_message("hola muchacho");
 delay_ms(300);
 
 PORTDbits.RD2 = 0;
@@ -21260,7 +21277,6 @@ PIE3bits.RXB0IE = 1;
 PIE2bits.TMR3IE = 1;
 
 
-RCSTAbits.SPEN = 0;
 T3CON = 0x01;
 LCD_clear();
 INTCONbits.GIEH = 1;

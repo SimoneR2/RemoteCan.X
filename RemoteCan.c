@@ -96,11 +96,11 @@ __interrupt(low_priority) void ISR_bassa(void) {
 
 void main(void) {
     board_initialization();
+    
     while (1) {
         //[CHECK ECU]
 
         PWR_Button_Polling();
-
         if (power_switch == LOW) {
             dir = FWD;
             set_speed = 0;
@@ -108,9 +108,9 @@ void main(void) {
             data_brake [0] = 0;
             data_brake [1] = 1;
             CAN_Send();
-
             while (power_switch == LOW) {
                 LCD_clear();
+                delay_ms(10);
                 LCD_goto_line(1);
                 LCD_write_message("====================");
                 LCD_goto_line(2);
@@ -173,15 +173,17 @@ void main(void) {
 }
 
 void CAN_Send(void) {
-    while (!CANisTxReady());
+    //while (CANisTxReady()!=1);
     CANsendMessage(STEERING_CHANGE, data_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
     data_speed[0] = set_speed;
     data_speed[1] = (set_speed >> 8);
     data_speed[2] = dir;
-    while (!CANisTxReady());
+//    while (CANisTxReady()!=1);
     CANsendMessage(SPEED_CHANGE, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-    while (!CANisTxReady());
+//    while (CANisTxReady()!=1);
     CANsendMessage(BRAKE_SIGNAL, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+LATDbits.LATD2 = 1;
+    LATDbits.LATD3 = 1;
 }
 
 void LCD_Handler(void) {
@@ -227,28 +229,28 @@ void CAN_interpreter(void) {
         } else {
             if (data[0] == 0x01) {
                 AbsFlag = 1;
-                PORTCbits.RC5 = 0; //DEBUG
+                
             }
             if (data[0] == 0x02) {
                 SterzoFlag = 1;
-                PORTCbits.RC4 = 0; //DEBUG
+                
             }
         }
         if (pr_time_4 - time_counter > 450) {
             //DO SOMETHING HERE MATE!
         }
     }
-    
+
     if ((id == ACTUAL_SPEED)&&(RTR_Flag == 0)) {
         left_speed = data[1];
         left_speed = ((left_speed << 8) | (data[0]));
         right_speed = data[3];
         right_speed = ((right_speed << 8) | (data[2]));
-        actual_speed = (right_speed+left_speed)/2;
-     }
-    
+        actual_speed = (right_speed + left_speed) / 2;
+    }
+
     if (id == LOW_BATTERY) {
-       battery = data[0];
+        battery = data[0];
     }
 }
 
@@ -283,7 +285,7 @@ void board_initialization(void) {
     TRISD = 0x00; //LCD / Backlight ON/OFF
     LATE = 0x00;
     TRISE = 0x00;
-
+    
     CANInitialize(4, 6, 5, 1, 3, CAN_CONFIG_LINE_FILTER_OFF & CAN_CONFIG_SAMPLE_ONCE & CAN_CONFIG_ALL_VALID_MSG & CAN_CONFIG_DBL_BUFFER_ON); //Canbus 125kHz (da cambiare)
 
 
@@ -312,13 +314,15 @@ void board_initialization(void) {
     ADCON2bits.ADFM = 0; //Left Justified
     ADCON0bits.ADON = HIGH;
     //========================================================================
-    //LCD Initialize
-    LCD_initialize(16);
-    LCD_backlight(0);
-    LCD_clear();
-    LCD_goto_line(1);
+   // LCD Initialize
+        LCD_initialize(16);
+        LCD_backlight(0);
+        LCD_clear();
+        LCD_goto_line(1);
 
-    LCD_write_message("Wait...");
+        LCD_write_message("Wait...");
+        LCD_goto_line(2);
+        LCD_write_message("hola muchacho");
     delay_ms(300);
 
     PORTDbits.RD2 = 0;
@@ -334,7 +338,6 @@ void board_initialization(void) {
     PIE2bits.TMR3IE = HIGH;
 
 
-    RCSTAbits.SPEN = LOW; //USART disable
     T3CON = 0x01; //Timer Enable
     LCD_clear();
     INTCONbits.GIEH = HIGH;
