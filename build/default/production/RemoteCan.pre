@@ -20978,13 +20978,14 @@ volatile unsigned long pr_time_4 = 0;
 BYTE data_steering[] = 0;
 BYTE data_speed [] = 0;
 BYTE data_brake [] = 0;
+BYTE data[] = 0;
 volatile bit power_switch = 0;
 CANmessage msg;
 
 
 unsigned int left_speed = 0;
 unsigned int right_speed = 0;
-BYTE data[] = 0;
+BYTE data_speed_rx[7] = 0;
 volatile bit newMessageCan = 0;
 volatile bit RTR_Flag = 0;
 volatile long id = 0;
@@ -20995,8 +20996,8 @@ volatile unsigned char battery = 0;
 
 
 unsigned char str [12] = 0;
-signed float actual_speed_kmh = 0;
-signed float actual_speed = 0;
+float actual_speed_kmh = 0;
+unsigned int actual_speed = 0;
 
 
 volatile char dir = 0;
@@ -21014,8 +21015,10 @@ CANreceiveMessage(&msg);
 RTR_Flag = msg.RTR;
 id = msg.identifier;
 newMessageCan = 1;
+if(id == 0b00000000110){
 for (unsigned char i = 0; i < 8; i++) {
-data[i] = msg.data[i];
+data_speed_rx[i] = msg.data[i];
+}
 }
 if (id == 0b00000000010) {
 if (RTR_Flag == 1) {
@@ -21050,7 +21053,7 @@ PIR2bits.TMR3IF = 0;
 void main(void) {
 board_initialization();
 JoystickConstants[0] = 0.703;
-JoystickConstants[1] = 35;
+JoystickConstants[1] = 5;
 while (1) {
 
 PWR_Button_Polling();
@@ -21061,10 +21064,7 @@ data_steering [0] = 90;
 data_brake [0] = 0;
 data_brake [1] = 1;
 CAN_Send();
-while (power_switch == 0) {
-LCD_clear();
-delay_ms(10);
-LCD_initialize (16);
+LCD_initialize(16);
 LCD_goto_line(1);
 LCD_write_message("====================");
 LCD_goto_line(2);
@@ -21073,12 +21073,13 @@ LCD_goto_line(3);
 LCD_write_message("Turn the switch ON! ");
 LCD_goto_line(4);
 LCD_write_message("====================");
+while (power_switch == 0) {
 if ((time_counter - pr_time_1) >= 30) {
 pr_time_1 = time_counter;
 PORTDbits.RD7 = ~PORTDbits.RD7;
 }
 PWR_Button_Polling();
-delay_ms(300);
+delay_ms(10);
 }
 PORTDbits.RD7 = 0;
 }
@@ -21091,10 +21092,10 @@ switch_position = 0;
 } else {
 if (PORTAbits.RA3 == 0) {
 switch_position = 1;
-dir = 0;
+dir = 1;
 } else {
 switch_position = 2;
-dir = 1;
+dir = 0;
 }
 }
 
@@ -21119,7 +21120,7 @@ pr_time_2 = time_counter;
 CAN_Send();
 }
 
-if ((time_counter - pr_time_3) >= 50) {
+if ((time_counter - pr_time_3) >= 100) {
 pr_time_3 = time_counter;
 LCD_Handler();
 }
@@ -21134,20 +21135,24 @@ data_speed[1] = (set_speed >> 8);
 data_speed[2] = dir;
 while (CANisTxReady() != 1);
 CANsendMessage(0b00000000011, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-
-
+while (CANisTxReady() != 1);
+CANsendMessage(0b00000000100, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_1);
 
 }
 
 void LCD_Handler(void) {
-actual_speed_kmh = actual_speed / 278;
+
+while (CANisTxReady() != 1);
+CANsendMessage(0b00000000110, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_REMOTE_TX_FRAME & CAN_TX_PRIORITY_0);
+
+actual_speed_kmh = ((actual_speed) / 278.0);
 
 LCD_clear();
 delay_ms(1);
-LCD_initialize (16);
+LCD_initialize(16);
 LCD_goto_line(1);
-LCD_write_message("=== VEHICLE DATA ===");
 
+LCD_write_integer(set_speed,6,0x00);
 LCD_goto_line(2);
 LCD_write_message("Direction: ");
 if (switch_position != 0) {
@@ -21197,10 +21202,10 @@ if (pr_time_4 - time_counter > 450) {
 }
 
 if ((id == 0b00000000110)&&(RTR_Flag == 0)) {
-left_speed = data[1];
-left_speed = ((left_speed << 8) | (data[0]));
-right_speed = data[3];
-right_speed = ((right_speed << 8) | (data[2]));
+left_speed = data_speed_rx[1];
+left_speed = ((left_speed << 8) | (data_speed_rx[0]));
+right_speed = data_speed_rx[3];
+right_speed = ((right_speed << 8) | (data_speed_rx[2]));
 actual_speed = (right_speed + left_speed) / 2;
 }
 
