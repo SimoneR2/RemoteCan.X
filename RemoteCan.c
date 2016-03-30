@@ -17,8 +17,8 @@
 #define HIGH_POS 0
 #define MID_POS 1
 #define LOW_POS 2
-#define FWD 0
-#define BKWD 1
+#define FWD 1
+#define BKWD 0
 
 //prototipi delle funzioni
 void board_initialization(void);
@@ -76,11 +76,11 @@ __interrupt(high_priority) void ISR_alta(void) {
             RTR_Flag = msg.RTR;
             id = msg.identifier;
             newMessageCan = 1;
-            if(id == ACTUAL_SPEED){
-            for (unsigned char i = 0; i < 8; i++) {
-                data_speed_rx[i] = msg.data[i];
+            if (id == ACTUAL_SPEED) {
+                for (unsigned char i = 0; i < 8; i++) {
+                    data_speed_rx[i] = msg.data[i];
+                }
             }
-    }
             if (id == ECU_STATE) {
                 if (RTR_Flag == 1) { //Se è arrivata la richiesta presenza centraline
                     pr_time_4 = time_counter;
@@ -113,6 +113,13 @@ __interrupt(low_priority) void ISR_bassa(void) {
 
 void main(void) {
     board_initialization();
+
+    LATDbits.LD6 = HIGH;
+    LATDbits.LD5 = HIGH;
+    delay_ms(500);
+    LATDbits.LD6 = LOW;
+    LATDbits.LD5 = LOW;
+
     JoystickConstants[X_AXIS] = 0.703;
     JoystickConstants[Y_AXIS] = 5; //35
     while (1) {
@@ -126,15 +133,15 @@ void main(void) {
             data_brake [1] = 1;
             CAN_Send();
             LCD_initialize(16);
-                LCD_goto_line(1);
-                LCD_write_message("====================");
-                LCD_goto_line(2);
-                LCD_write_message("==> VEHICLE  OFF <==");
-                LCD_goto_line(3);
-                LCD_write_message("Turn the switch ON! ");
-                LCD_goto_line(4);
-                LCD_write_message("====================");
-            while (power_switch == LOW) {          
+            LCD_goto_line(1);
+            LCD_write_message("====================");
+            LCD_goto_line(2);
+            LCD_write_message("==> VEHICLE  OFF <==");
+            LCD_goto_line(3);
+            LCD_write_message("Turn the switch ON! ");
+            LCD_goto_line(4);
+            LCD_write_message("====================");
+            while (power_switch == LOW) {
                 if ((time_counter - pr_time_1) >= 30) {
                     pr_time_1 = time_counter;
                     PORTDbits.RD7 = ~PORTDbits.RD7;
@@ -153,14 +160,14 @@ void main(void) {
         } else {
             if (PORTAbits.RA3 == LOW) {
                 switch_position = MID_POS;
-                dir = BKWD;
+                dir = FWD;
             } else {
                 switch_position = LOW_POS;
-                dir = FWD;
+                dir = BKWD;
             }
         }
 
-        data_steering [0] = (JoystickValues[X_AXIS])*(JoystickConstants[X_AXIS]);
+        data_steering [0] = 180 - (JoystickValues[X_AXIS])*(JoystickConstants[X_AXIS]);
         if (switch_position != HIGH_POS) {
             if (JoystickValues[Y_AXIS] > 132) {
                 set_speed = (JoystickValues[Y_AXIS] - 130)*(JoystickConstants[Y_AXIS]); //guardare
@@ -205,7 +212,7 @@ void LCD_Handler(void) {
     //ROUTINE PER RILEVARE LA VELOCITA' VIA CAN
     while (CANisTxReady() != 1);
     CANsendMessage(ACTUAL_SPEED, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_REMOTE_TX_FRAME & CAN_TX_PRIORITY_0);
-    
+
     actual_speed_kmh = ((actual_speed) / 278.0);
 
     LCD_clear();
@@ -213,7 +220,7 @@ void LCD_Handler(void) {
     LCD_initialize(16);
     LCD_goto_line(1);
     //LCD_write_message("=== VEHICLE DATA ===");
-    LCD_write_integer(set_speed,6,ZERO_CLEANING_OFF);
+    LCD_write_integer(set_speed, 6, ZERO_CLEANING_OFF);
     LCD_goto_line(2);
     LCD_write_message("Direction: ");
     if (switch_position != HIGH_POS) {
@@ -234,7 +241,7 @@ void LCD_Handler(void) {
     LCD_write_message("Km/h");
     LCD_goto_line(4);
     LCD_write_message("====================");
-  }
+}
 
 void CAN_interpreter(void) {
 
@@ -340,10 +347,7 @@ void board_initialization(void) {
     //LCD_backlight(0);
     LCD_clear();
     LCD_goto_line(1);
-
     LCD_write_message("Wait...");
-    LCD_goto_line(2);
-    LCD_write_message("hola muchacho");
     delay_ms(300);
 
     PORTDbits.RD2 = 0;

@@ -21015,7 +21015,7 @@ CANreceiveMessage(&msg);
 RTR_Flag = msg.RTR;
 id = msg.identifier;
 newMessageCan = 1;
-if(id == 0b00000000110){
+if (id == 0b00000000110) {
 for (unsigned char i = 0; i < 8; i++) {
 data_speed_rx[i] = msg.data[i];
 }
@@ -21052,13 +21052,20 @@ PIR2bits.TMR3IF = 0;
 
 void main(void) {
 board_initialization();
+
+LATDbits.LD6 = 1;
+LATDbits.LD5 = 1;
+delay_ms(500);
+LATDbits.LD6 = 0;
+LATDbits.LD5 = 0;
+
 JoystickConstants[0] = 0.703;
 JoystickConstants[1] = 5;
 while (1) {
 
 PWR_Button_Polling();
 if (power_switch == 0) {
-dir = 0;
+dir = 1;
 set_speed = 0;
 data_steering [0] = 90;
 data_brake [0] = 0;
@@ -21099,7 +21106,7 @@ dir = 0;
 }
 }
 
-data_steering [0] = (JoystickValues[0])*(JoystickConstants[0]);
+data_steering [0] = 180 - (JoystickValues[0])*(JoystickConstants[0]);
 if (switch_position != 0) {
 if (JoystickValues[1] > 132) {
 set_speed = (JoystickValues[1] - 130)*(JoystickConstants[1]);
@@ -21152,11 +21159,11 @@ delay_ms(1);
 LCD_initialize(16);
 LCD_goto_line(1);
 
-LCD_write_integer(set_speed,6,0x00);
+LCD_write_integer(set_speed, 6, 0x00);
 LCD_goto_line(2);
 LCD_write_message("Direction: ");
 if (switch_position != 0) {
-if (dir == 0) {
+if (dir == 1) {
 LCD_write_message("FWD");
 } else {
 LCD_write_message("BKWD");
@@ -21279,10 +21286,7 @@ LCD_initialize(16);
 
 LCD_clear();
 LCD_goto_line(1);
-
 LCD_write_message("Wait...");
-LCD_goto_line(2);
-LCD_write_message("hola muchacho");
 delay_ms(300);
 
 PORTDbits.RD2 = 0;
