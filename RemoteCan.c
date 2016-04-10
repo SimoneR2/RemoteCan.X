@@ -23,6 +23,8 @@
 //prototipi delle funzioni
 void board_initialization(void);
 void PWR_Button_Polling(void);
+void F1_Button_Polling(void);
+void F2_Button_Polling(void);
 void Joystick_Polling(void);
 void CAN_Send(void);
 void CAN_interpreter(void);
@@ -34,14 +36,19 @@ volatile unsigned long pr_time_1 = 0;
 volatile unsigned long pr_time_2 = 0;
 volatile unsigned long pr_time_3 = 0;
 volatile unsigned long pr_time_4 = 0;
+volatile unsigned long pr_time_5 = 0;
+volatile unsigned long pr_time_6 = 0;
 
 //Variabili per can bus invio
 BYTE data_steering[] = 0;
 BYTE data_speed [] = 0;
 BYTE data_brake [] = 0;
 BYTE data[] = 0; //random
-volatile bit power_switch = LOW;
 CANmessage msg;
+volatile unsigned char park_assist_state = 0;
+volatile bit x = 0;
+volatile bit y = 0;
+volatile bit z = 0;
 
 //variabili can bus ricezione
 unsigned int left_speed = 0;
@@ -67,7 +74,12 @@ volatile unsigned char set_steering = 0;
 volatile unsigned int set_speed = 0;
 volatile unsigned char JoystickValues[2] = 0; //steering - speed
 volatile signed float JoystickConstants[2] = 0;
-volatile bit wait_low = LOW;
+volatile bit wait_low_1 = LOW;
+volatile bit wait_low_2 = LOW;
+volatile bit wait_low_3 = LOW;
+volatile bit power_switch = LOW;
+volatile bit F1_switch = LOW;
+volatile bit F2_switch = LOW;
 
 __interrupt(high_priority) void ISR_alta(void) {
     if ((PIR3bits.RXB1IF == 1) || (PIR3bits.RXB0IF == 1)) { //RICEZIONE CAN
@@ -153,6 +165,8 @@ void main(void) {
         }
 
         Joystick_Polling();
+        F1_Button_Polling();
+        F2_Button_Polling();
 
         //Gestione switch tre posizioni
         if (PORTAbits.RA2 == HIGH) {
@@ -165,6 +179,43 @@ void main(void) {
                 switch_position = LOW_POS;
                 dir = BKWD;
             }
+        }
+
+        //Parcheggio
+        if (F1_switch == HIGH) {
+            y = LOW;
+            if ((time_counter - pr_time_5) >= 30) {
+                pr_time_5 = time_counter;
+                PORTDbits.RD6 = ~PORTDbits.RD6;
+            }
+            if (x == LOW) {
+                while (!CANisTxReady());
+                park_assist_state = 0b00000001;
+                CANsendMessage(PARK_ASSIST_ENABLE, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+                x = HIGH;
+            }
+            if (F2_switch == HIGH) {
+                if ((time_counter - pr_time_6) >= 30) {
+                    pr_time_6 = time_counter;
+                    PORTDbits.RD5 = ~PORTDbits.RD5;
+                }
+                if (z == LOW) {
+                    while (!CANisTxReady());
+                    CANsendMessage(PARK_ASSIST_BEGIN, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+                    z = HIGH;
+                }
+            }
+        } else { //RD6/RB4-- RD5/RB1
+            x = LOW;
+            z = LOW;
+            if (y == LOW) {
+                while (!CANisTxReady());
+                park_assist_state = 0b00000000;
+                CANsendMessage(PARK_ASSIST_ENABLE, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+                y = HIGH;
+            }
+            PORTDbits.RD6 = 0;
+            PORTDbits.RD5 = 0;
         }
 
         data_steering [0] = 180 - (JoystickValues[X_AXIS])*(JoystickConstants[X_AXIS]);
@@ -283,11 +334,31 @@ void CAN_interpreter(void) {
 }
 
 void PWR_Button_Polling(void) {
-    if ((PORTBbits.RB5 == LOW) || (wait_low == LOW)) {
-        wait_low = LOW;
+    if ((PORTBbits.RB5 == LOW) || (wait_low_1 == LOW)) {
+        wait_low_1 = LOW;
         if (PORTBbits.RB5 == HIGH) {
             power_switch = ~power_switch;
-            wait_low = HIGH;
+            wait_low_1 = HIGH;
+        }
+    }
+}
+
+void F1_Button_Polling(void) { //Backlight RD6
+    if ((PORTBbits.RB4 == LOW) || (wait_low_2 == LOW)) {
+        wait_low_2 = LOW;
+        if (PORTBbits.RB4 == HIGH) {
+            F1_switch = ~F1_switch;
+            wait_low_2 = HIGH;
+        }
+    }
+}
+
+void F2_Button_Polling(void) { //Backlight RD5
+    if ((PORTBbits.RB1 == LOW) || (wait_low_3 == LOW)) {
+        wait_low_3 = LOW;
+        if (PORTBbits.RB1 == HIGH) {
+            F2_switch = ~F2_switch;
+            wait_low_3 = HIGH;
         }
     }
 }
