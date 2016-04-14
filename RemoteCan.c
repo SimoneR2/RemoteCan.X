@@ -1,3 +1,10 @@
+// User defined parameters //////////////////////////
+#define SPD_CNST_STD 10 //max value: 35
+#define SPD_CNST_PKG 2  //max value: 35
+#define LCD_DLY 100   //[ms] multiple of 10 only
+/////////////////////////////////////////////////////
+
+
 #include <xc.h>
 #include "pic_config.h"
 #define LCD_DEFAULT
@@ -10,15 +17,23 @@
 #include "LCD_44780.c"
 #include <stdio.h>
 #include <math.h>
+
 #define HIGH 1
 #define LOW 0
-#define X_AXIS 0 ///Steering
-#define Y_AXIS 1//Speed
+
+#define X_AXIS 0 //Steering
+#define Y_AXIS 1 //Speed
+
 #define HIGH_POS 0
 #define MID_POS 1
 #define LOW_POS 2
+
 #define FWD 1
 #define BKWD 0
+
+#define OFF 0
+#define SEARCH 1
+#define PARKING 2
 
 //prototipi delle funzioni
 void board_initialization(void);
@@ -46,9 +61,6 @@ BYTE data_brake [] = 0;
 BYTE data[] = 0; //random
 CANmessage msg;
 volatile unsigned char park_assist_state = 0;
-volatile bit x = 0;
-volatile bit y = 0;
-volatile bit z = 0;
 
 //variabili can bus ricezione
 unsigned int left_speed = 0;
@@ -63,23 +75,31 @@ volatile bit SterzoFlag = 0;
 volatile unsigned char battery = 0;
 
 //variabili LCD
+volatile bit display_refresh = LOW;
 unsigned char str [12] = 0;
 float actual_speed_kmh = 0;
 unsigned int actual_speed = 0;
 
+//Variabili parcheggio
+volatile bit x = LOW;
+volatile bit y = LOW;
+volatile bit z = LOW;
+volatile char parking_state = OFF;
+
 //variabili per il programma
-volatile char dir = 0;
-volatile unsigned char switch_position = 0;
-volatile unsigned char set_steering = 0;
-volatile unsigned int set_speed = 0;
-volatile unsigned char JoystickValues[2] = 0; //steering - speed
-volatile signed float JoystickConstants[2] = 0;
 volatile bit wait_low_1 = LOW;
 volatile bit wait_low_2 = LOW;
 volatile bit wait_low_3 = LOW;
 volatile bit power_switch = LOW;
 volatile bit F1_switch = LOW;
 volatile bit F2_switch = LOW;
+volatile char dir = 0;
+volatile unsigned char switch_position = 0;
+volatile unsigned char set_steering = 0;
+volatile unsigned int set_speed = 0;
+volatile unsigned char JoystickValues[2] = 0; //steering - speed
+volatile signed float JoystickConstants[2] = 0;
+
 
 __interrupt(high_priority) void ISR_alta(void) {
     if ((PIR3bits.RXB1IF == 1) || (PIR3bits.RXB0IF == 1)) { //RICEZIONE CAN
@@ -87,7 +107,7 @@ __interrupt(high_priority) void ISR_alta(void) {
             CANreceiveMessage(&msg); //leggilo e salvalo
             RTR_Flag = msg.RTR;
             id = msg.identifier;
-            newMessageCan = 1;
+            newMessageCan = HIGH;
             if (id == ACTUAL_SPEED) {
                 for (unsigned char i = 0; i < 8; i++) {
                     data_speed_rx[i] = msg.data[i];
@@ -100,6 +120,8 @@ __interrupt(high_priority) void ISR_alta(void) {
                     __delay_us(10);
                     while (CANisTxReady() != 1);
                     CANsendMessage(ECU_STATE, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+
+                    //[!]CONTROLLARE QUESTA PARTE!
                     MotoreFlag = 1;
                     AbsFlag = 0; //resetta flag
                     SterzoFlag = 0; //resetta flag
@@ -115,7 +137,7 @@ __interrupt(high_priority) void ISR_alta(void) {
 }
 
 __interrupt(low_priority) void ISR_bassa(void) {
-    if (PIR2bits.TMR3IF == 1) { //interrupt timer, ogni 10mS
+    if (PIR2bits.TMR3IF == HIGH) { //interrupt timer, ogni 10mS
         time_counter++; //incrementa di 1 la variabile timer
         TMR3H = 0x63; //reimposta il timer
         TMR3L = 0xC0; //reimposta il timer
@@ -133,10 +155,17 @@ void main(void) {
     LATDbits.LD5 = LOW;
 
     JoystickConstants[X_AXIS] = 0.703;
-    JoystickConstants[Y_AXIS] = 5; //35
+    JoystickConstants[Y_AXIS] = 10; //35
+
+    display_refresh = HIGH;
     while (1) {
-        //[CHECK ECU]
+        
+        //Buttons Polling
         PWR_Button_Polling();
+        F1_Button_Polling();
+        F2_Button_Polling();
+
+        // ON/OFF routine
         if (power_switch == LOW) {
             dir = FWD;
             set_speed = 0;
@@ -162,11 +191,10 @@ void main(void) {
                 delay_ms(10); //[!!]Verificare
             }
             PORTDbits.RD7 = LOW; //Turn off ON/OFF switch backlight
+            display_refresh = HIGH;
         }
 
         Joystick_Polling();
-        F1_Button_Polling();
-        F2_Button_Polling();
 
         //Gestione switch tre posizioni
         if (PORTAbits.RA2 == HIGH) {
@@ -188,34 +216,43 @@ void main(void) {
                 pr_time_5 = time_counter;
                 PORTDbits.RD6 = ~PORTDbits.RD6;
             }
-            if (x == LOW) {
+            if ((x == LOW)&&(F2_switch == LOW)) {
+                parking_state = SEARCH;
+                JoystickConstants[Y_AXIS] = SPD_CNST_PKG;
                 while (!CANisTxReady());
                 park_assist_state = 0b00000001;
                 CANsendMessage(PARK_ASSIST_ENABLE, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
                 x = HIGH;
             }
-            if (F2_switch == HIGH) {
+            if (F2_switch == HIGH) {    //<=== CONDIZIONE DI ABILITAZIONE PACHEGGIO QUI!
                 if ((time_counter - pr_time_6) >= 30) {
                     pr_time_6 = time_counter;
                     PORTDbits.RD5 = ~PORTDbits.RD5;
                 }
                 if (z == LOW) {
+                    parking_state = PARKING;
                     while (!CANisTxReady());
                     CANsendMessage(PARK_ASSIST_BEGIN, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+                    x = LOW;
                     z = HIGH;
                 }
             }
         } else { //RD6/RB4-- RD5/RB1
             x = LOW;
             z = LOW;
+            F2_switch = LOW;
+            PORTDbits.RD5 = LOW;
+            PORTDbits.RD6 = LOW;
             if (y == LOW) {
+                parking_state = OFF;
+                JoystickConstants[Y_AXIS] = SPD_CNST_STD;
                 while (!CANisTxReady());
                 park_assist_state = 0b00000000;
                 CANsendMessage(PARK_ASSIST_ENABLE, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
                 y = HIGH;
             }
-            PORTDbits.RD6 = 0;
-            PORTDbits.RD5 = 0;
+            PORTDbits.RD6 = LOW;
+            PORTDbits.RD5 = LOW;
         }
 
         data_steering [0] = 180 - (JoystickValues[X_AXIS])*(JoystickConstants[X_AXIS]);
@@ -229,7 +266,7 @@ void main(void) {
             }
         }
 
-        if (newMessageCan == 1) {
+        if (newMessageCan == HIGH) {
             CAN_interpreter();
             newMessageCan = 0;
         }
@@ -239,7 +276,7 @@ void main(void) {
             CAN_Send();
         }
 
-        if ((time_counter - pr_time_3) >= 100) {
+        if ((time_counter - pr_time_3) >= (LCD_DLY / 10)) {
             pr_time_3 = time_counter;
             LCD_Handler();
         }
@@ -247,57 +284,73 @@ void main(void) {
 }
 
 void CAN_Send(void) {
-    while (CANisTxReady() != 1);
+    while (CANisTxReady() != HIGH);
     CANsendMessage(STEERING_CHANGE, data_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
     data_speed[0] = set_speed;
     data_speed[1] = (set_speed >> 8);
     data_speed[2] = dir;
-    while (CANisTxReady() != 1);
+    while (CANisTxReady() != HIGH);
     CANsendMessage(SPEED_CHANGE, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-    while (CANisTxReady() != 1);
+    while (CANisTxReady() != HIGH);
     CANsendMessage(BRAKE_SIGNAL, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_1);
 
 }
 
 void LCD_Handler(void) {
     //ROUTINE PER RILEVARE LA VELOCITA' VIA CAN
-    while (CANisTxReady() != 1);
+    while (CANisTxReady() != HIGH);
     CANsendMessage(ACTUAL_SPEED, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_REMOTE_TX_FRAME & CAN_TX_PRIORITY_0);
 
     actual_speed_kmh = ((actual_speed) / 278.0);
+    sprintf(str, "%.3f", actual_speed_kmh);
+    str[11] = '\0';
 
-    LCD_clear();
-    delay_ms(1);
-    LCD_initialize(16);
-    LCD_goto_line(1);
-    //LCD_write_message("=== VEHICLE DATA ===");
-    LCD_write_integer(set_speed, 6, ZERO_CLEANING_OFF);
-    LCD_goto_line(2);
-    LCD_write_message("Direction: ");
+    if (display_refresh == HIGH) {
+        LCD_initialize(16);
+        LCD_clear();
+        LCD_goto_line(1);
+        LCD_write_message("=== VEHICLE DATA ===");
+        LCD_goto_line(2);
+        LCD_write_message("Direction: ");
+        LCD_goto_line(3);
+        LCD_write_message("Speed: x.xx Km/h");  //controllare!
+        LCD_goto_line(4);
+        LCD_write_message("====================");
+        display_refresh = LOW;
+    }
+
+    //Print direction and parking data
+    LCD_goto_xy(12,2);
     if (switch_position != HIGH_POS) {
         if (dir == FWD) {
+            LCD_initialize(16);
             LCD_write_message("FWD");
         } else {
+            LCD_initialize(16);
             LCD_write_message("BKWD");
         }
     } else {
-
+        LCD_initialize(16);
         LCD_write_message("P");
     }
+    if (parking_state == SEARCH) {
+        LCD_initialize(16);
+        LCD_write_message(" SRCH");
+    }
+    if (parking_state == PARKING) {
+        LCD_initialize(16);
+        LCD_write_message(" PARK");
+    }
 
-    LCD_goto_line(3);
-    sprintf(str, "Speed: %.3f", actual_speed_kmh);
-    str[11] = '\0';
+    //Print speed data 
+    LCD_goto_xy(8,3);
+    LCD_initialize(16);
     LCD_write_string(str);
-    LCD_write_message("Km/h");
-    LCD_goto_line(4);
-    LCD_write_message("====================");
 }
 
 void CAN_interpreter(void) {
-
     if (id == ECU_STATE) {
-        if (RTR_Flag == 1) { //Se è arrivata la richiesta presenza centraline
+        if (RTR_Flag == HIGH) { //Se è arrivata la richiesta presenza centraline
             pr_time_4 = time_counter;
             //            data[0] = 0x01;
             //            while (CANisTxReady() != 1);

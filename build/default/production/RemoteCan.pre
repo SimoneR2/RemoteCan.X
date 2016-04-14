@@ -19425,7 +19425,7 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config EBTRB = OFF
 
-# 49 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h"
+# 49 "../LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h"
 typedef unsigned char BYTE;
 
 
@@ -20476,7 +20476,7 @@ BYTE CANisRxReady (void)
 return (RXB0CONbits.RXFUL || RXB1CONbits.RXFUL);
 }
 
-# 74 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\delay.h"
+# 74 "../LaurTec_PIC_libraries_v_3.3.0/inc\delay.h"
 void delay_ms (unsigned int value_ms);
 
 # 88
@@ -20485,7 +20485,7 @@ void delay_s (unsigned char value_s);
 # 102
 void delay_set_quartz (unsigned char frequency);
 
-# 49 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\delay.c"
+# 49 "../LaurTec_PIC_libraries_v_3.3.0/src\delay.c"
 volatile unsigned char delay_quartz_frequency_value = 16;
 volatile unsigned int clock_counter_reference = 0;
 
@@ -20592,52 +20592,52 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 165 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\LCD_44780.h"
-void LCD_enable_pulse (void);
+# 164 "../LaurTec_PIC_libraries_v_3.3.0/inc\LCD_44780.h"
+void LCD_enable_pulse(void);
 
-# 184
-void LCD_send_command (unsigned char bit_3, unsigned char bit_2, unsigned char bit_1, unsigned char bit_0);
+# 183
+void LCD_send_command(unsigned char bit_3, unsigned char bit_2, unsigned char bit_1, unsigned char bit_0);
 
-# 193
+# 192
 void LCD_home(void);
 
-# 208
+# 207
 void LCD_shift(unsigned char shift, unsigned char number_of_shift);
 
-# 224
-void LCD_shift_cursor(unsigned char shift,unsigned char number_of_shift);
+# 223
+void LCD_shift_cursor(unsigned char shift, unsigned char number_of_shift);
 
-# 236
-void LCD_goto_line (unsigned char line);
+# 235
+void LCD_goto_line(unsigned char line);
 
-# 251
-void LCD_goto_xy (unsigned char x, unsigned char y);
+# 250
+void LCD_goto_xy(unsigned char x, unsigned char y);
 
-# 262
-void LCD_write_char (unsigned char value);
+# 261
+void LCD_write_char(unsigned char value);
 
-# 281
+# 280
 void LCD_write_message(const unsigned char *buffer);
 
-# 296
+# 295
 void LCD_write_string(unsigned char *buffer);
 
-# 316
+# 315
 void LCD_write_integer(int value, unsigned char number_of_digits, unsigned char zero_cleaning);
 
-# 325
-void LCD_clear (void);
+# 324
+void LCD_clear(void);
 
-# 341
+# 340
 void LCD_cursor(unsigned char active, unsigned char blinking);
 
-# 356
+# 355
 void LCD_backlight(unsigned char active);
 
-# 370
+# 369
 void LCD_initialize(unsigned char quartz_frequency);
 
-# 49 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c"
+# 49 "../LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c"
 void LCD_enable_pulse (void) {
 
 LATCbits.LATC1 = 1;
@@ -20825,17 +20825,7 @@ LCD_send_command (0,0,0,0);
 LCD_send_command (1,1,active,blinking);
 }
 
-
-
-
-void LCD_backlight (unsigned char active) {
-
-LATCbits.LATC4 = active;
-}
-
-
-
-
+# 283
 void LCD_initialize (unsigned char quartz_frequency) {
 
 delay_set_quartz (quartz_frequency);
@@ -20959,9 +20949,11 @@ extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
 
-# 24 "RemoteCan.c"
+# 39 "RemoteCan.c"
 void board_initialization(void);
 void PWR_Button_Polling(void);
+void F1_Button_Polling(void);
+void F2_Button_Polling(void);
 void Joystick_Polling(void);
 void CAN_Send(void);
 void CAN_interpreter(void);
@@ -20973,14 +20965,16 @@ volatile unsigned long pr_time_1 = 0;
 volatile unsigned long pr_time_2 = 0;
 volatile unsigned long pr_time_3 = 0;
 volatile unsigned long pr_time_4 = 0;
+volatile unsigned long pr_time_5 = 0;
+volatile unsigned long pr_time_6 = 0;
 
 
 BYTE data_steering[] = 0;
 BYTE data_speed [] = 0;
 BYTE data_brake [] = 0;
 BYTE data[] = 0;
-volatile bit power_switch = 0;
 CANmessage msg;
+volatile unsigned char park_assist_state = 0;
 
 
 unsigned int left_speed = 0;
@@ -20995,18 +20989,31 @@ volatile bit SterzoFlag = 0;
 volatile unsigned char battery = 0;
 
 
+volatile bit display_refresh = 0;
 unsigned char str [12] = 0;
 float actual_speed_kmh = 0;
 unsigned int actual_speed = 0;
 
 
+volatile bit x = 0;
+volatile bit y = 0;
+volatile bit z = 0;
+volatile char parking_state = 0;
+
+
+volatile bit wait_low_1 = 0;
+volatile bit wait_low_2 = 0;
+volatile bit wait_low_3 = 0;
+volatile bit power_switch = 0;
+volatile bit F1_switch = 0;
+volatile bit F2_switch = 0;
 volatile char dir = 0;
 volatile unsigned char switch_position = 0;
 volatile unsigned char set_steering = 0;
 volatile unsigned int set_speed = 0;
 volatile unsigned char JoystickValues[2] = 0;
 volatile signed float JoystickConstants[2] = 0;
-volatile bit wait_low = 0;
+
 
 __attribute__((interrupt("__high_priority"))) void ISR_alta(void) {
 if ((PIR3bits.RXB1IF == 1) || (PIR3bits.RXB0IF == 1)) {
@@ -21027,6 +21034,8 @@ data[0] = 0x03;
 _delay((unsigned long)((10)*(16000000/4000000.0)));
 while (CANisTxReady() != 1);
 CANsendMessage(0b00000000010, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+
+
 MotoreFlag = 1;
 AbsFlag = 0;
 SterzoFlag = 0;
@@ -21060,10 +21069,17 @@ LATDbits.LD6 = 0;
 LATDbits.LD5 = 0;
 
 JoystickConstants[0] = 0.703;
-JoystickConstants[1] = 5;
+JoystickConstants[1] = 10;
+
+display_refresh = 1;
 while (1) {
 
+
 PWR_Button_Polling();
+F1_Button_Polling();
+F2_Button_Polling();
+
+
 if (power_switch == 0) {
 dir = 1;
 set_speed = 0;
@@ -21089,6 +21105,7 @@ PWR_Button_Polling();
 delay_ms(10);
 }
 PORTDbits.RD7 = 0;
+display_refresh = 1;
 }
 
 Joystick_Polling();
@@ -21104,6 +21121,52 @@ dir = 1;
 switch_position = 2;
 dir = 0;
 }
+}
+
+
+if (F1_switch == 1) {
+y = 0;
+if ((time_counter - pr_time_5) >= 30) {
+pr_time_5 = time_counter;
+PORTDbits.RD6 = ~PORTDbits.RD6;
+}
+if ((x == 0)&&(F2_switch == 0)) {
+parking_state = 1;
+JoystickConstants[1] = 2;
+while (!CANisTxReady());
+park_assist_state = 0b00000001;
+CANsendMessage(0b00000001010, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+x = 1;
+}
+if (F2_switch == 1) {
+if ((time_counter - pr_time_6) >= 30) {
+pr_time_6 = time_counter;
+PORTDbits.RD5 = ~PORTDbits.RD5;
+}
+if (z == 0) {
+parking_state = 2;
+while (!CANisTxReady());
+CANsendMessage(0b00000001011, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+x = 0;
+z = 1;
+}
+}
+} else {
+x = 0;
+z = 0;
+F2_switch = 0;
+PORTDbits.RD5 = 0;
+PORTDbits.RD6 = 0;
+if (y == 0) {
+parking_state = 0;
+JoystickConstants[1] = 10;
+while (!CANisTxReady());
+park_assist_state = 0b00000000;
+CANsendMessage(0b00000001010, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+y = 1;
+}
+PORTDbits.RD6 = 0;
+PORTDbits.RD5 = 0;
 }
 
 data_steering [0] = 180 - (JoystickValues[0])*(JoystickConstants[0]);
@@ -21127,7 +21190,7 @@ pr_time_2 = time_counter;
 CAN_Send();
 }
 
-if ((time_counter - pr_time_3) >= 100) {
+if ((time_counter - pr_time_3) >= (100 / 10)) {
 pr_time_3 = time_counter;
 LCD_Handler();
 }
@@ -21153,37 +21216,53 @@ while (CANisTxReady() != 1);
 CANsendMessage(0b00000000110, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_REMOTE_TX_FRAME & CAN_TX_PRIORITY_0);
 
 actual_speed_kmh = ((actual_speed) / 278.0);
+sprintf(str, "%.3f", actual_speed_kmh);
+str[11] = '\0';
 
-LCD_clear();
-delay_ms(1);
+if (display_refresh == 1) {
 LCD_initialize(16);
+LCD_clear();
 LCD_goto_line(1);
-
-LCD_write_integer(set_speed, 6, 0x00);
+LCD_write_message("=== VEHICLE DATA ===");
 LCD_goto_line(2);
 LCD_write_message("Direction: ");
+LCD_goto_line(3);
+LCD_write_message("Speed: x.xx Km/h");
+LCD_goto_line(4);
+LCD_write_message("====================");
+display_refresh = 0;
+}
+
+
+LCD_goto_xy(12,2);
 if (switch_position != 0) {
 if (dir == 1) {
+LCD_initialize(16);
 LCD_write_message("FWD");
 } else {
+LCD_initialize(16);
 LCD_write_message("BKWD");
 }
 } else {
-
+LCD_initialize(16);
 LCD_write_message("P");
 }
+if (parking_state == 1) {
+LCD_initialize(16);
+LCD_write_message(" SRCH");
+}
+if (parking_state == 2) {
+LCD_initialize(16);
+LCD_write_message(" PARK");
+}
 
-LCD_goto_line(3);
-sprintf(str, "Speed: %.3f", actual_speed_kmh);
-str[11] = '\0';
+
+LCD_goto_xy(8,3);
+LCD_initialize(16);
 LCD_write_string(str);
-LCD_write_message("Km/h");
-LCD_goto_line(4);
-LCD_write_message("====================");
 }
 
 void CAN_interpreter(void) {
-
 if (id == 0b00000000010) {
 if (RTR_Flag == 1) {
 pr_time_4 = time_counter;
@@ -21222,11 +21301,31 @@ battery = data[0];
 }
 
 void PWR_Button_Polling(void) {
-if ((PORTBbits.RB5 == 0) || (wait_low == 0)) {
-wait_low = 0;
+if ((PORTBbits.RB5 == 0) || (wait_low_1 == 0)) {
+wait_low_1 = 0;
 if (PORTBbits.RB5 == 1) {
 power_switch = ~power_switch;
-wait_low = 1;
+wait_low_1 = 1;
+}
+}
+}
+
+void F1_Button_Polling(void) {
+if ((PORTBbits.RB4 == 0) || (wait_low_2 == 0)) {
+wait_low_2 = 0;
+if (PORTBbits.RB4 == 1) {
+F1_switch = ~F1_switch;
+wait_low_2 = 1;
+}
+}
+}
+
+void F2_Button_Polling(void) {
+if ((PORTBbits.RB1 == 0) || (wait_low_3 == 0)) {
+wait_low_3 = 0;
+if (PORTBbits.RB1 == 1) {
+F2_switch = ~F2_switch;
+wait_low_3 = 1;
 }
 }
 }
