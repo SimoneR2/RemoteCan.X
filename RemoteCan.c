@@ -60,7 +60,7 @@ BYTE data_speed [] = 0;
 BYTE data_brake [] = 0;
 BYTE data[] = 0; //random
 CANmessage msg;
-volatile unsigned char park_assist_state = 0;
+BYTE park_assist_state[8] = 0;
 
 //variabili can bus ricezione
 unsigned int left_speed = 0;
@@ -81,9 +81,9 @@ float actual_speed_kmh = 0;
 unsigned int actual_speed = 0;
 
 //Variabili parcheggio
-volatile bit x = LOW;
+volatile unsigned char x = 0;
 volatile bit y = LOW;
-volatile bit z = LOW;
+volatile unsigned char z = 0;
 volatile char parking_state = OFF;
 
 //variabili per il programma
@@ -99,7 +99,6 @@ volatile unsigned char set_steering = 0;
 volatile unsigned int set_speed = 0;
 volatile unsigned char JoystickValues[2] = 0; //steering - speed
 volatile signed float JoystickConstants[2] = 0;
-
 
 __interrupt(high_priority) void ISR_alta(void) {
     if ((PIR3bits.RXB1IF == 1) || (PIR3bits.RXB0IF == 1)) { //RICEZIONE CAN
@@ -159,7 +158,7 @@ void main(void) {
 
     display_refresh = HIGH;
     while (1) {
-        
+
         //Buttons Polling
         PWR_Button_Polling();
         F1_Button_Polling();
@@ -216,30 +215,30 @@ void main(void) {
                 pr_time_5 = time_counter;
                 PORTDbits.RD6 = ~PORTDbits.RD6;
             }
-            if ((x == LOW)&&(F2_switch == LOW)) {
+            if ((x <5)&&(F2_switch == LOW)) {
                 parking_state = SEARCH;
                 JoystickConstants[Y_AXIS] = SPD_CNST_PKG;
                 while (!CANisTxReady());
-                park_assist_state = 0b00000001;
+                park_assist_state[0] = 0b00000001;
                 CANsendMessage(PARK_ASSIST_ENABLE, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-                x = HIGH;
+                x++;
             }
-            if (F2_switch == HIGH) {    //<=== CONDIZIONE DI ABILITAZIONE PACHEGGIO QUI!
+            if (F2_switch == HIGH) { //<=== CONDIZIONE DI ABILITAZIONE PACHEGGIO QUI!
                 if ((time_counter - pr_time_6) >= 30) {
                     pr_time_6 = time_counter;
                     PORTDbits.RD5 = ~PORTDbits.RD5;
                 }
-                if (z == LOW) {
+                if (z < 5) {
                     parking_state = PARKING;
                     while (!CANisTxReady());
                     CANsendMessage(PARK_ASSIST_BEGIN, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-                    x = LOW;
-                    z = HIGH;
+                    x = 0;
+                    z++;
                 }
             }
         } else { //RD6/RB4-- RD5/RB1
-            x = LOW;
-            z = LOW;
+            x = 0;
+            z = 0;
             F2_switch = LOW;
             PORTDbits.RD5 = LOW;
             PORTDbits.RD6 = LOW;
@@ -247,7 +246,7 @@ void main(void) {
                 parking_state = OFF;
                 JoystickConstants[Y_AXIS] = SPD_CNST_STD;
                 while (!CANisTxReady());
-                park_assist_state = 0b00000000;
+                park_assist_state[0] = 0b00000000;
                 CANsendMessage(PARK_ASSIST_ENABLE, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
                 y = HIGH;
             }
@@ -313,38 +312,42 @@ void LCD_Handler(void) {
         LCD_goto_line(2);
         LCD_write_message("Direction: ");
         LCD_goto_line(3);
-        LCD_write_message("Speed: x.xx Km/h");  //controllare!
+        LCD_write_message("Speed: x.xx Km/h"); //controllare!
         LCD_goto_line(4);
         LCD_write_message("====================");
         display_refresh = LOW;
     }
 
     //Print direction and parking data
-    LCD_goto_xy(12,2);
+    //LCD_initialize(16);
+    LCD_goto_xy(12, 2);
     if (switch_position != HIGH_POS) {
         if (dir == FWD) {
-            LCD_initialize(16);
-            LCD_write_message("FWD");
+
+            LCD_write_message("FWD ");
         } else {
-            LCD_initialize(16);
+            //LCD_initialize(16);
             LCD_write_message("BKWD");
         }
     } else {
-        LCD_initialize(16);
-        LCD_write_message("P");
+        //LCD_initialize(16);
+        LCD_write_message("P   ");
     }
     if (parking_state == SEARCH) {
-        LCD_initialize(16);
+        //LCD_initialize(16);
         LCD_write_message(" SRCH");
+    } else {
+        LCD_write_message("     ");
     }
     if (parking_state == PARKING) {
-        LCD_initialize(16);
+        //LCD_initialize(16);
         LCD_write_message(" PARK");
     }
 
     //Print speed data 
-    LCD_goto_xy(8,3);
-    LCD_initialize(16);
+    //LCD_initialize(16);
+    LCD_goto_xy(8, 3);
+
     LCD_write_string(str);
 }
 
