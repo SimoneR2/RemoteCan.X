@@ -20996,6 +20996,7 @@ unsigned int actual_speed = 0;
 
 
 volatile bit y = 0;
+volatile bit space_available = 0;
 volatile unsigned char x = 0;
 volatile unsigned char z = 0;
 volatile char parking_state = 0;
@@ -21026,6 +21027,13 @@ for (unsigned char i = 0; i < 8; i++) {
 data_speed_rx[i] = msg.data[i];
 }
 }
+
+if (id == 0b00000001011) {
+if (msg.data[0] == 1) {
+space_available = 1;
+}
+}
+
 if (id == 0b00000000010) {
 if (RTR_Flag == 1) {
 pr_time_4 = time_counter;
@@ -21034,9 +21042,8 @@ _delay((unsigned long)((10)*(16000000/4000000.0)));
 while (CANisTxReady() != 1);
 CANsendMessage(0b00000000010, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 
-# 127
+# 135
 }
-
 }
 }
 LATDbits.LATD2 = 1;
@@ -21058,7 +21065,7 @@ PIR2bits.TMR3IF = 0;
 void main(void) {
 board_initialization();
 
-# 156
+# 163
 JoystickConstants[0] = 0.703;
 JoystickConstants[1] = 10;
 
@@ -21079,6 +21086,8 @@ data_brake [0] = 0;
 data_brake [1] = 1;
 CAN_Send();
 LCD_initialize(16);
+PORTDbits.RD6 = 0;
+PORTDbits.RD5 = 0;
 LCD_goto_line(1);
 LCD_write_message("====================");
 LCD_goto_line(2);
@@ -21117,16 +21126,8 @@ dir = 0;
 
 if (F1_switch == 1) {
 y = 0;
-if ((time_counter - pr_time_5) >= 30) {
-pr_time_5 = time_counter;
-PORTDbits.RD6 = ~PORTDbits.RD6;
-if (F2_switch == 1) {
-PORTDbits.RD5 = LATDbits.LATD6;
-} else {
-PORTDbits.RD5 = 0;
-}
-}
 if ((x < 1)&&(F2_switch == 0)) {
+space_available = 0;
 parking_state = 1;
 JoystickConstants[1] = 1;
 while (!CANisTxReady());
@@ -21134,7 +21135,18 @@ park_assist_state[0] = 0b00000001;
 CANsendMessage(0b00000001010, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 x++;
 }
-if (F2_switch == 1) {
+if ((time_counter - pr_time_5) >= 30) {
+pr_time_5 = time_counter;
+if (space_available == 0) {
+PORTDbits.RD6 = ~PORTDbits.RD6;
+PORTDbits.RD5 = 0;
+} else {
+PORTDbits.RD6 = 1;
+PORTDbits.RD5 = ~PORTDbits.RD5;
+}
+}
+
+if ((F2_switch == 1)&&(space_available == 1)) {
 if (z < 1) {
 parking_state = 2;
 while (!CANisTxReady());
@@ -21249,7 +21261,11 @@ if (parking_state == 0) {
 LCD_write_message("OFF    ");
 } else {
 if (parking_state == 1) {
+if (space_available == 0) {
 LCD_write_message("SEARCH ");
+} else {
+LCD_write_message("FOUND! ");
+}
 } else {
 LCD_write_message("PARKING");
 }

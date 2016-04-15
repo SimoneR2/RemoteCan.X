@@ -82,6 +82,7 @@ unsigned int actual_speed = 0;
 
 //Variabili parcheggio
 volatile bit y = LOW;
+volatile bit space_available = LOW;
 volatile unsigned char x = 0;
 volatile unsigned char z = 0;
 volatile char parking_state = OFF;
@@ -112,6 +113,13 @@ __interrupt(high_priority) void ISR_alta(void) {
                     data_speed_rx[i] = msg.data[i];
                 }
             }
+
+            if (id == PARK_ASSIST_STATE) {
+                if (msg.data[0] == 1) {
+                    space_available = HIGH;
+                }
+            }
+
             if (id == ECU_STATE) {
                 if (RTR_Flag == 1) { //Se è arrivata la richiesta presenza centraline
                     pr_time_4 = time_counter;
@@ -125,7 +133,6 @@ __interrupt(high_priority) void ISR_alta(void) {
                     //AbsFlag = LOW; //resetta flag
                     //SterzoFlag = LOW; //resetta flag
                 }
-
             }
         }
         LATDbits.LATD2 = HIGH;
@@ -173,6 +180,8 @@ void main(void) {
             data_brake [1] = 1;
             CAN_Send();
             LCD_initialize(16);
+            PORTDbits.RD6 = LOW;
+            PORTDbits.RD5 = LOW;
             LCD_goto_line(1);
             LCD_write_message("====================");
             LCD_goto_line(2);
@@ -208,19 +217,11 @@ void main(void) {
             }
         }
 
-        //Parcheggio
-        if (F1_switch == HIGH) {
+        //Parking
+        if (F1_switch == HIGH) { //appena è sicuro cambiare < in ==
             y = LOW;
-            if ((time_counter - pr_time_5) >= 30) {
-                pr_time_5 = time_counter;
-                PORTDbits.RD6 = ~PORTDbits.RD6;
-                if (F2_switch == HIGH) {
-                    PORTDbits.RD5 = LATDbits.LATD6;
-                } else {
-                    PORTDbits.RD5 = LOW;
-                }
-            }
             if ((x < 1)&&(F2_switch == LOW)) {
+                space_available = LOW;
                 parking_state = SEARCH;
                 JoystickConstants[Y_AXIS] = SPD_CNST_PKG;
                 while (!CANisTxReady());
@@ -228,7 +229,18 @@ void main(void) {
                 CANsendMessage(PARK_ASSIST_ENABLE, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
                 x++;
             }
-            if (F2_switch == HIGH) { //<=== CONDIZIONE DI ABILITAZIONE PACHEGGIO QUI!
+            if ((time_counter - pr_time_5) >= 30) {
+                pr_time_5 = time_counter;
+                if (space_available == LOW) {
+                    PORTDbits.RD6 = ~PORTDbits.RD6;
+                    PORTDbits.RD5 = LOW;
+                } else {
+                    PORTDbits.RD6 = HIGH;
+                    PORTDbits.RD5 = ~PORTDbits.RD5;
+                }
+            }
+
+            if ((F2_switch == HIGH)&&(space_available == HIGH)) {
                 if (z < 1) {
                     parking_state = PARKING;
                     while (!CANisTxReady());
@@ -343,7 +355,11 @@ void LCD_Handler(void) {
         LCD_write_message("OFF    ");
     } else {
         if (parking_state == SEARCH) {
-            LCD_write_message("SEARCH ");
+            if (space_available == LOW) {
+                LCD_write_message("SEARCH ");
+            } else {
+                LCD_write_message("FOUND! ");
+            }
         } else {
             LCD_write_message("PARKING");
         }
