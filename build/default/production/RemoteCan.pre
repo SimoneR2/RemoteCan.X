@@ -19425,7 +19425,7 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config EBTRB = OFF
 
-# 49 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h"
+# 49 "../LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h"
 typedef unsigned char BYTE;
 
 
@@ -20476,7 +20476,7 @@ BYTE CANisRxReady (void)
 return (RXB0CONbits.RXFUL || RXB1CONbits.RXFUL);
 }
 
-# 74 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\delay.h"
+# 74 "../LaurTec_PIC_libraries_v_3.3.0/inc\delay.h"
 void delay_ms (unsigned int value_ms);
 
 # 88
@@ -20485,7 +20485,7 @@ void delay_s (unsigned char value_s);
 # 102
 void delay_set_quartz (unsigned char frequency);
 
-# 49 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\delay.c"
+# 49 "../LaurTec_PIC_libraries_v_3.3.0/src\delay.c"
 volatile unsigned char delay_quartz_frequency_value = 16;
 volatile unsigned int clock_counter_reference = 0;
 
@@ -20592,52 +20592,52 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 165 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\LCD_44780.h"
-void LCD_enable_pulse (void);
+# 164 "../LaurTec_PIC_libraries_v_3.3.0/inc\LCD_44780.h"
+void LCD_enable_pulse(void);
 
-# 184
-void LCD_send_command (unsigned char bit_3, unsigned char bit_2, unsigned char bit_1, unsigned char bit_0);
+# 183
+void LCD_send_command(unsigned char bit_3, unsigned char bit_2, unsigned char bit_1, unsigned char bit_0);
 
-# 193
+# 192
 void LCD_home(void);
 
-# 208
+# 207
 void LCD_shift(unsigned char shift, unsigned char number_of_shift);
 
-# 224
-void LCD_shift_cursor(unsigned char shift,unsigned char number_of_shift);
+# 223
+void LCD_shift_cursor(unsigned char shift, unsigned char number_of_shift);
 
-# 236
-void LCD_goto_line (unsigned char line);
+# 235
+void LCD_goto_line(unsigned char line);
 
-# 251
-void LCD_goto_xy (unsigned char x, unsigned char y);
+# 250
+void LCD_goto_xy(unsigned char x, unsigned char y);
 
-# 262
-void LCD_write_char (unsigned char value);
+# 261
+void LCD_write_char(unsigned char value);
 
-# 281
+# 280
 void LCD_write_message(const unsigned char *buffer);
 
-# 296
+# 295
 void LCD_write_string(unsigned char *buffer);
 
-# 316
+# 315
 void LCD_write_integer(int value, unsigned char number_of_digits, unsigned char zero_cleaning);
 
-# 325
-void LCD_clear (void);
+# 324
+void LCD_clear(void);
 
-# 341
+# 340
 void LCD_cursor(unsigned char active, unsigned char blinking);
 
-# 356
+# 355
 void LCD_backlight(unsigned char active);
 
-# 370
+# 369
 void LCD_initialize(unsigned char quartz_frequency);
 
-# 49 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c"
+# 49 "../LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c"
 void LCD_enable_pulse (void) {
 
 LATCbits.LATC1 = 1;
@@ -20825,17 +20825,7 @@ LCD_send_command (0,0,0,0);
 LCD_send_command (1,1,active,blinking);
 }
 
-
-
-
-void LCD_backlight (unsigned char active) {
-
-LATCbits.LATC4 = active;
-}
-
-
-
-
+# 283
 void LCD_initialize (unsigned char quartz_frequency) {
 
 delay_set_quartz (quartz_frequency);
@@ -20976,7 +20966,7 @@ volatile unsigned long pr_time_2 = 0;
 volatile unsigned long pr_time_3 = 0;
 volatile unsigned long pr_time_4 = 0;
 volatile unsigned long pr_time_5 = 0;
-volatile unsigned long pr_time_6 = 0;
+
 
 
 BYTE data_steering[] = 0;
@@ -20987,16 +20977,16 @@ CANmessage msg;
 BYTE park_assist_state[8] = 0;
 
 
-unsigned int left_speed = 0;
-unsigned int right_speed = 0;
-BYTE data_speed_rx[7] = 0;
-volatile bit newMessageCan = 0;
 volatile bit RTR_Flag = 0;
-volatile long id = 0;
+volatile bit newMessageCan = 0;
 volatile bit MotoreFlag = 0;
 volatile bit AbsFlag = 0;
 volatile bit SterzoFlag = 0;
+unsigned int left_speed = 0;
+unsigned int right_speed = 0;
 volatile unsigned char battery = 0;
+volatile unsigned long id = 0;
+BYTE data_speed_rx[7] = 0;
 
 
 volatile bit display_refresh = 0;
@@ -21005,8 +20995,8 @@ float actual_speed_kmh = 0;
 unsigned int actual_speed = 0;
 
 
-volatile unsigned char x = 0;
 volatile bit y = 0;
+volatile unsigned char x = 0;
 volatile unsigned char z = 0;
 volatile char parking_state = 0;
 
@@ -21044,18 +21034,15 @@ _delay((unsigned long)((10)*(16000000/4000000.0)));
 while (CANisTxReady() != 1);
 CANsendMessage(0b00000000010, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 
-
-MotoreFlag = 1;
-AbsFlag = 0;
-SterzoFlag = 0;
+# 127
 }
 
 }
 }
-PIR3bits.RXB1IF = 0;
-PIR3bits.RXB0IF = 0;
 LATDbits.LATD2 = 1;
 LATDbits.LATD3 = 1;
+PIR3bits.RXB1IF = 0;
+PIR3bits.RXB0IF = 0;
 }
 }
 
@@ -21138,27 +21125,30 @@ y = 0;
 if ((time_counter - pr_time_5) >= 30) {
 pr_time_5 = time_counter;
 PORTDbits.RD6 = ~PORTDbits.RD6;
+if (F2_switch == 1) {
+PORTDbits.RD5 = LATDbits.LATD6;
+} else {
+PORTDbits.RD5 = 0;
 }
-if ((x <5)&&(F2_switch == 0)) {
+}
+if ((x < 5)&&(F2_switch == 0)) {
 parking_state = 1;
-JoystickConstants[1] = 2;
+JoystickConstants[1] = 1;
 while (!CANisTxReady());
 park_assist_state[0] = 0b00000001;
 CANsendMessage(0b00000001010, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 x++;
 }
 if (F2_switch == 1) {
-if ((time_counter - pr_time_6) >= 30) {
-pr_time_6 = time_counter;
-PORTDbits.RD5 = ~PORTDbits.RD5;
-}
 if (z < 5) {
 parking_state = 2;
 while (!CANisTxReady());
-CANsendMessage(0b00000001011, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+CANsendMessage(0b00000001100, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 x = 0;
 z++;
 }
+} else {
+z = 0;
 }
 } else {
 x = 0;
@@ -21168,7 +21158,7 @@ PORTDbits.RD5 = 0;
 PORTDbits.RD6 = 0;
 if (y == 0) {
 parking_state = 0;
-JoystickConstants[1] = 10;
+JoystickConstants[1] = 15;
 while (!CANisTxReady());
 park_assist_state[0] = 0b00000000;
 CANsendMessage(0b00000001010, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
@@ -21225,7 +21215,7 @@ while (CANisTxReady() != 1);
 CANsendMessage(0b00000000110, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_REMOTE_TX_FRAME & CAN_TX_PRIORITY_0);
 
 actual_speed_kmh = ((actual_speed) / 278.0);
-sprintf(str, "%.3f", actual_speed_kmh);
+sprintf(str, "%.2f", actual_speed_kmh);
 str[11] = '\0';
 
 if (display_refresh == 1) {
@@ -21238,66 +21228,58 @@ LCD_write_message("Direction: ");
 LCD_goto_line(3);
 LCD_write_message("Speed: x.xx Km/h");
 LCD_goto_line(4);
-LCD_write_message("====================");
+LCD_write_message("Park assist: ");
 display_refresh = 0;
 }
-
 
 
 LCD_goto_xy(12, 2);
 if (switch_position != 0) {
 if (dir == 1) {
-
-LCD_write_message("FWD ");
+LCD_write_message("FWD");
 } else {
-
 LCD_write_message("BKWD");
 }
 } else {
-
-LCD_write_message("P   ");
+LCD_write_message("P");
 }
-if (parking_state == 1) {
-
-LCD_write_message(" SRCH");
-} else {
-LCD_write_message("     ");
-}
-if (parking_state == 2) {
-
-LCD_write_message(" PARK");
-}
-
 
 
 LCD_goto_xy(8, 3);
-
 LCD_write_string(str);
+
+
+LCD_goto_xy(14, 4);
+if (parking_state == 0) {
+LCD_write_message("OFF");
+} else {
+if (parking_state == 1) {
+LCD_write_message("SEARCH");
+} else {
+LCD_write_message("PARKING");
+}
+}
 }
 
 void CAN_interpreter(void) {
 if (id == 0b00000000010) {
 if (RTR_Flag == 1) {
 pr_time_4 = time_counter;
-
-
-
 MotoreFlag = 1;
 AbsFlag = 0;
 SterzoFlag = 0;
 } else {
 if (data[0] == 0x01) {
 AbsFlag = 1;
-
 }
 if (data[0] == 0x02) {
 SterzoFlag = 1;
+}
+}
+}
 
-}
-}
 if (pr_time_4 - time_counter > 450) {
 
-}
 }
 
 if ((id == 0b00000000110)&&(RTR_Flag == 0)) {
@@ -21398,8 +21380,8 @@ LCD_initialize(16);
 
 LCD_clear();
 LCD_goto_line(1);
-LCD_write_message("Wait...");
-delay_ms(300);
+
+
 
 PORTDbits.RD2 = 0;
 PORTDbits.RD3 = 0;
