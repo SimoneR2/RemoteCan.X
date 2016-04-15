@@ -147,11 +147,11 @@ __interrupt(low_priority) void ISR_bassa(void) {
 void main(void) {
     board_initialization();
 
-    LATDbits.LD6 = HIGH;
-    LATDbits.LD5 = HIGH;
-    delay_ms(500);
-    LATDbits.LD6 = LOW;
-    LATDbits.LD5 = LOW;
+    //    LATDbits.LD6 = HIGH;
+    //    LATDbits.LD5 = HIGH;
+    //    delay_ms(500);
+    //    LATDbits.LD6 = LOW;
+    //    LATDbits.LD5 = LOW;
 
     JoystickConstants[X_AXIS] = 0.703;
     JoystickConstants[Y_AXIS] = 10; //35
@@ -178,7 +178,7 @@ void main(void) {
             LCD_goto_line(2);
             LCD_write_message("==> VEHICLE  OFF <==");
             LCD_goto_line(3);
-            LCD_write_message("Turn the switch ON! ");
+            LCD_write_message("  Press the button  ");
             LCD_goto_line(4);
             LCD_write_message("====================");
             while (power_switch == LOW) {
@@ -220,7 +220,7 @@ void main(void) {
                     PORTDbits.RD5 = LOW;
                 }
             }
-            if ((x < 5)&&(F2_switch == LOW)) {
+            if ((x < 1)&&(F2_switch == LOW)) {
                 parking_state = SEARCH;
                 JoystickConstants[Y_AXIS] = SPD_CNST_PKG;
                 while (!CANisTxReady());
@@ -229,7 +229,7 @@ void main(void) {
                 x++;
             }
             if (F2_switch == HIGH) { //<=== CONDIZIONE DI ABILITAZIONE PACHEGGIO QUI!
-                if (z < 5) {
+                if (z < 1) {
                     parking_state = PARKING;
                     while (!CANisTxReady());
                     CANsendMessage(PARK_ASSIST_BEGIN, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
@@ -315,7 +315,7 @@ void LCD_Handler(void) {
         LCD_goto_line(2);
         LCD_write_message("Direction: ");
         LCD_goto_line(3);
-        LCD_write_message("Speed: x.xx Km/h"); //controllare!
+        LCD_write_message("Speed: 0.00 Km/h");
         LCD_goto_line(4);
         LCD_write_message("Park assist: ");
         display_refresh = LOW;
@@ -325,12 +325,12 @@ void LCD_Handler(void) {
     LCD_goto_xy(12, 2);
     if (switch_position != HIGH_POS) {
         if (dir == FWD) {
-            LCD_write_message("FWD");
+            LCD_write_message("FWD ");
         } else {
             LCD_write_message("BKWD");
         }
     } else {
-        LCD_write_message("P");
+        LCD_write_message("P   ");
     }
 
     //Print speed data 
@@ -340,10 +340,10 @@ void LCD_Handler(void) {
     //Print parking data
     LCD_goto_xy(14, 4);
     if (parking_state == OFF) {
-        LCD_write_message("OFF");
+        LCD_write_message("OFF    ");
     } else {
         if (parking_state == SEARCH) {
-            LCD_write_message("SEARCH");
+            LCD_write_message("SEARCH ");
         } else {
             LCD_write_message("PARKING");
         }

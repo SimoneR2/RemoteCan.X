@@ -21058,12 +21058,7 @@ PIR2bits.TMR3IF = 0;
 void main(void) {
 board_initialization();
 
-LATDbits.LD6 = 1;
-LATDbits.LD5 = 1;
-delay_ms(500);
-LATDbits.LD6 = 0;
-LATDbits.LD5 = 0;
-
+# 156
 JoystickConstants[0] = 0.703;
 JoystickConstants[1] = 10;
 
@@ -21089,7 +21084,7 @@ LCD_write_message("====================");
 LCD_goto_line(2);
 LCD_write_message("==> VEHICLE  OFF <==");
 LCD_goto_line(3);
-LCD_write_message("Turn the switch ON! ");
+LCD_write_message("  Press the button  ");
 LCD_goto_line(4);
 LCD_write_message("====================");
 while (power_switch == 0) {
@@ -21131,7 +21126,7 @@ PORTDbits.RD5 = LATDbits.LATD6;
 PORTDbits.RD5 = 0;
 }
 }
-if ((x < 5)&&(F2_switch == 0)) {
+if ((x < 1)&&(F2_switch == 0)) {
 parking_state = 1;
 JoystickConstants[1] = 1;
 while (!CANisTxReady());
@@ -21140,7 +21135,7 @@ CANsendMessage(0b00000001010, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NOR
 x++;
 }
 if (F2_switch == 1) {
-if (z < 5) {
+if (z < 1) {
 parking_state = 2;
 while (!CANisTxReady());
 CANsendMessage(0b00000001100, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
@@ -21226,7 +21221,7 @@ LCD_write_message("=== VEHICLE DATA ===");
 LCD_goto_line(2);
 LCD_write_message("Direction: ");
 LCD_goto_line(3);
-LCD_write_message("Speed: x.xx Km/h");
+LCD_write_message("Speed: 0.00 Km/h");
 LCD_goto_line(4);
 LCD_write_message("Park assist: ");
 display_refresh = 0;
@@ -21236,12 +21231,12 @@ display_refresh = 0;
 LCD_goto_xy(12, 2);
 if (switch_position != 0) {
 if (dir == 1) {
-LCD_write_message("FWD");
+LCD_write_message("FWD ");
 } else {
 LCD_write_message("BKWD");
 }
 } else {
-LCD_write_message("P");
+LCD_write_message("P   ");
 }
 
 
@@ -21251,10 +21246,10 @@ LCD_write_string(str);
 
 LCD_goto_xy(14, 4);
 if (parking_state == 0) {
-LCD_write_message("OFF");
+LCD_write_message("OFF    ");
 } else {
 if (parking_state == 1) {
-LCD_write_message("SEARCH");
+LCD_write_message("SEARCH ");
 } else {
 LCD_write_message("PARKING");
 }
