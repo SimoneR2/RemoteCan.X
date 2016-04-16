@@ -106,6 +106,8 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _LCD_write_message LCD_write_message `(v  1 e 0 0 ]
 "194
 [v _LCD_write_string LCD_write_string `(v  1 e 0 0 ]
+"210
+[v _LCD_write_integer LCD_write_integer `(v  1 e 0 0 ]
 "257
 [v _LCD_clear LCD_clear `(v  1 e 0 0 ]
 "266
@@ -170,27 +172,27 @@ CAN_RX_BUFFER_2_OVFL 2
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"104 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"107 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _ISR_alta ISR_alta `IIH(v  1 e 0 0 ]
-"145
+"152
 [v _ISR_bassa ISR_bassa `IIL(v  1 e 0 0 ]
-"154
+"161
 [v _main main `(v  1 e 0 0 ]
-"300
+"307
 [v _CAN_Send CAN_Send `(v  1 e 0 0 ]
-"313
+"320
 [v _LCD_Handler LCD_Handler `(v  1 e 0 0 ]
-"369
+"386
 [v _CAN_interpreter CAN_interpreter `(v  1 e 0 0 ]
-"403
+"420
 [v _PWR_Button_Polling PWR_Button_Polling `(v  1 e 0 0 ]
-"413
+"430
 [v _F1_Button_Polling F1_Button_Polling `(v  1 e 0 0 ]
-"423
+"440
 [v _F2_Button_Polling F2_Button_Polling `(v  1 e 0 0 ]
-"433
+"450
 [v _Joystick_Polling Joystick_Polling `(v  1 e 0 0 ]
-"442
+"459
 [v _board_initialization board_initialization `(v  1 e 0 0 ]
 "49 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\delay.c
 [v _delay_quartz_frequency_value delay_quartz_frequency_value `VEuc  1 e 1 0 ]
@@ -1610,102 +1612,104 @@ CAN_RX_BUFFER_2_OVFL 2
 [v __powers_ _powers_ `C[13]d  1 e 52 0 ]
 "39
 [v __npowers_ _npowers_ `C[13]d  1 e 52 0 ]
-"49 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"51 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _time_counter time_counter `VEul  1 e 4 0 ]
-"50
-[v _pr_time_1 pr_time_1 `VEul  1 e 4 0 ]
-"51
-[v _pr_time_2 pr_time_2 `VEul  1 e 4 0 ]
 "52
-[v _pr_time_3 pr_time_3 `VEul  1 e 4 0 ]
+[v _pr_time_1 pr_time_1 `VEul  1 e 4 0 ]
 "53
-[v _pr_time_4 pr_time_4 `VEul  1 e 4 0 ]
+[v _pr_time_2 pr_time_2 `VEul  1 e 4 0 ]
 "54
+[v _pr_time_3 pr_time_3 `VEul  1 e 4 0 ]
+"55
+[v _pr_time_4 pr_time_4 `VEul  1 e 4 0 ]
+"56
 [v _pr_time_5 pr_time_5 `VEul  1 e 4 0 ]
-"58
-[v _data_steering data_steering `[1]uc  1 e 1 0 ]
-"59
-[v _data_speed data_speed `[1]uc  1 e 1 0 ]
 "60
-[v _data_brake data_brake `[1]uc  1 e 1 0 ]
+[v _data_steering data_steering `[1]uc  1 e 1 0 ]
 "61
+[v _data_speed data_speed `[1]uc  1 e 1 0 ]
+"62
+[v _data_brake data_brake `[1]uc  1 e 1 0 ]
+"63
 [v _data data `[1]uc  1 e 1 0 ]
 [s S853 . 15 `ul 1 identifier 4 0 `[8]uc 1 data 8 4 `uc 1 type 1 12 `uc 1 length 1 13 `uc 1 RTR 1 14 ]
-"62
+"64
 [v _msg msg `S853  1 e 15 0 ]
-"63
+"65
 [v _park_assist_state park_assist_state `[8]uc  1 e 8 0 ]
-"66
-[v _RTR_Flag RTR_Flag `VEb  1 e 0 0 ]
-"67
-[v _newMessageCan newMessageCan `VEb  1 e 0 0 ]
 "68
-[v _MotoreFlag MotoreFlag `VEb  1 e 0 0 ]
+[v _RTR_Flag RTR_Flag `VEb  1 e 0 0 ]
 "69
-[v _AbsFlag AbsFlag `VEb  1 e 0 0 ]
+[v _newMessageCan newMessageCan `VEb  1 e 0 0 ]
 "70
-[v _SterzoFlag SterzoFlag `VEb  1 e 0 0 ]
+[v _MotoreFlag MotoreFlag `VEb  1 e 0 0 ]
 "71
-[v _left_speed left_speed `ui  1 e 2 0 ]
+[v _AbsFlag AbsFlag `VEb  1 e 0 0 ]
 "72
-[v _right_speed right_speed `ui  1 e 2 0 ]
+[v _SterzoFlag SterzoFlag `VEb  1 e 0 0 ]
 "73
-[v _battery battery `VEuc  1 e 1 0 ]
+[v _left_speed left_speed `ui  1 e 2 0 ]
 "74
-[v _id id `VEul  1 e 4 0 ]
+[v _right_speed right_speed `ui  1 e 2 0 ]
 "75
+[v _battery battery `VEuc  1 e 1 0 ]
+"76
+[v _id id `VEul  1 e 4 0 ]
+"77
 [v _data_speed_rx data_speed_rx `[7]uc  1 e 7 0 ]
-"78
-[v _display_refresh display_refresh `VEb  1 e 0 0 ]
-"79
-[v _str str `[12]uc  1 e 12 0 ]
 "80
-[v _actual_speed_kmh actual_speed_kmh `f  1 e 4 0 ]
+[v _display_refresh display_refresh `VEb  1 e 0 0 ]
 "81
-[v _actual_speed actual_speed `ui  1 e 2 0 ]
+[v _str str `[12]uc  1 e 12 0 ]
+"82
+[v _actual_speed_kmh actual_speed_kmh `f  1 e 4 0 ]
+"83
+[v _user_data user_data `ui  1 e 2 0 ]
 "84
-[v _y y `VEb  1 e 0 0 ]
-"85
-[v _space_available space_available `VEb  1 e 0 0 ]
-"86
-[v _x x `VEuc  1 e 1 0 ]
+[v _actual_speed actual_speed `ui  1 e 2 0 ]
 "87
-[v _z z `VEuc  1 e 1 0 ]
+[v _y y `VEb  1 e 0 0 ]
 "88
-[v _parking_state parking_state `VEuc  1 e 1 0 ]
+[v _space_available space_available `VEb  1 e 0 0 ]
+"89
+[v _x x `VEuc  1 e 1 0 ]
+"90
+[v _z z `VEuc  1 e 1 0 ]
 "91
-[v _wait_low_1 wait_low_1 `VEb  1 e 0 0 ]
-"92
-[v _wait_low_2 wait_low_2 `VEb  1 e 0 0 ]
-"93
-[v _wait_low_3 wait_low_3 `VEb  1 e 0 0 ]
+[v _parking_state parking_state `VEuc  1 e 1 0 ]
 "94
-[v _power_switch power_switch `VEb  1 e 0 0 ]
+[v _wait_low_1 wait_low_1 `VEb  1 e 0 0 ]
 "95
-[v _F1_switch F1_switch `VEb  1 e 0 0 ]
+[v _wait_low_2 wait_low_2 `VEb  1 e 0 0 ]
 "96
-[v _F2_switch F2_switch `VEb  1 e 0 0 ]
+[v _wait_low_3 wait_low_3 `VEb  1 e 0 0 ]
 "97
-[v _dir dir `VEuc  1 e 1 0 ]
+[v _power_switch power_switch `VEb  1 e 0 0 ]
 "98
-[v _switch_position switch_position `VEuc  1 e 1 0 ]
+[v _F1_switch F1_switch `VEb  1 e 0 0 ]
 "99
-[v _set_steering set_steering `VEuc  1 e 1 0 ]
+[v _F2_switch F2_switch `VEb  1 e 0 0 ]
 "100
-[v _set_speed set_speed `VEui  1 e 2 0 ]
+[v _dir dir `VEuc  1 e 1 0 ]
 "101
-[v _JoystickValues JoystickValues `VE[2]uc  1 e 2 0 ]
+[v _switch_position switch_position `VEuc  1 e 1 0 ]
 "102
+[v _set_steering set_steering `VEuc  1 e 1 0 ]
+"103
+[v _set_speed set_speed `VEui  1 e 2 0 ]
+"104
+[v _JoystickValues JoystickValues `VE[2]uc  1 e 2 0 ]
+"105
 [v _JoystickConstants JoystickConstants `VE[2]f  1 e 8 0 ]
-"154
+"161
 [v _main main `(v  1 e 0 0 ]
 {
-"298
+"305
 } 0
-"442
+"459
 [v _board_initialization board_initialization `(v  1 e 0 0 ]
 {
-"508
+"525
 } 0
 "218 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
 [v _CANInitialize CANInitialize `(v  1 e 0 0 ]
@@ -1763,39 +1767,39 @@ CAN_RX_BUFFER_2_OVFL 2
 [v CANOperationMode@mode mode `E16881  1 a 1 18 ]
 "211
 } 0
-"403 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"420 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _PWR_Button_Polling PWR_Button_Polling `(v  1 e 0 0 ]
 {
-"411
+"428
 } 0
-"313
+"320
 [v _LCD_Handler LCD_Handler `(v  1 e 0 0 ]
 {
-"367
+"384
 } 0
 "492 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
 "516
-[v sprintf@fval fval `d  1 a 4 22 ]
-[u S3559 . 4 `ul 1 vd 4 0 `d 1 integ 4 0 ]
+[v sprintf@fval fval `d  1 a 4 28 ]
+[u S3562 . 4 `ul 1 vd 4 0 `d 1 integ 4 0 ]
 "526
-[v sprintf@tmpval tmpval `S3559  1 a 4 16 ]
+[v sprintf@tmpval tmpval `S3562  1 a 4 22 ]
 "528
-[v sprintf@val val `ul  1 a 4 10 ]
+[v sprintf@val val `ul  1 a 4 16 ]
 "504
-[v sprintf@prec prec `i  1 a 2 20 ]
+[v sprintf@prec prec `i  1 a 2 26 ]
 "516
-[v sprintf@exp exp `i  1 a 2 14 ]
+[v sprintf@exp exp `i  1 a 2 20 ]
 "508
-[v sprintf@flag flag `us  1 a 2 8 ]
+[v sprintf@flag flag `us  1 a 2 14 ]
 "494
-[v sprintf@ap ap `[1]*.39v  1 a 2 6 ]
+[v sprintf@ap ap `[1]*.39v  1 a 2 12 ]
 "499
-[v sprintf@c c `c  1 a 1 26 ]
+[v sprintf@c c `c  1 a 1 32 ]
 "492
-[v sprintf@sp sp `*.39uc  1 p 2 100 ]
-[v sprintf@f f `*.32Cuc  1 p 2 102 ]
+[v sprintf@sp sp `*.39uc  1 p 2 0 ]
+[v sprintf@f f `*.32Cuc  1 p 2 2 ]
 "1541
 } 0
 "425
@@ -1828,17 +1832,17 @@ CAN_RX_BUFFER_2_OVFL 2
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S3866 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S3869 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S3871 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S3874 . 4 `l 1 i 4 0 `d 1 f 4 0 `S3866 1 fAsBytes 4 0 `S3871 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S3874  1 a 4 51 ]
+[s S3874 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S3877 . 4 `l 1 i 4 0 `d 1 f 4 0 `S3869 1 fAsBytes 4 0 `S3874 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S3877  1 a 4 51 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 46 ]
-[s S3942 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S3945 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S3945 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S3942 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S3945  1 a 2 55 ]
+[u S3948 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S3945 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S3948  1 a 2 55 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 50 ]
 "11
@@ -2003,17 +2007,77 @@ CAN_RX_BUFFER_2_OVFL 2
 [v ___fldiv@a a `d  1 p 4 36 ]
 "184
 } 0
+"178 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c
+[v _LCD_write_message LCD_write_message `(v  1 e 0 0 ]
+{
+[v LCD_write_message@buffer buffer `*.32Cuc  1 p 2 35 ]
+"188
+} 0
+"210
+[v _LCD_write_integer LCD_write_integer `(v  1 e 0 0 ]
+{
+"213
+[v LCD_write_integer@convertedInt convertedInt `[6]uc  1 a 6 51 ]
+"216
+[v LCD_write_integer@index index `uc  1 a 1 57 ]
+"210
+[v LCD_write_integer@value value `i  1 p 2 42 ]
+[v LCD_write_integer@number_of_digits number_of_digits `uc  1 p 1 44 ]
+[v LCD_write_integer@zero_cleaning zero_cleaning `uc  1 p 1 45 ]
+[v LCD_write_integer@F17272 F17272 `[6]uc  1 s 6 F17272 ]
+"251
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\itoa.c
+[v _itoa itoa `(*.39uc  1 e 2 0 ]
+{
+"6
+[v itoa@cp cp `*.39uc  1 a 2 40 ]
+"4
+[v itoa@buf buf `*.39uc  1 p 2 34 ]
+[v itoa@val val `i  1 p 2 36 ]
+[v itoa@base base `i  1 p 2 38 ]
+"14
+} 0
+"17
+[v _utoa utoa `(*.39uc  1 e 2 0 ]
+{
+"19
+[v utoa@v v `ui  1 a 2 31 ]
+"20
+[v utoa@c c `uc  1 a 1 33 ]
+"17
+[v utoa@buf buf `*.39uc  1 p 2 25 ]
+[v utoa@val val `ui  1 p 2 27 ]
+[v utoa@base base `i  1 p 2 29 ]
+"37
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter counter `uc  1 a 1 22 ]
+"8
+[v ___lwmod@dividend dividend `ui  1 p 2 18 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 20 ]
+"26
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 22 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 24 ]
+"8
+[v ___lwdiv@dividend dividend `ui  1 p 2 18 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 20 ]
+"31
+} 0
 "194 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c
 [v _LCD_write_string LCD_write_string `(v  1 e 0 0 ]
 {
 [v LCD_write_string@buffer buffer `*.39uc  1 p 2 35 ]
 "204
-} 0
-"178
-[v _LCD_write_message LCD_write_message `(v  1 e 0 0 ]
-{
-[v LCD_write_message@buffer buffer `*.32Cuc  1 p 2 35 ]
-"188
 } 0
 "145
 [v _LCD_write_char LCD_write_char `(v  1 e 0 0 ]
@@ -2127,32 +2191,32 @@ CAN_RX_BUFFER_2_OVFL 2
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 20 ]
 "53
 } 0
-"433 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"450 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _Joystick_Polling Joystick_Polling `(v  1 e 0 0 ]
 {
-"434
+"451
 [v Joystick_Polling@i i `uc  1 a 1 19 ]
-"440
+"457
 } 0
-"423
+"440
 [v _F2_Button_Polling F2_Button_Polling `(v  1 e 0 0 ]
 {
-"431
+"448
 } 0
-"413
+"430
 [v _F1_Button_Polling F1_Button_Polling `(v  1 e 0 0 ]
 {
-"421
+"438
 } 0
-"369
+"386
 [v _CAN_interpreter CAN_interpreter `(v  1 e 0 0 ]
 {
-"401
+"418
 } 0
-"300
+"307
 [v _CAN_Send CAN_Send `(v  1 e 0 0 ]
 {
-"311
+"318
 } 0
 "294 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
 [v _CANsendMessage CANsendMessage `(v  1 e 0 0 ]
@@ -2171,17 +2235,17 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 "1157
 } 0
-"145 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"152 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _ISR_bassa ISR_bassa `IIL(v  1 e 0 0 ]
 {
-"152
+"159
 } 0
-"104
+"107
 [v _ISR_alta ISR_alta `IIH(v  1 e 0 0 ]
 {
-"112
+"115
 [v ISR_alta@i i `uc  1 a 1 29 ]
-"143
+"150
 } 0
 "294 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
 [v i2_CANsendMessage CANsendMessage `(v  1 e 0 0 ]

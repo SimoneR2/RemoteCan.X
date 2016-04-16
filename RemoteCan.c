@@ -2,6 +2,8 @@
 #define SPD_CNST_STD 15 //max value: 35
 #define SPD_CNST_PKG 1  //max value: 35
 #define LCD_DLY 100   //[ms] multiple of 10 only
+#define LCD_4TH_ROW_MODE 1  /* 0 to visualize the parking messages and 1 to
+                            visualize the data sent on CANBUS with the ID 0xAA */
 /////////////////////////////////////////////////////
 
 
@@ -78,6 +80,7 @@ BYTE data_speed_rx[7] = 0;
 volatile bit display_refresh = LOW;
 unsigned char str [12] = 0;
 float actual_speed_kmh = 0;
+unsigned int user_data = 0;
 unsigned int actual_speed = 0;
 
 //Variabili parcheggio
@@ -118,6 +121,10 @@ __interrupt(high_priority) void ISR_alta(void) {
                 if (msg.data[0] == 1) {
                     space_available = HIGH;
                 }
+            }
+
+            if (id == 0xAA) {
+                user_data = msg.data[0];
             }
 
             if (id == ECU_STATE) {
@@ -329,7 +336,11 @@ void LCD_Handler(void) {
         LCD_goto_line(3);
         LCD_write_message("Speed: 0.00 Km/h");
         LCD_goto_line(4);
-        LCD_write_message("Park assist: ");
+        if (LCD_4TH_ROW_MODE == LOW) {
+            LCD_write_message("Park assist: ");
+        } else {
+            LCD_write_message("Data: ");
+        }
         display_refresh = LOW;
     }
 
@@ -349,20 +360,26 @@ void LCD_Handler(void) {
     LCD_goto_xy(8, 3);
     LCD_write_string(str);
 
-    //Print parking data
-    LCD_goto_xy(14, 4);
-    if (parking_state == OFF) {
-        LCD_write_message("OFF    ");
-    } else {
-        if (parking_state == SEARCH) {
-            if (space_available == LOW) {
-                LCD_write_message("SEARCH ");
-            } else {
-                LCD_write_message("FOUND! ");
-            }
+    if (LCD_4TH_ROW_MODE == LOW) {
+        //Print parking data
+        LCD_goto_xy(14, 4);
+        if (parking_state == OFF) {
+            LCD_write_message("OFF    ");
         } else {
-            LCD_write_message("PARKING");
+            if (parking_state == SEARCH) {
+                if (space_available == LOW) {
+                    LCD_write_message("SEARCH ");
+                } else {
+                    LCD_write_message("FOUND! ");
+                }
+            } else {
+                LCD_write_message("PARKING");
+            }
         }
+    } else {
+        //Print user data sent with id 0xAA
+        LCD_goto_xy(7, 4);
+        LCD_write_integer(user_data, 0, LCD_ZERO_CLEANING_ON);
     }
 }
 

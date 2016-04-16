@@ -20949,7 +20949,7 @@ extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
 
-# 39 "RemoteCan.c"
+# 41 "RemoteCan.c"
 void board_initialization(void);
 void PWR_Button_Polling(void);
 void F1_Button_Polling(void);
@@ -20992,6 +20992,7 @@ BYTE data_speed_rx[7] = 0;
 volatile bit display_refresh = 0;
 unsigned char str [12] = 0;
 float actual_speed_kmh = 0;
+unsigned int user_data = 0;
 unsigned int actual_speed = 0;
 
 
@@ -21034,6 +21035,10 @@ space_available = 1;
 }
 }
 
+if (id == 0xAA) {
+user_data = msg.data[0];
+}
+
 if (id == 0b00000000010) {
 if (RTR_Flag == 1) {
 pr_time_4 = time_counter;
@@ -21042,7 +21047,7 @@ _delay((unsigned long)((10)*(16000000/4000000.0)));
 while (CANisTxReady() != 1);
 CANsendMessage(0b00000000010, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 
-# 135
+# 142
 }
 }
 }
@@ -21065,7 +21070,7 @@ PIR2bits.TMR3IF = 0;
 void main(void) {
 board_initialization();
 
-# 163
+# 170
 JoystickConstants[0] = 0.703;
 JoystickConstants[1] = 10;
 
@@ -21235,7 +21240,11 @@ LCD_write_message("Direction: ");
 LCD_goto_line(3);
 LCD_write_message("Speed: 0.00 Km/h");
 LCD_goto_line(4);
+if (1 == 0) {
 LCD_write_message("Park assist: ");
+} else {
+LCD_write_message("Data: ");
+}
 display_refresh = 0;
 }
 
@@ -21255,6 +21264,7 @@ LCD_write_message("P   ");
 LCD_goto_xy(8, 3);
 LCD_write_string(str);
 
+if (1 == 0) {
 
 LCD_goto_xy(14, 4);
 if (parking_state == 0) {
@@ -21269,6 +21279,11 @@ LCD_write_message("FOUND! ");
 } else {
 LCD_write_message("PARKING");
 }
+}
+} else {
+
+LCD_goto_xy(7, 4);
+LCD_write_integer(user_data, 0, 0x01);
 }
 }
 
