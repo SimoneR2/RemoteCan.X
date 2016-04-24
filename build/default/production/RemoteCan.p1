@@ -20119,132 +20119,150 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;RemoteCan.c: 88: volatile bit space_available = 0;
 "89
+[v _steering_correction_dir `Vb ~T0 @X0 1 e ]
+[i _steering_correction_dir
+-> 0 `i
+]
+[; ;RemoteCan.c: 89: volatile bit steering_correction_dir = 0;
+"90
+[v _steering_correction `Vuc ~T0 @X0 1 e ]
+[i _steering_correction
+-> -> 0 `i `uc
+]
+[; ;RemoteCan.c: 90: volatile unsigned char steering_correction = 0;
+"91
 [v _x `Vuc ~T0 @X0 1 e ]
 [i _x
 -> -> 0 `i `uc
 ]
-[; ;RemoteCan.c: 89: volatile unsigned char x = 0;
-"90
+[; ;RemoteCan.c: 91: volatile unsigned char x = 0;
+"92
 [v _z `Vuc ~T0 @X0 1 e ]
 [i _z
 -> -> 0 `i `uc
 ]
-[; ;RemoteCan.c: 90: volatile unsigned char z = 0;
-"91
+[; ;RemoteCan.c: 92: volatile unsigned char z = 0;
+"93
+[v _check `Vl ~T0 @X0 1 e ]
+[i _check
+-> -> 0 `i `l
+]
+[; ;RemoteCan.c: 93: volatile signed long check = 0;
+"94
 [v _parking_state `Vuc ~T0 @X0 1 e ]
 [i _parking_state
 -> -> 0 `i `uc
 ]
-[; ;RemoteCan.c: 91: volatile char parking_state = 0;
-"94
+[; ;RemoteCan.c: 94: volatile char parking_state = 0;
+"97
 [v _wait_low_1 `Vb ~T0 @X0 1 e ]
 [i _wait_low_1
 -> 0 `i
 ]
-[; ;RemoteCan.c: 94: volatile bit wait_low_1 = 0;
-"95
+[; ;RemoteCan.c: 97: volatile bit wait_low_1 = 0;
+"98
 [v _wait_low_2 `Vb ~T0 @X0 1 e ]
 [i _wait_low_2
 -> 0 `i
 ]
-[; ;RemoteCan.c: 95: volatile bit wait_low_2 = 0;
-"96
+[; ;RemoteCan.c: 98: volatile bit wait_low_2 = 0;
+"99
 [v _wait_low_3 `Vb ~T0 @X0 1 e ]
 [i _wait_low_3
 -> 0 `i
 ]
-[; ;RemoteCan.c: 96: volatile bit wait_low_3 = 0;
-"97
+[; ;RemoteCan.c: 99: volatile bit wait_low_3 = 0;
+"100
 [v _power_switch `Vb ~T0 @X0 1 e ]
 [i _power_switch
 -> 0 `i
 ]
-[; ;RemoteCan.c: 97: volatile bit power_switch = 0;
-"98
+[; ;RemoteCan.c: 100: volatile bit power_switch = 0;
+"101
 [v _F1_switch `Vb ~T0 @X0 1 e ]
 [i _F1_switch
 -> 0 `i
 ]
-[; ;RemoteCan.c: 98: volatile bit F1_switch = 0;
-"99
+[; ;RemoteCan.c: 101: volatile bit F1_switch = 0;
+"102
 [v _F2_switch `Vb ~T0 @X0 1 e ]
 [i _F2_switch
 -> 0 `i
 ]
-[; ;RemoteCan.c: 99: volatile bit F2_switch = 0;
-"100
+[; ;RemoteCan.c: 102: volatile bit F2_switch = 0;
+"103
 [v _dir `Vuc ~T0 @X0 1 e ]
 [i _dir
 -> -> 0 `i `uc
 ]
-[; ;RemoteCan.c: 100: volatile char dir = 0;
-"101
+[; ;RemoteCan.c: 103: volatile char dir = 0;
+"104
 [v _switch_position `Vuc ~T0 @X0 1 e ]
 [i _switch_position
 -> -> 0 `i `uc
 ]
-[; ;RemoteCan.c: 101: volatile unsigned char switch_position = 0;
-"102
+[; ;RemoteCan.c: 104: volatile unsigned char switch_position = 0;
+"105
 [v _set_steering `Vuc ~T0 @X0 1 e ]
 [i _set_steering
 -> -> 0 `i `uc
 ]
-[; ;RemoteCan.c: 102: volatile unsigned char set_steering = 0;
-"103
+[; ;RemoteCan.c: 105: volatile unsigned char set_steering = 0;
+"106
 [v _set_speed `Vui ~T0 @X0 1 e ]
 [i _set_speed
 -> -> 0 `i `ui
 ]
-[; ;RemoteCan.c: 103: volatile unsigned int set_speed = 0;
-"104
+[; ;RemoteCan.c: 106: volatile unsigned int set_speed = 0;
+"107
 [v _JoystickValues `Vuc ~T0 @X0 -> 2 `i e ]
 [i _JoystickValues
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;RemoteCan.c: 104: volatile unsigned char JoystickValues[2] = 0;
-"105
+[; ;RemoteCan.c: 107: volatile unsigned char JoystickValues[2] = 0;
+"108
 [v _JoystickConstants `Vf ~T0 @X0 -> 2 `i e ]
 [i _JoystickConstants
 :U ..
 -> -> 0 `i `f
 ..
 ]
-[; ;RemoteCan.c: 105: volatile signed float JoystickConstants[2] = 0;
-[v F17461 `(v ~T0 @X0 1 tf ]
-"107
-[v _ISR_alta `IF17461 ~T59 @X0 1 e ]
+[; ;RemoteCan.c: 108: volatile signed float JoystickConstants[2] = 0;
+[v F17464 `(v ~T0 @X0 1 tf ]
+"110
+[v _ISR_alta `IF17464 ~T59 @X0 1 e ]
 {
-[; ;RemoteCan.c: 107: __attribute__((interrupt("__high_priority"))) void ISR_alta(void) {
+[; ;RemoteCan.c: 110: __attribute__((interrupt("__high_priority"))) void ISR_alta(void) {
 [e :U _ISR_alta ]
 [f ]
-[; ;RemoteCan.c: 108: if ((PIR3bits.RXB1IF == 1) || (PIR3bits.RXB0IF == 1)) {
-"108
+[; ;RemoteCan.c: 111: if ((PIR3bits.RXB1IF == 1) || (PIR3bits.RXB0IF == 1)) {
+"111
 [e $ ! || == -> . . _PIR3bits 0 1 `i -> 1 `i == -> . . _PIR3bits 0 0 `i -> 1 `i 2403  ]
 {
-[; ;RemoteCan.c: 109: if (CANisRxReady()) {
-"109
+[; ;RemoteCan.c: 112: if (CANisRxReady()) {
+"112
 [e $ ! != -> ( _CANisRxReady ..  `i -> -> -> 0 `i `uc `i 2404  ]
 {
-[; ;RemoteCan.c: 110: CANreceiveMessage(&msg);
-"110
-[e ( _CANreceiveMessage (1 &U _msg ]
-[; ;RemoteCan.c: 111: RTR_Flag = msg.RTR;
-"111
-[e = _RTR_Flag -> . _msg 4 `b ]
-[; ;RemoteCan.c: 112: id = msg.identifier;
-"112
-[e = _id . _msg 0 ]
-[; ;RemoteCan.c: 113: newMessageCan = 1;
+[; ;RemoteCan.c: 113: CANreceiveMessage(&msg);
 "113
-[e = _newMessageCan -> -> 1 `i `b ]
-[; ;RemoteCan.c: 114: if (id == 0b00000000110) {
+[e ( _CANreceiveMessage (1 &U _msg ]
+[; ;RemoteCan.c: 114: RTR_Flag = msg.RTR;
 "114
+[e = _RTR_Flag -> . _msg 4 `b ]
+[; ;RemoteCan.c: 115: id = msg.identifier;
+"115
+[e = _id . _msg 0 ]
+[; ;RemoteCan.c: 116: newMessageCan = 1;
+"116
+[e = _newMessageCan -> -> 1 `i `b ]
+[; ;RemoteCan.c: 117: if (id == 0b00000000110) {
+"117
 [e $ ! == _id -> -> -> 6 `i `l `ul 2405  ]
 {
-[; ;RemoteCan.c: 115: for (unsigned char i = 0; i < 8; i++) {
-"115
+[; ;RemoteCan.c: 118: for (unsigned char i = 0; i < 8; i++) {
+"118
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -20252,1245 +20270,1356 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 2407  ]
 [e :U 2406 ]
 {
-[; ;RemoteCan.c: 116: data_speed_rx[i] = msg.data[i];
-"116
+[; ;RemoteCan.c: 119: data_speed_rx[i] = msg.data[i];
+"119
 [e = *U + &U _data_speed_rx * -> _i `ux -> -> # *U &U _data_speed_rx `ui `ux *U + &U . _msg 1 * -> _i `ux -> -> # *U &U . _msg 1 `ui `ux ]
-"117
+"120
 }
-"115
+"118
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 8 `i 2406  ]
 [e :U 2407 ]
-"117
+"120
 }
-"118
+"121
 }
 [e :U 2405 ]
-[; ;RemoteCan.c: 117: }
-[; ;RemoteCan.c: 118: }
-[; ;RemoteCan.c: 120: if (id == 0b00000001011) {
-"120
+[; ;RemoteCan.c: 120: }
+[; ;RemoteCan.c: 121: }
+[; ;RemoteCan.c: 123: if (id == 0b00000001011) {
+"123
 [e $ ! == _id -> -> -> 11 `i `l `ul 2409  ]
 {
-[; ;RemoteCan.c: 121: if (msg.data[0] == 1) {
-"121
+[; ;RemoteCan.c: 124: if (msg.data[0] == 1) {
+"124
 [e $ ! == -> *U + &U . _msg 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux `i -> 1 `i 2410  ]
 {
-[; ;RemoteCan.c: 122: space_available = 1;
-"122
+[; ;RemoteCan.c: 125: space_available = 1;
+"125
 [e = _space_available -> -> 1 `i `b ]
-"123
+[; ;RemoteCan.c: 126: F2_switch = 0;
+"126
+[e = _F2_switch -> -> 0 `i `b ]
+"127
 }
 [e :U 2410 ]
-"124
-}
-[e :U 2409 ]
-[; ;RemoteCan.c: 123: }
-[; ;RemoteCan.c: 124: }
-[; ;RemoteCan.c: 126: if (id == 0xAA) {
-"126
-[e $ ! == _id -> -> -> 170 `i `l `ul 2411  ]
-{
-[; ;RemoteCan.c: 127: user_data = msg.data[0];
-"127
-[e = _user_data -> *U + &U . _msg 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux `ui ]
 "128
 }
-[e :U 2411 ]
+[e :U 2409 ]
+[; ;RemoteCan.c: 127: }
 [; ;RemoteCan.c: 128: }
-[; ;RemoteCan.c: 130: if (id == 0b00000000010) {
+[; ;RemoteCan.c: 130: if (id == 0b00000001110) {
 "130
-[e $ ! == _id -> -> -> 2 `i `l `ul 2412  ]
+[e $ ! == _id -> -> -> 14 `i `l `ul 2411  ]
 {
-[; ;RemoteCan.c: 131: if (RTR_Flag == 1) {
+[; ;RemoteCan.c: 131: steering_correction_dir = msg.data[1];
 "131
-[e $ ! == -> _RTR_Flag `i -> 1 `i 2413  ]
-{
-[; ;RemoteCan.c: 132: pr_time_4 = time_counter;
+[e = _steering_correction_dir -> *U + &U . _msg 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux `b ]
+[; ;RemoteCan.c: 132: steering_correction = msg.data[0];
 "132
-[e = _pr_time_4 _time_counter ]
-[; ;RemoteCan.c: 133: data[0] = 0x03;
+[e = _steering_correction *U + &U . _msg 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux ]
 "133
-[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 3 `i `uc ]
-[; ;RemoteCan.c: 134: _delay((unsigned long)((10)*(16000000/4000000.0)));
-"134
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-[; ;RemoteCan.c: 135: while (CANisTxReady() != 1);
-"135
-[e $U 2414  ]
-[e :U 2415 ]
-[e :U 2414 ]
-[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2415  ]
-[e :U 2416 ]
-[; ;RemoteCan.c: 136: CANsendMessage(0b00000000010, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-"136
-[e ( _CANsendMessage (4 , , , -> -> -> 2 `i `l `ul &U _data -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
-"142
 }
-[e :U 2413 ]
-"143
+[e :U 2411 ]
+[; ;RemoteCan.c: 133: }
+[; ;RemoteCan.c: 135: if (id == 0xAA) {
+"135
+[e $ ! == _id -> -> -> 170 `i `l `ul 2412  ]
+{
+[; ;RemoteCan.c: 136: user_data = msg.data[0];
+"136
+[e = _user_data -> *U + &U . _msg 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux `ui ]
+"137
 }
 [e :U 2412 ]
+[; ;RemoteCan.c: 137: }
+[; ;RemoteCan.c: 139: if (id == 0b00000000010) {
+"139
+[e $ ! == _id -> -> -> 2 `i `l `ul 2413  ]
+{
+[; ;RemoteCan.c: 140: if (RTR_Flag == 1) {
+"140
+[e $ ! == -> _RTR_Flag `i -> 1 `i 2414  ]
+{
+[; ;RemoteCan.c: 141: pr_time_4 = time_counter;
+"141
+[e = _pr_time_4 _time_counter ]
+[; ;RemoteCan.c: 142: data[0] = 0x03;
+"142
+[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 3 `i `uc ]
+[; ;RemoteCan.c: 143: _delay((unsigned long)((10)*(16000000/4000000.0)));
+"143
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[; ;RemoteCan.c: 144: while (CANisTxReady() != 1);
 "144
+[e $U 2415  ]
+[e :U 2416 ]
+[e :U 2415 ]
+[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2416  ]
+[e :U 2417 ]
+[; ;RemoteCan.c: 145: CANsendMessage(0b00000000010, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+"145
+[e ( _CANsendMessage (4 , , , -> -> -> 2 `i `l `ul &U _data -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
+"151
+}
+[e :U 2414 ]
+"152
+}
+[e :U 2413 ]
+"153
 }
 [e :U 2404 ]
-[; ;RemoteCan.c: 142: }
-[; ;RemoteCan.c: 143: }
-[; ;RemoteCan.c: 144: }
-[; ;RemoteCan.c: 145: LATDbits.LATD2 = 1;
-"145
-[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 146: LATDbits.LATD3 = 1;
-"146
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 147: PIR3bits.RXB1IF = 0;
-"147
-[e = . . _PIR3bits 0 1 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 148: PIR3bits.RXB0IF = 0;
-"148
-[e = . . _PIR3bits 0 0 -> -> 0 `i `uc ]
-"149
-}
-[e :U 2403 ]
-[; ;RemoteCan.c: 149: }
-[; ;RemoteCan.c: 150: }
-"150
-[e :UE 2402 ]
-}
-[v F17466 `(v ~T0 @X0 1 tf ]
-"152
-[v _ISR_bassa `IF17466 ~T60 @X0 1 e ]
-{
-[; ;RemoteCan.c: 152: __attribute__((interrupt("__low_priority"))) void ISR_bassa(void) {
-[e :U _ISR_bassa ]
-[f ]
-[; ;RemoteCan.c: 153: if (PIR2bits.TMR3IF == 1) {
-"153
-[e $ ! == -> . . _PIR2bits 0 1 `i -> 1 `i 2418  ]
-{
-[; ;RemoteCan.c: 154: time_counter++;
+[; ;RemoteCan.c: 151: }
+[; ;RemoteCan.c: 152: }
+[; ;RemoteCan.c: 153: }
+[; ;RemoteCan.c: 154: LATDbits.LATD2 = 1;
 "154
-[e ++ _time_counter -> -> -> 1 `i `l `ul ]
-[; ;RemoteCan.c: 155: TMR3H = 0x63;
+[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 155: LATDbits.LATD3 = 1;
 "155
-[e = _TMR3H -> -> 99 `i `uc ]
-[; ;RemoteCan.c: 156: TMR3L = 0xC0;
+[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 156: PIR3bits.RXB1IF = 0;
 "156
-[e = _TMR3L -> -> 192 `i `uc ]
-[; ;RemoteCan.c: 157: PIR2bits.TMR3IF = 0;
+[e = . . _PIR3bits 0 1 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 157: PIR3bits.RXB0IF = 0;
 "157
-[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
+[e = . . _PIR3bits 0 0 -> -> 0 `i `uc ]
 "158
 }
-[e :U 2418 ]
+[e :U 2403 ]
 [; ;RemoteCan.c: 158: }
 [; ;RemoteCan.c: 159: }
 "159
-[e :UE 2417 ]
+[e :UE 2402 ]
 }
+[v F17469 `(v ~T0 @X0 1 tf ]
 "161
+[v _ISR_bassa `IF17469 ~T60 @X0 1 e ]
+{
+[; ;RemoteCan.c: 161: __attribute__((interrupt("__low_priority"))) void ISR_bassa(void) {
+[e :U _ISR_bassa ]
+[f ]
+[; ;RemoteCan.c: 162: if (PIR2bits.TMR3IF == 1) {
+"162
+[e $ ! == -> . . _PIR2bits 0 1 `i -> 1 `i 2419  ]
+{
+[; ;RemoteCan.c: 163: time_counter++;
+"163
+[e ++ _time_counter -> -> -> 1 `i `l `ul ]
+[; ;RemoteCan.c: 164: TMR3H = 0x63;
+"164
+[e = _TMR3H -> -> 99 `i `uc ]
+[; ;RemoteCan.c: 165: TMR3L = 0xC0;
+"165
+[e = _TMR3L -> -> 192 `i `uc ]
+[; ;RemoteCan.c: 166: PIR2bits.TMR3IF = 0;
+"166
+[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
+"167
+}
+[e :U 2419 ]
+[; ;RemoteCan.c: 167: }
+[; ;RemoteCan.c: 168: }
+"168
+[e :UE 2418 ]
+}
+"170
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;RemoteCan.c: 161: void main(void) {
+[; ;RemoteCan.c: 170: void main(void) {
 [e :U _main ]
 [f ]
-[; ;RemoteCan.c: 162: board_initialization();
-"162
-[e ( _board_initialization ..  ]
-[; ;RemoteCan.c: 170: JoystickConstants[0] = 0.703;
-"170
-[e = *U + &U _JoystickConstants * -> -> -> 0 `i `ui `ux -> -> # *U &U _JoystickConstants `ui `ux -> .0.703 `f ]
-[; ;RemoteCan.c: 171: JoystickConstants[1] = 10;
+[; ;RemoteCan.c: 171: board_initialization();
 "171
-[e = *U + &U _JoystickConstants * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickConstants `ui `ux -> -> 10 `i `f ]
-[; ;RemoteCan.c: 173: display_refresh = 1;
-"173
-[e = _display_refresh -> -> 1 `i `b ]
-[; ;RemoteCan.c: 174: while (1) {
-"174
-[e :U 2421 ]
-{
-[; ;RemoteCan.c: 177: PWR_Button_Polling();
-"177
-[e ( _PWR_Button_Polling ..  ]
-[; ;RemoteCan.c: 178: F1_Button_Polling();
-"178
-[e ( _F1_Button_Polling ..  ]
-[; ;RemoteCan.c: 179: F2_Button_Polling();
+[e ( _board_initialization ..  ]
+[; ;RemoteCan.c: 179: JoystickConstants[0] = 0.703;
 "179
-[e ( _F2_Button_Polling ..  ]
-[; ;RemoteCan.c: 182: if (power_switch == 0) {
+[e = *U + &U _JoystickConstants * -> -> -> 0 `i `ui `ux -> -> # *U &U _JoystickConstants `ui `ux -> .0.703 `f ]
+[; ;RemoteCan.c: 180: JoystickConstants[1] = 10;
+"180
+[e = *U + &U _JoystickConstants * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickConstants `ui `ux -> -> 10 `i `f ]
+[; ;RemoteCan.c: 182: display_refresh = 1;
 "182
-[e $ ! == -> _power_switch `i -> 0 `i 2423  ]
-{
-[; ;RemoteCan.c: 183: dir = 1;
+[e = _display_refresh -> -> 1 `i `b ]
+[; ;RemoteCan.c: 183: while (1) {
 "183
-[e = _dir -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 184: set_speed = 0;
-"184
-[e = _set_speed -> -> 0 `i `ui ]
-[; ;RemoteCan.c: 185: data_steering [0] = 90;
-"185
-[e = *U + &U _data_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_steering `ui `ux -> -> 90 `i `uc ]
-[; ;RemoteCan.c: 186: data_brake [0] = 0;
+[e :U 2422 ]
+{
+[; ;RemoteCan.c: 186: PWR_Button_Polling();
 "186
-[e = *U + &U _data_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 187: data_brake [1] = 1;
-"187
-[e = *U + &U _data_brake * -> -> -> 1 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 188: CAN_Send();
-"188
-[e ( _CAN_Send ..  ]
-[; ;RemoteCan.c: 189: LCD_initialize(16);
-"189
-[e ( _LCD_initialize (1 -> -> 16 `i `uc ]
-[; ;RemoteCan.c: 190: PORTDbits.RD6 = 0;
-"190
-[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 191: PORTDbits.RD5 = 0;
-"191
-[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 192: LCD_goto_line(1);
-"192
-[e ( _LCD_goto_line (1 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 193: LCD_write_message("====================");
-"193
-[e ( _LCD_write_message (1 :s 1C ]
-[; ;RemoteCan.c: 194: LCD_goto_line(2);
-"194
-[e ( _LCD_goto_line (1 -> -> 2 `i `uc ]
-[; ;RemoteCan.c: 195: LCD_write_message("==> VEHICLE  OFF <==");
-"195
-[e ( _LCD_write_message (1 :s 2C ]
-[; ;RemoteCan.c: 196: LCD_goto_line(3);
-"196
-[e ( _LCD_goto_line (1 -> -> 3 `i `uc ]
-[; ;RemoteCan.c: 197: LCD_write_message("  Press the button  ");
-"197
-[e ( _LCD_write_message (1 :s 3C ]
-[; ;RemoteCan.c: 198: LCD_goto_line(4);
-"198
-[e ( _LCD_goto_line (1 -> -> 4 `i `uc ]
-[; ;RemoteCan.c: 199: LCD_write_message("====================");
-"199
-[e ( _LCD_write_message (1 :s 4C ]
-[; ;RemoteCan.c: 200: while (power_switch == 0) {
-"200
-[e $U 2424  ]
-[e :U 2425 ]
-{
-[; ;RemoteCan.c: 201: if ((time_counter - pr_time_1) >= 30) {
-"201
-[e $ ! >= - _time_counter _pr_time_1 -> -> -> 30 `i `l `ul 2427  ]
-{
-[; ;RemoteCan.c: 202: pr_time_1 = time_counter;
-"202
-[e = _pr_time_1 _time_counter ]
-[; ;RemoteCan.c: 203: PORTDbits.RD7 = ~PORTDbits.RD7;
-"203
-[e = . . _PORTDbits 0 7 -> ~ -> . . _PORTDbits 0 7 `i `uc ]
-"204
-}
-[e :U 2427 ]
-[; ;RemoteCan.c: 204: }
-[; ;RemoteCan.c: 205: PWR_Button_Polling();
-"205
 [e ( _PWR_Button_Polling ..  ]
-[; ;RemoteCan.c: 206: delay_ms(10);
+[; ;RemoteCan.c: 187: F1_Button_Polling();
+"187
+[e ( _F1_Button_Polling ..  ]
+[; ;RemoteCan.c: 188: F2_Button_Polling();
+"188
+[e ( _F2_Button_Polling ..  ]
+[; ;RemoteCan.c: 191: if (power_switch == 0) {
+"191
+[e $ ! == -> _power_switch `i -> 0 `i 2424  ]
+{
+[; ;RemoteCan.c: 192: dir = 1;
+"192
+[e = _dir -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 193: set_speed = 0;
+"193
+[e = _set_speed -> -> 0 `i `ui ]
+[; ;RemoteCan.c: 194: data_steering [0] = 90;
+"194
+[e = *U + &U _data_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_steering `ui `ux -> -> 90 `i `uc ]
+[; ;RemoteCan.c: 195: data_brake [0] = 0;
+"195
+[e = *U + &U _data_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 196: data_brake [1] = 1;
+"196
+[e = *U + &U _data_brake * -> -> -> 1 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 197: CAN_Send();
+"197
+[e ( _CAN_Send ..  ]
+[; ;RemoteCan.c: 198: LCD_initialize(16);
+"198
+[e ( _LCD_initialize (1 -> -> 16 `i `uc ]
+[; ;RemoteCan.c: 199: PORTDbits.RD6 = 0;
+"199
+[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 200: PORTDbits.RD5 = 0;
+"200
+[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 201: LCD_goto_line(1);
+"201
+[e ( _LCD_goto_line (1 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 202: LCD_write_message("====================");
+"202
+[e ( _LCD_write_message (1 :s 1C ]
+[; ;RemoteCan.c: 203: LCD_goto_line(2);
+"203
+[e ( _LCD_goto_line (1 -> -> 2 `i `uc ]
+[; ;RemoteCan.c: 204: LCD_write_message("==> VEHICLE  OFF <==");
+"204
+[e ( _LCD_write_message (1 :s 2C ]
+[; ;RemoteCan.c: 205: LCD_goto_line(3);
+"205
+[e ( _LCD_goto_line (1 -> -> 3 `i `uc ]
+[; ;RemoteCan.c: 206: LCD_write_message("  Press the button  ");
 "206
-[e ( _delay_ms (1 -> -> 10 `i `ui ]
+[e ( _LCD_write_message (1 :s 3C ]
+[; ;RemoteCan.c: 207: LCD_goto_line(4);
 "207
+[e ( _LCD_goto_line (1 -> -> 4 `i `uc ]
+[; ;RemoteCan.c: 208: LCD_write_message("====================");
+"208
+[e ( _LCD_write_message (1 :s 4C ]
+[; ;RemoteCan.c: 209: while (power_switch == 0) {
+"209
+[e $U 2425  ]
+[e :U 2426 ]
+{
+[; ;RemoteCan.c: 210: if ((time_counter - pr_time_1) >= 30) {
+"210
+[e $ ! >= - _time_counter _pr_time_1 -> -> -> 30 `i `l `ul 2428  ]
+{
+[; ;RemoteCan.c: 211: pr_time_1 = time_counter;
+"211
+[e = _pr_time_1 _time_counter ]
+[; ;RemoteCan.c: 212: PORTDbits.RD7 = ~PORTDbits.RD7;
+"212
+[e = . . _PORTDbits 0 7 -> ~ -> . . _PORTDbits 0 7 `i `uc ]
+"213
+}
+[e :U 2428 ]
+[; ;RemoteCan.c: 213: }
+[; ;RemoteCan.c: 214: PWR_Button_Polling();
+"214
+[e ( _PWR_Button_Polling ..  ]
+[; ;RemoteCan.c: 215: delay_ms(10);
+"215
+[e ( _delay_ms (1 -> -> 10 `i `ui ]
+"216
+}
+[e :U 2425 ]
+"209
+[e $ == -> _power_switch `i -> 0 `i 2426  ]
+[e :U 2427 ]
+[; ;RemoteCan.c: 216: }
+[; ;RemoteCan.c: 217: PORTDbits.RD7 = 0;
+"217
+[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 218: display_refresh = 1;
+"218
+[e = _display_refresh -> -> 1 `i `b ]
+"219
 }
 [e :U 2424 ]
-"200
-[e $ == -> _power_switch `i -> 0 `i 2425  ]
-[e :U 2426 ]
-[; ;RemoteCan.c: 207: }
-[; ;RemoteCan.c: 208: PORTDbits.RD7 = 0;
-"208
-[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 209: display_refresh = 1;
-"209
-[e = _display_refresh -> -> 1 `i `b ]
-"210
-}
-[e :U 2423 ]
-[; ;RemoteCan.c: 210: }
-[; ;RemoteCan.c: 212: Joystick_Polling();
-"212
-[e ( _Joystick_Polling ..  ]
-[; ;RemoteCan.c: 215: if (PORTAbits.RA2 == 1) {
-"215
-[e $ ! == -> . . _PORTAbits 0 2 `i -> 1 `i 2428  ]
-{
-[; ;RemoteCan.c: 216: switch_position = 0;
-"216
-[e = _switch_position -> -> 0 `i `uc ]
-"217
-}
-[; ;RemoteCan.c: 217: } else {
-[e $U 2429  ]
-[e :U 2428 ]
-{
-[; ;RemoteCan.c: 218: if (PORTAbits.RA3 == 0) {
-"218
-[e $ ! == -> . . _PORTAbits 0 3 `i -> 0 `i 2430  ]
-{
-[; ;RemoteCan.c: 219: switch_position = 1;
-"219
-[e = _switch_position -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 220: dir = 1;
-"220
-[e = _dir -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 219: }
+[; ;RemoteCan.c: 221: Joystick_Polling();
 "221
-}
-[; ;RemoteCan.c: 221: } else {
-[e $U 2431  ]
-[e :U 2430 ]
-{
-[; ;RemoteCan.c: 222: switch_position = 2;
-"222
-[e = _switch_position -> -> 2 `i `uc ]
-[; ;RemoteCan.c: 223: dir = 0;
-"223
-[e = _dir -> -> 0 `i `uc ]
+[e ( _Joystick_Polling ..  ]
+[; ;RemoteCan.c: 224: if (PORTAbits.RA2 == 1) {
 "224
-}
-[e :U 2431 ]
+[e $ ! == -> . . _PORTAbits 0 2 `i -> 1 `i 2429  ]
+{
+[; ;RemoteCan.c: 225: switch_position = 0;
 "225
+[e = _switch_position -> -> 0 `i `uc ]
+"226
 }
+[; ;RemoteCan.c: 226: } else {
+[e $U 2430  ]
 [e :U 2429 ]
-[; ;RemoteCan.c: 224: }
-[; ;RemoteCan.c: 225: }
-[; ;RemoteCan.c: 228: if (F1_switch == 1) {
+{
+[; ;RemoteCan.c: 227: if (PORTAbits.RA3 == 0) {
+"227
+[e $ ! == -> . . _PORTAbits 0 3 `i -> 0 `i 2431  ]
+{
+[; ;RemoteCan.c: 228: switch_position = 1;
 "228
-[e $ ! == -> _F1_switch `i -> 1 `i 2432  ]
-{
-[; ;RemoteCan.c: 229: y = 0;
+[e = _switch_position -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 229: dir = 1;
 "229
-[e = _y -> -> 0 `i `b ]
-[; ;RemoteCan.c: 230: if ((x < 1)&&(F2_switch == 0)) {
+[e = _dir -> -> 1 `i `uc ]
 "230
-[e $ ! && < -> _x `i -> 1 `i == -> _F2_switch `i -> 0 `i 2433  ]
+}
+[; ;RemoteCan.c: 230: } else {
+[e $U 2432  ]
+[e :U 2431 ]
 {
-[; ;RemoteCan.c: 231: space_available = 0;
+[; ;RemoteCan.c: 231: switch_position = 2;
 "231
-[e = _space_available -> -> 0 `i `b ]
-[; ;RemoteCan.c: 232: parking_state = 1;
+[e = _switch_position -> -> 2 `i `uc ]
+[; ;RemoteCan.c: 232: dir = 0;
 "232
-[e = _parking_state -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 233: JoystickConstants[1] = 1;
+[e = _dir -> -> 0 `i `uc ]
 "233
-[e = *U + &U _JoystickConstants * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickConstants `ui `ux -> -> 1 `i `f ]
-[; ;RemoteCan.c: 234: while (!CANisTxReady());
+}
+[e :U 2432 ]
 "234
-[e $U 2434  ]
-[e :U 2435 ]
-[e :U 2434 ]
-[e $ ! != -> ( _CANisTxReady ..  `i -> -> -> 0 `i `uc `i 2435  ]
-[e :U 2436 ]
-[; ;RemoteCan.c: 235: park_assist_state[0] = 0b00000001;
-"235
-[e = *U + &U _park_assist_state * -> -> -> 0 `i `ui `ux -> -> # *U &U _park_assist_state `ui `ux -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 236: CANsendMessage(0b00000001010, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-"236
-[e ( _CANsendMessage (4 , , , -> -> -> 10 `i `l `ul &U _park_assist_state -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
-[; ;RemoteCan.c: 237: x++;
+}
+[e :U 2430 ]
+[; ;RemoteCan.c: 233: }
+[; ;RemoteCan.c: 234: }
+[; ;RemoteCan.c: 237: if (F1_switch == 1) {
 "237
-[e ++ _x -> -> 1 `i `uc ]
+[e $ ! == -> _F1_switch `i -> 1 `i 2433  ]
+{
+[; ;RemoteCan.c: 238: y = 0;
 "238
-}
-[e :U 2433 ]
-[; ;RemoteCan.c: 238: }
-[; ;RemoteCan.c: 239: if ((time_counter - pr_time_5) >= 30) {
+[e = _y -> -> 0 `i `b ]
+[; ;RemoteCan.c: 239: if ((x < 1)&&(F2_switch == 0)) {
 "239
-[e $ ! >= - _time_counter _pr_time_5 -> -> -> 30 `i `l `ul 2437  ]
+[e $ ! && < -> _x `i -> 1 `i == -> _F2_switch `i -> 0 `i 2434  ]
 {
-[; ;RemoteCan.c: 240: pr_time_5 = time_counter;
+[; ;RemoteCan.c: 240: space_available = 0;
 "240
-[e = _pr_time_5 _time_counter ]
-[; ;RemoteCan.c: 241: if (space_available == 0) {
+[e = _space_available -> -> 0 `i `b ]
+[; ;RemoteCan.c: 241: parking_state = 1;
 "241
-[e $ ! == -> _space_available `i -> 0 `i 2438  ]
-{
-[; ;RemoteCan.c: 242: PORTDbits.RD6 = ~PORTDbits.RD6;
+[e = _parking_state -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 242: JoystickConstants[1] = 1;
 "242
-[e = . . _PORTDbits 0 6 -> ~ -> . . _PORTDbits 0 6 `i `uc ]
-[; ;RemoteCan.c: 243: PORTDbits.RD5 = 0;
+[e = *U + &U _JoystickConstants * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickConstants `ui `ux -> -> 1 `i `f ]
+[; ;RemoteCan.c: 243: while (!CANisTxReady());
 "243
-[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
+[e $U 2435  ]
+[e :U 2436 ]
+[e :U 2435 ]
+[e $ ! != -> ( _CANisTxReady ..  `i -> -> -> 0 `i `uc `i 2436  ]
+[e :U 2437 ]
+[; ;RemoteCan.c: 244: park_assist_state[0] = 0b00000001;
 "244
-}
-[; ;RemoteCan.c: 244: } else {
-[e $U 2439  ]
-[e :U 2438 ]
-{
-[; ;RemoteCan.c: 245: PORTDbits.RD6 = 1;
+[e = *U + &U _park_assist_state * -> -> -> 0 `i `ui `ux -> -> # *U &U _park_assist_state `ui `ux -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 245: CANsendMessage(0b00000001010, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 "245
-[e = . . _PORTDbits 0 6 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 246: PORTDbits.RD5 = ~PORTDbits.RD5;
+[e ( _CANsendMessage (4 , , , -> -> -> 10 `i `l `ul &U _park_assist_state -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
+[; ;RemoteCan.c: 246: x++;
 "246
-[e = . . _PORTDbits 0 5 -> ~ -> . . _PORTDbits 0 5 `i `uc ]
+[e ++ _x -> -> 1 `i `uc ]
 "247
 }
-[e :U 2439 ]
-"248
-}
-[e :U 2437 ]
+[e :U 2434 ]
 [; ;RemoteCan.c: 247: }
-[; ;RemoteCan.c: 248: }
-[; ;RemoteCan.c: 250: if ((F2_switch == 1)&&(space_available == 1)) {
+[; ;RemoteCan.c: 249: if ((F2_switch == 1)&&(space_available == 1)) {
+"249
+[e $ ! && == -> _F2_switch `i -> 1 `i == -> _space_available `i -> 1 `i 2438  ]
+{
+[; ;RemoteCan.c: 250: if (z < 1) {
 "250
-[e $ ! && == -> _F2_switch `i -> 1 `i == -> _space_available `i -> 1 `i 2440  ]
+[e $ ! < -> _z `i -> 1 `i 2439  ]
 {
-[; ;RemoteCan.c: 251: if (z < 1) {
+[; ;RemoteCan.c: 251: parking_state = 2;
 "251
-[e $ ! < -> _z `i -> 1 `i 2441  ]
-{
-[; ;RemoteCan.c: 252: parking_state = 2;
-"252
 [e = _parking_state -> -> 2 `i `uc ]
-[; ;RemoteCan.c: 253: while (!CANisTxReady());
-"253
-[e $U 2442  ]
-[e :U 2443 ]
+[; ;RemoteCan.c: 252: while (!CANisTxReady());
+"252
+[e $U 2440  ]
+[e :U 2441 ]
+[e :U 2440 ]
+[e $ ! != -> ( _CANisTxReady ..  `i -> -> -> 0 `i `uc `i 2441  ]
 [e :U 2442 ]
-[e $ ! != -> ( _CANisTxReady ..  `i -> -> -> 0 `i `uc `i 2443  ]
-[e :U 2444 ]
-[; ;RemoteCan.c: 254: CANsendMessage(0b00000001100, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-"254
+[; ;RemoteCan.c: 253: CANsendMessage(0b00000001100, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+"253
 [e ( _CANsendMessage (4 , , , -> -> -> 12 `i `l `ul &U _data -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
-[; ;RemoteCan.c: 255: x = 0;
-"255
+[; ;RemoteCan.c: 254: x = 0;
+"254
 [e = _x -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 256: z++;
-"256
+[; ;RemoteCan.c: 255: z++;
+"255
 [e ++ _z -> -> 1 `i `uc ]
+"256
+}
+[e :U 2439 ]
 "257
 }
-[e :U 2441 ]
+[; ;RemoteCan.c: 256: }
+[; ;RemoteCan.c: 257: } else {
+[e $U 2443  ]
+[e :U 2438 ]
+{
+[; ;RemoteCan.c: 258: z = 0;
 "258
-}
-[; ;RemoteCan.c: 257: }
-[; ;RemoteCan.c: 258: } else {
-[e $U 2445  ]
-[e :U 2440 ]
-{
-[; ;RemoteCan.c: 259: z = 0;
+[e = _z -> -> 0 `i `uc ]
 "259
-[e = _z -> -> 0 `i `uc ]
-"260
 }
-[e :U 2445 ]
+[e :U 2443 ]
+[; ;RemoteCan.c: 259: }
+[; ;RemoteCan.c: 261: if ((time_counter - pr_time_5) >= 30) {
 "261
-}
-[; ;RemoteCan.c: 260: }
-[; ;RemoteCan.c: 261: } else {
-[e $U 2446  ]
-[e :U 2432 ]
+[e $ ! >= - _time_counter _pr_time_5 -> -> -> 30 `i `l `ul 2444  ]
 {
-[; ;RemoteCan.c: 262: x = 0;
+[; ;RemoteCan.c: 262: pr_time_5 = time_counter;
 "262
-[e = _x -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 263: z = 0;
+[e = _pr_time_5 _time_counter ]
+[; ;RemoteCan.c: 263: if (space_available == 0) {
 "263
-[e = _z -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 264: F2_switch = 0;
+[e $ ! == -> _space_available `i -> 0 `i 2445  ]
+{
+[; ;RemoteCan.c: 264: PORTDbits.RD6 = ~PORTDbits.RD6;
 "264
-[e = _F2_switch -> -> 0 `i `b ]
+[e = . . _PORTDbits 0 6 -> ~ -> . . _PORTDbits 0 6 `i `uc ]
 [; ;RemoteCan.c: 265: PORTDbits.RD5 = 0;
 "265
 [e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 266: PORTDbits.RD6 = 0;
 "266
-[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 267: if (y == 0) {
-"267
-[e $ ! == -> _y `i -> 0 `i 2447  ]
+}
+[; ;RemoteCan.c: 266: } else {
+[e $U 2446  ]
+[e :U 2445 ]
 {
-[; ;RemoteCan.c: 268: parking_state = 0;
+[; ;RemoteCan.c: 267: PORTDbits.RD6 = 1;
+"267
+[e = . . _PORTDbits 0 6 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 268: if (F2_switch == 0) {
 "268
-[e = _parking_state -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 269: JoystickConstants[1] = 15;
+[e $ ! == -> _F2_switch `i -> 0 `i 2447  ]
+{
+[; ;RemoteCan.c: 269: PORTDbits.RD5 = ~PORTDbits.RD5;
 "269
-[e = *U + &U _JoystickConstants * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickConstants `ui `ux -> -> 15 `i `f ]
-[; ;RemoteCan.c: 270: while (!CANisTxReady());
+[e = . . _PORTDbits 0 5 -> ~ -> . . _PORTDbits 0 5 `i `uc ]
 "270
+}
+[; ;RemoteCan.c: 270: } else {
 [e $U 2448  ]
-[e :U 2449 ]
-[e :U 2448 ]
-[e $ ! != -> ( _CANisTxReady ..  `i -> -> -> 0 `i `uc `i 2449  ]
-[e :U 2450 ]
-[; ;RemoteCan.c: 271: park_assist_state[0] = 0b00000000;
+[e :U 2447 ]
+{
+[; ;RemoteCan.c: 271: PORTDbits.RD5 = 1;
 "271
-[e = *U + &U _park_assist_state * -> -> -> 0 `i `ui `ux -> -> # *U &U _park_assist_state `ui `ux -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 272: CANsendMessage(0b00000001010, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-"272
-[e ( _CANsendMessage (4 , , , -> -> -> 10 `i `l `ul &U _park_assist_state -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
-[; ;RemoteCan.c: 273: y = 1;
+[e = . . _PORTDbits 0 5 -> -> 1 `i `uc ]
 "273
-[e = _y -> -> 1 `i `b ]
+}
+[e :U 2448 ]
 "274
 }
-[e :U 2447 ]
-[; ;RemoteCan.c: 274: }
-[; ;RemoteCan.c: 275: PORTDbits.RD6 = 0;
-"275
-[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 276: PORTDbits.RD5 = 0;
-"276
-[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
-"277
-}
 [e :U 2446 ]
-[; ;RemoteCan.c: 277: }
-[; ;RemoteCan.c: 279: data_steering [0] = 180 - (JoystickValues[0])*(JoystickConstants[0]);
+"275
+}
+[e :U 2444 ]
+"276
+}
+[; ;RemoteCan.c: 273: }
+[; ;RemoteCan.c: 274: }
+[; ;RemoteCan.c: 275: }
+[; ;RemoteCan.c: 276: } else {
+[e $U 2449  ]
+[e :U 2433 ]
+{
+[; ;RemoteCan.c: 277: x = 0;
+"277
+[e = _x -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 278: z = 0;
+"278
+[e = _z -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 279: F2_switch = 0;
 "279
-[e = *U + &U _data_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_steering `ui `ux -> - -> -> 180 `i `f * -> *U + &U _JoystickValues * -> -> -> 0 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `f *U + &U _JoystickConstants * -> -> -> 0 `i `ui `ux -> -> # *U &U _JoystickConstants `ui `ux `uc ]
-[; ;RemoteCan.c: 280: if (switch_position != 0) {
+[e = _F2_switch -> -> 0 `i `b ]
+[; ;RemoteCan.c: 280: PORTDbits.RD5 = 0;
 "280
-[e $ ! != -> _switch_position `i -> 0 `i 2451  ]
-{
-[; ;RemoteCan.c: 281: if (JoystickValues[1] > 132) {
+[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 281: PORTDbits.RD6 = 0;
 "281
-[e $ ! > -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 132 `i 2452  ]
-{
-[; ;RemoteCan.c: 282: set_speed = (JoystickValues[1] - 130)*(JoystickConstants[1]);
+[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 282: if (y == 0) {
 "282
-[e = _set_speed -> * -> - -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 130 `i `f *U + &U _JoystickConstants * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickConstants `ui `ux `ui ]
-[; ;RemoteCan.c: 283: data_brake [0] = 0;
+[e $ ! == -> _y `i -> 0 `i 2450  ]
+{
+[; ;RemoteCan.c: 283: parking_state = 0;
 "283
-[e = *U + &U _data_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> -> 0 `i `uc ]
+[e = _parking_state -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 284: JoystickConstants[1] = 15;
 "284
-}
-[; ;RemoteCan.c: 284: } else {
-[e $U 2453  ]
-[e :U 2452 ]
-{
-[; ;RemoteCan.c: 285: set_speed = 0;
+[e = *U + &U _JoystickConstants * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickConstants `ui `ux -> -> 15 `i `f ]
+[; ;RemoteCan.c: 285: while (!CANisTxReady());
 "285
-[e = _set_speed -> -> 0 `i `ui ]
-[; ;RemoteCan.c: 286: data_brake [0] = ((130 - JoystickValues[1]))*(1.9);
-"286
-[e = *U + &U _data_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> * -> - -> 130 `i -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i `d .1.9 `uc ]
-"287
-}
-[e :U 2453 ]
-"288
-}
+[e $U 2451  ]
+[e :U 2452 ]
 [e :U 2451 ]
-[; ;RemoteCan.c: 287: }
-[; ;RemoteCan.c: 288: }
-[; ;RemoteCan.c: 290: if (newMessageCan == 1) {
+[e $ ! != -> ( _CANisTxReady ..  `i -> -> -> 0 `i `uc `i 2452  ]
+[e :U 2453 ]
+[; ;RemoteCan.c: 286: park_assist_state[0] = 0b00000000;
+"286
+[e = *U + &U _park_assist_state * -> -> -> 0 `i `ui `ux -> -> # *U &U _park_assist_state `ui `ux -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 287: CANsendMessage(0b00000001010, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+"287
+[e ( _CANsendMessage (4 , , , -> -> -> 10 `i `l `ul &U _park_assist_state -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
+[; ;RemoteCan.c: 288: y = 1;
+"288
+[e = _y -> -> 1 `i `b ]
+"289
+}
+[e :U 2450 ]
+[; ;RemoteCan.c: 289: }
+[; ;RemoteCan.c: 290: PORTDbits.RD6 = 0;
 "290
-[e $ ! == -> _newMessageCan `i -> 1 `i 2454  ]
-{
-[; ;RemoteCan.c: 291: CAN_interpreter();
+[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 291: PORTDbits.RD5 = 0;
 "291
-[e ( _CAN_interpreter ..  ]
-[; ;RemoteCan.c: 292: newMessageCan = 0;
+[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
 "292
-[e = _newMessageCan -> -> 0 `i `b ]
-"293
 }
-[e :U 2454 ]
-[; ;RemoteCan.c: 293: }
-[; ;RemoteCan.c: 295: if ((time_counter - pr_time_2) >= 2) {
+[e :U 2449 ]
+[; ;RemoteCan.c: 292: }
+[; ;RemoteCan.c: 295: data_steering [0] = 180 - (JoystickValues[0])*(JoystickConstants[0]);
 "295
-[e $ ! >= - _time_counter _pr_time_2 -> -> -> 2 `i `l `ul 2455  ]
-{
-[; ;RemoteCan.c: 296: pr_time_2 = time_counter;
+[e = *U + &U _data_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_steering `ui `ux -> - -> -> 180 `i `f * -> *U + &U _JoystickValues * -> -> -> 0 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `f *U + &U _JoystickConstants * -> -> -> 0 `i `ui `ux -> -> # *U &U _JoystickConstants `ui `ux `uc ]
+[; ;RemoteCan.c: 296: if (parking_state == 1) {
 "296
-[e = _pr_time_2 _time_counter ]
-[; ;RemoteCan.c: 297: CAN_Send();
-"297
-[e ( _CAN_Send ..  ]
-"298
-}
-[e :U 2455 ]
-[; ;RemoteCan.c: 298: }
-[; ;RemoteCan.c: 300: if ((time_counter - pr_time_3) >= (100 / 10)) {
-"300
-[e $ ! >= - _time_counter _pr_time_3 -> -> / -> 100 `i -> 10 `i `l `ul 2456  ]
+[e $ ! == -> _parking_state `i -> 1 `i 2454  ]
 {
-[; ;RemoteCan.c: 301: pr_time_3 = time_counter;
+[; ;RemoteCan.c: 297: if (steering_correction_dir == 1) {
+"297
+[e $ ! == -> _steering_correction_dir `i -> 1 `i 2455  ]
+{
+[; ;RemoteCan.c: 298: check = data_steering[0] + steering_correction;
+"298
+[e = _check -> + -> *U + &U _data_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_steering `ui `ux `i -> _steering_correction `i `l ]
+"299
+}
+[; ;RemoteCan.c: 299: } else {
+[e $U 2456  ]
+[e :U 2455 ]
+{
+[; ;RemoteCan.c: 300: check = data_steering[0] - steering_correction;
+"300
+[e = _check -> - -> *U + &U _data_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_steering `ui `ux `i -> _steering_correction `i `l ]
 "301
-[e = _pr_time_3 _time_counter ]
-[; ;RemoteCan.c: 302: LCD_Handler();
-"302
-[e ( _LCD_Handler ..  ]
-"303
 }
 [e :U 2456 ]
+[; ;RemoteCan.c: 301: }
+[; ;RemoteCan.c: 302: if ((check >= 0)&&(check <= 180)) {
+"302
+[e $ ! && >= _check -> -> 0 `i `l <= _check -> -> 180 `i `l 2457  ]
+{
+[; ;RemoteCan.c: 303: data_steering[0] = check;
+"303
+[e = *U + &U _data_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_steering `ui `ux -> _check `uc ]
 "304
 }
-[e :U 2420 ]
-"174
-[e $U 2421  ]
-[e :U 2422 ]
-[; ;RemoteCan.c: 303: }
-[; ;RemoteCan.c: 304: }
-[; ;RemoteCan.c: 305: }
-"305
-[e :UE 2419 ]
-}
-"307
-[v _CAN_Send `(v ~T0 @X0 1 ef ]
-{
-[; ;RemoteCan.c: 307: void CAN_Send(void) {
-[e :U _CAN_Send ]
-[f ]
-[; ;RemoteCan.c: 308: while (CANisTxReady() != 1);
-"308
+[; ;RemoteCan.c: 304: } else {
 [e $U 2458  ]
-[e :U 2459 ]
-[e :U 2458 ]
-[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2459  ]
-[e :U 2460 ]
-[; ;RemoteCan.c: 309: CANsendMessage(0b00000000101, data_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-"309
-[e ( _CANsendMessage (4 , , , -> -> -> 5 `i `l `ul &U _data_steering -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
-[; ;RemoteCan.c: 310: data_speed[0] = set_speed;
-"310
-[e = *U + &U _data_speed * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_speed `ui `ux -> _set_speed `uc ]
-[; ;RemoteCan.c: 311: data_speed[1] = (set_speed >> 8);
-"311
-[e = *U + &U _data_speed * -> -> -> 1 `i `ui `ux -> -> # *U &U _data_speed `ui `ux -> >> _set_speed -> 8 `i `uc ]
-[; ;RemoteCan.c: 312: data_speed[2] = dir;
-"312
-[e = *U + &U _data_speed * -> -> -> 2 `i `ui `ux -> -> # *U &U _data_speed `ui `ux _dir ]
-[; ;RemoteCan.c: 313: while (CANisTxReady() != 1);
-"313
-[e $U 2461  ]
-[e :U 2462 ]
-[e :U 2461 ]
-[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2462  ]
-[e :U 2463 ]
-[; ;RemoteCan.c: 314: CANsendMessage(0b00000000011, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-"314
-[e ( _CANsendMessage (4 , , , -> -> -> 3 `i `l `ul &U _data_speed -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
-[; ;RemoteCan.c: 315: while (CANisTxReady() != 1);
-"315
-[e $U 2464  ]
-[e :U 2465 ]
-[e :U 2464 ]
-[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2465  ]
-[e :U 2466 ]
-[; ;RemoteCan.c: 316: CANsendMessage(0b00000000100, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_1);
-"316
-[e ( _CANsendMessage (4 , , , -> -> -> 4 `i `l `ul &U _data_brake -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 2 `i `E16909 ]
-[; ;RemoteCan.c: 318: }
-"318
-[e :UE 2457 ]
+[e :U 2457 ]
+{
+[; ;RemoteCan.c: 305: if (check > 180) {
+"305
+[e $ ! > _check -> -> 180 `i `l 2459  ]
+{
+[; ;RemoteCan.c: 306: data_steering[0] = 180;
+"306
+[e = *U + &U _data_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_steering `ui `ux -> -> 180 `i `uc ]
+"307
 }
+[; ;RemoteCan.c: 307: } else {
+[e $U 2460  ]
+[e :U 2459 ]
+{
+[; ;RemoteCan.c: 308: data_steering[0] = 0;
+"308
+[e = *U + &U _data_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_steering `ui `ux -> -> 0 `i `uc ]
+"309
+}
+[e :U 2460 ]
+"310
+}
+[e :U 2458 ]
+"311
+}
+[; ;RemoteCan.c: 309: }
+[; ;RemoteCan.c: 310: }
+[; ;RemoteCan.c: 311: } else {
+[e $U 2461  ]
+[e :U 2454 ]
+{
+[; ;RemoteCan.c: 312: steering_correction_dir = 0;
+"312
+[e = _steering_correction_dir -> -> 0 `i `b ]
+[; ;RemoteCan.c: 313: steering_correction = 0;
+"313
+[e = _steering_correction -> -> 0 `i `uc ]
+"314
+}
+[e :U 2461 ]
+[; ;RemoteCan.c: 314: }
+[; ;RemoteCan.c: 317: if (switch_position != 0) {
+"317
+[e $ ! != -> _switch_position `i -> 0 `i 2462  ]
+{
+[; ;RemoteCan.c: 318: if (JoystickValues[1] > 132) {
+"318
+[e $ ! > -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 132 `i 2463  ]
+{
+[; ;RemoteCan.c: 319: set_speed = (JoystickValues[1] - 130)*(JoystickConstants[1]);
+"319
+[e = _set_speed -> * -> - -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 130 `i `f *U + &U _JoystickConstants * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickConstants `ui `ux `ui ]
+[; ;RemoteCan.c: 320: data_brake [0] = 0;
 "320
-[v _LCD_Handler `(v ~T0 @X0 1 ef ]
+[e = *U + &U _data_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> -> 0 `i `uc ]
+"321
+}
+[; ;RemoteCan.c: 321: } else {
+[e $U 2464  ]
+[e :U 2463 ]
 {
-[; ;RemoteCan.c: 320: void LCD_Handler(void) {
-[e :U _LCD_Handler ]
-[f ]
-[; ;RemoteCan.c: 322: while (CANisTxReady() != 1);
+[; ;RemoteCan.c: 322: set_speed = 0;
 "322
-[e $U 2468  ]
-[e :U 2469 ]
-[e :U 2468 ]
-[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2469  ]
-[e :U 2470 ]
-[; ;RemoteCan.c: 323: CANsendMessage(0b00000000110, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_REMOTE_TX_FRAME & CAN_TX_PRIORITY_0);
+[e = _set_speed -> -> 0 `i `ui ]
+[; ;RemoteCan.c: 323: data_brake [0] = ((130 - JoystickValues[1]))*(1.9);
 "323
-[e ( _CANsendMessage (4 , , , -> -> -> 6 `i `l `ul &U _data_speed -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 9 `i -> . `E16909 1 `i `E16909 ]
-[; ;RemoteCan.c: 325: actual_speed_kmh = ((actual_speed) / 278.0);
+[e = *U + &U _data_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> * -> - -> 130 `i -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i `d .1.9 `uc ]
+"324
+}
+[e :U 2464 ]
 "325
-[e = _actual_speed_kmh -> / -> _actual_speed `d .278.0 `f ]
-[; ;RemoteCan.c: 326: sprintf(str, "%.2f", actual_speed_kmh);
-"326
-[e ( _sprintf (1 , (. , &U _str :s 5C -> _actual_speed_kmh `d ]
-[; ;RemoteCan.c: 327: str[11] = '\0';
+}
+[e :U 2462 ]
+[; ;RemoteCan.c: 324: }
+[; ;RemoteCan.c: 325: }
+[; ;RemoteCan.c: 327: if (newMessageCan == 1) {
 "327
-[e = *U + &U _str * -> -> -> 11 `i `ui `ux -> -> # *U &U _str `ui `ux -> -> 0 `ui `uc ]
-[; ;RemoteCan.c: 329: if (display_refresh == 1) {
+[e $ ! == -> _newMessageCan `i -> 1 `i 2465  ]
+{
+[; ;RemoteCan.c: 328: CAN_interpreter();
+"328
+[e ( _CAN_interpreter ..  ]
+[; ;RemoteCan.c: 329: newMessageCan = 0;
 "329
-[e $ ! == -> _display_refresh `i -> 1 `i 2471  ]
-{
-[; ;RemoteCan.c: 330: LCD_initialize(16);
+[e = _newMessageCan -> -> 0 `i `b ]
 "330
-[e ( _LCD_initialize (1 -> -> 16 `i `uc ]
-[; ;RemoteCan.c: 331: LCD_clear();
-"331
-[e ( _LCD_clear ..  ]
-[; ;RemoteCan.c: 332: LCD_goto_line(1);
+}
+[e :U 2465 ]
+[; ;RemoteCan.c: 330: }
+[; ;RemoteCan.c: 332: if (((time_counter - pr_time_2) >= 2) && (parking_state != 2)) {
 "332
-[e ( _LCD_goto_line (1 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 333: LCD_write_message("=== VEHICLE DATA ===");
-"333
-[e ( _LCD_write_message (1 :s 6C ]
-[; ;RemoteCan.c: 334: LCD_goto_line(2);
-"334
-[e ( _LCD_goto_line (1 -> -> 2 `i `uc ]
-[; ;RemoteCan.c: 335: LCD_write_message("Direction: ");
-"335
-[e ( _LCD_write_message (1 :s 7C ]
-[; ;RemoteCan.c: 336: LCD_goto_line(3);
-"336
-[e ( _LCD_goto_line (1 -> -> 3 `i `uc ]
-[; ;RemoteCan.c: 337: LCD_write_message("Speed: 0.00 Km/h");
-"337
-[e ( _LCD_write_message (1 :s 8C ]
-[; ;RemoteCan.c: 338: LCD_goto_line(4);
-"338
-[e ( _LCD_goto_line (1 -> -> 4 `i `uc ]
-[; ;RemoteCan.c: 339: if (1 == 0) {
-"339
-[e $ ! == -> 1 `i -> 0 `i 2472  ]
+[e $ ! && >= - _time_counter _pr_time_2 -> -> -> 2 `i `l `ul != -> _parking_state `i -> 2 `i 2466  ]
 {
-[; ;RemoteCan.c: 340: LCD_write_message("Park assist: ");
+[; ;RemoteCan.c: 333: pr_time_2 = time_counter;
+"333
+[e = _pr_time_2 _time_counter ]
+[; ;RemoteCan.c: 334: CAN_Send();
+"334
+[e ( _CAN_Send ..  ]
+"335
+}
+[e :U 2466 ]
+[; ;RemoteCan.c: 335: }
+[; ;RemoteCan.c: 337: if ((time_counter - pr_time_3) >= (100 / 10)) {
+"337
+[e $ ! >= - _time_counter _pr_time_3 -> -> / -> 100 `i -> 10 `i `l `ul 2467  ]
+{
+[; ;RemoteCan.c: 338: pr_time_3 = time_counter;
+"338
+[e = _pr_time_3 _time_counter ]
+[; ;RemoteCan.c: 339: LCD_Handler();
+"339
+[e ( _LCD_Handler ..  ]
 "340
-[e ( _LCD_write_message (1 :s 9C ]
+}
+[e :U 2467 ]
 "341
 }
-[; ;RemoteCan.c: 341: } else {
-[e $U 2473  ]
-[e :U 2472 ]
-{
-[; ;RemoteCan.c: 342: LCD_write_message("Data: ");
+[e :U 2421 ]
+"183
+[e $U 2422  ]
+[e :U 2423 ]
+[; ;RemoteCan.c: 340: }
+[; ;RemoteCan.c: 341: }
+[; ;RemoteCan.c: 342: }
 "342
-[e ( _LCD_write_message (1 :s 10C ]
-"343
+[e :UE 2420 ]
 }
-[e :U 2473 ]
-[; ;RemoteCan.c: 343: }
-[; ;RemoteCan.c: 344: display_refresh = 0;
 "344
-[e = _display_refresh -> -> 0 `i `b ]
-"345
-}
+[v _LCD_Handler `(v ~T0 @X0 1 ef ]
+{
+[; ;RemoteCan.c: 344: void LCD_Handler(void) {
+[e :U _LCD_Handler ]
+[f ]
+[; ;RemoteCan.c: 346: while (CANisTxReady() != 1);
+"346
+[e $U 2469  ]
+[e :U 2470 ]
+[e :U 2469 ]
+[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2470  ]
 [e :U 2471 ]
-[; ;RemoteCan.c: 345: }
-[; ;RemoteCan.c: 348: LCD_goto_xy(12, 2);
-"348
-[e ( _LCD_goto_xy (2 , -> -> 12 `i `uc -> -> 2 `i `uc ]
-[; ;RemoteCan.c: 349: if (switch_position != 0) {
+[; ;RemoteCan.c: 347: CANsendMessage(0b00000000110, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_REMOTE_TX_FRAME & CAN_TX_PRIORITY_0);
+"347
+[e ( _CANsendMessage (4 , , , -> -> -> 6 `i `l `ul &U _data_speed -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 9 `i -> . `E16909 1 `i `E16909 ]
+[; ;RemoteCan.c: 349: actual_speed_kmh = ((actual_speed) / 278.0);
 "349
-[e $ ! != -> _switch_position `i -> 0 `i 2474  ]
-{
-[; ;RemoteCan.c: 350: if (dir == 1) {
+[e = _actual_speed_kmh -> / -> _actual_speed `d .278.0 `f ]
+[; ;RemoteCan.c: 350: sprintf(str, "%.2f", actual_speed_kmh);
 "350
-[e $ ! == -> _dir `i -> 1 `i 2475  ]
-{
-[; ;RemoteCan.c: 351: LCD_write_message("FWD ");
+[e ( _sprintf (1 , (. , &U _str :s 5C -> _actual_speed_kmh `d ]
+[; ;RemoteCan.c: 351: str[11] = '\0';
 "351
-[e ( _LCD_write_message (1 :s 11C ]
-"352
-}
-[; ;RemoteCan.c: 352: } else {
-[e $U 2476  ]
-[e :U 2475 ]
-{
-[; ;RemoteCan.c: 353: LCD_write_message("BKWD");
+[e = *U + &U _str * -> -> -> 11 `i `ui `ux -> -> # *U &U _str `ui `ux -> -> 0 `ui `uc ]
+[; ;RemoteCan.c: 353: if (display_refresh == 1) {
 "353
-[e ( _LCD_write_message (1 :s 12C ]
-"354
-}
-[e :U 2476 ]
-"355
-}
-[; ;RemoteCan.c: 354: }
-[; ;RemoteCan.c: 355: } else {
-[e $U 2477  ]
-[e :U 2474 ]
+[e $ ! == -> _display_refresh `i -> 1 `i 2472  ]
 {
-[; ;RemoteCan.c: 356: LCD_write_message("P   ");
+[; ;RemoteCan.c: 354: LCD_initialize(16);
+"354
+[e ( _LCD_initialize (1 -> -> 16 `i `uc ]
+[; ;RemoteCan.c: 355: LCD_clear();
+"355
+[e ( _LCD_clear ..  ]
+[; ;RemoteCan.c: 356: LCD_goto_line(1);
 "356
-[e ( _LCD_write_message (1 :s 13C ]
+[e ( _LCD_goto_line (1 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 357: LCD_write_message("=== VEHICLE DATA ===");
 "357
-}
-[e :U 2477 ]
-[; ;RemoteCan.c: 357: }
-[; ;RemoteCan.c: 360: LCD_goto_xy(8, 3);
+[e ( _LCD_write_message (1 :s 6C ]
+[; ;RemoteCan.c: 358: LCD_goto_line(2);
+"358
+[e ( _LCD_goto_line (1 -> -> 2 `i `uc ]
+[; ;RemoteCan.c: 359: LCD_write_message("Direction: ");
+"359
+[e ( _LCD_write_message (1 :s 7C ]
+[; ;RemoteCan.c: 360: LCD_goto_line(3);
 "360
-[e ( _LCD_goto_xy (2 , -> -> 8 `i `uc -> -> 3 `i `uc ]
-[; ;RemoteCan.c: 361: LCD_write_string(str);
+[e ( _LCD_goto_line (1 -> -> 3 `i `uc ]
+[; ;RemoteCan.c: 361: LCD_write_message("Speed: 0.00 Km/h");
 "361
-[e ( _LCD_write_string (1 &U _str ]
+[e ( _LCD_write_message (1 :s 8C ]
+[; ;RemoteCan.c: 362: LCD_goto_line(4);
+"362
+[e ( _LCD_goto_line (1 -> -> 4 `i `uc ]
 [; ;RemoteCan.c: 363: if (1 == 0) {
 "363
-[e $ ! == -> 1 `i -> 0 `i 2478  ]
+[e $ ! == -> 1 `i -> 0 `i 2473  ]
 {
-[; ;RemoteCan.c: 365: LCD_goto_xy(14, 4);
+[; ;RemoteCan.c: 364: LCD_write_message("Park assist: ");
+"364
+[e ( _LCD_write_message (1 :s 9C ]
 "365
-[e ( _LCD_goto_xy (2 , -> -> 14 `i `uc -> -> 4 `i `uc ]
-[; ;RemoteCan.c: 366: if (parking_state == 0) {
+}
+[; ;RemoteCan.c: 365: } else {
+[e $U 2474  ]
+[e :U 2473 ]
+{
+[; ;RemoteCan.c: 366: LCD_write_message("Data: ");
 "366
-[e $ ! == -> _parking_state `i -> 0 `i 2479  ]
-{
-[; ;RemoteCan.c: 367: LCD_write_message("OFF    ");
+[e ( _LCD_write_message (1 :s 10C ]
 "367
-[e ( _LCD_write_message (1 :s 14C ]
+}
+[e :U 2474 ]
+[; ;RemoteCan.c: 367: }
+[; ;RemoteCan.c: 368: display_refresh = 0;
 "368
-}
-[; ;RemoteCan.c: 368: } else {
-[e $U 2480  ]
-[e :U 2479 ]
-{
-[; ;RemoteCan.c: 369: if (parking_state == 1) {
+[e = _display_refresh -> -> 0 `i `b ]
 "369
-[e $ ! == -> _parking_state `i -> 1 `i 2481  ]
-{
-[; ;RemoteCan.c: 370: if (space_available == 0) {
-"370
-[e $ ! == -> _space_available `i -> 0 `i 2482  ]
-{
-[; ;RemoteCan.c: 371: LCD_write_message("SEARCH ");
-"371
-[e ( _LCD_write_message (1 :s 15C ]
+}
+[e :U 2472 ]
+[; ;RemoteCan.c: 369: }
+[; ;RemoteCan.c: 372: LCD_goto_xy(12, 2);
 "372
-}
-[; ;RemoteCan.c: 372: } else {
-[e $U 2483  ]
-[e :U 2482 ]
-{
-[; ;RemoteCan.c: 373: LCD_write_message("FOUND! ");
+[e ( _LCD_goto_xy (2 , -> -> 12 `i `uc -> -> 2 `i `uc ]
+[; ;RemoteCan.c: 373: if (switch_position != 0) {
 "373
-[e ( _LCD_write_message (1 :s 16C ]
-"374
-}
-[e :U 2483 ]
-"375
-}
-[; ;RemoteCan.c: 374: }
-[; ;RemoteCan.c: 375: } else {
-[e $U 2484  ]
-[e :U 2481 ]
+[e $ ! != -> _switch_position `i -> 0 `i 2475  ]
 {
-[; ;RemoteCan.c: 376: LCD_write_message("PARKING");
+[; ;RemoteCan.c: 374: if (dir == 1) {
+"374
+[e $ ! == -> _dir `i -> 1 `i 2476  ]
+{
+[; ;RemoteCan.c: 375: LCD_write_message("FWD ");
+"375
+[e ( _LCD_write_message (1 :s 11C ]
 "376
-[e ( _LCD_write_message (1 :s 17C ]
-"377
 }
-[e :U 2484 ]
+[; ;RemoteCan.c: 376: } else {
+[e $U 2477  ]
+[e :U 2476 ]
+{
+[; ;RemoteCan.c: 377: LCD_write_message("BKWD");
+"377
+[e ( _LCD_write_message (1 :s 12C ]
 "378
 }
-[e :U 2480 ]
+[e :U 2477 ]
 "379
 }
-[; ;RemoteCan.c: 377: }
 [; ;RemoteCan.c: 378: }
 [; ;RemoteCan.c: 379: } else {
-[e $U 2485  ]
-[e :U 2478 ]
+[e $U 2478  ]
+[e :U 2475 ]
 {
-[; ;RemoteCan.c: 381: LCD_goto_xy(7, 4);
+[; ;RemoteCan.c: 380: LCD_write_message("P   ");
+"380
+[e ( _LCD_write_message (1 :s 13C ]
 "381
-[e ( _LCD_goto_xy (2 , -> -> 7 `i `uc -> -> 4 `i `uc ]
-[; ;RemoteCan.c: 382: LCD_write_integer(user_data, 0, 0x01);
-"382
-[e ( _LCD_write_integer (3 , , -> _user_data `i -> -> 0 `i `uc -> -> 1 `i `uc ]
-"383
 }
-[e :U 2485 ]
-[; ;RemoteCan.c: 383: }
-[; ;RemoteCan.c: 384: }
+[e :U 2478 ]
+[; ;RemoteCan.c: 381: }
+[; ;RemoteCan.c: 384: LCD_goto_xy(8, 3);
 "384
-[e :UE 2467 ]
-}
-"386
-[v _CAN_interpreter `(v ~T0 @X0 1 ef ]
-{
-[; ;RemoteCan.c: 386: void CAN_interpreter(void) {
-[e :U _CAN_interpreter ]
-[f ]
-[; ;RemoteCan.c: 387: if (id == 0b00000000010) {
+[e ( _LCD_goto_xy (2 , -> -> 8 `i `uc -> -> 3 `i `uc ]
+[; ;RemoteCan.c: 385: LCD_write_string(str);
+"385
+[e ( _LCD_write_string (1 &U _str ]
+[; ;RemoteCan.c: 387: if (1 == 0) {
 "387
-[e $ ! == _id -> -> -> 2 `i `l `ul 2487  ]
+[e $ ! == -> 1 `i -> 0 `i 2479  ]
 {
-[; ;RemoteCan.c: 388: if (RTR_Flag == 1) {
-"388
-[e $ ! == -> _RTR_Flag `i -> 1 `i 2488  ]
-{
-[; ;RemoteCan.c: 389: pr_time_4 = time_counter;
+[; ;RemoteCan.c: 389: LCD_goto_xy(14, 4);
 "389
-[e = _pr_time_4 _time_counter ]
-[; ;RemoteCan.c: 390: MotoreFlag = 1;
+[e ( _LCD_goto_xy (2 , -> -> 14 `i `uc -> -> 4 `i `uc ]
+[; ;RemoteCan.c: 390: if (parking_state == 0) {
 "390
-[e = _MotoreFlag -> -> 1 `i `b ]
-[; ;RemoteCan.c: 391: AbsFlag = 0;
+[e $ ! == -> _parking_state `i -> 0 `i 2480  ]
+{
+[; ;RemoteCan.c: 391: LCD_write_message("OFF    ");
 "391
-[e = _AbsFlag -> -> 0 `i `b ]
-[; ;RemoteCan.c: 392: SterzoFlag = 0;
+[e ( _LCD_write_message (1 :s 14C ]
 "392
-[e = _SterzoFlag -> -> 0 `i `b ]
-"393
 }
-[; ;RemoteCan.c: 393: } else {
-[e $U 2489  ]
-[e :U 2488 ]
+[; ;RemoteCan.c: 392: } else {
+[e $U 2481  ]
+[e :U 2480 ]
 {
-[; ;RemoteCan.c: 394: if (data[0] == 0x01) {
+[; ;RemoteCan.c: 393: if (parking_state == 1) {
+"393
+[e $ ! == -> _parking_state `i -> 1 `i 2482  ]
+{
+[; ;RemoteCan.c: 394: if (space_available == 0) {
 "394
-[e $ ! == -> *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux `i -> 1 `i 2490  ]
+[e $ ! == -> _space_available `i -> 0 `i 2483  ]
 {
-[; ;RemoteCan.c: 395: AbsFlag = 1;
+[; ;RemoteCan.c: 395: LCD_write_message("SEARCH ");
 "395
-[e = _AbsFlag -> -> 1 `i `b ]
+[e ( _LCD_write_message (1 :s 15C ]
 "396
 }
-[e :U 2490 ]
-[; ;RemoteCan.c: 396: }
-[; ;RemoteCan.c: 397: if (data[0] == 0x02) {
-"397
-[e $ ! == -> *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux `i -> 2 `i 2491  ]
+[; ;RemoteCan.c: 396: } else {
+[e $U 2484  ]
+[e :U 2483 ]
 {
-[; ;RemoteCan.c: 398: SterzoFlag = 1;
+[; ;RemoteCan.c: 397: LCD_write_message("FOUND! ");
+"397
+[e ( _LCD_write_message (1 :s 16C ]
 "398
-[e = _SterzoFlag -> -> 1 `i `b ]
+}
+[e :U 2484 ]
 "399
 }
-[e :U 2491 ]
+[; ;RemoteCan.c: 398: }
+[; ;RemoteCan.c: 399: } else {
+[e $U 2485  ]
+[e :U 2482 ]
+{
+[; ;RemoteCan.c: 400: LCD_write_message("PARKING");
 "400
-}
-[e :U 2489 ]
+[e ( _LCD_write_message (1 :s 17C ]
 "401
 }
-[e :U 2487 ]
-[; ;RemoteCan.c: 399: }
-[; ;RemoteCan.c: 400: }
-[; ;RemoteCan.c: 401: }
-[; ;RemoteCan.c: 403: if (pr_time_4 - time_counter > 450) {
+[e :U 2485 ]
+"402
+}
+[e :U 2481 ]
 "403
-[e $ ! > - _pr_time_4 _time_counter -> -> -> 450 `i `l `ul 2492  ]
+}
+[; ;RemoteCan.c: 401: }
+[; ;RemoteCan.c: 402: }
+[; ;RemoteCan.c: 403: } else {
+[e $U 2486  ]
+[e :U 2479 ]
 {
+[; ;RemoteCan.c: 405: LCD_goto_xy(7, 4);
 "405
-}
-[e :U 2492 ]
-[; ;RemoteCan.c: 405: }
-[; ;RemoteCan.c: 407: if ((id == 0b00000000110)&&(RTR_Flag == 0)) {
+[e ( _LCD_goto_xy (2 , -> -> 7 `i `uc -> -> 4 `i `uc ]
+[; ;RemoteCan.c: 406: LCD_write_integer(user_data, 0, 0x01);
+"406
+[e ( _LCD_write_integer (3 , , -> _user_data `i -> -> 0 `i `uc -> -> 1 `i `uc ]
 "407
-[e $ ! && == _id -> -> -> 6 `i `l `ul == -> _RTR_Flag `i -> 0 `i 2493  ]
-{
-[; ;RemoteCan.c: 408: left_speed = data_speed_rx[1];
-"408
-[e = _left_speed -> *U + &U _data_speed_rx * -> -> -> 1 `i `ui `ux -> -> # *U &U _data_speed_rx `ui `ux `ui ]
-[; ;RemoteCan.c: 409: left_speed = ((left_speed << 8) | (data_speed_rx[0]));
-"409
-[e = _left_speed | << _left_speed -> 8 `i -> *U + &U _data_speed_rx * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_speed_rx `ui `ux `ui ]
-[; ;RemoteCan.c: 410: right_speed = data_speed_rx[3];
-"410
-[e = _right_speed -> *U + &U _data_speed_rx * -> -> -> 3 `i `ui `ux -> -> # *U &U _data_speed_rx `ui `ux `ui ]
-[; ;RemoteCan.c: 411: right_speed = ((right_speed << 8) | (data_speed_rx[2]));
-"411
-[e = _right_speed | << _right_speed -> 8 `i -> *U + &U _data_speed_rx * -> -> -> 2 `i `ui `ux -> -> # *U &U _data_speed_rx `ui `ux `ui ]
-[; ;RemoteCan.c: 412: actual_speed = (right_speed + left_speed) / 2;
-"412
-[e = _actual_speed / + _right_speed _left_speed -> -> 2 `i `ui ]
-"413
 }
-[e :U 2493 ]
-[; ;RemoteCan.c: 413: }
-[; ;RemoteCan.c: 415: if (id == 0b00000001001) {
-"415
-[e $ ! == _id -> -> -> 9 `i `l `ul 2494  ]
+[e :U 2486 ]
+[; ;RemoteCan.c: 407: }
+[; ;RemoteCan.c: 408: }
+"408
+[e :UE 2468 ]
+}
+"410
+[v _PWR_Button_Polling `(v ~T0 @X0 1 ef ]
 {
-[; ;RemoteCan.c: 416: battery = data[0];
+[; ;RemoteCan.c: 410: void PWR_Button_Polling(void) {
+[e :U _PWR_Button_Polling ]
+[f ]
+[; ;RemoteCan.c: 411: if ((PORTBbits.RB5 == 0) || (wait_low_1 == 0)) {
+"411
+[e $ ! || == -> . . _PORTBbits 0 5 `i -> 0 `i == -> _wait_low_1 `i -> 0 `i 2488  ]
+{
+[; ;RemoteCan.c: 412: wait_low_1 = 0;
+"412
+[e = _wait_low_1 -> -> 0 `i `b ]
+[; ;RemoteCan.c: 413: if (PORTBbits.RB5 == 1) {
+"413
+[e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 2489  ]
+{
+[; ;RemoteCan.c: 414: power_switch = ~power_switch;
+"414
+[e = _power_switch -> ~ -> _power_switch `ui `b ]
+[; ;RemoteCan.c: 415: wait_low_1 = 1;
+"415
+[e = _wait_low_1 -> -> 1 `i `b ]
 "416
-[e = _battery *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux ]
+}
+[e :U 2489 ]
 "417
 }
-[e :U 2494 ]
+[e :U 2488 ]
+[; ;RemoteCan.c: 416: }
 [; ;RemoteCan.c: 417: }
 [; ;RemoteCan.c: 418: }
 "418
-[e :UE 2486 ]
+[e :UE 2487 ]
 }
 "420
-[v _PWR_Button_Polling `(v ~T0 @X0 1 ef ]
+[v _F1_Button_Polling `(v ~T0 @X0 1 ef ]
 {
-[; ;RemoteCan.c: 420: void PWR_Button_Polling(void) {
-[e :U _PWR_Button_Polling ]
+[; ;RemoteCan.c: 420: void F1_Button_Polling(void) {
+[e :U _F1_Button_Polling ]
 [f ]
-[; ;RemoteCan.c: 421: if ((PORTBbits.RB5 == 0) || (wait_low_1 == 0)) {
+[; ;RemoteCan.c: 421: if ((PORTBbits.RB4 == 0) || (wait_low_2 == 0)) {
 "421
-[e $ ! || == -> . . _PORTBbits 0 5 `i -> 0 `i == -> _wait_low_1 `i -> 0 `i 2496  ]
+[e $ ! || == -> . . _PORTBbits 0 4 `i -> 0 `i == -> _wait_low_2 `i -> 0 `i 2491  ]
 {
-[; ;RemoteCan.c: 422: wait_low_1 = 0;
+[; ;RemoteCan.c: 422: wait_low_2 = 0;
 "422
-[e = _wait_low_1 -> -> 0 `i `b ]
-[; ;RemoteCan.c: 423: if (PORTBbits.RB5 == 1) {
+[e = _wait_low_2 -> -> 0 `i `b ]
+[; ;RemoteCan.c: 423: if (PORTBbits.RB4 == 1) {
 "423
-[e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 2497  ]
+[e $ ! == -> . . _PORTBbits 0 4 `i -> 1 `i 2492  ]
 {
-[; ;RemoteCan.c: 424: power_switch = ~power_switch;
+[; ;RemoteCan.c: 424: F1_switch = ~F1_switch;
 "424
-[e = _power_switch -> ~ -> _power_switch `ui `b ]
-[; ;RemoteCan.c: 425: wait_low_1 = 1;
+[e = _F1_switch -> ~ -> _F1_switch `ui `b ]
+[; ;RemoteCan.c: 425: wait_low_2 = 1;
 "425
-[e = _wait_low_1 -> -> 1 `i `b ]
+[e = _wait_low_2 -> -> 1 `i `b ]
 "426
 }
-[e :U 2497 ]
+[e :U 2492 ]
 "427
 }
-[e :U 2496 ]
+[e :U 2491 ]
 [; ;RemoteCan.c: 426: }
 [; ;RemoteCan.c: 427: }
 [; ;RemoteCan.c: 428: }
 "428
-[e :UE 2495 ]
+[e :UE 2490 ]
 }
 "430
-[v _F1_Button_Polling `(v ~T0 @X0 1 ef ]
+[v _F2_Button_Polling `(v ~T0 @X0 1 ef ]
 {
-[; ;RemoteCan.c: 430: void F1_Button_Polling(void) {
-[e :U _F1_Button_Polling ]
+[; ;RemoteCan.c: 430: void F2_Button_Polling(void) {
+[e :U _F2_Button_Polling ]
 [f ]
-[; ;RemoteCan.c: 431: if ((PORTBbits.RB4 == 0) || (wait_low_2 == 0)) {
+[; ;RemoteCan.c: 431: if ((PORTBbits.RB1 == 0) || (wait_low_3 == 0)) {
 "431
-[e $ ! || == -> . . _PORTBbits 0 4 `i -> 0 `i == -> _wait_low_2 `i -> 0 `i 2499  ]
+[e $ ! || == -> . . _PORTBbits 0 1 `i -> 0 `i == -> _wait_low_3 `i -> 0 `i 2494  ]
 {
-[; ;RemoteCan.c: 432: wait_low_2 = 0;
+[; ;RemoteCan.c: 432: wait_low_3 = 0;
 "432
-[e = _wait_low_2 -> -> 0 `i `b ]
-[; ;RemoteCan.c: 433: if (PORTBbits.RB4 == 1) {
+[e = _wait_low_3 -> -> 0 `i `b ]
+[; ;RemoteCan.c: 433: if (PORTBbits.RB1 == 1) {
 "433
-[e $ ! == -> . . _PORTBbits 0 4 `i -> 1 `i 2500  ]
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 2495  ]
 {
-[; ;RemoteCan.c: 434: F1_switch = ~F1_switch;
+[; ;RemoteCan.c: 434: F2_switch = ~F2_switch;
 "434
-[e = _F1_switch -> ~ -> _F1_switch `ui `b ]
-[; ;RemoteCan.c: 435: wait_low_2 = 1;
+[e = _F2_switch -> ~ -> _F2_switch `ui `b ]
+[; ;RemoteCan.c: 435: wait_low_3 = 1;
 "435
-[e = _wait_low_2 -> -> 1 `i `b ]
+[e = _wait_low_3 -> -> 1 `i `b ]
 "436
 }
-[e :U 2500 ]
+[e :U 2495 ]
 "437
 }
-[e :U 2499 ]
+[e :U 2494 ]
 [; ;RemoteCan.c: 436: }
 [; ;RemoteCan.c: 437: }
 [; ;RemoteCan.c: 438: }
 "438
-[e :UE 2498 ]
+[e :UE 2493 ]
 }
 "440
-[v _F2_Button_Polling `(v ~T0 @X0 1 ef ]
-{
-[; ;RemoteCan.c: 440: void F2_Button_Polling(void) {
-[e :U _F2_Button_Polling ]
-[f ]
-[; ;RemoteCan.c: 441: if ((PORTBbits.RB1 == 0) || (wait_low_3 == 0)) {
-"441
-[e $ ! || == -> . . _PORTBbits 0 1 `i -> 0 `i == -> _wait_low_3 `i -> 0 `i 2502  ]
-{
-[; ;RemoteCan.c: 442: wait_low_3 = 0;
-"442
-[e = _wait_low_3 -> -> 0 `i `b ]
-[; ;RemoteCan.c: 443: if (PORTBbits.RB1 == 1) {
-"443
-[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 2503  ]
-{
-[; ;RemoteCan.c: 444: F2_switch = ~F2_switch;
-"444
-[e = _F2_switch -> ~ -> _F2_switch `ui `b ]
-[; ;RemoteCan.c: 445: wait_low_3 = 1;
-"445
-[e = _wait_low_3 -> -> 1 `i `b ]
-"446
-}
-[e :U 2503 ]
-"447
-}
-[e :U 2502 ]
-[; ;RemoteCan.c: 446: }
-[; ;RemoteCan.c: 447: }
-[; ;RemoteCan.c: 448: }
-"448
-[e :UE 2501 ]
-}
-"450
 [v _Joystick_Polling `(v ~T0 @X0 1 ef ]
 {
-[; ;RemoteCan.c: 450: void Joystick_Polling(void) {
+[; ;RemoteCan.c: 440: void Joystick_Polling(void) {
 [e :U _Joystick_Polling ]
 [f ]
-[; ;RemoteCan.c: 451: for (unsigned char i = 0; i < 2; i++) {
-"451
+[; ;RemoteCan.c: 441: for (unsigned char i = 0; i < 2; i++) {
+"441
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 2 `i 2505  ]
-[e $U 2506  ]
-[e :U 2505 ]
+[e $ < -> _i `i -> 2 `i 2497  ]
+[e $U 2498  ]
+[e :U 2497 ]
 {
-[; ;RemoteCan.c: 452: ADCON0bits.GO = 1;
-"452
+[; ;RemoteCan.c: 442: ADCON0bits.GO = 1;
+"442
 [e = . . _ADCON0bits 5 1 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 453: while (ADCON0bits.GO);
-"453
-[e $U 2508  ]
-[e :U 2509 ]
-[e :U 2508 ]
-[e $ != -> . . _ADCON0bits 5 1 `i -> -> -> 0 `i `Vuc `i 2509  ]
-[e :U 2510 ]
-[; ;RemoteCan.c: 454: JoystickValues[i] = ADRESH;
-"454
+[; ;RemoteCan.c: 443: while (ADCON0bits.GO);
+"443
+[e $U 2500  ]
+[e :U 2501 ]
+[e :U 2500 ]
+[e $ != -> . . _ADCON0bits 5 1 `i -> -> -> 0 `i `Vuc `i 2501  ]
+[e :U 2502 ]
+[; ;RemoteCan.c: 444: JoystickValues[i] = ADRESH;
+"444
 [e = *U + &U _JoystickValues * -> _i `ux -> -> # *U &U _JoystickValues `ui `ux _ADRESH ]
-[; ;RemoteCan.c: 455: ADCON0bits.CHS0 = ~ADCON0bits.CHS0;
-"455
+[; ;RemoteCan.c: 445: ADCON0bits.CHS0 = ~ADCON0bits.CHS0;
+"445
 [e = . . _ADCON0bits 3 2 -> ~ -> . . _ADCON0bits 3 2 `i `uc ]
-"456
+"446
 }
-"451
+"441
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 2 `i 2505  ]
+[e $ < -> _i `i -> 2 `i 2497  ]
+[e :U 2498 ]
+"446
+}
+[; ;RemoteCan.c: 446: }
+[; ;RemoteCan.c: 447: }
+"447
+[e :UE 2496 ]
+}
+"449
+[v _CAN_Send `(v ~T0 @X0 1 ef ]
+{
+[; ;RemoteCan.c: 449: void CAN_Send(void) {
+[e :U _CAN_Send ]
+[f ]
+[; ;RemoteCan.c: 451: while (CANisTxReady() != 1);
+"451
+[e $U 2504  ]
+[e :U 2505 ]
+[e :U 2504 ]
+[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2505  ]
 [e :U 2506 ]
+[; ;RemoteCan.c: 452: CANsendMessage(0b00000000101, data_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+"452
+[e ( _CANsendMessage (4 , , , -> -> -> 5 `i `l `ul &U _data_steering -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
+[; ;RemoteCan.c: 455: data_speed[0] = set_speed;
+"455
+[e = *U + &U _data_speed * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_speed `ui `ux -> _set_speed `uc ]
+[; ;RemoteCan.c: 456: data_speed[1] = (set_speed >> 8);
 "456
-}
-[; ;RemoteCan.c: 456: }
-[; ;RemoteCan.c: 457: }
+[e = *U + &U _data_speed * -> -> -> 1 `i `ui `ux -> -> # *U &U _data_speed `ui `ux -> >> _set_speed -> 8 `i `uc ]
+[; ;RemoteCan.c: 457: data_speed[2] = dir;
 "457
-[e :UE 2504 ]
-}
+[e = *U + &U _data_speed * -> -> -> 2 `i `ui `ux -> -> # *U &U _data_speed `ui `ux _dir ]
+[; ;RemoteCan.c: 458: while (CANisTxReady() != 1);
+"458
+[e $U 2507  ]
+[e :U 2508 ]
+[e :U 2507 ]
+[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2508  ]
+[e :U 2509 ]
+[; ;RemoteCan.c: 459: CANsendMessage(0b00000000011, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 "459
+[e ( _CANsendMessage (4 , , , -> -> -> 3 `i `l `ul &U _data_speed -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
+[; ;RemoteCan.c: 462: while (CANisTxReady() != 1);
+"462
+[e $U 2510  ]
+[e :U 2511 ]
+[e :U 2510 ]
+[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2511  ]
+[e :U 2512 ]
+[; ;RemoteCan.c: 463: CANsendMessage(0b00000000100, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_1);
+"463
+[e ( _CANsendMessage (4 , , , -> -> -> 4 `i `l `ul &U _data_brake -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 2 `i `E16909 ]
+[; ;RemoteCan.c: 465: }
+"465
+[e :UE 2503 ]
+}
+"467
+[v _CAN_interpreter `(v ~T0 @X0 1 ef ]
+{
+[; ;RemoteCan.c: 467: void CAN_interpreter(void) {
+[e :U _CAN_interpreter ]
+[f ]
+[; ;RemoteCan.c: 468: if (id == 0b00000000010) {
+"468
+[e $ ! == _id -> -> -> 2 `i `l `ul 2514  ]
+{
+[; ;RemoteCan.c: 469: if (RTR_Flag == 1) {
+"469
+[e $ ! == -> _RTR_Flag `i -> 1 `i 2515  ]
+{
+[; ;RemoteCan.c: 470: pr_time_4 = time_counter;
+"470
+[e = _pr_time_4 _time_counter ]
+[; ;RemoteCan.c: 471: MotoreFlag = 1;
+"471
+[e = _MotoreFlag -> -> 1 `i `b ]
+[; ;RemoteCan.c: 472: AbsFlag = 0;
+"472
+[e = _AbsFlag -> -> 0 `i `b ]
+[; ;RemoteCan.c: 473: SterzoFlag = 0;
+"473
+[e = _SterzoFlag -> -> 0 `i `b ]
+"474
+}
+[; ;RemoteCan.c: 474: } else {
+[e $U 2516  ]
+[e :U 2515 ]
+{
+[; ;RemoteCan.c: 475: if (data[0] == 0x01) {
+"475
+[e $ ! == -> *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux `i -> 1 `i 2517  ]
+{
+[; ;RemoteCan.c: 476: AbsFlag = 1;
+"476
+[e = _AbsFlag -> -> 1 `i `b ]
+"477
+}
+[e :U 2517 ]
+[; ;RemoteCan.c: 477: }
+[; ;RemoteCan.c: 478: if (data[0] == 0x02) {
+"478
+[e $ ! == -> *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux `i -> 2 `i 2518  ]
+{
+[; ;RemoteCan.c: 479: SterzoFlag = 1;
+"479
+[e = _SterzoFlag -> -> 1 `i `b ]
+"480
+}
+[e :U 2518 ]
+"481
+}
+[e :U 2516 ]
+"482
+}
+[e :U 2514 ]
+[; ;RemoteCan.c: 480: }
+[; ;RemoteCan.c: 481: }
+[; ;RemoteCan.c: 482: }
+[; ;RemoteCan.c: 484: if (pr_time_4 - time_counter > 450) {
+"484
+[e $ ! > - _pr_time_4 _time_counter -> -> -> 450 `i `l `ul 2519  ]
+{
+"486
+}
+[e :U 2519 ]
+[; ;RemoteCan.c: 486: }
+[; ;RemoteCan.c: 488: if ((id == 0b00000000110)&&(RTR_Flag == 0)) {
+"488
+[e $ ! && == _id -> -> -> 6 `i `l `ul == -> _RTR_Flag `i -> 0 `i 2520  ]
+{
+[; ;RemoteCan.c: 489: left_speed = data_speed_rx[1];
+"489
+[e = _left_speed -> *U + &U _data_speed_rx * -> -> -> 1 `i `ui `ux -> -> # *U &U _data_speed_rx `ui `ux `ui ]
+[; ;RemoteCan.c: 490: left_speed = ((left_speed << 8) | (data_speed_rx[0]));
+"490
+[e = _left_speed | << _left_speed -> 8 `i -> *U + &U _data_speed_rx * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_speed_rx `ui `ux `ui ]
+[; ;RemoteCan.c: 491: right_speed = data_speed_rx[3];
+"491
+[e = _right_speed -> *U + &U _data_speed_rx * -> -> -> 3 `i `ui `ux -> -> # *U &U _data_speed_rx `ui `ux `ui ]
+[; ;RemoteCan.c: 492: right_speed = ((right_speed << 8) | (data_speed_rx[2]));
+"492
+[e = _right_speed | << _right_speed -> 8 `i -> *U + &U _data_speed_rx * -> -> -> 2 `i `ui `ux -> -> # *U &U _data_speed_rx `ui `ux `ui ]
+[; ;RemoteCan.c: 493: actual_speed = (right_speed + left_speed) / 2;
+"493
+[e = _actual_speed / + _right_speed _left_speed -> -> 2 `i `ui ]
+"494
+}
+[e :U 2520 ]
+[; ;RemoteCan.c: 494: }
+[; ;RemoteCan.c: 496: if (id == 0b00000001001) {
+"496
+[e $ ! == _id -> -> -> 9 `i `l `ul 2521  ]
+{
+[; ;RemoteCan.c: 497: battery = data[0];
+"497
+[e = _battery *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux ]
+"498
+}
+[e :U 2521 ]
+[; ;RemoteCan.c: 498: }
+[; ;RemoteCan.c: 499: }
+"499
+[e :UE 2513 ]
+}
+"501
 [v _board_initialization `(v ~T0 @X0 1 ef ]
 {
-[; ;RemoteCan.c: 459: void board_initialization(void) {
+[; ;RemoteCan.c: 501: void board_initialization(void) {
 [e :U _board_initialization ]
 [f ]
-[; ;RemoteCan.c: 461: LATA = 0x00;
-"461
-[e = _LATA -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 462: TRISA = 0b00011111;
-"462
-[e = _TRISA -> -> 31 `i `uc ]
-[; ;RemoteCan.c: 463: LATB = 0x00;
-"463
-[e = _LATB -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 464: TRISB = 0b11111011;
-"464
-[e = _TRISB -> -> 251 `i `uc ]
-[; ;RemoteCan.c: 465: LATC = 0x00;
-"465
-[e = _LATC -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 466: TRISC = 0b11110000;
-"466
-[e = _TRISC -> -> 240 `i `uc ]
-[; ;RemoteCan.c: 467: LATD = 0x00;
-"467
-[e = _LATD -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 468: TRISD = 0x00;
-"468
-[e = _TRISD -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 469: LATE = 0x00;
-"469
-[e = _LATE -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 470: TRISE = 0x00;
-"470
-[e = _TRISE -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 472: CANInitialize(4, 6, 5, 1, 3, CAN_CONFIG_LINE_FILTER_OFF & CAN_CONFIG_SAMPLE_ONCE & CAN_CONFIG_ALL_VALID_MSG & CAN_CONFIG_DBL_BUFFER_ON);
-"472
-[e ( _CANInitialize (4 , , , , , -> -> 4 `i `uc -> -> 6 `i `uc -> -> 5 `i `uc -> -> 1 `i `uc -> -> 3 `i `uc -> & & & -> . `E16887 6 `i -> . `E16887 8 `i -> . `E16887 20 `i -> . `E16887 14 `i `E16887 ]
-[; ;RemoteCan.c: 476: PIR2bits.TMR3IF = 0;
-"476
-[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 477: PIR3bits.RXB1IF = 0;
-"477
-[e = . . _PIR3bits 0 1 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 478: PIR3bits.RXB0IF = 0;
-"478
-[e = . . _PIR3bits 0 0 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 481: RCONbits.IPEN = 1;
-"481
-[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 482: IPR3bits.RXB1IP = 1;
-"482
-[e = . . _IPR3bits 0 1 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 483: IPR3bits.RXB0IP = 1;
-"483
-[e = . . _IPR3bits 0 0 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 484: IPR2bits.TMR3IP = 0;
-"484
-[e = . . _IPR2bits 0 1 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 487: ADCON1 = 0b00001101;
-"487
-[e = _ADCON1 -> -> 13 `i `uc ]
-[; ;RemoteCan.c: 488: ADCON0bits.CHS2 = 0;
-"488
-[e = . . _ADCON0bits 3 4 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 489: ADCON0bits.CHS1 = 0;
-"489
-[e = . . _ADCON0bits 3 3 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 490: ADCON0bits.CHS0 = 0;
-"490
-[e = . . _ADCON0bits 3 2 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 491: ADCON2bits.ACQT2 = 1;
-"491
-[e = . . _ADCON2bits 1 5 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 492: ADCON2bits.ACQT1 = 1;
-"492
-[e = . . _ADCON2bits 1 4 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 493: ADCON2bits.ACQT0 = 0;
-"493
-[e = . . _ADCON2bits 1 3 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 494: ADCON2bits.ADCS2 = 1;
-"494
-[e = . . _ADCON2bits 1 2 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 495: ADCON2bits.ADCS1 = 0;
-"495
-[e = . . _ADCON2bits 1 1 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 496: ADCON2bits.ADCS0 = 1;
-"496
-[e = . . _ADCON2bits 1 0 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 497: ADCON2bits.ADFM = 0;
-"497
-[e = . . _ADCON2bits 0 3 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 498: ADCON0bits.ADON = 1;
-"498
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 501: LCD_initialize(16);
-"501
-[e ( _LCD_initialize (1 -> -> 16 `i `uc ]
-[; ;RemoteCan.c: 503: LCD_clear();
+[; ;RemoteCan.c: 503: LATA = 0x00;
 "503
-[e ( _LCD_clear ..  ]
-[; ;RemoteCan.c: 504: LCD_goto_line(1);
+[e = _LATA -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 504: TRISA = 0b00011111;
 "504
-[e ( _LCD_goto_line (1 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 508: PORTDbits.RD2 = 0;
+[e = _TRISA -> -> 31 `i `uc ]
+[; ;RemoteCan.c: 505: LATB = 0x00;
+"505
+[e = _LATB -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 506: TRISB = 0b11111011;
+"506
+[e = _TRISB -> -> 251 `i `uc ]
+[; ;RemoteCan.c: 507: LATC = 0x00;
+"507
+[e = _LATC -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 508: TRISC = 0b11110000;
 "508
-[e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 509: PORTDbits.RD3 = 0;
+[e = _TRISC -> -> 240 `i `uc ]
+[; ;RemoteCan.c: 509: LATD = 0x00;
 "509
-[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 512: TMR3H = 0x63;
+[e = _LATD -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 510: TRISD = 0x00;
+"510
+[e = _TRISD -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 511: LATE = 0x00;
+"511
+[e = _LATE -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 512: TRISE = 0x00;
 "512
-[e = _TMR3H -> -> 99 `i `uc ]
-[; ;RemoteCan.c: 513: TMR3L = 0xC0;
-"513
-[e = _TMR3L -> -> 192 `i `uc ]
-[; ;RemoteCan.c: 516: PIE3bits.RXB1IE = 1;
-"516
-[e = . . _PIE3bits 0 1 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 517: PIE3bits.RXB0IE = 1;
-"517
-[e = . . _PIE3bits 0 0 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 518: PIE2bits.TMR3IE = 1;
+[e = _TRISE -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 514: CANInitialize(4, 6, 5, 1, 3, CAN_CONFIG_LINE_FILTER_OFF & CAN_CONFIG_SAMPLE_ONCE & CAN_CONFIG_ALL_VALID_MSG & CAN_CONFIG_DBL_BUFFER_ON);
+"514
+[e ( _CANInitialize (4 , , , , , -> -> 4 `i `uc -> -> 6 `i `uc -> -> 5 `i `uc -> -> 1 `i `uc -> -> 3 `i `uc -> & & & -> . `E16887 6 `i -> . `E16887 8 `i -> . `E16887 20 `i -> . `E16887 14 `i `E16887 ]
+[; ;RemoteCan.c: 518: PIR2bits.TMR3IF = 0;
 "518
-[e = . . _PIE2bits 0 1 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 521: T3CON = 0x01;
-"521
-[e = _T3CON -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 522: LCD_clear();
-"522
-[e ( _LCD_clear ..  ]
-[; ;RemoteCan.c: 523: INTCONbits.GIEH = 1;
+[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 519: PIR3bits.RXB1IF = 0;
+"519
+[e = . . _PIR3bits 0 1 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 520: PIR3bits.RXB0IF = 0;
+"520
+[e = . . _PIR3bits 0 0 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 523: RCONbits.IPEN = 1;
 "523
-[e = . . _INTCONbits 2 7 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 524: INTCONbits.GIEL = 1;
+[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 524: IPR3bits.RXB1IP = 1;
 "524
-[e = . . _INTCONbits 2 6 -> -> 1 `i `uc ]
-[; ;RemoteCan.c: 525: }
+[e = . . _IPR3bits 0 1 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 525: IPR3bits.RXB0IP = 1;
 "525
-[e :UE 2511 ]
+[e = . . _IPR3bits 0 0 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 526: IPR2bits.TMR3IP = 0;
+"526
+[e = . . _IPR2bits 0 1 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 529: ADCON1 = 0b00001101;
+"529
+[e = _ADCON1 -> -> 13 `i `uc ]
+[; ;RemoteCan.c: 530: ADCON0bits.CHS2 = 0;
+"530
+[e = . . _ADCON0bits 3 4 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 531: ADCON0bits.CHS1 = 0;
+"531
+[e = . . _ADCON0bits 3 3 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 532: ADCON0bits.CHS0 = 0;
+"532
+[e = . . _ADCON0bits 3 2 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 533: ADCON2bits.ACQT2 = 1;
+"533
+[e = . . _ADCON2bits 1 5 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 534: ADCON2bits.ACQT1 = 1;
+"534
+[e = . . _ADCON2bits 1 4 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 535: ADCON2bits.ACQT0 = 0;
+"535
+[e = . . _ADCON2bits 1 3 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 536: ADCON2bits.ADCS2 = 1;
+"536
+[e = . . _ADCON2bits 1 2 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 537: ADCON2bits.ADCS1 = 0;
+"537
+[e = . . _ADCON2bits 1 1 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 538: ADCON2bits.ADCS0 = 1;
+"538
+[e = . . _ADCON2bits 1 0 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 539: ADCON2bits.ADFM = 0;
+"539
+[e = . . _ADCON2bits 0 3 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 540: ADCON0bits.ADON = 1;
+"540
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 543: LCD_initialize(16);
+"543
+[e ( _LCD_initialize (1 -> -> 16 `i `uc ]
+[; ;RemoteCan.c: 545: LCD_clear();
+"545
+[e ( _LCD_clear ..  ]
+[; ;RemoteCan.c: 546: LCD_goto_line(1);
+"546
+[e ( _LCD_goto_line (1 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 550: PORTDbits.RD2 = 0;
+"550
+[e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 551: PORTDbits.RD3 = 0;
+"551
+[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
+[; ;RemoteCan.c: 554: TMR3H = 0x63;
+"554
+[e = _TMR3H -> -> 99 `i `uc ]
+[; ;RemoteCan.c: 555: TMR3L = 0xC0;
+"555
+[e = _TMR3L -> -> 192 `i `uc ]
+[; ;RemoteCan.c: 558: PIE3bits.RXB1IE = 1;
+"558
+[e = . . _PIE3bits 0 1 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 559: PIE3bits.RXB0IE = 1;
+"559
+[e = . . _PIE3bits 0 0 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 560: PIE2bits.TMR3IE = 1;
+"560
+[e = . . _PIE2bits 0 1 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 563: T3CON = 0x01;
+"563
+[e = _T3CON -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 564: LCD_clear();
+"564
+[e ( _LCD_clear ..  ]
+[; ;RemoteCan.c: 565: INTCONbits.GIEH = 1;
+"565
+[e = . . _INTCONbits 2 7 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 566: INTCONbits.GIEL = 1;
+"566
+[e = . . _INTCONbits 2 6 -> -> 1 `i `uc ]
+[; ;RemoteCan.c: 567: }
+"567
+[e :UE 2522 ]
 }
 [p f _sprintf 8462336 ]
 [a 8C 83 112 101 101 100 58 32 48 46 48 48 32 75 109 47 104 0 ]

@@ -86,8 +86,11 @@ unsigned int actual_speed = 0;
 //Variabili parcheggio
 volatile bit y = LOW;
 volatile bit space_available = LOW;
+volatile bit steering_correction_dir = LOW;
+volatile unsigned char steering_correction = 0;
 volatile unsigned char x = 0;
 volatile unsigned char z = 0;
+volatile signed long check = 0;
 volatile char parking_state = OFF;
 
 //variabili per il programma
@@ -120,7 +123,13 @@ __interrupt(high_priority) void ISR_alta(void) {
             if (id == PARK_ASSIST_STATE) {
                 if (msg.data[0] == 1) {
                     space_available = HIGH;
+                    F2_switch = LOW;
                 }
+            }
+
+            if (id == STEERING_CORRECTION) {
+                steering_correction_dir = msg.data[1];
+                steering_correction = msg.data[0];
             }
 
             if (id == 0xAA) {
@@ -236,16 +245,6 @@ void main(void) {
                 CANsendMessage(PARK_ASSIST_ENABLE, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
                 x++;
             }
-            if ((time_counter - pr_time_5) >= 30) {
-                pr_time_5 = time_counter;
-                if (space_available == LOW) {
-                    PORTDbits.RD6 = ~PORTDbits.RD6;
-                    PORTDbits.RD5 = LOW;
-                } else {
-                    PORTDbits.RD6 = HIGH;
-                    PORTDbits.RD5 = ~PORTDbits.RD5;
-                }
-            }
 
             if ((F2_switch == HIGH)&&(space_available == HIGH)) {
                 if (z < 1) {
@@ -257,6 +256,22 @@ void main(void) {
                 }
             } else {
                 z = 0;
+            }
+
+            if ((time_counter - pr_time_5) >= 30) {
+                pr_time_5 = time_counter;
+                if (space_available == LOW) {
+                    PORTDbits.RD6 = ~PORTDbits.RD6;
+                    PORTDbits.RD5 = LOW;
+                } else {
+                    PORTDbits.RD6 = HIGH;
+                    if (F2_switch == LOW) {
+                        PORTDbits.RD5 = ~PORTDbits.RD5;
+                    } else {
+                        PORTDbits.RD5 = HIGH;
+
+                    }
+                }
             }
         } else { //RD6/RB4-- RD5/RB1
             x = 0;
@@ -276,7 +291,29 @@ void main(void) {
             PORTDbits.RD5 = LOW;
         }
 
+        //Steering
         data_steering [0] = 180 - (JoystickValues[X_AXIS])*(JoystickConstants[X_AXIS]);
+        if (parking_state == SEARCH) {
+            if (steering_correction_dir == HIGH) {
+                check = data_steering[0] + steering_correction;
+            } else {
+                check = data_steering[0] - steering_correction;
+            }
+            if ((check >= 0)&&(check <= 180)) {
+                data_steering[0] = check;
+            } else {
+                if (check > 180) {
+                    data_steering[0] = 180;
+                } else {
+                    data_steering[0] = 0;
+                }
+            }
+        } else {
+            steering_correction_dir = LOW;
+            steering_correction = 0;
+        }
+
+        //Speed
         if (switch_position != HIGH_POS) {
             if (JoystickValues[Y_AXIS] > 132) {
                 set_speed = (JoystickValues[Y_AXIS] - 130)*(JoystickConstants[Y_AXIS]); //guardare
@@ -292,7 +329,7 @@ void main(void) {
             newMessageCan = 0;
         }
 
-        if ((time_counter - pr_time_2) >= 2) {
+        if (((time_counter - pr_time_2) >= 2) && (parking_state != PARKING)) {
             pr_time_2 = time_counter;
             CAN_Send();
         }
@@ -302,19 +339,6 @@ void main(void) {
             LCD_Handler();
         }
     }
-}
-
-void CAN_Send(void) {
-    while (CANisTxReady() != HIGH);
-    CANsendMessage(STEERING_CHANGE, data_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-    data_speed[0] = set_speed;
-    data_speed[1] = (set_speed >> 8);
-    data_speed[2] = dir;
-    while (CANisTxReady() != HIGH);
-    CANsendMessage(SPEED_CHANGE, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-    while (CANisTxReady() != HIGH);
-    CANsendMessage(BRAKE_SIGNAL, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_1);
-
 }
 
 void LCD_Handler(void) {
@@ -383,40 +407,6 @@ void LCD_Handler(void) {
     }
 }
 
-void CAN_interpreter(void) {
-    if (id == ECU_STATE) {
-        if (RTR_Flag == HIGH) { //Se è arrivata la richiesta presenza centraline
-            pr_time_4 = time_counter;
-            MotoreFlag = HIGH;
-            AbsFlag = LOW; //resetta flag
-            SterzoFlag = LOW; //resetta flag
-        } else {
-            if (data[0] == 0x01) {
-                AbsFlag = HIGH;
-            }
-            if (data[0] == 0x02) {
-                SterzoFlag = HIGH;
-            }
-        }
-    }
-
-    if (pr_time_4 - time_counter > 450) {
-        //CONTROLLO DEI FLAG DI RISPOSTA ECU
-    }
-
-    if ((id == ACTUAL_SPEED)&&(RTR_Flag == 0)) {
-        left_speed = data_speed_rx[1];
-        left_speed = ((left_speed << 8) | (data_speed_rx[0]));
-        right_speed = data_speed_rx[3];
-        right_speed = ((right_speed << 8) | (data_speed_rx[2]));
-        actual_speed = (right_speed + left_speed) / 2;
-    }
-
-    if (id == LOW_BATTERY) { //?
-        battery = data[0];
-    }
-}
-
 void PWR_Button_Polling(void) {
     if ((PORTBbits.RB5 == LOW) || (wait_low_1 == LOW)) {
         wait_low_1 = LOW;
@@ -453,6 +443,58 @@ void Joystick_Polling(void) {
         while (ADCON0bits.GO);
         JoystickValues[i] = ADRESH;
         ADCON0bits.CHS0 = ~ADCON0bits.CHS0;
+    }
+}
+
+void CAN_Send(void) {
+    //Send steering message
+    while (CANisTxReady() != HIGH);
+    CANsendMessage(STEERING_CHANGE, data_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+
+    //Send speed message
+    data_speed[0] = set_speed;
+    data_speed[1] = (set_speed >> 8);
+    data_speed[2] = dir;
+    while (CANisTxReady() != HIGH);
+    CANsendMessage(SPEED_CHANGE, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+
+    //Send brake message
+    while (CANisTxReady() != HIGH);
+    CANsendMessage(BRAKE_SIGNAL, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_1);
+
+}
+
+void CAN_interpreter(void) {
+    if (id == ECU_STATE) {
+        if (RTR_Flag == HIGH) { //Se è arrivata la richiesta presenza centraline
+            pr_time_4 = time_counter;
+            MotoreFlag = HIGH;
+            AbsFlag = LOW; //resetta flag
+            SterzoFlag = LOW; //resetta flag
+        } else {
+            if (data[0] == 0x01) {
+                AbsFlag = HIGH;
+            }
+            if (data[0] == 0x02) {
+                SterzoFlag = HIGH;
+            }
+        }
+    }
+
+    if (pr_time_4 - time_counter > 450) {
+        //CONTROLLO DEI FLAG DI RISPOSTA ECU
+    }
+
+    if ((id == ACTUAL_SPEED)&&(RTR_Flag == 0)) {
+        left_speed = data_speed_rx[1];
+        left_speed = ((left_speed << 8) | (data_speed_rx[0]));
+        right_speed = data_speed_rx[3];
+        right_speed = ((right_speed << 8) | (data_speed_rx[2]));
+        actual_speed = (right_speed + left_speed) / 2;
+    }
+
+    if (id == LOW_BATTERY) { //?
+        battery = data[0];
     }
 }
 

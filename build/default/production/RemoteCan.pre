@@ -20998,8 +20998,11 @@ unsigned int actual_speed = 0;
 
 volatile bit y = 0;
 volatile bit space_available = 0;
+volatile bit steering_correction_dir = 0;
+volatile unsigned char steering_correction = 0;
 volatile unsigned char x = 0;
 volatile unsigned char z = 0;
+volatile signed long check = 0;
 volatile char parking_state = 0;
 
 
@@ -21032,7 +21035,13 @@ data_speed_rx[i] = msg.data[i];
 if (id == 0b00000001011) {
 if (msg.data[0] == 1) {
 space_available = 1;
+F2_switch = 0;
 }
+}
+
+if (id == 0b00000001110) {
+steering_correction_dir = msg.data[1];
+steering_correction = msg.data[0];
 }
 
 if (id == 0xAA) {
@@ -21047,7 +21056,7 @@ _delay((unsigned long)((10)*(16000000/4000000.0)));
 while (CANisTxReady() != 1);
 CANsendMessage(0b00000000010, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 
-# 142
+# 151
 }
 }
 }
@@ -21070,7 +21079,7 @@ PIR2bits.TMR3IF = 0;
 void main(void) {
 board_initialization();
 
-# 170
+# 179
 JoystickConstants[0] = 0.703;
 JoystickConstants[1] = 10;
 
@@ -21140,16 +21149,6 @@ park_assist_state[0] = 0b00000001;
 CANsendMessage(0b00000001010, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 x++;
 }
-if ((time_counter - pr_time_5) >= 30) {
-pr_time_5 = time_counter;
-if (space_available == 0) {
-PORTDbits.RD6 = ~PORTDbits.RD6;
-PORTDbits.RD5 = 0;
-} else {
-PORTDbits.RD6 = 1;
-PORTDbits.RD5 = ~PORTDbits.RD5;
-}
-}
 
 if ((F2_switch == 1)&&(space_available == 1)) {
 if (z < 1) {
@@ -21161,6 +21160,22 @@ z++;
 }
 } else {
 z = 0;
+}
+
+if ((time_counter - pr_time_5) >= 30) {
+pr_time_5 = time_counter;
+if (space_available == 0) {
+PORTDbits.RD6 = ~PORTDbits.RD6;
+PORTDbits.RD5 = 0;
+} else {
+PORTDbits.RD6 = 1;
+if (F2_switch == 0) {
+PORTDbits.RD5 = ~PORTDbits.RD5;
+} else {
+PORTDbits.RD5 = 1;
+
+}
+}
 }
 } else {
 x = 0;
@@ -21180,7 +21195,29 @@ PORTDbits.RD6 = 0;
 PORTDbits.RD5 = 0;
 }
 
+
 data_steering [0] = 180 - (JoystickValues[0])*(JoystickConstants[0]);
+if (parking_state == 1) {
+if (steering_correction_dir == 1) {
+check = data_steering[0] + steering_correction;
+} else {
+check = data_steering[0] - steering_correction;
+}
+if ((check >= 0)&&(check <= 180)) {
+data_steering[0] = check;
+} else {
+if (check > 180) {
+data_steering[0] = 180;
+} else {
+data_steering[0] = 0;
+}
+}
+} else {
+steering_correction_dir = 0;
+steering_correction = 0;
+}
+
+
 if (switch_position != 0) {
 if (JoystickValues[1] > 132) {
 set_speed = (JoystickValues[1] - 130)*(JoystickConstants[1]);
@@ -21196,7 +21233,7 @@ CAN_interpreter();
 newMessageCan = 0;
 }
 
-if ((time_counter - pr_time_2) >= 2) {
+if (((time_counter - pr_time_2) >= 2) && (parking_state != 2)) {
 pr_time_2 = time_counter;
 CAN_Send();
 }
@@ -21206,19 +21243,6 @@ pr_time_3 = time_counter;
 LCD_Handler();
 }
 }
-}
-
-void CAN_Send(void) {
-while (CANisTxReady() != 1);
-CANsendMessage(0b00000000101, data_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-data_speed[0] = set_speed;
-data_speed[1] = (set_speed >> 8);
-data_speed[2] = dir;
-while (CANisTxReady() != 1);
-CANsendMessage(0b00000000011, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-while (CANisTxReady() != 1);
-CANsendMessage(0b00000000100, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_1);
-
 }
 
 void LCD_Handler(void) {
@@ -21287,40 +21311,6 @@ LCD_write_integer(user_data, 0, 0x01);
 }
 }
 
-void CAN_interpreter(void) {
-if (id == 0b00000000010) {
-if (RTR_Flag == 1) {
-pr_time_4 = time_counter;
-MotoreFlag = 1;
-AbsFlag = 0;
-SterzoFlag = 0;
-} else {
-if (data[0] == 0x01) {
-AbsFlag = 1;
-}
-if (data[0] == 0x02) {
-SterzoFlag = 1;
-}
-}
-}
-
-if (pr_time_4 - time_counter > 450) {
-
-}
-
-if ((id == 0b00000000110)&&(RTR_Flag == 0)) {
-left_speed = data_speed_rx[1];
-left_speed = ((left_speed << 8) | (data_speed_rx[0]));
-right_speed = data_speed_rx[3];
-right_speed = ((right_speed << 8) | (data_speed_rx[2]));
-actual_speed = (right_speed + left_speed) / 2;
-}
-
-if (id == 0b00000001001) {
-battery = data[0];
-}
-}
-
 void PWR_Button_Polling(void) {
 if ((PORTBbits.RB5 == 0) || (wait_low_1 == 0)) {
 wait_low_1 = 0;
@@ -21357,6 +21347,58 @@ ADCON0bits.GO = 1;
 while (ADCON0bits.GO);
 JoystickValues[i] = ADRESH;
 ADCON0bits.CHS0 = ~ADCON0bits.CHS0;
+}
+}
+
+void CAN_Send(void) {
+
+while (CANisTxReady() != 1);
+CANsendMessage(0b00000000101, data_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+
+
+data_speed[0] = set_speed;
+data_speed[1] = (set_speed >> 8);
+data_speed[2] = dir;
+while (CANisTxReady() != 1);
+CANsendMessage(0b00000000011, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+
+
+while (CANisTxReady() != 1);
+CANsendMessage(0b00000000100, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_1);
+
+}
+
+void CAN_interpreter(void) {
+if (id == 0b00000000010) {
+if (RTR_Flag == 1) {
+pr_time_4 = time_counter;
+MotoreFlag = 1;
+AbsFlag = 0;
+SterzoFlag = 0;
+} else {
+if (data[0] == 0x01) {
+AbsFlag = 1;
+}
+if (data[0] == 0x02) {
+SterzoFlag = 1;
+}
+}
+}
+
+if (pr_time_4 - time_counter > 450) {
+
+}
+
+if ((id == 0b00000000110)&&(RTR_Flag == 0)) {
+left_speed = data_speed_rx[1];
+left_speed = ((left_speed << 8) | (data_speed_rx[0]));
+right_speed = data_speed_rx[3];
+right_speed = ((right_speed << 8) | (data_speed_rx[2]));
+actual_speed = (right_speed + left_speed) / 2;
+}
+
+if (id == 0b00000001001) {
+battery = data[0];
 }
 }
 
