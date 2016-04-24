@@ -19425,7 +19425,7 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config EBTRB = OFF
 
-# 49 "../LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h"
+# 49 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h"
 typedef unsigned char BYTE;
 
 
@@ -20476,7 +20476,7 @@ BYTE CANisRxReady (void)
 return (RXB0CONbits.RXFUL || RXB1CONbits.RXFUL);
 }
 
-# 74 "../LaurTec_PIC_libraries_v_3.3.0/inc\delay.h"
+# 74 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\delay.h"
 void delay_ms (unsigned int value_ms);
 
 # 88
@@ -20485,7 +20485,7 @@ void delay_s (unsigned char value_s);
 # 102
 void delay_set_quartz (unsigned char frequency);
 
-# 49 "../LaurTec_PIC_libraries_v_3.3.0/src\delay.c"
+# 49 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\delay.c"
 volatile unsigned char delay_quartz_frequency_value = 16;
 volatile unsigned int clock_counter_reference = 0;
 
@@ -20592,52 +20592,52 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 164 "../LaurTec_PIC_libraries_v_3.3.0/inc\LCD_44780.h"
-void LCD_enable_pulse(void);
+# 165 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\LCD_44780.h"
+void LCD_enable_pulse (void);
 
-# 183
-void LCD_send_command(unsigned char bit_3, unsigned char bit_2, unsigned char bit_1, unsigned char bit_0);
+# 184
+void LCD_send_command (unsigned char bit_3, unsigned char bit_2, unsigned char bit_1, unsigned char bit_0);
 
-# 192
+# 193
 void LCD_home(void);
 
-# 207
+# 208
 void LCD_shift(unsigned char shift, unsigned char number_of_shift);
 
-# 223
-void LCD_shift_cursor(unsigned char shift, unsigned char number_of_shift);
+# 224
+void LCD_shift_cursor(unsigned char shift,unsigned char number_of_shift);
 
-# 235
-void LCD_goto_line(unsigned char line);
+# 236
+void LCD_goto_line (unsigned char line);
 
-# 250
-void LCD_goto_xy(unsigned char x, unsigned char y);
+# 251
+void LCD_goto_xy (unsigned char x, unsigned char y);
 
-# 261
-void LCD_write_char(unsigned char value);
+# 262
+void LCD_write_char (unsigned char value);
 
-# 280
+# 281
 void LCD_write_message(const unsigned char *buffer);
 
-# 295
+# 296
 void LCD_write_string(unsigned char *buffer);
 
-# 315
+# 316
 void LCD_write_integer(int value, unsigned char number_of_digits, unsigned char zero_cleaning);
 
-# 324
-void LCD_clear(void);
+# 325
+void LCD_clear (void);
 
-# 340
+# 341
 void LCD_cursor(unsigned char active, unsigned char blinking);
 
-# 355
+# 356
 void LCD_backlight(unsigned char active);
 
-# 369
+# 370
 void LCD_initialize(unsigned char quartz_frequency);
 
-# 49 "../LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c"
+# 49 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c"
 void LCD_enable_pulse (void) {
 
 LATCbits.LATC1 = 1;
@@ -20825,7 +20825,17 @@ LCD_send_command (0,0,0,0);
 LCD_send_command (1,1,active,blinking);
 }
 
-# 283
+
+
+
+void LCD_backlight (unsigned char active) {
+
+LATCbits.LATC4 = active;
+}
+
+
+
+
 void LCD_initialize (unsigned char quartz_frequency) {
 
 delay_set_quartz (quartz_frequency);
@@ -21045,7 +21055,8 @@ steering_correction = msg.data[0];
 }
 
 if (id == 0xAA) {
-user_data = msg.data[0];
+user_data = msg.data[1];
+user_data = ((user_data<<8)|msg.data[0]);
 }
 
 if (id == 0b00000000010) {
@@ -21056,7 +21067,11 @@ _delay((unsigned long)((10)*(16000000/4000000.0)));
 while (CANisTxReady() != 1);
 CANsendMessage(0b00000000010, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 
+<<<<<<< HEAD
 # 151
+=======
+# 143
+>>>>>>> origin/master
 }
 }
 }
@@ -21079,7 +21094,11 @@ PIR2bits.TMR3IF = 0;
 void main(void) {
 board_initialization();
 
+<<<<<<< HEAD
 # 179
+=======
+# 171
+>>>>>>> origin/master
 JoystickConstants[0] = 0.703;
 JoystickConstants[1] = 10;
 

@@ -1,4 +1,5 @@
 __size_of_CANInitialize 0 0 ABS 0
+<<<<<<< HEAD
 ___lwdiv@dividend 6E 0 BANK0 1
 __CFG_XINST$OFF 0 0 ABS 0
 ___lldiv@counter 7A 0 BANK0 1
@@ -33,10 +34,47 @@ _delay_set_quartz 1627E 0 CODE 0
 CANInitialize@FilterConfig1 86 0 BANK0 1
 CANSetMask@type 72 0 BANK0 1
 _power_switch 258 -206 COMRAM 1
+=======
+___lwdiv@dividend 70 0 BANK0 1
+__CFG_XINST$OFF 0 0 ABS 0
+___lldiv@counter 7C 0 BANK0 1
+sprintf@fval 13D 0 BANK1 1
+__size_ofi2_CANisTxReady 0 0 ABS 0
+___awdiv@counter 7A 0 BANK0 1
+sprintf@f C4 0 BANK0 1
+_x E7 0 BANK0 1
+_y 265 -20D COMRAM 1
+_z E8 0 BANK0 1
+___lwdiv@counter 76 0 BANK0 1
+_id C 0 COMRAM 1
+_time_counter 1C 0 COMRAM 1
+___fldiv@rem 8B 0 BANK0 1
+__S0 30000E 0 ABS 0
+__S1 14A 0 ABS 0
+Joystick_Polling@i 71 0 BANK0 1
+__S2 0 0 ABS 0
+ISR_alta@i 4A 0 COMRAM 1
+_CANisRxReady$3237 3A 0 COMRAM 1
+__Hintentry 0 0 ABS 0
+__CFG_PWRT$OFF 0 0 ABS 0
+__Lintentry 0 0 ABS 0
+_CANisTxReady$3235 70 0 BANK0 1
+__end_of___awdiv 15722 0 CODE 0
+_msg 106 0 BANK1 1
+_dir E4 0 BANK0 1
+_str 115 0 BANK1 1
+delay_ms@value_ms 76 0 BANK0 1
+___fladd@signs B4 0 BANK0 1
+_delay_set_quartz 1618E 0 CODE 0
+CANInitialize@FilterConfig1 88 0 BANK0 1
+CANSetMask@type 74 0 BANK0 1
+_power_switch 260 -20D COMRAM 1
+>>>>>>> origin/master
 _LATA F89 0 ABS 0
 _LATB F8A 0 ABS 0
 _LATC F8B 0 ABS 0
 _LATD F8C 0 ABS 0
+<<<<<<< HEAD
 ___flneg@f1 95 0 BANK0 1
 _LATE F8D 0 ABS 0
 __size_of_CANSetFilter 0 0 ABS 0
@@ -58,6 +96,29 @@ _CAN_Send 15988 0 CODE 0
 __end_of_LCD_clear 1612E 0 CODE 0
 i2_CANsendMessage 12240 0 CODE 0
 CANsendMessage@dataLength 74 0 BANK0 1
+=======
+___flneg@f1 97 0 BANK0 1
+_LATE F8D 0 ABS 0
+__size_of_CANSetFilter 0 0 ABS 0
+_CANOperationMode 16162 0 CODE 0
+LCD_goto_xy@x 80 0 BANK0 1
+_RTR_Flag 25C -20D COMRAM 1
+CANInitialize@FilterConfig2 89 0 BANK0 1
+_data 28 0 COMRAM 1
+_itoa 15E38 0 CODE 0
+_utoa 15722 0 CODE 0
+_main 121B6 0 CODE 0
+___sp 0 0 STACK 2
+btemp 4D 0 COMRAM 1
+?___fladd A4 0 BANK0 1
+start C0 0 CODE 0
+CANOperationMode@mode 70 0 BANK0 1
+___fltol@f1 B8 0 BANK0 1
+_CAN_Send 1589C 0 CODE 0
+__end_of_LCD_clear 1603E 0 CODE 0
+i2_CANsendMessage 11B26 0 CODE 0
+CANsendMessage@dataLength 76 0 BANK0 1
+>>>>>>> origin/master
 _TMR3H FB3 0 ABS 0
 __size_of_Joystick_Polling 0 0 ABS 0
 _TMR3L FB2 0 ABS 0
@@ -65,7 +126,11 @@ _TRISA F92 0 ABS 0
 _TRISB F93 0 ABS 0
 _TRISC F94 0 ABS 0
 _TRISD F95 0 ABS 0
+<<<<<<< HEAD
 __end_of___flmul 13C44 0 CODE 0
+=======
+__end_of___flmul 13B6C 0 CODE 0
+>>>>>>> origin/master
 __Hirdata 0 0 CODE 0
 _TRISE F96 0 ABS 0
 __Lirdata 0 0 CODE 0
@@ -74,6 +139,7 @@ __LRAM 1 0 ABS 0
 _T3CON FB1 0 ABS 0
 __size_of_LCD_send_command 0 0 ABS 0
 _ISR_alta 8 0 CODE 0
+<<<<<<< HEAD
 itoa@base 82 0 BANK0 1
 utoa@base 79 0 BANK0 1
 __size_of_delay_set_quartz 0 0 ABS 0
@@ -99,12 +165,42 @@ __Lrparam 0 0 COMRAM 1
 _scale 128D0 0 CODE 0
 __end_of_LCD_cursor 160FC 0 CODE 0
 _check DA 0 BANK0 1
+=======
+itoa@base 84 0 BANK0 1
+utoa@base 7B 0 BANK0 1
+__size_of_delay_set_quartz 0 0 ABS 0
+?___flneg 97 0 BANK0 1
+scale@scl 9F 0 BANK0 1
+__CFG_WDTPS$32768 0 0 ABS 0
+__Hconfig 30000E 0 CONFIG 0
+i2CANsendMessage@dataLength 40 0 COMRAM 1
+__Lconfig 300000 0 CONFIG 0
+__powers_ FEE9 0 MEDIUMCONST 0
+__end_ofi2_CANisTxReady 160F2 0 CODE 0
+?___llmod 70 0 BANK0 1
+utoa@c 7F 0 BANK0 1
+?___awmod 70 0 BANK0 1
+?___lwmod 70 0 BANK0 1
+__size_of_ISR_bassa 0 0 ABS 0
+?___flsub B8 0 BANK0 1
+__Hbigram 0 0 ABS 0
+__Lbigram 0 0 ABS 0
+__Hrparam 0 0 COMRAM 1
+utoa@v 7D 0 BANK0 1
+__Lrparam 0 0 COMRAM 1
+_scale 127F8 0 CODE 0
+__end_of_LCD_cursor 1600C 0 CODE 0
+>>>>>>> origin/master
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
 __Hcomram 0 0 ABS 0
 __Lcomram 0 0 ABS 0
 __Hsfr 0 0 ABS 0
+<<<<<<< HEAD
 ___flge@ff1 6E 0 BANK0 1
+=======
+___flge@ff1 70 0 BANK0 1
+>>>>>>> origin/master
 __Lsfr 0 0 ABS 0
 __Hbss 0 0 RAM 1
 __CFG_STVREN$ON 0 0 ABS 0
@@ -112,10 +208,17 @@ __Lbss 0 0 RAM 1
 ___param_bank 10 0 ABS 0
 __Hnvrram 0 0 COMRAM 1
 __Lnvrram 0 0 COMRAM 1
+<<<<<<< HEAD
 LCD_goto_xy@y 7D 0 BANK0 1
 _RXB0D0 F66 0 ABS 0
 _TXB0D0 F46 0 ABS 0
 ?_sprintf C0 0 BANK0 1
+=======
+LCD_goto_xy@y 7F 0 BANK0 1
+_RXB0D0 F66 0 ABS 0
+_TXB0D0 F46 0 ABS 0
+?_sprintf C2 0 BANK0 1
+>>>>>>> origin/master
 _RXB1D0 F56 0 ABS 0
 _TXB1D0 F36 0 ABS 0
 _TXB2D0 F26 0 ABS 0
@@ -139,11 +242,19 @@ _RXB0D4 F6A 0 ABS 0
 _TXB0D4 F4A 0 ABS 0
 _RXB1D4 F5A 0 ABS 0
 _TXB1D4 F3A 0 ABS 0
+<<<<<<< HEAD
 ___xxtofl 14698 0 CODE 0
 _TXB2D4 F2A 0 ABS 0
 _RXB0D5 F6B 0 ABS 0
 _TXB0D5 F4B 0 ABS 0
 __end_of_LCD_goto_xy 1621A 0 CODE 0
+=======
+___xxtofl 145C0 0 CODE 0
+_TXB2D4 F2A 0 ABS 0
+_RXB0D5 F6B 0 ABS 0
+_TXB0D5 F4B 0 ABS 0
+__end_of_LCD_goto_xy 1612A 0 CODE 0
+>>>>>>> origin/master
 _RXB1D5 F5B 0 ABS 0
 _TXB1D5 F3B 0 ABS 0
 _TXB2D5 F2B 0 ABS 0
@@ -157,29 +268,49 @@ _TXB0D7 F4D 0 ABS 0
 _RXB1D7 F5D 0 ABS 0
 _TXB1D7 F3D 0 ABS 0
 _TXB2D7 F2D 0 ABS 0
+<<<<<<< HEAD
 ___flge@ff2 72 0 BANK0 1
 __end_of_delay_set_quartz 16288 0 CODE 0
 __tdiv_to_l_@quot 79 0 BANK0 1
 _ADCON1 FC1 0 ABS 0
 ?___fltol B6 0 BANK0 1
+=======
+___flge@ff2 74 0 BANK0 1
+__end_of_delay_set_quartz 16198 0 CODE 0
+__tdiv_to_l_@quot 7B 0 BANK0 1
+_ADCON1 FC1 0 ABS 0
+?___fltol B8 0 BANK0 1
+>>>>>>> origin/master
 _PIE2bits FA0 0 ABS 0
 _PIE3bits FA3 0 ABS 0
 __Heeprom_data 0 0 EEDATA 0
 __Leeprom_data 0 0 EEDATA 0
+<<<<<<< HEAD
 ?___flmul 7C 0 BANK0 1
 _display_refresh 256 -206 COMRAM 1
+=======
+?___flmul 7E 0 BANK0 1
+_display_refresh 25E -20D COMRAM 1
+>>>>>>> origin/master
 _PIR2bits FA1 0 ABS 0
 __end_of_CANSetFilter 10B06 0 CODE 0
 _IPR2bits FA2 0 ABS 0
 _PIR3bits FA4 0 ABS 0
 _IPR3bits FA5 0 ABS 0
+<<<<<<< HEAD
 __end_of_CANisRxReady 1627E 0 CODE 0
 sprintf@ap 134 0 BANK1 1
 _set_speed E4 0 BANK0 1
+=======
+__end_of_CANisRxReady 1618E 0 CODE 0
+sprintf@ap 12D 0 BANK1 1
+_set_speed E2 0 BANK0 1
+>>>>>>> origin/master
 _LATCbits F8B 0 ABS 0
 _LATDbits F8C 0 ABS 0
 __Hintsave_regs 0 0 BIGRAM 1
 _LATEbits F8D 0 ABS 0
+<<<<<<< HEAD
 _set_steering 26 0 COMRAM 1
 __Lintsave_regs 0 0 BIGRAM 1
 _delay_ms 15FEE 0 CODE 0
@@ -191,6 +322,19 @@ _LCD_send_command 15FB4 0 CODE 0
 __Hbigbss 0 0 BIGRAM 1
 __Lbigbss 0 0 BIGRAM 1
 ?___awdiv 74 0 BANK0 1
+=======
+_set_steering 27 0 COMRAM 1
+__Lintsave_regs 0 0 BIGRAM 1
+_delay_ms 15EFE 0 CODE 0
+?___fldiv 7E 0 BANK0 1
+_RCONbits FD0 0 ABS 0
+?___lldiv 70 0 BANK0 1
+i2CANsendMessage@identifier 3A 0 COMRAM 1
+_LCD_send_command 15EC4 0 CODE 0
+__Hbigbss 0 0 BIGRAM 1
+__Lbigbss 0 0 BIGRAM 1
+?___awdiv 76 0 BANK0 1
+>>>>>>> origin/master
 __Hintret 0 0 ABS 0
 __Lintret 0 0 ABS 0
 __Hramtop D00 0 RAM 0
@@ -201,8 +345,13 @@ __Hbigdata 0 0 BIGRAM 1
 __Lbigdata 0 0 BIGRAM 1
 __Hmediumconst 10000 0 MEDIUMCONST 0
 __Lmediumconst FEB4 0 MEDIUMCONST 0
+<<<<<<< HEAD
 ?___lwdiv 6E 0 BANK0 1
 _user_data E6 0 BANK0 1
+=======
+?___lwdiv 70 0 BANK0 1
+_user_data 24 0 COMRAM 1
+>>>>>>> origin/master
 __Hfarbss 0 0 FARRAM 0
 __Lfarbss 0 0 FARRAM 0
 __pmediumconst FEB4 0 MEDIUMCONST 0
@@ -219,6 +368,7 @@ __end_of__powers_ FF1D 0 MEDIUMCONST 0
 __CFG_EBTR0$OFF 0 0 ABS 0
 __size_of_LCD_initialize 0 0 ABS 0
 __size_of_LCD_clear 0 0 ABS 0
+<<<<<<< HEAD
 _switch_position EB 0 BANK0 1
 CANSetFilter@numBuffer 77 0 BANK0 1
 __HnvFARRAM 0 0 FARRAM 0
@@ -267,6 +417,56 @@ ___awmod@sign 73 0 BANK0 1
 __Htemp 4D 0 COMRAM 1
 __Ltemp 4C 0 COMRAM 1
 stacklo 149 0 ABS 0
+=======
+_switch_position E6 0 BANK0 1
+CANSetFilter@numBuffer 79 0 BANK0 1
+__HnvFARRAM 0 0 FARRAM 0
+__LnvFARRAM 0 0 FARRAM 0
+?__tdiv_to_l_ 70 0 BANK0 1
+_ISR_bassa 18 0 CODE 0
+__CFG_EBTR1$OFF 0 0 ABS 0
+CANSetFilter@tamp 7A 0 BANK0 1
+__npowers_ FEB5 0 MEDIUMCONST 0
+CANreceiveMessage@msg 3A 0 COMRAM 1
+__CFG_PBADEN$OFF 0 0 ABS 0
+__end_of___fltol 15578 0 CODE 0
+_LCD_shift_cursor 15DA4 0 CODE 0
+_F1_switch 259 -20D COMRAM 1
+_F2_switch 25A -20D COMRAM 1
+CANSetMask@tamp 7A 0 BANK0 1
+__CFG_EBTR2$OFF 0 0 ABS 0
+__end_of___flsub 15E38 0 CODE 0
+__size_of_PWR_Button_Polling 0 0 ABS 0
+__size_of___fldiv 0 0 ABS 0
+__div_to_l_@f1 70 0 BANK0 1
+__end_of_LCD_goto_line 15664 0 CODE 0
+__end_of_dpowers FF45 0 MEDIUMCONST 0
+__end_of_scale 12D12 0 CODE 0
+__size_of_CANisRxReady 0 0 ABS 0
+CANSetMask@mask 70 0 BANK0 1
+__end_of___flge 14FF0 0 CODE 0
+__end_of___awmod 15B46 0 CODE 0
+_CANsendMessage 1139A 0 CODE 0
+__Hdata 0 0 ABS 0
+__Ldata 0 0 ABS 0
+itoa@cp 86 0 BANK0 1
+__CFG_EBTR3$OFF 0 0 ABS 0
+___flge 14E60 0 CODE 0
+?_scale 97 0 BANK0 1
+_PWR_Button_Polling 160F2 0 CODE 0
+stackhi CFF 0 ABS 0
+sprintf@sp C2 0 BANK0 1
+_fround 142CA 0 CODE 0
+___fldiv@new_exp 8F 0 BANK0 1
+__HcstackBANK0 0 0 ABS 0
+__LcstackBANK0 0 0 ABS 0
+_LCD_clear 1600C 0 CODE 0
+__pcstackBANK0 60 0 BANK0 1
+___awmod@sign 75 0 BANK0 1
+__Htemp 4E 0 COMRAM 1
+__Ltemp 4D 0 COMRAM 1
+stacklo 14A 0 ABS 0
+>>>>>>> origin/master
 __Hrbit 0 0 COMRAM 1
 __Lrbit 0 0 COMRAM 1
 __Hinit C0 0 CODE 0
@@ -275,6 +475,7 @@ _wait_low_1 25B -206 COMRAM 1
 __Linit C0 0 CODE 0
 __Hintcodelo C0 0 CODE 0
 __Lintcodelo 18 0 CODE 0
+<<<<<<< HEAD
 ___wmul 16060 0 CODE 0
 __Hrbss 0 0 COMRAM 1
 __end_of_main 12240 0 CODE 0
@@ -323,11 +524,60 @@ CANsendMessage@flags 75 0 BANK0 1
 _steering_correction EA 0 BANK0 1
 _data_speed EF 0 BANK0 1
 _data_steering F0 0 BANK0 1
+=======
+___wmul 15F70 0 CODE 0
+__Hrbss 0 0 COMRAM 1
+__end_of_main 127F8 0 CODE 0
+__Lrbss 0 0 COMRAM 1
+__pintcodelo 18 0 CODE 0
+_LCD_Handler 14B14 0 CODE 0
+__Htext 0 0 ABS 0
+__Ltext 0 0 ABS 0
+__end_of___fldiv 13F2C 0 CODE 0
+__div_to_l_ 14FF0 0 CODE 0
+__CFG_OSC$HS 0 0 ABS 0
+_delay_quartz_frequency_value EC 0 BANK0 1
+CANreceiveMessage@tamp 45 0 COMRAM 1
+LCD_write_integer@number_of_digits 8A 0 BANK0 1
+_MotoreFlag 25B -20D COMRAM 1
+___wmul@multiplier 70 0 BANK0 1
+_Joystick_Polling 15D50 0 CODE 0
+__HdataBANK0 0 0 ABS 0
+__LdataBANK0 0 0 ABS 0
+?___xxtofl 70 0 BANK0 1
+___flmul@sign 8A 0 BANK0 1
+__CFG_EBTR5$OFF 0 0 ABS 0
+__pdataBANK0 EC 0 BANK0 1
+_wait_low_2 263 -20D COMRAM 1
+end_of_initialization 15EBA 0 CODE 0
+_board_initialization 15A00 0 CODE 0
+___fldiv@sign 8A 0 BANK0 1
+___awdiv@sign 7B 0 BANK0 1
+__size_of__div_to_l_ 0 0 ABS 0
+LCD_write_message@buffer 81 0 BANK0 1
+_parking_state E5 0 BANK0 1
+__end_of___flneg 15F70 0 CODE 0
+_SterzoFlag 25D -20D COMRAM 1
+___wmul@multiplicand 72 0 BANK0 1
+_BRGCON1 F70 0 ABS 0
+_wait_low_3 264 -20D COMRAM 1
+LCD_goto_line@line 7C 0 BANK0 1
+_BRGCON2 F71 0 ABS 0
+_BRGCON3 F72 0 ABS 0
+__size_of_ISR_alta 0 0 ABS 0
+i2_CANisTxReady$3235 3A 0 COMRAM 1
+_scale$4219 9B 0 BANK0 1
+fround@prec A3 0 BANK0 1
+CANsendMessage@flags 77 0 BANK0 1
+_data_speed EA 0 BANK0 1
+_data_steering EB 0 BANK0 1
+>>>>>>> origin/master
 _RXB0DLC F65 0 ABS 0
 _TXB0DLC F45 0 ABS 0
 _RXB1DLC F55 0 ABS 0
 _TXB1DLC F35 0 ABS 0
 _TXB2DLC F25 0 ABS 0
+<<<<<<< HEAD
 _left_speed 21 0 COMRAM 1
 _PORTAbits F80 0 ABS 0
 _PORTBbits F81 0 ABS 0
@@ -337,24 +587,45 @@ _PORTDbits F83 0 ABS 0
 _park_assist_state 128 0 BANK1 1
 __size_of_LCD_shift_cursor 0 0 ABS 0
 ___fladd@grs B5 0 BANK0 1
+=======
+_left_speed 20 0 COMRAM 1
+_PORTAbits F80 0 ABS 0
+_PORTBbits F81 0 ABS 0
+_F1_Button_Polling 16146 0 CODE 0
+_F2_Button_Polling 1612A 0 CODE 0
+_PORTDbits F83 0 ABS 0
+_park_assist_state 121 0 BANK1 1
+__size_of_LCD_shift_cursor 0 0 ABS 0
+___fladd@grs B7 0 BANK0 1
+>>>>>>> origin/master
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 __size_of_CAN_interpreter 0 0 ABS 0
 _RXB0CON F60 0 ABS 0
 _RXB1CON F50 0 ABS 0
 __Hifardata 0 0 CODE 0
+<<<<<<< HEAD
 __end_of_CAN_Send 15A42 0 CODE 0
+=======
+__end_of_CAN_Send 15956 0 CODE 0
+>>>>>>> origin/master
 __Lifardata 0 0 CODE 0
 __Hbank0 0 0 ABS 0
 __Lbank0 0 0 ABS 0
 __Hbank1 0 0 ABS 0
 __Lbank1 0 0 ABS 0
+<<<<<<< HEAD
 _data_brake EE 0 BANK0 1
 LCD_write_integer@convertedInt 8F 0 BANK0 1
+=======
+_data_brake E9 0 BANK0 1
+LCD_write_integer@convertedInt 91 0 BANK0 1
+>>>>>>> origin/master
 __size_of_LCD_Handler 0 0 ABS 0
 __Hbank2 0 0 ABS 0
 __Lbank2 0 0 ABS 0
 __Hbank3 0 0 ABS 0
+<<<<<<< HEAD
 CANSetMask@numBuffer 77 0 BANK0 1
 __Lbank3 0 0 ABS 0
 __Hbank4 0 0 ABS 0
@@ -364,15 +635,33 @@ _CANSTAT F6E 0 ABS 0
 __Hbank5 0 0 ABS 0
 __Lbank5 0 0 ABS 0
 __end_of_LCD_shift_cursor 15EE0 0 CODE 0
+=======
+CANSetMask@numBuffer 79 0 BANK0 1
+__Lbank3 0 0 ABS 0
+__Hbank4 0 0 ABS 0
+__Lbank4 0 0 ABS 0
+_LCD_write_char 15BE0 0 CODE 0
+_CANSTAT F6E 0 ABS 0
+__Hbank5 0 0 ABS 0
+__Lbank5 0 0 ABS 0
+__end_of_LCD_shift_cursor 15DF0 0 CODE 0
+>>>>>>> origin/master
 __Hpowerup C0 0 CODE 0
 __Lpowerup C0 0 CODE 0
 __Hbank6 0 0 ABS 0
 __Lbank6 0 0 ABS 0
 __size_of_LCD_cursor 0 0 ABS 0
+<<<<<<< HEAD
 __end_of_PWR_Button_Polling 161FE 0 CODE 0
 __Hbank7 0 0 ABS 0
 __Lbank7 0 0 ABS 0
 __div_to_l_@f2 72 0 BANK0 1
+=======
+__end_of_PWR_Button_Polling 1610E 0 CODE 0
+__Hbank7 0 0 ABS 0
+__Lbank7 0 0 ABS 0
+__div_to_l_@f2 74 0 BANK0 1
+>>>>>>> origin/master
 __Hbank8 0 0 ABS 0
 __Lbank8 0 0 ABS 0
 __Htext0 0 0 ABS 0
@@ -382,6 +671,7 @@ __Lbank9 0 0 ABS 0
 _BRGCON2bits F71 0 ABS 0
 __Htext1 0 0 ABS 0
 __Ltext1 0 0 ABS 0
+<<<<<<< HEAD
 __ptext0 11B26 0 CODE 0
 ___flmul@grs 8A 0 BANK0 1
 _BRGCON3bits F72 0 ABS 0
@@ -395,30 +685,64 @@ ___fldiv@grs 8F 0 BANK0 1
 __Htext4 0 0 ABS 0
 __Ltext4 0 0 ABS 0
 __ptext3 14004 0 CODE 0
+=======
+__ptext0 121B6 0 CODE 0
+___flmul@grs 8C 0 BANK0 1
+_BRGCON3bits F72 0 ABS 0
+__Htext2 0 0 ABS 0
+__Ltext2 0 0 ABS 0
+__ptext1 15A00 0 CODE 0
+__Htext3 0 0 ABS 0
+__Ltext3 0 0 ABS 0
+__ptext2 1478E 0 CODE 0
+___fldiv@grs 91 0 BANK0 1
+__Htext4 0 0 ABS 0
+__Ltext4 0 0 ABS 0
+__ptext3 13F2C 0 CODE 0
+>>>>>>> origin/master
 __Htext5 0 0 ABS 0
 __Ltext5 0 0 ABS 0
 __ptext4 10000 0 CODE 0
 __Htext6 0 0 ABS 0
+<<<<<<< HEAD
 __end_of_CANreceiveMessage 132F6 0 CODE 0
 __Ltext6 0 0 ABS 0
 __ptext5 16252 0 CODE 0
 __Htext7 0 0 ABS 0
 __Ltext7 0 0 ABS 0
 __ptext6 161E2 0 CODE 0
+=======
+__end_of_CANreceiveMessage 1321E 0 CODE 0
+__Ltext6 0 0 ABS 0
+__ptext5 16162 0 CODE 0
+__Htext7 0 0 ABS 0
+__Ltext7 0 0 ABS 0
+__ptext6 160F2 0 CODE 0
+>>>>>>> origin/master
 __HbssCOMRAM 0 0 ABS 0
 __LbssCOMRAM 0 0 ABS 0
 __Htext8 0 0 ABS 0
 __Ltext8 0 0 ABS 0
+<<<<<<< HEAD
 __ptext7 14BEC 0 CODE 0
+=======
+__ptext7 14B14 0 CODE 0
+>>>>>>> origin/master
 __pbssCOMRAM 1 0 COMRAM 1
 __Htext9 0 0 ABS 0
 __HcstackBANK1 0 0 ABS 0
 __Ltext9 0 0 ABS 0
 __LcstackBANK1 0 0 ABS 0
 __ptext8 10B06 0 CODE 0
+<<<<<<< HEAD
 sprintf@val 138 0 BANK1 1
 __ptext9 128D0 0 CODE 0
 __pcstackBANK1 130 0 BANK1 1
+=======
+sprintf@val 131 0 BANK1 1
+__ptext9 127F8 0 CODE 0
+__pcstackBANK1 129 0 BANK1 1
+>>>>>>> origin/master
 __end_of__npowers_ FEE9 0 MEDIUMCONST 0
 __size_of_board_initialization 0 0 ABS 0
 __Hclrtext 0 0 ABS 0
@@ -427,6 +751,7 @@ _RXB0DLCbits F65 0 ABS 0
 _TXB0DLCbits F45 0 ABS 0
 _RXB1DLCbits F55 0 ABS 0
 _TXB1DLCbits F35 0 ABS 0
+<<<<<<< HEAD
 __end_of_board_initialization 15B94 0 CODE 0
 _TXB2DLCbits F25 0 ABS 0
 CANreceiveMessage@error 43 0 COMRAM 1
@@ -436,15 +761,31 @@ LCD_write_string@buffer 7F 0 BANK0 1
 _CAN_interpreter 15A42 0 CODE 0
 _actual_speed E0 0 BANK0 1
 __end_of_LCD_write_string 1617E 0 CODE 0
+=======
+__end_of_board_initialization 15AA4 0 CODE 0
+_TXB2DLCbits F25 0 ABS 0
+CANreceiveMessage@error 44 0 COMRAM 1
+__size_of_CAN_Send 0 0 ABS 0
+CANInitialize@propSeg 87 0 BANK0 1
+LCD_write_string@buffer 81 0 BANK0 1
+_CAN_interpreter 15956 0 CODE 0
+_actual_speed DE 0 BANK0 1
+__end_of_LCD_write_string 1608E 0 CODE 0
+>>>>>>> origin/master
 __size_of_LCD_write_string 0 0 ABS 0
 __size_ofi2_CANsendMessage 0 0 ABS 0
 _RXB0CONbits F60 0 ABS 0
 _TXB0CONbits F40 0 ABS 0
+<<<<<<< HEAD
 __end_of__initialization 15FAA 0 CODE 0
+=======
+__end_of__initialization 15EBA 0 CODE 0
+>>>>>>> origin/master
 _RXB1CONbits F50 0 ABS 0
 _TXB1CONbits F30 0 ABS 0
 _TXB2CONbits F20 0 ABS 0
 __size_of___xxtofl 0 0 ABS 0
+<<<<<<< HEAD
 _LCD_enable_pulse 161A2 0 CODE 0
 ___rparam_used 1 0 ABS 0
 __end_of_LCD_enable_pulse 161C4 0 CODE 0
@@ -456,9 +797,23 @@ LCD_write_char@D3 7A 0 BANK0 1
 __tdiv_to_l_@f1 6E 0 BANK0 1
 _COMSTATbits F74 0 ABS 0
 __end_of__div_to_l_ 153EA 0 CODE 0
+=======
+_LCD_enable_pulse 160B2 0 CODE 0
+___rparam_used 1 0 ABS 0
+__end_of_LCD_enable_pulse 160D4 0 CODE 0
+__end_of___lwdiv 15CEE 0 CODE 0
+LCD_write_char@D0 7F 0 BANK0 1
+LCD_write_char@D1 7E 0 BANK0 1
+LCD_write_char@D2 7D 0 BANK0 1
+LCD_write_char@D3 7C 0 BANK0 1
+__tdiv_to_l_@f1 70 0 BANK0 1
+_COMSTATbits F74 0 ABS 0
+__end_of__div_to_l_ 15178 0 CODE 0
+>>>>>>> origin/master
 __size_of_scale 0 0 ABS 0
 _fround$4215 9D 0 BANK0 1
 __size_of___flge 0 0 ABS 0
+<<<<<<< HEAD
 _newMessageCan 257 -206 COMRAM 1
 __end_of_LCD_write_message 160CA 0 CODE 0
 __CFG_BBSIZ$1024 0 0 ABS 0
@@ -466,10 +821,20 @@ _AbsFlag 250 -206 COMRAM 1
 ___fladd 132F6 0 CODE 0
 __size_of_fround 0 0 ABS 0
 _CANSetMask 14004 0 CODE 0
+=======
+_newMessageCan 25F -20D COMRAM 1
+__end_of_LCD_write_message 15FDA 0 CODE 0
+__CFG_BBSIZ$1024 0 0 ABS 0
+_AbsFlag 258 -20D COMRAM 1
+___fladd 1321E 0 CODE 0
+__size_of_fround 0 0 ABS 0
+_CANSetMask 13F2C 0 CODE 0
+>>>>>>> origin/master
 __Hidata 0 0 CODE 0
 __Lidata 0 0 CODE 0
 __Hrdata 0 0 COMRAM 1
 __Lrdata 0 0 COMRAM 1
+<<<<<<< HEAD
 CANSetFilter@type 72 0 BANK0 1
 CANsendMessage@identifier 6E 0 BANK0 1
 __Hidloc 200008 0 IDLOC 0
@@ -500,11 +865,43 @@ __LcstackCOMRAM 0 0 ABS 0
 CANInitialize@BRP 7F 0 BANK0 1
 __pcstackCOMRAM 28 0 COMRAM 1
 _fround$4216 99 0 BANK0 1
+=======
+CANSetFilter@type 74 0 BANK0 1
+CANsendMessage@identifier 70 0 BANK0 1
+__Hidloc 200008 0 IDLOC 0
+itoa@buf 80 0 BANK0 1
+__Lidloc 200000 0 IDLOC 0
+utoa@buf 77 0 BANK0 1
+__size_of_LCD_enable_pulse 0 0 ABS 0
+___flneg 15F38 0 CODE 0
+itoa@val 82 0 BANK0 1
+utoa@val 79 0 BANK0 1
+__Hstack 0 0 STACK 2
+LCD_shift_cursor@i 7E 0 BANK0 1
+__Lstack 0 0 STACK 2
+int_func 15178 0 CODE 0
+___llmod 15B46 0 CODE 0
+i2_CANisTxReady 160D4 0 CODE 0
+__end_of___lldiv 1589C 0 CODE 0
+___awmod 15AA4 0 CODE 0
+___lwmod 15CEE 0 CODE 0
+__Hparam 0 0 COMRAM 1
+__Lparam 0 0 COMRAM 1
+__Hspace_0 30000E 0 ABS 0
+___flsub 15DF0 0 CODE 0
+__HcstackCOMRAM 0 0 ABS 0
+?_fround 97 0 BANK0 1
+__Lspace_0 0 0 ABS 0
+__LcstackCOMRAM 0 0 ABS 0
+CANInitialize@BRP 81 0 BANK0 1
+__pcstackCOMRAM 29 0 COMRAM 1
+>>>>>>> origin/master
 _sprintf 10B06 0 CODE 0
 __Hspace_1 25F 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hsmallconst 0 0 SMALLCONST 0
 __Lsmallconst 0 0 SMALLCONST 0
+<<<<<<< HEAD
 ___fltol 15558 0 CODE 0
 __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
@@ -527,12 +924,37 @@ _pr_time_1 9 0 COMRAM 1
 __mediumconst FEB4 0 MEDIUMCONST 0
 ___lwdiv 15D66 0 CODE 0
 i2CANsendMessage@tamp 45 0 COMRAM 1
+=======
+___fltol 1546C 0 CODE 0
+__Hspace_2 0 0 ABS 0
+__Lspace_2 0 0 ABS 0
+___flmul 136C6 0 CODE 0
+__Hnvbit 0 0 COMRAM 1
+__Lnvbit 0 0 COMRAM 1
+?___wmul 70 0 BANK0 1
+_isdigit 1603E 0 CODE 0
+__size_of_delay_ms 0 0 ABS 0
+__Hcinit 0 0 ABS 0
+__Lcinit 0 0 ABS 0
+___fldiv 13B6C 0 CODE 0
+___lldiv 157E0 0 CODE 0
+i2CANsendMessage@data 3E 0 COMRAM 1
+__pcinit 15E80 0 CODE 0
+__CFG_EBTRB$OFF 0 0 ABS 0
+___awdiv 15664 0 CODE 0
+__ramtop D00 0 RAM 0
+_pr_time_1 D4 0 BANK0 1
+__mediumconst FEB4 0 MEDIUMCONST 0
+___lwdiv 15C76 0 CODE 0
+i2CANsendMessage@tamp 46 0 COMRAM 1
+>>>>>>> origin/master
 __size_of_main 0 0 ABS 0
 __size_of___flmul 0 0 ABS 0
 _dpowers FF1D 0 MEDIUMCONST 0
 __size_of_LCD_write_message 0 0 ABS 0
 __Hconst 0 0 CODE 0
 __Lconst 0 0 CODE 0
+<<<<<<< HEAD
 _pr_time_2 D 0 COMRAM 1
 ?__div_to_l_ 6E 0 BANK0 1
 ___xxtofl@sign 76 0 BANK0 1
@@ -560,19 +982,62 @@ __LbitbssCOMRAM 0 0 ABS 0
 __end_of_Joystick_Polling 15E94 0 CODE 0
 __pbitbssCOMRAM 250 -206 COMRAM 1
 sprintf@tmpval 13E 0 BANK1 1
+=======
+_pr_time_2 D8 0 BANK0 1
+?__div_to_l_ 70 0 BANK0 1
+___xxtofl@sign 78 0 BANK0 1
+__tdiv_to_l_ 14CC2 0 CODE 0
+__size_of_itoa 0 0 ABS 0
+_fround$4217 9F 0 BANK0 1
+_actual_speed_kmh 8 0 COMRAM 1
+_CANreceiveMessage 12D12 0 CODE 0
+_pr_time_3 10 0 COMRAM 1
+_battery 26 0 COMRAM 1
+__div_to_l_@exp1 7D 0 BANK0 1
+__end_of_LCD_write_char 15C76 0 CODE 0
+___fltol@exp1 C1 0 BANK0 1
+__HidataBANK0 0 0 ABS 0
+__LidataBANK0 0 0 ABS 0
+_pr_time_4 14 0 COMRAM 1
+__pidataBANK0 16198 0 CODE 0
+__size_of_CANisTxReady 0 0 ABS 0
+__end_of_isdigit 16068 0 CODE 0
+__end_of_sprintf 1139A 0 CODE 0
+_pr_time_5 18 0 COMRAM 1
+__CFG_WRT0$OFF 0 0 ABS 0
+_LCD_write_string 16068 0 CODE 0
+__HbitbssCOMRAM 0 0 ABS 0
+__LbitbssCOMRAM 0 0 ABS 0
+__end_of_Joystick_Polling 15DA4 0 CODE 0
+__pbitbssCOMRAM 258 -20D COMRAM 1
+sprintf@tmpval 137 0 BANK1 1
+>>>>>>> origin/master
 __CFG_WRT1$OFF 0 0 ABS 0
+_fround$4218 9B 0 BANK0 1
 __size_of___lwdiv 0 0 ABS 0
+<<<<<<< HEAD
 __end_of_LCD_write_integer 14BEC 0 CODE 0
+=======
+__end_of_LCD_write_integer 14B14 0 CODE 0
+>>>>>>> origin/master
 __HbssBANK0 0 0 ABS 0
 __LbssBANK0 0 0 ABS 0
 __size_of___flsub 0 0 ABS 0
 __CFG_WRT2$OFF 0 0 ABS 0
 __Hbank10 0 0 ABS 0
+<<<<<<< HEAD
 __pbssBANK0 D2 0 BANK0 1
 __Lbank10 0 0 ABS 0
 ___flmul@temp 93 0 BANK0 1
 LCD_shift_cursor@number_of_shift 7A 0 BANK0 1
 i2CANsendMessage@flags 40 0 COMRAM 1
+=======
+__pbssBANK0 CC 0 BANK0 1
+__Lbank10 0 0 ABS 0
+___flmul@temp 95 0 BANK0 1
+LCD_shift_cursor@number_of_shift 7C 0 BANK0 1
+i2CANsendMessage@flags 41 0 COMRAM 1
+>>>>>>> origin/master
 __size_of_isdigit 0 0 ABS 0
 __Hbank11 0 0 ABS 0
 __Lbank11 0 0 ABS 0
@@ -581,6 +1046,7 @@ __CFG_WRT3$OFF 0 0 ABS 0
 __CFG_FCMEN$OFF 0 0 ABS 0
 __Hbank12 0 0 ABS 0
 __Lbank12 0 0 ABS 0
+<<<<<<< HEAD
 sprintf@flag 136 0 BANK1 1
 __end_of___fladd 1379E 0 CODE 0
 __HbssBANK1 0 0 ABS 0
@@ -597,36 +1063,77 @@ __Htext20 0 0 ABS 0
 __Ltext20 0 0 ABS 0
 __ptext10 1612E 0 CODE 0
 LCD_shift_cursor@shift 7B 0 BANK0 1
+=======
+_sprintf$4220 129 0 BANK1 1
+sprintf@flag 12F 0 BANK1 1
+__end_of___fladd 136C6 0 CODE 0
+__HbssBANK1 0 0 ABS 0
+__LbssBANK1 0 0 ABS 0
+_clock_counter_reference E0 0 BANK0 1
+___xxtofl@arg 7A 0 BANK0 1
+__CFG_WRT4$OFF 0 0 ABS 0
+__pbssBANK1 100 0 BANK1 1
+LCD_write_integer@F17272 100 0 BANK1 1
+__Htext10 0 0 ABS 0
+__Ltext10 0 0 ABS 0
+LCD_write_integer@value 88 0 BANK0 1
+__Htext20 0 0 ABS 0
+__Ltext20 0 0 ABS 0
+__ptext10 1603E 0 CODE 0
+LCD_shift_cursor@shift 7D 0 BANK0 1
+>>>>>>> origin/master
 __Htext30 0 0 ABS 0
 __Htext11 0 0 ABS 0
 __Ltext30 0 0 ABS 0
 __Ltext11 0 0 ABS 0
+<<<<<<< HEAD
 __ptext20 15558 0 CODE 0
 sprintf@exp 13C 0 BANK1 1
+=======
+__ptext20 1546C 0 CODE 0
+sprintf@exp 135 0 BANK1 1
+>>>>>>> origin/master
 __Htext40 0 0 ABS 0
 __Htext21 0 0 ABS 0
 __Ltext40 0 0 ABS 0
 __CFG_WRT5$OFF 0 0 ABS 0
 __Ltext21 0 0 ABS 0
+<<<<<<< HEAD
 __ptext11 143A2 0 CODE 0
 __ptext30 15DDE 0 CODE 0
+=======
+__ptext11 142CA 0 CODE 0
+__ptext30 15CEE 0 CODE 0
+>>>>>>> origin/master
 __Htext50 0 0 ABS 0
 __Htext31 0 0 ABS 0
 __Htext12 0 0 ABS 0
 __Ltext50 0 0 ABS 0
 __Ltext31 0 0 ABS 0
 __Ltext12 0 0 ABS 0
+<<<<<<< HEAD
 __ptext21 15EE0 0 CODE 0
 __ptext40 15664 0 CODE 0
+=======
+__ptext21 15DF0 0 CODE 0
+__ptext40 15578 0 CODE 0
+>>>>>>> origin/master
 __CFG_BOREN$BOHW 0 0 ABS 0
 __Htext41 0 0 ABS 0
 __Htext22 0 0 ABS 0
 __Ltext41 0 0 ABS 0
 __Ltext22 0 0 ABS 0
+<<<<<<< HEAD
 __ptext12 1379E 0 CODE 0
 __ptext31 15D66 0 CODE 0
 __ptext50 1139A 0 CODE 0
 LCD_write_integer@index 95 0 BANK0 1
+=======
+__ptext12 136C6 0 CODE 0
+__ptext31 15C76 0 CODE 0
+__ptext50 1139A 0 CODE 0
+LCD_write_integer@index 97 0 BANK0 1
+>>>>>>> origin/master
 __end_of_CANsendMessage 11B26 0 CODE 0
 __Htext51 0 0 ABS 0
 __Htext32 0 0 ABS 0
@@ -634,36 +1141,59 @@ __Htext13 0 0 ABS 0
 __Ltext51 0 0 ABS 0
 __Ltext32 0 0 ABS 0
 __Ltext13 0 0 ABS 0
+<<<<<<< HEAD
 __ptext22 132F6 0 CODE 0
 __ptext41 15FB4 0 CODE 0
+=======
+__ptext22 1321E 0 CODE 0
+__ptext41 15EC4 0 CODE 0
+>>>>>>> origin/master
 __Htext42 0 0 ABS 0
 __Htext23 0 0 ABS 0
 __Ltext42 0 0 ABS 0
 __Ltext23 0 0 ABS 0
+<<<<<<< HEAD
 __ptext13 15B94 0 CODE 0
 __ptext32 16158 0 CODE 0
 __ptext51 1617E 0 CODE 0
+=======
+__ptext13 15AA4 0 CODE 0
+__ptext32 16068 0 CODE 0
+__ptext51 1608E 0 CODE 0
+>>>>>>> origin/master
 _ADCON0bits FC2 0 ABS 0
 __Htext33 0 0 ABS 0
 __Htext14 0 0 ABS 0
 __size_of_LCD_goto_xy 0 0 ABS 0
 __Ltext33 0 0 ABS 0
 __Ltext14 0 0 ABS 0
+<<<<<<< HEAD
 __ptext23 16028 0 CODE 0
 __ptext42 161A2 0 CODE 0
 sprintf@prec 142 0 BANK1 1
+=======
+__ptext23 15F38 0 CODE 0
+__ptext42 160B2 0 CODE 0
+sprintf@prec 13B 0 BANK1 1
+>>>>>>> origin/master
 __size_of___awdiv 0 0 ABS 0
 _ADCON2bits FC0 0 ABS 0
 __Htext43 0 0 ABS 0
 __Htext24 0 0 ABS 0
 __Ltext43 0 0 ABS 0
 __Ltext24 0 0 ABS 0
+<<<<<<< HEAD
 __ptext14 15750 0 CODE 0
 __ptext33 15CD0 0 CODE 0
+=======
+__ptext14 15664 0 CODE 0
+__ptext33 15BE0 0 CODE 0
+>>>>>>> origin/master
 __Htext34 0 0 ABS 0
 __Htext15 0 0 ABS 0
 __Ltext34 0 0 ABS 0
 __Ltext15 0 0 ABS 0
+<<<<<<< HEAD
 __ptext24 150D2 0 CODE 0
 __ptext43 15FEE 0 CODE 0
 __Htext44 0 0 ABS 0
@@ -676,36 +1206,71 @@ __ptext34 153EA 0 CODE 0
 __end_of_LCD_send_command 15FEE 0 CODE 0
 ___inthi_sp 0 0 STACK 2
 CANInitialize@phaseSeg1 7C 0 BANK0 1
+=======
+__ptext24 14E60 0 CODE 0
+__ptext43 15EFE 0 CODE 0
+__Htext44 0 0 ABS 0
+__Htext25 0 0 ABS 0
+__end_of__tdiv_to_l_ 14E60 0 CODE 0
+__Ltext44 0 0 ABS 0
+__Ltext25 0 0 ABS 0
+__ptext15 14CC2 0 CODE 0
+__ptext34 152FE 0 CODE 0
+__end_of_LCD_send_command 15EFE 0 CODE 0
+___inthi_sp 0 0 STACK 2
+CANInitialize@phaseSeg1 7E 0 BANK0 1
+>>>>>>> origin/master
 __Htext54 0 0 ABS 0
 __Htext35 0 0 ABS 0
 __Htext16 0 0 ABS 0
 __Ltext54 0 0 ABS 0
 __Ltext35 0 0 ABS 0
 __Ltext16 0 0 ABS 0
+<<<<<<< HEAD
 __ptext25 13C44 0 CODE 0
 __ptext44 16060 0 CODE 0
 CANInitialize@phaseSeg2 7D 0 BANK0 1
 __end_ofi2_CANsendMessage 128D0 0 CODE 0
+=======
+__ptext25 13B6C 0 CODE 0
+__ptext44 15F70 0 CODE 0
+CANInitialize@phaseSeg2 7F 0 BANK0 1
+__end_ofi2_CANsendMessage 121B6 0 CODE 0
+>>>>>>> origin/master
 __Htext45 0 0 ABS 0
 __Htext26 0 0 ABS 0
 __Ltext45 0 0 ABS 0
 __Ltext26 0 0 ABS 0
+<<<<<<< HEAD
 __ptext16 15262 0 CODE 0
 __ptext35 1627E 0 CODE 0
 __ptext54 12240 0 CODE 0
 __end_of_F1_Button_Polling 16252 0 CODE 0
+=======
+__ptext16 14FF0 0 CODE 0
+__ptext35 1618E 0 CODE 0
+__ptext54 11B26 0 CODE 0
+_isdigit$3800 71 0 BANK0 1
+__end_of_F1_Button_Polling 16162 0 CODE 0
+>>>>>>> origin/master
 __Htext55 0 0 ABS 0
 __Htext36 0 0 ABS 0
 __Htext17 0 0 ABS 0
 __Ltext55 0 0 ABS 0
 __Ltext36 0 0 ABS 0
 __Ltext17 0 0 ABS 0
+<<<<<<< HEAD
 __ptext26 16096 0 CODE 0
 __ptext45 15E40 0 CODE 0
+=======
+__ptext26 15FA6 0 CODE 0
+__ptext45 15D50 0 CODE 0
+>>>>>>> origin/master
 __Htext46 0 0 ABS 0
 __Htext27 0 0 ABS 0
 __Ltext46 0 0 ABS 0
 __Ltext27 0 0 ABS 0
+<<<<<<< HEAD
 ___llmod@divisor 72 0 BANK0 1
 __ptext17 14698 0 CODE 0
 __ptext36 160CA 0 CODE 0
@@ -721,35 +1286,73 @@ __Ltext18 0 0 ABS 0
 __ptext27 14A2C 0 CODE 0
 __ptext46 1621A 0 CODE 0
 ___lwmod@divisor 70 0 BANK0 1
+=======
+___llmod@divisor 74 0 BANK0 1
+__ptext17 145C0 0 CODE 0
+__ptext36 15FDA 0 CODE 0
+__ptext55 160D4 0 CODE 0
+___awmod@divisor 72 0 BANK0 1
+__Htext56 0 0 ABS 0
+__Htext37 0 0 ABS 0
+__Htext18 0 0 ABS 0
+__end_of___lwmod 15D50 0 CODE 0
+__Ltext56 0 0 ABS 0
+__Ltext37 0 0 ABS 0
+__Ltext18 0 0 ABS 0
+__ptext27 14954 0 CODE 0
+__ptext46 1612A 0 CODE 0
+___lwmod@divisor 72 0 BANK0 1
+>>>>>>> origin/master
 __Htext47 0 0 ABS 0
 __Htext28 0 0 ABS 0
 __Ltext47 0 0 ABS 0
 __Ltext28 0 0 ABS 0
+<<<<<<< HEAD
 LCD_cursor@active 7B 0 BANK0 1
 __ptext18 15C36 0 CODE 0
 __ptext37 160FC 0 CODE 0
 __ptext56 12DEA 0 CODE 0
 ___fltol@sign1 BE 0 BANK0 1
+=======
+LCD_cursor@active 7D 0 BANK0 1
+__ptext18 15B46 0 CODE 0
+__ptext37 1600C 0 CODE 0
+__ptext56 12D12 0 CODE 0
+___fltol@sign1 C0 0 BANK0 1
+>>>>>>> origin/master
 __Htext57 0 0 ABS 0
 __Htext38 0 0 ABS 0
 __Htext19 0 0 ABS 0
 __Ltext57 0 0 ABS 0
 __Ltext38 0 0 ABS 0
 __Ltext19 0 0 ABS 0
+<<<<<<< HEAD
 __ptext28 15F28 0 CODE 0
 __ptext47 16236 0 CODE 0
 _right_speed 23 0 COMRAM 1
+=======
+__ptext28 15E38 0 CODE 0
+__ptext47 16146 0 CODE 0
+_right_speed 22 0 COMRAM 1
+>>>>>>> origin/master
 __Htext48 0 0 ABS 0
 __Htext29 0 0 ABS 0
 __Ltext48 0 0 ABS 0
 __Ltext29 0 0 ABS 0
+<<<<<<< HEAD
 __ptext19 158CC 0 CODE 0
 __ptext38 161FE 0 CODE 0
 __ptext57 16268 0 CODE 0
+=======
+__ptext19 157E0 0 CODE 0
+__ptext38 1610E 0 CODE 0
+__ptext57 16178 0 CODE 0
+>>>>>>> origin/master
 __CFG_BORV$3 0 0 ABS 0
 ___intlo_sp 0 0 STACK 2
 __Htext39 0 0 ABS 0
 __Ltext39 0 0 ABS 0
+<<<<<<< HEAD
 __ptext29 1580E 0 CODE 0
 __ptext48 15A42 0 CODE 0
 __Htext49 0 0 ABS 0
@@ -758,6 +1361,16 @@ __ptext39 15E94 0 CODE 0
 __end_of_F2_Button_Polling 16236 0 CODE 0
 _CANCONbits F6F 0 ABS 0
 __ptext49 15988 0 CODE 0
+=======
+__ptext29 15722 0 CODE 0
+__ptext48 15956 0 CODE 0
+__Htext49 0 0 ABS 0
+__Ltext49 0 0 ABS 0
+__ptext39 15DA4 0 CODE 0
+__end_of_F2_Button_Polling 16146 0 CODE 0
+_CANCONbits F6F 0 ABS 0
+__ptext49 1589C 0 CODE 0
+>>>>>>> origin/master
 _INTCONbits FF2 0 ABS 0
 _RXB0EIDH F63 0 ABS 0
 _TXB0EIDH F43 0 ABS 0
@@ -782,17 +1395,29 @@ _RXF0SIDH F00 0 ABS 0
 _TXB2SIDH F21 0 ABS 0
 _RXF1SIDH F04 0 ABS 0
 _RXF2SIDH F08 0 ABS 0
+<<<<<<< HEAD
 __end_of_fround 14698 0 CODE 0
+=======
+__end_of_fround 145C0 0 CODE 0
+>>>>>>> origin/master
 _RXF3SIDH F0C 0 ABS 0
 _RXM0SIDH F18 0 ABS 0
 _RXF4SIDH F10 0 ABS 0
 _RXM1SIDH F1C 0 ABS 0
 _RXF5SIDH F14 0 ABS 0
+<<<<<<< HEAD
 ___lldiv@divisor 72 0 BANK0 1
 __size_of___lldiv 0 0 ABS 0
 ___awdiv@divisor 76 0 BANK0 1
 ___lwdiv@divisor 70 0 BANK0 1
 _LCD_write_message 16096 0 CODE 0
+=======
+___lldiv@divisor 74 0 BANK0 1
+__size_of___lldiv 0 0 ABS 0
+___awdiv@divisor 78 0 BANK0 1
+___lwdiv@divisor 72 0 BANK0 1
+_LCD_write_message 15FA6 0 CODE 0
+>>>>>>> origin/master
 _RXB0EIDL F64 0 ABS 0
 _TXB0EIDL F44 0 ABS 0
 _RXB1EIDL F54 0 ABS 0
@@ -807,8 +1432,13 @@ _RXM0EIDL F1B 0 ABS 0
 _RXF4EIDL F13 0 ABS 0
 _RXM1EIDL F1F 0 ABS 0
 _RXF5EIDL F17 0 ABS 0
+<<<<<<< HEAD
 __end_of_delay_ms 16028 0 CODE 0
 _JoystickValues DE 0 BANK0 1
+=======
+__end_of_delay_ms 15F38 0 CODE 0
+_JoystickValues DC 0 BANK0 1
+>>>>>>> origin/master
 __size_of___fladd 0 0 ABS 0
 _RXB0SIDL F62 0 ABS 0
 _TXB0SIDL F42 0 ABS 0
@@ -823,16 +1453,25 @@ _RXM0SIDL F19 0 ABS 0
 _RXF4SIDL F11 0 ABS 0
 _RXM1SIDL F1D 0 ABS 0
 _RXF5SIDL F15 0 ABS 0
+<<<<<<< HEAD
 __end_of___llmod 15CD0 0 CODE 0
 __CFG_CP0$OFF 0 0 ABS 0
 __smallconst 0 0 SMALLCONST 0
 __tdiv_to_l_@cntr 7D 0 BANK0 1
 _LCD_initialize 153EA 0 CODE 0
+=======
+__end_of___llmod 15BE0 0 CODE 0
+__CFG_CP0$OFF 0 0 ABS 0
+__smallconst 0 0 SMALLCONST 0
+__tdiv_to_l_@cntr 7F 0 BANK0 1
+_LCD_initialize 152FE 0 CODE 0
+>>>>>>> origin/master
 __CFG_CP1$OFF 0 0 ABS 0
 __size_of___wmul 0 0 ABS 0
 __Hreset_vec 4 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 __CFG_CP2$OFF 0 0 ABS 0
+<<<<<<< HEAD
 __end_of_CANInitialize 14A2C 0 CODE 0
 __end_of_itoa 15F70 0 CODE 0
 __CFG_CP3$OFF 0 0 ABS 0
@@ -848,10 +1487,27 @@ __Hintcode_body 0 0 ABS 0
 __Lintcode_body 0 0 ABS 0
 __pintcode_body 14F38 0 CODE 0
 LCD_cursor@blinking 7A 0 BANK0 1
+=======
+__end_of_CANInitialize 14954 0 CODE 0
+__end_of_itoa 15E80 0 CODE 0
+__CFG_CP3$OFF 0 0 ABS 0
+___xxtofl@exp 79 0 BANK0 1
+__CFG_CP4$OFF 0 0 ABS 0
+LCD_write_integer@zero_cleaning 8B 0 BANK0 1
+__CFG_CP5$OFF 0 0 ABS 0
+__accesstop 60 0 ABS 0
+__tdiv_to_l_@exp1 80 0 BANK0 1
+__div_to_l_@cntr 7C 0 BANK0 1
+__Hintcode_body 0 0 ABS 0
+__Lintcode_body 0 0 ABS 0
+__pintcode_body 15178 0 CODE 0
+LCD_cursor@blinking 7C 0 BANK0 1
+>>>>>>> origin/master
 __size_of_CANsendMessage 0 0 ABS 0
 _CANSetFilter 10000 0 CODE 0
 intlevel0 0 0 CODE 0
 intlevel1 0 0 CODE 0
+<<<<<<< HEAD
 __end_of_LCD_initialize 15558 0 CODE 0
 ___xxtofl@val 6E 0 BANK0 1
 __CFG_WRTB$OFF 0 0 ABS 0
@@ -936,6 +1592,91 @@ ___awmod@counter 72 0 BANK0 1
 __end_of_ISR_alta 150D2 0 CODE 0
 ___wmul@product 72 0 BANK0 1
 ___lwmod@counter 72 0 BANK0 1
+=======
+__end_of_LCD_initialize 1546C 0 CODE 0
+___xxtofl@val 70 0 BANK0 1
+__CFG_WRTB$OFF 0 0 ABS 0
+__size_of__tdiv_to_l_ 0 0 ABS 0
+intlevel2 0 0 CODE 0
+_LCD_cursor 15FDA 0 CODE 0
+intlevel3 0 0 CODE 0
+__end_of_CANOperationMode 16178 0 CODE 0
+__CFG_WRTC$OFF 0 0 ABS 0
+__size_of_CANOperationMode 0 0 ABS 0
+CANInitialize@flags 82 0 BANK0 1
+__size_of_F1_Button_Polling 0 0 ABS 0
+_RXERRCNT F75 0 ABS 0
+__tdiv_to_l_@f2 74 0 BANK0 1
+_TXERRCNT F76 0 ABS 0
+_LCD_write_integer 14954 0 CODE 0
+__CFG_WRTD$OFF 0 0 ABS 0
+__size_of_LCD_write_integer 0 0 ABS 0
+_JoystickConstants CC 0 BANK0 1
+delay_set_quartz@frequency 70 0 BANK0 1
+__end_of_CANisTxReady 160B2 0 CODE 0
+__size_of_utoa 0 0 ABS 0
+_LCD_goto_line 15578 0 CODE 0
+__end_of_LCD_Handler 14CC2 0 CODE 0
+_CANInitialize 1478E 0 CODE 0
+__size_of___lwmod 0 0 ABS 0
+__size_of___fltol 0 0 ABS 0
+___fladd@aexp B5 0 BANK0 1
+__CFG_CPB$OFF 0 0 ABS 0
+_CANisRxReady 16178 0 CODE 0
+__div_to_l_@quot 78 0 BANK0 1
+_CANisTxReady 1608E 0 CODE 0
+_data_speed_rx 1 0 COMRAM 1
+__end_of___wmul 15FA6 0 CODE 0
+___fladd@bexp B6 0 BANK0 1
+__CFG_CPD$OFF 0 0 ABS 0
+start_initialization 15E80 0 CODE 0
+__size_of_F2_Button_Polling 0 0 ABS 0
+CANSetFilter@filter 70 0 BANK0 1
+___lldiv@quotient 78 0 BANK0 1
+LCD_send_command@D0 7A 0 BANK0 1
+LCD_send_command@D1 79 0 BANK0 1
+LCD_send_command@D2 78 0 BANK0 1
+LCD_send_command@D3 7B 0 BANK0 1
+___awdiv@quotient 7C 0 BANK0 1
+___lwdiv@quotient 74 0 BANK0 1
+CANInitialize@SJW 80 0 BANK0 1
+__size_of_LCD_goto_line 0 0 ABS 0
+__end_of___xxtofl 1478E 0 CODE 0
+__CFG_IESO$OFF 0 0 ABS 0
+___fladd@a A8 0 BANK0 1
+__CFG_MCLRE$ON 0 0 ABS 0
+__end_of_utoa 157E0 0 CODE 0
+__size_of_CANreceiveMessage 0 0 ABS 0
+___fladd@b A4 0 BANK0 1
+_space_available 261 -20D COMRAM 1
+__size_of_sprintf 0 0 ABS 0
+__size_of___awmod 0 0 ABS 0
+___flmul@aexp 8B 0 BANK0 1
+__end_of_CANSetMask 142CA 0 CODE 0
+__size_of_CANSetMask 0 0 ABS 0
+__size_of___flneg 0 0 ABS 0
+LCD_write_char@value 80 0 BANK0 1
+___fldiv@aexp 96 0 BANK0 1
+__initialization 15E80 0 CODE 0
+___flmul@bexp 90 0 BANK0 1
+___flsub@a BC 0 BANK0 1
+___fldiv@bexp 95 0 BANK0 1
+___flmul@prod 91 0 BANK0 1
+CANsendMessage@data 74 0 BANK0 1
+___flsub@b B8 0 BANK0 1
+___llmod@dividend 70 0 BANK0 1
+__CFG_LPT1OSC$OFF 0 0 ABS 0
+LCD_initialize@quartz_frequency 7E 0 BANK0 1
+___awmod@dividend 70 0 BANK0 1
+___lwmod@dividend 70 0 BANK0 1
+__activetblptr 3 0 ABS 0
+CANsendMessage@tamp 7C 0 BANK0 1
+___llmod@counter 78 0 BANK0 1
+___awmod@counter 74 0 BANK0 1
+__end_of_ISR_alta 152FE 0 CODE 0
+___wmul@product 74 0 BANK0 1
+___lwmod@counter 74 0 BANK0 1
+>>>>>>> origin/master
 _RXB0SIDLbits F62 0 ABS 0
 _TXB0SIDLbits F42 0 ABS 0
 _RXB1SIDLbits F52 0 ABS 0
@@ -943,7 +1684,11 @@ _TXB1SIDLbits F32 0 ABS 0
 _RXF0SIDLbits F01 0 ABS 0
 _TXB2SIDLbits F22 0 ABS 0
 _RXF1SIDLbits F05 0 ABS 0
+<<<<<<< HEAD
 ___flmul@a 80 0 BANK0 1
+=======
+___flmul@a 82 0 BANK0 1
+>>>>>>> origin/master
 _RXF2SIDLbits F09 0 ABS 0
 _RXF3SIDLbits F0D 0 ABS 0
 _RXM0SIDLbits F19 0 ABS 0
@@ -951,6 +1696,7 @@ _RXF4SIDLbits F11 0 ABS 0
 _RXM1SIDLbits F1D 0 ABS 0
 _RXF5SIDLbits F15 0 ABS 0
 __CFG_WDT$OFF 0 0 ABS 0
+<<<<<<< HEAD
 ___fldiv@a 80 0 BANK0 1
 _LCD_goto_xy 161FE 0 CODE 0
 ___flmul@b 7C 0 BANK0 1
@@ -962,6 +1708,19 @@ ___lldiv@dividend 6E 0 BANK0 1
 isdigit@c 70 0 BANK0 1
 ___awdiv@dividend 74 0 BANK0 1
 __end_of_CAN_interpreter 15AF0 0 CODE 0
+=======
+___fldiv@a 82 0 BANK0 1
+_LCD_goto_xy 1610E 0 CODE 0
+___flmul@b 7E 0 BANK0 1
+__CFG_LVP$OFF 0 0 ABS 0
+___fldiv@b 7E 0 BANK0 1
+sprintf@c 141 0 BANK1 1
+__size_of___llmod 0 0 ABS 0
+___lldiv@dividend 70 0 BANK0 1
+isdigit@c 72 0 BANK0 1
+___awdiv@dividend 76 0 BANK0 1
+__end_of_CAN_interpreter 15A00 0 CODE 0
+>>>>>>> origin/master
 %segments
 reset_vec 0 3 CODE 0 0
 intcode 8 15 CODE 8 0
@@ -969,6 +1728,7 @@ intcodelo 18 C3 CODE 18 0
 mediumconst FEB4 FFFF MEDIUMCONST FEB4 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
+<<<<<<< HEAD
 bssCOMRAM 1 4C COMRAM 1 1
 cstackBANK0 60 F1 BANK0 60 1
 bssBANK1 100 148 BANK1 100 1
@@ -1300,6 +2060,322 @@ RemoteCan.c
 739 1438E 0 CODE 0
 740 1439C 0 CODE 0
 ../LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
+=======
+bssCOMRAM 1 4D COMRAM 1 1
+cstackBANK0 60 EC BANK0 60 1
+bssBANK1 100 149 BANK1 100 1
+text4 10000 16198 CODE 10000 0
+%locals
+dist/default/production\RemoteCan.X.production.obj
+C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f4685.h
+C:\Users\Simone\AppData\Local\Temp\sad0.
+1855 15E80 0 CODE 0
+1857 15E80 0 CODE 0
+1860 15E80 0 CODE 0
+2024 15E80 0 CODE 0
+2025 15E84 0 CODE 0
+2026 15E86 0 CODE 0
+2027 15E86 0 CODE 0
+2028 15E88 0 CODE 0
+2029 15E8A 0 CODE 0
+2032 15E8C 0 CODE 0
+2033 15E90 0 CODE 0
+2034 15E92 0 CODE 0
+2035 15E92 0 CODE 0
+2036 15E94 0 CODE 0
+2037 15E96 0 CODE 0
+2040 15E98 0 CODE 0
+2041 15E9A 0 CODE 0
+2044 15E9C 0 CODE 0
+2045 15EA0 0 CODE 0
+2046 15EA2 0 CODE 0
+2047 15EA2 0 CODE 0
+2048 15EA4 0 CODE 0
+2049 15EA6 0 CODE 0
+2054 15EA8 0 CODE 0
+2055 15EAA 0 CODE 0
+2056 15EAC 0 CODE 0
+2057 15EAE 0 CODE 0
+2058 15EB0 0 CODE 0
+2059 15EB2 0 CODE 0
+2060 15EB4 0 CODE 0
+2061 15EB6 0 CODE 0
+2067 15EBA 0 CODE 0
+2069 15EBA 0 CODE 0
+2070 15EBC 0 CODE 0
+2071 15EBE 0 CODE 0
+2072 15EC0 0 CODE 0
+RemoteCan.c
+162 121B6 0 CODE 0
+163 121B6 0 CODE 0
+171 121BA 0 CODE 0
+172 121CC 0 CODE 0
+174 121DE 0 CODE 0
+178 121E0 0 CODE 0
+179 121E4 0 CODE 0
+180 121E8 0 CODE 0
+183 121EC 0 CODE 0
+184 121F0 0 CODE 0
+185 121F6 0 CODE 0
+186 12200 0 CODE 0
+187 12206 0 CODE 0
+188 1220C 0 CODE 0
+189 12212 0 CODE 0
+190 12216 0 CODE 0
+191 1221C 0 CODE 0
+192 1221E 0 CODE 0
+193 12220 0 CODE 0
+194 12226 0 CODE 0
+195 12236 0 CODE 0
+196 1223C 0 CODE 0
+197 1224C 0 CODE 0
+198 12252 0 CODE 0
+199 12262 0 CODE 0
+200 12268 0 CODE 0
+201 12278 0 CODE 0
+202 1227A 0 CODE 0
+203 122DE 0 CODE 0
+204 122EE 0 CODE 0
+206 12310 0 CODE 0
+207 12314 0 CODE 0
+201 12322 0 CODE 0
+209 12326 0 CODE 0
+210 12328 0 CODE 0
+213 1232A 0 CODE 0
+216 1232E 0 CODE 0
+217 12332 0 CODE 0
+218 12338 0 CODE 0
+219 1233A 0 CODE 0
+220 1233E 0 CODE 0
+221 12344 0 CODE 0
+223 12348 0 CODE 0
+224 1234E 0 CODE 0
+229 12354 0 CODE 0
+230 12358 0 CODE 0
+231 1235A 0 CODE 0
+232 12364 0 CODE 0
+233 12366 0 CODE 0
+234 1236C 0 CODE 0
+235 1237E 0 CODE 0
+236 12388 0 CODE 0
+237 1238E 0 CODE 0
+238 123BC 0 CODE 0
+240 123C0 0 CODE 0
+241 12424 0 CODE 0
+242 12434 0 CODE 0
+243 12438 0 CODE 0
+244 1245C 0 CODE 0
+245 1245E 0 CODE 0
+246 12460 0 CODE 0
+247 12462 0 CODE 0
+251 12484 0 CODE 0
+252 1248A 0 CODE 0
+253 12492 0 CODE 0
+254 12498 0 CODE 0
+255 124A2 0 CODE 0
+256 124D0 0 CODE 0
+257 124D6 0 CODE 0
+259 124DA 0 CODE 0
+260 124DC 0 CODE 0
+262 124E2 0 CODE 0
+263 124E4 0 CODE 0
+264 124EA 0 CODE 0
+265 124F0 0 CODE 0
+266 124F2 0 CODE 0
+267 124F4 0 CODE 0
+268 124F6 0 CODE 0
+269 124FA 0 CODE 0
+270 12500 0 CODE 0
+271 12512 0 CODE 0
+272 1251C 0 CODE 0
+273 12522 0 CODE 0
+274 12550 0 CODE 0
+276 12552 0 CODE 0
+277 12554 0 CODE 0
+280 12556 0 CODE 0
+281 125E4 0 CODE 0
+282 125EC 0 CODE 0
+283 125F4 0 CODE 0
+284 12674 0 CODE 0
+286 12678 0 CODE 0
+287 12682 0 CODE 0
+291 126FC 0 CODE 0
+292 12700 0 CODE 0
+293 12704 0 CODE 0
+296 12706 0 CODE 0
+297 1276A 0 CODE 0
+298 1277A 0 CODE 0
+301 1277E 0 CODE 0
+302 127E2 0 CODE 0
+303 127F2 0 CODE 0
+175 127F6 0 CODE 0
+RemoteCan.c
+460 15A00 0 CODE 0
+462 15A00 0 CODE 0
+463 15A04 0 CODE 0
+464 15A08 0 CODE 0
+465 15A0C 0 CODE 0
+466 15A10 0 CODE 0
+467 15A14 0 CODE 0
+468 15A18 0 CODE 0
+469 15A1C 0 CODE 0
+470 15A20 0 CODE 0
+471 15A24 0 CODE 0
+473 15A28 0 CODE 0
+477 15A4C 0 CODE 0
+478 15A4E 0 CODE 0
+479 15A50 0 CODE 0
+482 15A52 0 CODE 0
+483 15A54 0 CODE 0
+484 15A56 0 CODE 0
+485 15A58 0 CODE 0
+488 15A5A 0 CODE 0
+489 15A5E 0 CODE 0
+490 15A60 0 CODE 0
+491 15A62 0 CODE 0
+492 15A64 0 CODE 0
+493 15A66 0 CODE 0
+494 15A68 0 CODE 0
+495 15A6A 0 CODE 0
+496 15A6C 0 CODE 0
+497 15A6E 0 CODE 0
+498 15A70 0 CODE 0
+499 15A72 0 CODE 0
+502 15A74 0 CODE 0
+504 15A7A 0 CODE 0
+505 15A7E 0 CODE 0
+509 15A84 0 CODE 0
+510 15A86 0 CODE 0
+513 15A88 0 CODE 0
+514 15A8C 0 CODE 0
+517 15A90 0 CODE 0
+518 15A92 0 CODE 0
+519 15A94 0 CODE 0
+522 15A96 0 CODE 0
+523 15A9A 0 CODE 0
+524 15A9E 0 CODE 0
+525 15AA0 0 CODE 0
+526 15AA2 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+218 1478E 0 CODE 0
+223 14792 0 CODE 0
+225 14798 0 CODE 0
+226 1479C 0 CODE 0
+227 147A0 0 CODE 0
+229 147A4 0 CODE 0
+230 147B0 0 CODE 0
+231 147B6 0 CODE 0
+233 147BC 0 CODE 0
+234 147C2 0 CODE 0
+235 147CE 0 CODE 0
+237 147D4 0 CODE 0
+238 147D8 0 CODE 0
+240 147DA 0 CODE 0
+241 147DE 0 CODE 0
+243 147E0 0 CODE 0
+245 147E6 0 CODE 0
+246 147EA 0 CODE 0
+251 147EC 0 CODE 0
+252 147F4 0 CODE 0
+253 147FE 0 CODE 0
+255 14800 0 CODE 0
+259 14804 0 CODE 0
+260 14822 0 CODE 0
+263 14840 0 CODE 0
+266 14842 0 CODE 0
+270 1484A 0 CODE 0
+271 1484A 0 CODE 0
+272 1484E 0 CODE 0
+273 14852 0 CODE 0
+274 14854 0 CODE 0
+275 14854 0 CODE 0
+276 14858 0 CODE 0
+278 1485E 0 CODE 0
+263 14860 0 CODE 0
+280 148A4 0 CODE 0
+281 148C0 0 CODE 0
+282 148DC 0 CODE 0
+283 148F8 0 CODE 0
+284 14914 0 CODE 0
+285 14930 0 CODE 0
+287 1494C 0 CODE 0
+289 14952 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+640 13F2C 0 CODE 0
+643 13F30 0 CODE 0
+645 13F40 0 CODE 0
+646 13F74 0 CODE 0
+647 13F82 0 CODE 0
+649 13F86 0 CODE 0
+650 13FAE 0 CODE 0
+651 13FE0 0 CODE 0
+654 13FE4 0 CODE 0
+656 13FF6 0 CODE 0
+657 1402A 0 CODE 0
+658 14038 0 CODE 0
+660 1403C 0 CODE 0
+661 14064 0 CODE 0
+662 14096 0 CODE 0
+665 1409A 0 CODE 0
+667 140AC 0 CODE 0
+668 140BA 0 CODE 0
+670 140BE 0 CODE 0
+671 140E6 0 CODE 0
+672 14116 0 CODE 0
+674 1411A 0 CODE 0
+675 14120 0 CODE 0
+676 14126 0 CODE 0
+677 14126 0 CODE 0
+679 1412A 0 CODE 0
+680 14130 0 CODE 0
+681 14136 0 CODE 0
+682 14136 0 CODE 0
+684 1413A 0 CODE 0
+685 14140 0 CODE 0
+686 14146 0 CODE 0
+687 14146 0 CODE 0
+689 1414A 0 CODE 0
+690 14150 0 CODE 0
+691 14156 0 CODE 0
+692 14156 0 CODE 0
+694 1415A 0 CODE 0
+695 14160 0 CODE 0
+696 14166 0 CODE 0
+697 14166 0 CODE 0
+699 1416A 0 CODE 0
+700 1419E 0 CODE 0
+701 141AC 0 CODE 0
+704 141B0 0 CODE 0
+706 141C4 0 CODE 0
+707 141D2 0 CODE 0
+709 141D6 0 CODE 0
+710 141FE 0 CODE 0
+711 1422E 0 CODE 0
+713 14232 0 CODE 0
+714 14238 0 CODE 0
+715 1423E 0 CODE 0
+716 1423E 0 CODE 0
+718 14242 0 CODE 0
+719 14248 0 CODE 0
+720 1424E 0 CODE 0
+721 1424E 0 CODE 0
+723 14252 0 CODE 0
+724 14258 0 CODE 0
+725 1425E 0 CODE 0
+726 1425E 0 CODE 0
+728 14262 0 CODE 0
+729 14268 0 CODE 0
+730 1426E 0 CODE 0
+731 1426E 0 CODE 0
+733 14272 0 CODE 0
+734 14278 0 CODE 0
+735 1427E 0 CODE 0
+736 1427E 0 CODE 0
+738 14282 0 CODE 0
+739 142B6 0 CODE 0
+740 142C4 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+>>>>>>> origin/master
 748 10000 0 CODE 0
 752 10004 0 CODE 0
 754 10016 0 CODE 0
@@ -1529,6 +2605,7 @@ RemoteCan.c
 1073 10ABE 0 CODE 0
 1074 10AF2 0 CODE 0
 1075 10B00 0 CODE 0
+<<<<<<< HEAD
 ../LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
 206 16252 0 CODE 0
 208 16256 0 CODE 0
@@ -1572,6 +2649,51 @@ RemoteCan.c
 385 14D64 0 CODE 0
 405 14D74 0 CODE 0
 406 14D80 0 CODE 0
+=======
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+206 16162 0 CODE 0
+208 16166 0 CODE 0
+210 1616A 0 CODE 0
+RemoteCan.c
+421 160F2 0 CODE 0
+422 160F2 0 CODE 0
+423 160FA 0 CODE 0
+424 160FC 0 CODE 0
+425 16100 0 CODE 0
+426 1610A 0 CODE 0
+427 1610C 0 CODE 0
+RemoteCan.c
+321 14B14 0 CODE 0
+323 14B14 0 CODE 0
+324 14B1E 0 CODE 0
+326 14B4C 0 CODE 0
+327 14B96 0 CODE 0
+328 14BC2 0 CODE 0
+330 14BC8 0 CODE 0
+331 14BCC 0 CODE 0
+332 14BD2 0 CODE 0
+333 14BD6 0 CODE 0
+334 14BDC 0 CODE 0
+335 14BEC 0 CODE 0
+336 14BF2 0 CODE 0
+337 14C02 0 CODE 0
+338 14C08 0 CODE 0
+339 14C18 0 CODE 0
+343 14C1E 0 CODE 0
+345 14C2E 0 CODE 0
+349 14C30 0 CODE 0
+350 14C3C 0 CODE 0
+351 14C44 0 CODE 0
+352 14C4C 0 CODE 0
+353 14C5C 0 CODE 0
+354 14C5E 0 CODE 0
+356 14C6E 0 CODE 0
+357 14C70 0 CODE 0
+361 14C80 0 CODE 0
+362 14C8C 0 CODE 0
+382 14C9C 0 CODE 0
+383 14CA8 0 CODE 0
+>>>>>>> origin/master
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
 492 10B06 0 CODE 0
 533 10B06 0 CODE 0
@@ -1667,6 +2789,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
 536 1136A 0 CODE 0
 1538 1138C 0 CODE 0
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
+<<<<<<< HEAD
 425 128D0 0 CODE 0
 428 128D4 0 CODE 0
 429 128DA 0 CODE 0
@@ -2451,6 +3574,792 @@ RemoteCan.c
 463 15A12 0 CODE 0
 465 15A40 0 CODE 0
 ../LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
+=======
+425 127F8 0 CODE 0
+428 127FC 0 CODE 0
+429 12802 0 CODE 0
+430 12806 0 CODE 0
+431 12812 0 CODE 0
+432 12988 0 CODE 0
+433 12994 0 CODE 0
+434 12A5A 0 CODE 0
+436 12A8C 0 CODE 0
+437 12A98 0 CODE 0
+438 12C0E 0 CODE 0
+439 12C1A 0 CODE 0
+440 12CE0 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\isdigit.c
+8 1603E 0 CODE 0
+14 16042 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
+409 142CA 0 CODE 0
+413 142CE 0 CODE 0
+414 142D6 0 CODE 0
+415 14470 0 CODE 0
+416 14478 0 CODE 0
+417 14568 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\sprcmul.c
+8 136C6 0 CODE 0
+17 136C6 0 CODE 0
+18 136D0 0 CODE 0
+19 136DA 0 CODE 0
+20 136E0 0 CODE 0
+24 136E4 0 CODE 0
+26 136EE 0 CODE 0
+28 136F6 0 CODE 0
+31 13708 0 CODE 0
+33 1370C 0 CODE 0
+36 1370E 0 CODE 0
+39 13720 0 CODE 0
+40 1372A 0 CODE 0
+41 13734 0 CODE 0
+42 1373A 0 CODE 0
+45 1373E 0 CODE 0
+48 13748 0 CODE 0
+50 13750 0 CODE 0
+53 13762 0 CODE 0
+54 13766 0 CODE 0
+57 13768 0 CODE 0
+58 1377A 0 CODE 0
+65 1377A 0 CODE 0
+66 1378E 0 CODE 0
+95 137A2 0 CODE 0
+96 137B2 0 CODE 0
+97 137C0 0 CODE 0
+98 137CE 0 CODE 0
+99 137DE 0 CODE 0
+100 137EE 0 CODE 0
+101 137FE 0 CODE 0
+102 1380E 0 CODE 0
+103 1381E 0 CODE 0
+104 1382E 0 CODE 0
+105 1383E 0 CODE 0
+106 1384E 0 CODE 0
+107 1386A 0 CODE 0
+108 1387A 0 CODE 0
+109 13896 0 CODE 0
+110 138A6 0 CODE 0
+111 138B6 0 CODE 0
+112 138D2 0 CODE 0
+113 138E2 0 CODE 0
+114 138FE 0 CODE 0
+115 1390E 0 CODE 0
+116 1392A 0 CODE 0
+117 1393A 0 CODE 0
+145 13982 0 CODE 0
+146 139C6 0 CODE 0
+149 139D6 0 CODE 0
+152 139FE 0 CODE 0
+153 13A00 0 CODE 0
+154 13A0C 0 CODE 0
+155 13A12 0 CODE 0
+156 13A16 0 CODE 0
+157 13A16 0 CODE 0
+158 13A22 0 CODE 0
+152 13A2A 0 CODE 0
+163 13A30 0 CODE 0
+164 13A36 0 CODE 0
+165 13A3C 0 CODE 0
+166 13A76 0 CODE 0
+169 13A78 0 CODE 0
+170 13A7E 0 CODE 0
+173 13A84 0 CODE 0
+174 13A84 0 CODE 0
+175 13A8E 0 CODE 0
+176 13A9C 0 CODE 0
+177 13AA2 0 CODE 0
+178 13ACE 0 CODE 0
+183 13AD4 0 CODE 0
+184 13AE8 0 CODE 0
+187 13AFA 0 CODE 0
+188 13B0E 0 CODE 0
+190 13B20 0 CODE 0
+191 13B26 0 CODE 0
+192 13B28 0 CODE 0
+194 13B28 0 CODE 0
+195 13B2C 0 CODE 0
+196 13B3E 0 CODE 0
+197 13B44 0 CODE 0
+199 13B48 0 CODE 0
+201 13B52 0 CODE 0
+203 13B5A 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awmod.c
+8 15AA4 0 CODE 0
+13 15AA4 0 CODE 0
+14 15AAA 0 CODE 0
+15 15AB0 0 CODE 0
+16 15ABA 0 CODE 0
+18 15AC0 0 CODE 0
+19 15AC6 0 CODE 0
+20 15AD0 0 CODE 0
+21 15ADC 0 CODE 0
+22 15AE2 0 CODE 0
+23 15AE4 0 CODE 0
+24 15AEC 0 CODE 0
+22 15AF0 0 CODE 0
+27 15AF6 0 CODE 0
+28 15B0A 0 CODE 0
+29 15B1A 0 CODE 0
+30 15B22 0 CODE 0
+32 15B28 0 CODE 0
+33 15B32 0 CODE 0
+34 15B3C 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c
+8 15664 0 CODE 0
+14 15664 0 CODE 0
+15 1566A 0 CODE 0
+16 15670 0 CODE 0
+17 1567A 0 CODE 0
+19 15680 0 CODE 0
+20 15686 0 CODE 0
+21 15690 0 CODE 0
+23 15696 0 CODE 0
+24 156A0 0 CODE 0
+25 156AC 0 CODE 0
+26 156B2 0 CODE 0
+27 156B4 0 CODE 0
+28 156BC 0 CODE 0
+26 156C0 0 CODE 0
+31 156C6 0 CODE 0
+32 156CE 0 CODE 0
+33 156E2 0 CODE 0
+34 156F2 0 CODE 0
+36 156F6 0 CODE 0
+37 156FE 0 CODE 0
+39 15704 0 CODE 0
+40 1570E 0 CODE 0
+41 15718 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftdivl.c
+60 14CC2 0 CODE 0
+66 14CC2 0 CODE 0
+67 14CE8 0 CODE 0
+68 14CFC 0 CODE 0
+69 14D22 0 CODE 0
+70 14D36 0 CODE 0
+71 14D3A 0 CODE 0
+72 14D4C 0 CODE 0
+73 14D50 0 CODE 0
+74 14D62 0 CODE 0
+75 14D74 0 CODE 0
+76 14D7A 0 CODE 0
+77 14D84 0 CODE 0
+78 14D8A 0 CODE 0
+79 14D8A 0 CODE 0
+80 14D96 0 CODE 0
+81 14DB2 0 CODE 0
+82 14DCA 0 CODE 0
+83 14DCE 0 CODE 0
+84 14DCE 0 CODE 0
+85 14DD8 0 CODE 0
+86 14DDE 0 CODE 0
+87 14DE4 0 CODE 0
+88 14DF0 0 CODE 0
+90 14E04 0 CODE 0
+91 14E10 0 CODE 0
+92 14E16 0 CODE 0
+93 14E18 0 CODE 0
+94 14E20 0 CODE 0
+96 14E34 0 CODE 0
+97 14E40 0 CODE 0
+95 14E44 0 CODE 0
+99 14E4E 0 CODE 0
+100 14E4E 0 CODE 0
+101 14E5E 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\fldivl.c
+60 14FF0 0 CODE 0
+66 14FF0 0 CODE 0
+67 15002 0 CODE 0
+68 15016 0 CODE 0
+69 15028 0 CODE 0
+70 1503C 0 CODE 0
+71 15040 0 CODE 0
+72 15052 0 CODE 0
+73 15056 0 CODE 0
+74 15068 0 CODE 0
+75 1507A 0 CODE 0
+76 15080 0 CODE 0
+77 1508A 0 CODE 0
+79 15090 0 CODE 0
+80 1509C 0 CODE 0
+81 150C0 0 CODE 0
+82 150E0 0 CODE 0
+84 150E4 0 CODE 0
+85 150F0 0 CODE 0
+86 150F6 0 CODE 0
+87 150FC 0 CODE 0
+88 15108 0 CODE 0
+90 1511C 0 CODE 0
+91 15128 0 CODE 0
+92 1512E 0 CODE 0
+93 15130 0 CODE 0
+94 15138 0 CODE 0
+96 1514C 0 CODE 0
+97 15158 0 CODE 0
+95 1515C 0 CODE 0
+99 15166 0 CODE 0
+100 15166 0 CODE 0
+101 15176 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\xxtofl.c
+10 145C0 0 CODE 0
+15 145C4 0 CODE 0
+16 145D4 0 CODE 0
+17 14608 0 CODE 0
+18 1460A 0 CODE 0
+19 1460A 0 CODE 0
+21 1461A 0 CODE 0
+22 1462E 0 CODE 0
+23 14642 0 CODE 0
+24 14648 0 CODE 0
+25 1464A 0 CODE 0
+26 1464E 0 CODE 0
+24 1465A 0 CODE 0
+29 14698 0 CODE 0
+30 1469C 0 CODE 0
+31 146AA 0 CODE 0
+32 146B6 0 CODE 0
+28 146B6 0 CODE 0
+34 146F4 0 CODE 0
+35 146F8 0 CODE 0
+33 14704 0 CODE 0
+37 14712 0 CODE 0
+38 14718 0 CODE 0
+39 1472A 0 CODE 0
+40 14730 0 CODE 0
+41 14768 0 CODE 0
+42 14778 0 CODE 0
+43 1477C 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\llmod.c
+8 15B46 0 CODE 0
+13 15B46 0 CODE 0
+14 15B5A 0 CODE 0
+15 15B60 0 CODE 0
+16 15B62 0 CODE 0
+17 15B6E 0 CODE 0
+15 15B72 0 CODE 0
+20 15B78 0 CODE 0
+21 15B9C 0 CODE 0
+22 15BBC 0 CODE 0
+23 15BC8 0 CODE 0
+24 15BCE 0 CODE 0
+25 15BCE 0 CODE 0
+26 15BDE 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
+8 157E0 0 CODE 0
+14 157E0 0 CODE 0
+15 157F2 0 CODE 0
+16 15806 0 CODE 0
+17 1580C 0 CODE 0
+18 1580E 0 CODE 0
+19 1581A 0 CODE 0
+17 1581E 0 CODE 0
+22 15824 0 CODE 0
+23 15830 0 CODE 0
+24 15854 0 CODE 0
+25 15874 0 CODE 0
+27 15878 0 CODE 0
+28 15884 0 CODE 0
+29 1588A 0 CODE 0
+30 1588A 0 CODE 0
+31 1589A 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\fltol.c
+43 1546C 0 CODE 0
+47 1546C 0 CODE 0
+48 1547E 0 CODE 0
+49 15492 0 CODE 0
+50 154BE 0 CODE 0
+51 154C2 0 CODE 0
+52 154D4 0 CODE 0
+53 154DA 0 CODE 0
+54 154E0 0 CODE 0
+55 154EC 0 CODE 0
+57 15500 0 CODE 0
+58 1550C 0 CODE 0
+59 15512 0 CODE 0
+60 15514 0 CODE 0
+61 1551C 0 CODE 0
+63 15530 0 CODE 0
+64 1553C 0 CODE 0
+62 15540 0 CODE 0
+67 1554A 0 CODE 0
+68 15554 0 CODE 0
+69 15566 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\sprcadd.c
+245 15DF0 0 CODE 0
+248 15DF0 0 CODE 0
+249 15E02 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\sprcadd.c
+10 1321E 0 CODE 0
+21 1321E 0 CODE 0
+22 13228 0 CODE 0
+23 13232 0 CODE 0
+24 13238 0 CODE 0
+28 1323C 0 CODE 0
+30 13246 0 CODE 0
+32 1324E 0 CODE 0
+35 13260 0 CODE 0
+37 13264 0 CODE 0
+41 1326A 0 CODE 0
+44 1327C 0 CODE 0
+46 13286 0 CODE 0
+47 13292 0 CODE 0
+49 13296 0 CODE 0
+50 132A0 0 CODE 0
+51 132A6 0 CODE 0
+55 132AA 0 CODE 0
+57 132B4 0 CODE 0
+59 132BC 0 CODE 0
+62 132CE 0 CODE 0
+64 132D2 0 CODE 0
+68 132D8 0 CODE 0
+75 132EA 0 CODE 0
+77 132F6 0 CODE 0
+78 132FC 0 CODE 0
+81 13302 0 CODE 0
+82 13306 0 CODE 0
+83 1330A 0 CODE 0
+84 1330E 0 CODE 0
+85 13312 0 CODE 0
+86 13316 0 CODE 0
+87 1331A 0 CODE 0
+88 1331E 0 CODE 0
+89 13322 0 CODE 0
+90 13326 0 CODE 0
+91 1332A 0 CODE 0
+92 1332E 0 CODE 0
+93 13332 0 CODE 0
+94 13336 0 CODE 0
+95 1333A 0 CODE 0
+98 1333E 0 CODE 0
+100 13344 0 CODE 0
+101 13388 0 CODE 0
+102 133A6 0 CODE 0
+103 133B8 0 CODE 0
+104 133BC 0 CODE 0
+106 133BE 0 CODE 0
+109 133BE 0 CODE 0
+110 133C4 0 CODE 0
+111 133D0 0 CODE 0
+113 133D2 0 CODE 0
+115 133D8 0 CODE 0
+116 133DE 0 CODE 0
+118 133E2 0 CODE 0
+119 133EE 0 CODE 0
+120 133F2 0 CODE 0
+106 133F2 0 CODE 0
+121 133FE 0 CODE 0
+124 133FE 0 CODE 0
+127 13404 0 CODE 0
+128 1340E 0 CODE 0
+132 13422 0 CODE 0
+134 13442 0 CODE 0
+135 13448 0 CODE 0
+136 1344E 0 CODE 0
+137 1345E 0 CODE 0
+139 13460 0 CODE 0
+141 13466 0 CODE 0
+142 1346C 0 CODE 0
+144 13470 0 CODE 0
+145 1347C 0 CODE 0
+148 13480 0 CODE 0
+153 13482 0 CODE 0
+154 134B2 0 CODE 0
+155 1352E 0 CODE 0
+156 13534 0 CODE 0
+157 13538 0 CODE 0
+158 13542 0 CODE 0
+160 13550 0 CODE 0
+162 13552 0 CODE 0
+163 13572 0 CODE 0
+166 13572 0 CODE 0
+167 13590 0 CODE 0
+172 135A4 0 CODE 0
+173 135B0 0 CODE 0
+174 135B6 0 CODE 0
+176 135BA 0 CODE 0
+177 135C0 0 CODE 0
+180 135C6 0 CODE 0
+182 135CC 0 CODE 0
+183 135D6 0 CODE 0
+171 135DA 0 CODE 0
+192 135E0 0 CODE 0
+193 135E6 0 CODE 0
+194 135EC 0 CODE 0
+195 135F8 0 CODE 0
+198 135FA 0 CODE 0
+199 13600 0 CODE 0
+202 13606 0 CODE 0
+203 13606 0 CODE 0
+204 13610 0 CODE 0
+205 1361E 0 CODE 0
+206 13624 0 CODE 0
+207 13650 0 CODE 0
+208 13658 0 CODE 0
+215 1365C 0 CODE 0
+216 1366E 0 CODE 0
+218 13680 0 CODE 0
+219 1368A 0 CODE 0
+225 13690 0 CODE 0
+226 13696 0 CODE 0
+227 1369A 0 CODE 0
+230 1369C 0 CODE 0
+232 136A0 0 CODE 0
+233 136AA 0 CODE 0
+234 136B0 0 CODE 0
+236 136B4 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\flneg.c
+15 15F38 0 CODE 0
+17 15F38 0 CODE 0
+18 15F4C 0 CODE 0
+19 15F5E 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\flge.c
+4 14E60 0 CODE 0
+7 14E60 0 CODE 0
+8 14E9C 0 CODE 0
+9 14EAE 0 CODE 0
+10 14EEA 0 CODE 0
+12 14EFC 0 CODE 0
+13 14F02 0 CODE 0
+14 14F4E 0 CODE 0
+15 14F54 0 CODE 0
+16 14FA0 0 CODE 0
+17 14FB2 0 CODE 0
+18 14FC4 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\sprcdiv.c
+11 13B6C 0 CODE 0
+26 13B6C 0 CODE 0
+27 13B76 0 CODE 0
+28 13B80 0 CODE 0
+29 13B86 0 CODE 0
+33 13B8A 0 CODE 0
+35 13B94 0 CODE 0
+37 13B9C 0 CODE 0
+40 13BAE 0 CODE 0
+42 13BB2 0 CODE 0
+46 13BB8 0 CODE 0
+49 13BCA 0 CODE 0
+50 13BD4 0 CODE 0
+51 13BDE 0 CODE 0
+52 13BE4 0 CODE 0
+56 13BE8 0 CODE 0
+58 13BF2 0 CODE 0
+60 13BFA 0 CODE 0
+63 13C0C 0 CODE 0
+65 13C10 0 CODE 0
+69 13C16 0 CODE 0
+75 13C28 0 CODE 0
+76 13C3C 0 CODE 0
+77 13C4E 0 CODE 0
+78 13C58 0 CODE 0
+82 13C6A 0 CODE 0
+83 13C74 0 CODE 0
+84 13C86 0 CODE 0
+88 13C98 0 CODE 0
+91 13CDA 0 CODE 0
+92 13CEA 0 CODE 0
+93 13CFC 0 CODE 0
+95 13D0E 0 CODE 0
+96 13D14 0 CODE 0
+99 13D16 0 CODE 0
+100 13D20 0 CODE 0
+101 13D2C 0 CODE 0
+102 13D38 0 CODE 0
+103 13D3E 0 CODE 0
+104 13D42 0 CODE 0
+105 13D42 0 CODE 0
+111 13D4E 0 CODE 0
+114 13D72 0 CODE 0
+115 13D76 0 CODE 0
+117 13D96 0 CODE 0
+118 13D9A 0 CODE 0
+96 13D9A 0 CODE 0
+121 13DA2 0 CODE 0
+122 13DB6 0 CODE 0
+126 13DBA 0 CODE 0
+127 13DBC 0 CODE 0
+128 13DC8 0 CODE 0
+129 13DCE 0 CODE 0
+130 13DD2 0 CODE 0
+131 13DD2 0 CODE 0
+132 13DDE 0 CODE 0
+126 13DE6 0 CODE 0
+138 13DEC 0 CODE 0
+139 13DF2 0 CODE 0
+140 13DF8 0 CODE 0
+141 13E32 0 CODE 0
+144 13E34 0 CODE 0
+145 13E3A 0 CODE 0
+148 13E40 0 CODE 0
+149 13E40 0 CODE 0
+150 13E4A 0 CODE 0
+151 13E58 0 CODE 0
+152 13E5E 0 CODE 0
+153 13E8A 0 CODE 0
+158 13E90 0 CODE 0
+159 13EA4 0 CODE 0
+160 13EAC 0 CODE 0
+164 13EBE 0 CODE 0
+165 13ED2 0 CODE 0
+166 13EDC 0 CODE 0
+168 13EEE 0 CODE 0
+172 13EF4 0 CODE 0
+174 13EF8 0 CODE 0
+175 13EFE 0 CODE 0
+176 13F02 0 CODE 0
+179 13F04 0 CODE 0
+181 13F08 0 CODE 0
+182 13F12 0 CODE 0
+183 13F1A 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
+178 15FA6 0 CODE 0
+181 15FA6 0 CODE 0
+184 15FA8 0 CODE 0
+186 15FBC 0 CODE 0
+181 15FC2 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
+210 14954 0 CODE 0
+213 14954 0 CODE 0
+224 14966 0 CODE 0
+228 14988 0 CODE 0
+230 14992 0 CODE 0
+234 149A8 0 CODE 0
+236 149AA 0 CODE 0
+237 149BC 0 CODE 0
+239 14A08 0 CODE 0
+240 14A10 0 CODE 0
+242 14A4A 0 CODE 0
+236 14A84 0 CODE 0
+234 14A8A 0 CODE 0
+249 14B02 0 CODE 0
+251 14B12 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\itoa.c
+4 15E38 0 CODE 0
+6 15E38 0 CODE 0
+8 15E40 0 CODE 0
+9 15E46 0 CODE 0
+10 15E58 0 CODE 0
+12 15E62 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\itoa.c
+17 15722 0 CODE 0
+22 15722 0 CODE 0
+24 1572A 0 CODE 0
+25 15746 0 CODE 0
+26 1574C 0 CODE 0
+27 15758 0 CODE 0
+29 1576C 0 CODE 0
+30 15788 0 CODE 0
+31 157A4 0 CODE 0
+32 157AC 0 CODE 0
+33 157B2 0 CODE 0
+34 157B8 0 CODE 0
+35 157CC 0 CODE 0
+36 157D8 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwmod.c
+8 15CEE 0 CODE 0
+13 15CEE 0 CODE 0
+14 15CFA 0 CODE 0
+15 15D00 0 CODE 0
+16 15D02 0 CODE 0
+17 15D0A 0 CODE 0
+15 15D0E 0 CODE 0
+20 15D14 0 CODE 0
+21 15D28 0 CODE 0
+22 15D38 0 CODE 0
+23 15D40 0 CODE 0
+24 15D46 0 CODE 0
+25 15D46 0 CODE 0
+26 15D4E 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c
+8 15C76 0 CODE 0
+14 15C76 0 CODE 0
+15 15C80 0 CODE 0
+16 15C8C 0 CODE 0
+17 15C92 0 CODE 0
+18 15C94 0 CODE 0
+19 15C9C 0 CODE 0
+17 15CA0 0 CODE 0
+22 15CA6 0 CODE 0
+23 15CAE 0 CODE 0
+24 15CC2 0 CODE 0
+25 15CD2 0 CODE 0
+27 15CD6 0 CODE 0
+28 15CDE 0 CODE 0
+29 15CE4 0 CODE 0
+30 15CE4 0 CODE 0
+31 15CEC 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
+194 16068 0 CODE 0
+197 16068 0 CODE 0
+200 1606A 0 CODE 0
+202 16078 0 CODE 0
+197 1607E 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
+145 15BE0 0 CODE 0
+149 15BE4 0 CODE 0
+152 15BE6 0 CODE 0
+153 15BF0 0 CODE 0
+154 15BFE 0 CODE 0
+155 15C0C 0 CODE 0
+157 15C18 0 CODE 0
+160 15C2C 0 CODE 0
+161 15C3A 0 CODE 0
+162 15C48 0 CODE 0
+163 15C54 0 CODE 0
+165 15C5E 0 CODE 0
+167 15C72 0 CODE 0
+168 15C74 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
+283 152FE 0 CODE 0
+285 15302 0 CODE 0
+287 1530A 0 CODE 0
+288 1530C 0 CODE 0
+289 1530E 0 CODE 0
+291 15310 0 CODE 0
+292 1531E 0 CODE 0
+293 15336 0 CODE 0
+294 15344 0 CODE 0
+295 1535C 0 CODE 0
+296 1536A 0 CODE 0
+298 15382 0 CODE 0
+300 1539A 0 CODE 0
+301 153B2 0 CODE 0
+303 153CA 0 CODE 0
+304 153E2 0 CODE 0
+306 153FA 0 CODE 0
+307 15412 0 CODE 0
+309 1542A 0 CODE 0
+310 15442 0 CODE 0
+312 1545A 0 CODE 0
+314 1545E 0 CODE 0
+316 1546A 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\delay.c
+115 1618E 0 CODE 0
+117 16192 0 CODE 0
+119 16196 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
+266 15FDA 0 CODE 0
+268 15FDE 0 CODE 0
+269 15FF6 0 CODE 0
+270 1600A 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
+257 1600C 0 CODE 0
+259 1600C 0 CODE 0
+260 16024 0 CODE 0
+261 1603C 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
+136 1610E 0 CODE 0
+138 16112 0 CODE 0
+139 1611A 0 CODE 0
+140 16128 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
+98 15DA4 0 CODE 0
+102 15DA8 0 CODE 0
+103 15DB0 0 CODE 0
+104 15DC8 0 CODE 0
+102 15DDE 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
+111 15578 0 CODE 0
+113 1557C 0 CODE 0
+115 1557E 0 CODE 0
+116 15596 0 CODE 0
+117 155AE 0 CODE 0
+119 155B0 0 CODE 0
+120 155C8 0 CODE 0
+121 155E0 0 CODE 0
+123 155E2 0 CODE 0
+124 155FA 0 CODE 0
+125 15612 0 CODE 0
+127 15614 0 CODE 0
+128 1562C 0 CODE 0
+129 15644 0 CODE 0
+113 15646 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
+61 15EC4 0 CODE 0
+63 15EC8 0 CODE 0
+64 15ED4 0 CODE 0
+65 15EE0 0 CODE 0
+66 15EEC 0 CODE 0
+67 15EF8 0 CODE 0
+68 15EFC 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
+49 160B2 0 CODE 0
+51 160B2 0 CODE 0
+52 160B4 0 CODE 0
+53 160C2 0 CODE 0
+54 160C4 0 CODE 0
+55 160D2 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\delay.c
+61 15EFE 0 CODE 0
+73 15EFE 0 CODE 0
+75 15F1A 0 CODE 0
+85 15F1C 0 CODE 0
+88 15F22 0 CODE 0
+89 15F2A 0 CODE 0
+75 15F2A 0 CODE 0
+C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul16.c
+15 15F70 0 CODE 0
+37 15F70 0 CODE 0
+38 15F80 0 CODE 0
+39 15F8E 0 CODE 0
+52 15F9C 0 CODE 0
+RemoteCan.c
+451 15D50 0 CODE 0
+452 15D50 0 CODE 0
+453 15D60 0 CODE 0
+454 15D62 0 CODE 0
+455 15D66 0 CODE 0
+456 15D7C 0 CODE 0
+452 15D9E 0 CODE 0
+RemoteCan.c
+441 1612A 0 CODE 0
+442 1612A 0 CODE 0
+443 16132 0 CODE 0
+444 16134 0 CODE 0
+445 16138 0 CODE 0
+446 16142 0 CODE 0
+447 16144 0 CODE 0
+RemoteCan.c
+431 16146 0 CODE 0
+432 16146 0 CODE 0
+433 1614E 0 CODE 0
+434 16150 0 CODE 0
+435 16154 0 CODE 0
+436 1615E 0 CODE 0
+437 16160 0 CODE 0
+RemoteCan.c
+387 15956 0 CODE 0
+388 15956 0 CODE 0
+389 15964 0 CODE 0
+390 15968 0 CODE 0
+391 15978 0 CODE 0
+392 1597A 0 CODE 0
+393 1597C 0 CODE 0
+394 1597E 0 CODE 0
+395 15980 0 CODE 0
+396 15984 0 CODE 0
+398 15986 0 CODE 0
+399 1598C 0 CODE 0
+408 1598E 0 CODE 0
+409 1599E 0 CODE 0
+410 159A4 0 CODE 0
+411 159B2 0 CODE 0
+412 159B8 0 CODE 0
+413 159C6 0 CODE 0
+416 159EC 0 CODE 0
+417 159FA 0 CODE 0
+RemoteCan.c
+308 1589C 0 CODE 0
+309 1589C 0 CODE 0
+310 158A6 0 CODE 0
+311 158D4 0 CODE 0
+312 158D8 0 CODE 0
+313 158E0 0 CODE 0
+314 158E4 0 CODE 0
+315 158EE 0 CODE 0
+316 1591C 0 CODE 0
+317 15926 0 CODE 0
+319 15954 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+>>>>>>> origin/master
 294 1139A 0 CODE 0
 298 1139A 0 CODE 0
 299 113A0 0 CODE 0
@@ -2619,6 +4528,7 @@ RemoteCan.c
 516 11B0C 0 CODE 0
 518 11B20 0 CODE 0
 520 11B24 0 CODE 0
+<<<<<<< HEAD
 ../LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
 1154 1617E 0 CODE 0
 1156 1617E 0 CODE 0
@@ -2917,3 +4827,300 @@ RemoteCan.c
 ../LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
 1163 16268 0 CODE 0
 1165 16268 0 CODE 0
+=======
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+1154 1608E 0 CODE 0
+1156 1608E 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+1157 18 0 CODE 0
+RemoteCan.c
+153 18 0 CODE 0
+154 5E 0 CODE 0
+155 62 0 CODE 0
+156 6E 0 CODE 0
+157 72 0 CODE 0
+158 76 0 CODE 0
+160 78 0 CODE 0
+RemoteCan.c
+160 8 0 CODE 0
+107 8 0 CODE 0
+RemoteCan.c
+107 15178 0 CODE 0
+108 151A8 0 CODE 0
+109 151B0 0 CODE 0
+110 151BA 0 CODE 0
+111 151C6 0 CODE 0
+112 151D2 0 CODE 0
+113 151E2 0 CODE 0
+114 151E4 0 CODE 0
+115 151F2 0 CODE 0
+116 151FE 0 CODE 0
+115 15222 0 CODE 0
+120 15226 0 CODE 0
+121 15234 0 CODE 0
+122 1523A 0 CODE 0
+126 1523C 0 CODE 0
+127 1524A 0 CODE 0
+128 15250 0 CODE 0
+131 15260 0 CODE 0
+132 1526C 0 CODE 0
+133 15270 0 CODE 0
+134 15280 0 CODE 0
+135 15284 0 CODE 0
+136 1528C 0 CODE 0
+137 15296 0 CODE 0
+146 152BA 0 CODE 0
+147 152BC 0 CODE 0
+148 152BE 0 CODE 0
+149 152C0 0 CODE 0
+151 152C2 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+294 11B26 0 CODE 0
+298 11B26 0 CODE 0
+299 11B2C 0 CODE 0
+300 11B30 0 CODE 0
+301 11B34 0 CODE 0
+302 11B3A 0 CODE 0
+303 11B3A 0 CODE 0
+305 11B3E 0 CODE 0
+308 11B42 0 CODE 0
+309 11B4C 0 CODE 0
+311 11B50 0 CODE 0
+312 11B68 0 CODE 0
+313 11B96 0 CODE 0
+315 11B9A 0 CODE 0
+316 11BA0 0 CODE 0
+318 11BA4 0 CODE 0
+319 11BA8 0 CODE 0
+320 11BAC 0 CODE 0
+321 11BB0 0 CODE 0
+322 11BB4 0 CODE 0
+323 11BB8 0 CODE 0
+324 11BBC 0 CODE 0
+325 11BC0 0 CODE 0
+326 11BC4 0 CODE 0
+327 11BC8 0 CODE 0
+329 11BCC 0 CODE 0
+330 11BFE 0 CODE 0
+331 11C08 0 CODE 0
+332 11C0C 0 CODE 0
+334 11C0E 0 CODE 0
+337 11C0E 0 CODE 0
+339 11C12 0 CODE 0
+340 11C44 0 CODE 0
+341 11C4E 0 CODE 0
+343 11C52 0 CODE 0
+344 11C6A 0 CODE 0
+345 11C9A 0 CODE 0
+346 11CA4 0 CODE 0
+349 11CA8 0 CODE 0
+350 11CAC 0 CODE 0
+351 11CB2 0 CODE 0
+352 11CB2 0 CODE 0
+353 11CB6 0 CODE 0
+354 11CBA 0 CODE 0
+355 11CC0 0 CODE 0
+356 11CC0 0 CODE 0
+358 11CC4 0 CODE 0
+359 11CD2 0 CODE 0
+360 11CE4 0 CODE 0
+361 11CF6 0 CODE 0
+362 11D08 0 CODE 0
+363 11D1A 0 CODE 0
+364 11D2C 0 CODE 0
+365 11D3E 0 CODE 0
+367 11D50 0 CODE 0
+368 11D54 0 CODE 0
+369 11D56 0 CODE 0
+373 11D56 0 CODE 0
+374 11D5C 0 CODE 0
+376 11D60 0 CODE 0
+377 11D64 0 CODE 0
+378 11D6A 0 CODE 0
+379 11D6A 0 CODE 0
+381 11D6E 0 CODE 0
+383 11D72 0 CODE 0
+384 11D7C 0 CODE 0
+386 11D80 0 CODE 0
+387 11D98 0 CODE 0
+388 11DC6 0 CODE 0
+390 11DCA 0 CODE 0
+391 11DD0 0 CODE 0
+393 11DD4 0 CODE 0
+394 11DD8 0 CODE 0
+395 11DDC 0 CODE 0
+396 11DE0 0 CODE 0
+397 11DE4 0 CODE 0
+398 11DE8 0 CODE 0
+399 11DEC 0 CODE 0
+400 11DF0 0 CODE 0
+401 11DF4 0 CODE 0
+402 11DF8 0 CODE 0
+404 11DFC 0 CODE 0
+405 11E2E 0 CODE 0
+406 11E38 0 CODE 0
+407 11E3C 0 CODE 0
+409 11E3E 0 CODE 0
+412 11E3E 0 CODE 0
+414 11E42 0 CODE 0
+415 11E74 0 CODE 0
+416 11E7E 0 CODE 0
+418 11E82 0 CODE 0
+419 11E9A 0 CODE 0
+420 11ECA 0 CODE 0
+421 11ED4 0 CODE 0
+424 11ED8 0 CODE 0
+425 11EDC 0 CODE 0
+426 11EE2 0 CODE 0
+427 11EE2 0 CODE 0
+428 11EE6 0 CODE 0
+429 11EEA 0 CODE 0
+430 11EF0 0 CODE 0
+431 11EF0 0 CODE 0
+433 11EF4 0 CODE 0
+434 11F02 0 CODE 0
+435 11F14 0 CODE 0
+436 11F26 0 CODE 0
+437 11F38 0 CODE 0
+438 11F4A 0 CODE 0
+439 11F5C 0 CODE 0
+440 11F6E 0 CODE 0
+442 11F80 0 CODE 0
+444 11F84 0 CODE 0
+445 11F86 0 CODE 0
+449 11F86 0 CODE 0
+450 11F8C 0 CODE 0
+452 11F90 0 CODE 0
+453 11F94 0 CODE 0
+454 11F9A 0 CODE 0
+455 11F9A 0 CODE 0
+457 11F9E 0 CODE 0
+459 11FA2 0 CODE 0
+460 11FAC 0 CODE 0
+462 11FB0 0 CODE 0
+463 11FC8 0 CODE 0
+464 11FF6 0 CODE 0
+466 11FFA 0 CODE 0
+467 12000 0 CODE 0
+469 12004 0 CODE 0
+470 12008 0 CODE 0
+471 1200C 0 CODE 0
+472 12010 0 CODE 0
+473 12014 0 CODE 0
+474 12018 0 CODE 0
+475 1201C 0 CODE 0
+476 12020 0 CODE 0
+477 12024 0 CODE 0
+478 12028 0 CODE 0
+480 1202C 0 CODE 0
+481 1205E 0 CODE 0
+482 12068 0 CODE 0
+483 1206C 0 CODE 0
+485 1206E 0 CODE 0
+488 1206E 0 CODE 0
+490 12072 0 CODE 0
+491 120A4 0 CODE 0
+492 120AE 0 CODE 0
+494 120B2 0 CODE 0
+495 120CA 0 CODE 0
+496 120FA 0 CODE 0
+497 12104 0 CODE 0
+500 12108 0 CODE 0
+501 1210C 0 CODE 0
+502 12112 0 CODE 0
+503 12112 0 CODE 0
+504 12116 0 CODE 0
+505 1211A 0 CODE 0
+506 12120 0 CODE 0
+507 12120 0 CODE 0
+509 12124 0 CODE 0
+510 12132 0 CODE 0
+511 12144 0 CODE 0
+512 12156 0 CODE 0
+513 12168 0 CODE 0
+514 1217A 0 CODE 0
+515 1218C 0 CODE 0
+516 1219E 0 CODE 0
+518 121B0 0 CODE 0
+520 121B4 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+1154 160D4 0 CODE 0
+1156 160D4 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+528 12D12 0 CODE 0
+531 12D12 0 CODE 0
+533 12D16 0 CODE 0
+534 12D18 0 CODE 0
+536 12D1A 0 CODE 0
+537 12D1C 0 CODE 0
+540 12D1E 0 CODE 0
+542 12D24 0 CODE 0
+543 12D34 0 CODE 0
+544 12D44 0 CODE 0
+545 12D54 0 CODE 0
+546 12D64 0 CODE 0
+547 12D74 0 CODE 0
+548 12D84 0 CODE 0
+549 12D94 0 CODE 0
+550 12DA4 0 CODE 0
+552 12DB4 0 CODE 0
+554 12DCE 0 CODE 0
+556 12DE2 0 CODE 0
+558 12DFC 0 CODE 0
+560 12E02 0 CODE 0
+561 12E34 0 CODE 0
+562 12E40 0 CODE 0
+563 12E88 0 CODE 0
+566 12E8A 0 CODE 0
+567 12EAC 0 CODE 0
+569 12EDC 0 CODE 0
+570 12EE2 0 CODE 0
+571 12EFA 0 CODE 0
+572 12F00 0 CODE 0
+573 12F18 0 CODE 0
+574 12F1E 0 CODE 0
+575 12F36 0 CODE 0
+576 12F3C 0 CODE 0
+577 12F54 0 CODE 0
+578 12F5A 0 CODE 0
+580 12F72 0 CODE 0
+583 12FA4 0 CODE 0
+584 12FA8 0 CODE 0
+585 12FAA 0 CODE 0
+587 12FAA 0 CODE 0
+589 12FAE 0 CODE 0
+590 12FBE 0 CODE 0
+591 12FCE 0 CODE 0
+592 12FDE 0 CODE 0
+593 12FEE 0 CODE 0
+594 12FFE 0 CODE 0
+595 1300E 0 CODE 0
+596 1301E 0 CODE 0
+597 1302E 0 CODE 0
+599 1303E 0 CODE 0
+601 13056 0 CODE 0
+603 13068 0 CODE 0
+605 13080 0 CODE 0
+607 13084 0 CODE 0
+608 130B6 0 CODE 0
+609 130C0 0 CODE 0
+610 13108 0 CODE 0
+613 1310A 0 CODE 0
+614 1312C 0 CODE 0
+616 1315C 0 CODE 0
+617 13160 0 CODE 0
+618 13178 0 CODE 0
+619 1317C 0 CODE 0
+620 13194 0 CODE 0
+621 13198 0 CODE 0
+622 131B0 0 CODE 0
+623 131B4 0 CODE 0
+624 131CC 0 CODE 0
+625 131D0 0 CODE 0
+627 131E8 0 CODE 0
+630 1321A 0 CODE 0
+632 1321C 0 CODE 0
+C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+1163 16178 0 CODE 0
+1165 16178 0 CODE 0
+>>>>>>> origin/master

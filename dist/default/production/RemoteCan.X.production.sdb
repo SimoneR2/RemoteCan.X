@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F4685 ]
 [d frameptr 4065 ]
-"207 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
+"207 C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
 [e E16881 CAN_OP_MODE `uc
 CAN_OP_MODE_NORMAL 0
 CAN_OP_MODE_SLEEP 32
@@ -86,11 +86,11 @@ CAN_RX_BUFFER_2_OVFL 2
 [v i2_CANisTxReady CANisTxReady `(uc  1 e 1 0 ]
 "1163
 [v _CANisRxReady CANisRxReady `(uc  1 e 1 0 ]
-"61 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\delay.c
+"61 C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\delay.c
 [v _delay_ms delay_ms `(v  1 e 0 0 ]
 "115
 [v _delay_set_quartz delay_set_quartz `(v  1 e 0 0 ]
-"49 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c
+"49 C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
 [v _LCD_enable_pulse LCD_enable_pulse `(v  1 e 0 0 ]
 "61
 [v _LCD_send_command LCD_send_command `(v  1 e 0 0 ]
@@ -172,6 +172,7 @@ CAN_RX_BUFFER_2_OVFL 2
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+<<<<<<< HEAD
 "110 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _ISR_alta ISR_alta `IIH(v  1 e 0 0 ]
 "161
@@ -193,8 +194,31 @@ CAN_RX_BUFFER_2_OVFL 2
 "467
 [v _CAN_interpreter CAN_interpreter `(v  1 e 0 0 ]
 "501
+=======
+"107 D:\Documenti\GitHub\RemoteCan.X\RemoteCan.c
+[v _ISR_alta ISR_alta `IIH(v  1 e 0 0 ]
+"153
+[v _ISR_bassa ISR_bassa `IIL(v  1 e 0 0 ]
+"162
+[v _main main `(v  1 e 0 0 ]
+"308
+[v _CAN_Send CAN_Send `(v  1 e 0 0 ]
+"321
+[v _LCD_Handler LCD_Handler `(v  1 e 0 0 ]
+"387
+[v _CAN_interpreter CAN_interpreter `(v  1 e 0 0 ]
+"421
+[v _PWR_Button_Polling PWR_Button_Polling `(v  1 e 0 0 ]
+"431
+[v _F1_Button_Polling F1_Button_Polling `(v  1 e 0 0 ]
+"441
+[v _F2_Button_Polling F2_Button_Polling `(v  1 e 0 0 ]
+"451
+[v _Joystick_Polling Joystick_Polling `(v  1 e 0 0 ]
+"460
+>>>>>>> origin/master
 [v _board_initialization board_initialization `(v  1 e 0 0 ]
-"49 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\delay.c
+"49 C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\delay.c
 [v _delay_quartz_frequency_value delay_quartz_frequency_value `VEuc  1 e 1 0 ]
 "50
 [v _clock_counter_reference clock_counter_reference `VEui  1 e 2 0 ]
@@ -1612,7 +1636,7 @@ CAN_RX_BUFFER_2_OVFL 2
 [v __powers_ _powers_ `C[13]d  1 e 52 0 ]
 "39
 [v __npowers_ _npowers_ `C[13]d  1 e 52 0 ]
-"51 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"51 D:\Documenti\GitHub\RemoteCan.X\RemoteCan.c
 [v _time_counter time_counter `VEul  1 e 4 0 ]
 "52
 [v _pr_time_1 pr_time_1 `VEul  1 e 4 0 ]
@@ -1707,6 +1731,7 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _JoystickValues JoystickValues `VE[2]uc  1 e 2 0 ]
 "108
 [v _JoystickConstants JoystickConstants `VE[2]f  1 e 8 0 ]
+<<<<<<< HEAD
 "170
 [v _main main `(v  1 e 0 0 ]
 {
@@ -1716,12 +1741,24 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _board_initialization board_initialization `(v  1 e 0 0 ]
 {
 "567
+=======
+"162
+[v _main main `(v  1 e 0 0 ]
+{
+"306
 } 0
-"218 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
+"460
+[v _board_initialization board_initialization `(v  1 e 0 0 ]
+{
+"526
+>>>>>>> origin/master
+} 0
+"218 C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
 [v _CANInitialize CANInitialize `(v  1 e 0 0 ]
 {
 [v CANInitialize@propSeg propSeg `uc  1 a 1 wreg ]
 "221
+<<<<<<< HEAD
 [v CANInitialize@FilterConfig2 FilterConfig2 `uc  1 a 1 39 ]
 "220
 [v CANInitialize@FilterConfig1 FilterConfig1 `uc  1 a 1 38 ]
@@ -1734,6 +1771,20 @@ CAN_RX_BUFFER_2_OVFL 2
 [v CANInitialize@flags flags `E16887  1 p 1 32 ]
 "223
 [v CANInitialize@propSeg propSeg `uc  1 a 1 37 ]
+=======
+[v CANInitialize@FilterConfig2 FilterConfig2 `uc  1 a 1 41 ]
+"220
+[v CANInitialize@FilterConfig1 FilterConfig1 `uc  1 a 1 40 ]
+"218
+[v CANInitialize@propSeg propSeg `uc  1 a 1 wreg ]
+[v CANInitialize@phaseSeg1 phaseSeg1 `uc  1 p 1 30 ]
+[v CANInitialize@phaseSeg2 phaseSeg2 `uc  1 p 1 31 ]
+[v CANInitialize@SJW SJW `uc  1 p 1 32 ]
+[v CANInitialize@BRP BRP `uc  1 p 1 33 ]
+[v CANInitialize@flags flags `E16887  1 p 1 34 ]
+"223
+[v CANInitialize@propSeg propSeg `uc  1 a 1 39 ]
+>>>>>>> origin/master
 "289
 } 0
 "640
@@ -1741,6 +1792,7 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 [v CANSetMask@numBuffer numBuffer `E16921  1 a 1 wreg ]
 "641
+<<<<<<< HEAD
 [v CANSetMask@tamp tamp `ul  1 a 4 24 ]
 "640
 [v CANSetMask@numBuffer numBuffer `E16921  1 a 1 wreg ]
@@ -1748,6 +1800,15 @@ CAN_RX_BUFFER_2_OVFL 2
 [v CANSetMask@type type `E16887  1 p 1 18 ]
 "643
 [v CANSetMask@numBuffer numBuffer `E16921  1 a 1 23 ]
+=======
+[v CANSetMask@tamp tamp `ul  1 a 4 26 ]
+"640
+[v CANSetMask@numBuffer numBuffer `E16921  1 a 1 wreg ]
+[v CANSetMask@mask mask `ul  1 p 4 16 ]
+[v CANSetMask@type type `E16887  1 p 1 20 ]
+"643
+[v CANSetMask@numBuffer numBuffer `E16921  1 a 1 25 ]
+>>>>>>> origin/master
 "742
 } 0
 "748
@@ -1755,6 +1816,7 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 [v CANSetFilter@numBuffer numBuffer `E16924  1 a 1 wreg ]
 "750
+<<<<<<< HEAD
 [v CANSetFilter@tamp tamp `ul  1 a 4 24 ]
 "748
 [v CANSetFilter@numBuffer numBuffer `E16924  1 a 1 wreg ]
@@ -1762,6 +1824,15 @@ CAN_RX_BUFFER_2_OVFL 2
 [v CANSetFilter@type type `E16887  1 p 1 18 ]
 "752
 [v CANSetFilter@numBuffer numBuffer `E16924  1 a 1 23 ]
+=======
+[v CANSetFilter@tamp tamp `ul  1 a 4 26 ]
+"748
+[v CANSetFilter@numBuffer numBuffer `E16924  1 a 1 wreg ]
+[v CANSetFilter@filter filter `ul  1 p 4 16 ]
+[v CANSetFilter@type type `E16887  1 p 1 20 ]
+"752
+[v CANSetFilter@numBuffer numBuffer `E16924  1 a 1 25 ]
+>>>>>>> origin/master
 "1078
 } 0
 "206
@@ -1770,6 +1841,7 @@ CAN_RX_BUFFER_2_OVFL 2
 [v CANOperationMode@mode mode `E16881  1 a 1 wreg ]
 [v CANOperationMode@mode mode `E16881  1 a 1 wreg ]
 "208
+<<<<<<< HEAD
 [v CANOperationMode@mode mode `E16881  1 a 1 14 ]
 "211
 } 0
@@ -1782,15 +1854,35 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _LCD_Handler LCD_Handler `(v  1 e 0 0 ]
 {
 "408
+=======
+[v CANOperationMode@mode mode `E16881  1 a 1 16 ]
+"211
+} 0
+"421 D:\Documenti\GitHub\RemoteCan.X\RemoteCan.c
+[v _PWR_Button_Polling PWR_Button_Polling `(v  1 e 0 0 ]
+{
+"429
+} 0
+"321
+[v _LCD_Handler LCD_Handler `(v  1 e 0 0 ]
+{
+"385
+>>>>>>> origin/master
 } 0
 "492 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
 "516
 [v sprintf@fval fval `d  1 a 4 20 ]
+<<<<<<< HEAD
 [u S3565 . 4 `ul 1 vd 4 0 `d 1 integ 4 0 ]
 "526
 [v sprintf@tmpval tmpval `S3565  1 a 4 14 ]
+=======
+[u S3564 . 4 `ul 1 vd 4 0 `d 1 integ 4 0 ]
+"526
+[v sprintf@tmpval tmpval `S3564  1 a 4 14 ]
+>>>>>>> origin/master
 "528
 [v sprintf@val val `ul  1 a 4 8 ]
 "504
@@ -1804,8 +1896,13 @@ CAN_RX_BUFFER_2_OVFL 2
 "499
 [v sprintf@c c `c  1 a 1 24 ]
 "492
+<<<<<<< HEAD
 [v sprintf@sp sp `*.39uc  1 p 2 96 ]
 [v sprintf@f f `*.32Cuc  1 p 2 98 ]
+=======
+[v sprintf@sp sp `*.39uc  1 p 2 98 ]
+[v sprintf@f f `*.32Cuc  1 p 2 100 ]
+>>>>>>> origin/master
 "1541
 } 0
 "425
@@ -1814,7 +1911,11 @@ CAN_RX_BUFFER_2_OVFL 2
 [v scale@scl scl `c  1 a 1 wreg ]
 [v scale@scl scl `c  1 a 1 wreg ]
 "428
+<<<<<<< HEAD
 [v scale@scl scl `c  1 a 1 61 ]
+=======
+[v scale@scl scl `c  1 a 1 63 ]
+>>>>>>> origin/master
 "441
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\isdigit.c
@@ -1823,7 +1924,11 @@ CAN_RX_BUFFER_2_OVFL 2
 [v isdigit@c c `uc  1 a 1 wreg ]
 [v isdigit@c c `uc  1 a 1 wreg ]
 "14
+<<<<<<< HEAD
 [v isdigit@c c `uc  1 a 1 16 ]
+=======
+[v isdigit@c c `uc  1 a 1 18 ]
+>>>>>>> origin/master
 "15
 } 0
 "409 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
@@ -1832,12 +1937,17 @@ CAN_RX_BUFFER_2_OVFL 2
 [v fround@prec prec `uc  1 a 1 wreg ]
 [v fround@prec prec `uc  1 a 1 wreg ]
 "413
+<<<<<<< HEAD
 [v fround@prec prec `uc  1 a 1 65 ]
+=======
+[v fround@prec prec `uc  1 a 1 67 ]
+>>>>>>> origin/master
 "418
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
+<<<<<<< HEAD
 [s S3872 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
 [s S3877 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
@@ -1858,23 +1968,54 @@ CAN_RX_BUFFER_2_OVFL 2
 "8
 [v ___flmul@b b `d  1 p 4 28 ]
 [v ___flmul@a a `d  1 p 4 32 ]
+=======
+[s S3871 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S3876 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S3879 . 4 `l 1 i 4 0 `d 1 f 4 0 `S3871 1 fAsBytes 4 0 `S3876 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S3879  1 a 4 49 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 44 ]
+[s S3947 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S3950 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S3947 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S3950  1 a 2 53 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 48 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 43 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 42 ]
+"8
+[v ___flmul@b b `d  1 p 4 30 ]
+[v ___flmul@a a `d  1 p 4 34 ]
+>>>>>>> origin/master
 "205
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
 {
 "11
+<<<<<<< HEAD
 [v ___awmod@sign sign `uc  1 a 1 19 ]
 [v ___awmod@counter counter `uc  1 a 1 18 ]
 "8
 [v ___awmod@dividend dividend `i  1 p 2 14 ]
 [v ___awmod@divisor divisor `i  1 p 2 16 ]
+=======
+[v ___awmod@sign sign `uc  1 a 1 21 ]
+[v ___awmod@counter counter `uc  1 a 1 20 ]
+"8
+[v ___awmod@dividend dividend `i  1 p 2 16 ]
+[v ___awmod@divisor divisor `i  1 p 2 18 ]
+>>>>>>> origin/master
 "35
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
 "11
+<<<<<<< HEAD
 [v ___awdiv@quotient quotient `i  1 a 2 26 ]
 "12
 [v ___awdiv@sign sign `uc  1 a 1 25 ]
@@ -1882,12 +2023,22 @@ CAN_RX_BUFFER_2_OVFL 2
 "8
 [v ___awdiv@dividend dividend `i  1 p 2 20 ]
 [v ___awdiv@divisor divisor `i  1 p 2 22 ]
+=======
+[v ___awdiv@quotient quotient `i  1 a 2 28 ]
+"12
+[v ___awdiv@sign sign `uc  1 a 1 27 ]
+[v ___awdiv@counter counter `uc  1 a 1 26 ]
+"8
+[v ___awdiv@dividend dividend `i  1 p 2 22 ]
+[v ___awdiv@divisor divisor `i  1 p 2 24 ]
+>>>>>>> origin/master
 "42
 } 0
 "60 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftdivl.c
 [v __tdiv_to_l_ _tdiv_to_l_ `(ul  1 e 4 0 ]
 {
 "63
+<<<<<<< HEAD
 [v __tdiv_to_l_@quot quot `ul  1 a 4 25 ]
 "62
 [v __tdiv_to_l_@exp1 exp1 `uc  1 a 1 30 ]
@@ -1895,12 +2046,22 @@ CAN_RX_BUFFER_2_OVFL 2
 "60
 [v __tdiv_to_l_@f1 f1 `f  1 p 4 14 ]
 [v __tdiv_to_l_@f2 f2 `f  1 p 4 18 ]
+=======
+[v __tdiv_to_l_@quot quot `ul  1 a 4 27 ]
+"62
+[v __tdiv_to_l_@exp1 exp1 `uc  1 a 1 32 ]
+[v __tdiv_to_l_@cntr cntr `uc  1 a 1 31 ]
+"60
+[v __tdiv_to_l_@f1 f1 `f  1 p 4 16 ]
+[v __tdiv_to_l_@f2 f2 `f  1 p 4 20 ]
+>>>>>>> origin/master
 "101
 } 0
 "60 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\fldivl.c
 [v __div_to_l_ _div_to_l_ `(ul  1 e 4 0 ]
 {
 "63
+<<<<<<< HEAD
 [v __div_to_l_@quot quot `ul  1 a 4 22 ]
 "62
 [v __div_to_l_@exp1 exp1 `uc  1 a 1 27 ]
@@ -1908,6 +2069,15 @@ CAN_RX_BUFFER_2_OVFL 2
 "60
 [v __div_to_l_@f1 f1 `d  1 p 4 14 ]
 [v __div_to_l_@f2 f2 `d  1 p 4 18 ]
+=======
+[v __div_to_l_@quot quot `ul  1 a 4 24 ]
+"62
+[v __div_to_l_@exp1 exp1 `uc  1 a 1 29 ]
+[v __div_to_l_@cntr cntr `uc  1 a 1 28 ]
+"60
+[v __div_to_l_@f1 f1 `d  1 p 4 16 ]
+[v __div_to_l_@f2 f2 `d  1 p 4 20 ]
+>>>>>>> origin/master
 "101
 } 0
 "10 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\xxtofl.c
@@ -1915,6 +2085,7 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 [v ___xxtofl@sign sign `uc  1 a 1 wreg ]
 "13
+<<<<<<< HEAD
 [v ___xxtofl@arg arg `ul  1 a 4 24 ]
 "12
 [v ___xxtofl@exp exp `uc  1 a 1 23 ]
@@ -1923,51 +2094,90 @@ CAN_RX_BUFFER_2_OVFL 2
 [v ___xxtofl@val val `l  1 p 4 14 ]
 "15
 [v ___xxtofl@sign sign `uc  1 a 1 22 ]
+=======
+[v ___xxtofl@arg arg `ul  1 a 4 26 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 25 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 16 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 24 ]
+>>>>>>> origin/master
 "44
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\llmod.c
 [v ___llmod __llmod `(ul  1 e 4 0 ]
 {
 "11
+<<<<<<< HEAD
 [v ___llmod@counter counter `uc  1 a 1 22 ]
 "8
 [v ___llmod@dividend dividend `ul  1 p 4 14 ]
 [v ___llmod@divisor divisor `ul  1 p 4 18 ]
+=======
+[v ___llmod@counter counter `uc  1 a 1 24 ]
+"8
+[v ___llmod@dividend dividend `ul  1 p 4 16 ]
+[v ___llmod@divisor divisor `ul  1 p 4 20 ]
+>>>>>>> origin/master
 "26
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 {
 "11
+<<<<<<< HEAD
 [v ___lldiv@quotient quotient `ul  1 a 4 22 ]
 "12
 [v ___lldiv@counter counter `uc  1 a 1 26 ]
 "8
 [v ___lldiv@dividend dividend `ul  1 p 4 14 ]
 [v ___lldiv@divisor divisor `ul  1 p 4 18 ]
+=======
+[v ___lldiv@quotient quotient `ul  1 a 4 24 ]
+"12
+[v ___lldiv@counter counter `uc  1 a 1 28 ]
+"8
+[v ___lldiv@dividend dividend `ul  1 p 4 16 ]
+[v ___lldiv@divisor divisor `ul  1 p 4 20 ]
+>>>>>>> origin/master
 "31
 } 0
 "43 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
 {
 "45
+<<<<<<< HEAD
 [v ___fltol@exp1 exp1 `uc  1 a 1 95 ]
 [v ___fltol@sign1 sign1 `uc  1 a 1 94 ]
 "43
 [v ___fltol@f1 f1 `d  1 p 4 86 ]
+=======
+[v ___fltol@exp1 exp1 `uc  1 a 1 97 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 96 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 88 ]
+>>>>>>> origin/master
 "70
 } 0
 "245 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\sprcadd.c
 [v ___flsub __flsub `(d  1 e 4 0 ]
 {
+<<<<<<< HEAD
 [v ___flsub@b b `d  1 p 4 86 ]
 [v ___flsub@a a `d  1 p 4 90 ]
+=======
+[v ___flsub@b b `d  1 p 4 88 ]
+[v ___flsub@a a `d  1 p 4 92 ]
+>>>>>>> origin/master
 "250
 } 0
 "10
 [v ___fladd __fladd `(d  1 e 4 0 ]
 {
 "17
+<<<<<<< HEAD
 [v ___fladd@grs grs `uc  1 a 1 85 ]
 "15
 [v ___fladd@bexp bexp `uc  1 a 1 84 ]
@@ -1978,25 +2188,47 @@ CAN_RX_BUFFER_2_OVFL 2
 "10
 [v ___fladd@b b `d  1 p 4 66 ]
 [v ___fladd@a a `d  1 p 4 70 ]
+=======
+[v ___fladd@grs grs `uc  1 a 1 87 ]
+"15
+[v ___fladd@bexp bexp `uc  1 a 1 86 ]
+"16
+[v ___fladd@aexp aexp `uc  1 a 1 85 ]
+"13
+[v ___fladd@signs signs `uc  1 a 1 84 ]
+"10
+[v ___fladd@b b `d  1 p 4 68 ]
+[v ___fladd@a a `d  1 p 4 72 ]
+>>>>>>> origin/master
 "237
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\flneg.c
 [v ___flneg __flneg `(d  1 e 4 0 ]
 {
+<<<<<<< HEAD
 [v ___flneg@f1 f1 `d  1 p 4 53 ]
+=======
+[v ___flneg@f1 f1 `d  1 p 4 55 ]
+>>>>>>> origin/master
 "20
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\flge.c
 [v ___flge __flge `(b  1 e 0 0 ]
 {
+<<<<<<< HEAD
 [v ___flge@ff1 ff1 `d  1 p 4 14 ]
 [v ___flge@ff2 ff2 `d  1 p 4 18 ]
+=======
+[v ___flge@ff1 ff1 `d  1 p 4 16 ]
+[v ___flge@ff2 ff2 `d  1 p 4 20 ]
+>>>>>>> origin/master
 "19
 } 0
 "11 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 {
 "21
+<<<<<<< HEAD
 [v ___fldiv@grs grs `ul  1 a 4 47 ]
 "22
 [v ___fldiv@rem rem `ul  1 a 4 41 ]
@@ -2011,18 +2243,39 @@ CAN_RX_BUFFER_2_OVFL 2
 "11
 [v ___fldiv@b b `d  1 p 4 28 ]
 [v ___fldiv@a a `d  1 p 4 32 ]
+=======
+[v ___fldiv@grs grs `ul  1 a 4 49 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 43 ]
+"20
+[v ___fldiv@new_exp new_exp `i  1 a 2 47 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 54 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 53 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 42 ]
+"11
+[v ___fldiv@b b `d  1 p 4 30 ]
+[v ___fldiv@a a `d  1 p 4 34 ]
+>>>>>>> origin/master
 "184
 } 0
-"178 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c
+"178 C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
 [v _LCD_write_message LCD_write_message `(v  1 e 0 0 ]
 {
+<<<<<<< HEAD
 [v LCD_write_message@buffer buffer `*.32Cuc  1 p 2 31 ]
+=======
+[v LCD_write_message@buffer buffer `*.32Cuc  1 p 2 33 ]
+>>>>>>> origin/master
 "188
 } 0
 "210
 [v _LCD_write_integer LCD_write_integer `(v  1 e 0 0 ]
 {
 "213
+<<<<<<< HEAD
 [v LCD_write_integer@convertedInt convertedInt `[6]uc  1 a 6 47 ]
 "216
 [v LCD_write_integer@index index `uc  1 a 1 53 ]
@@ -2030,6 +2283,15 @@ CAN_RX_BUFFER_2_OVFL 2
 [v LCD_write_integer@value value `i  1 p 2 38 ]
 [v LCD_write_integer@number_of_digits number_of_digits `uc  1 p 1 40 ]
 [v LCD_write_integer@zero_cleaning zero_cleaning `uc  1 p 1 41 ]
+=======
+[v LCD_write_integer@convertedInt convertedInt `[6]uc  1 a 6 49 ]
+"216
+[v LCD_write_integer@index index `uc  1 a 1 55 ]
+"210
+[v LCD_write_integer@value value `i  1 p 2 40 ]
+[v LCD_write_integer@number_of_digits number_of_digits `uc  1 p 1 42 ]
+[v LCD_write_integer@zero_cleaning zero_cleaning `uc  1 p 1 43 ]
+>>>>>>> origin/master
 [v LCD_write_integer@F17272 F17272 `[6]uc  1 s 6 F17272 ]
 "251
 } 0
@@ -2037,17 +2299,26 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _itoa itoa `(*.39uc  1 e 2 0 ]
 {
 "6
+<<<<<<< HEAD
 [v itoa@cp cp `*.39uc  1 a 2 36 ]
 "4
 [v itoa@buf buf `*.39uc  1 p 2 30 ]
 [v itoa@val val `i  1 p 2 32 ]
 [v itoa@base base `i  1 p 2 34 ]
+=======
+[v itoa@cp cp `*.39uc  1 a 2 38 ]
+"4
+[v itoa@buf buf `*.39uc  1 p 2 32 ]
+[v itoa@val val `i  1 p 2 34 ]
+[v itoa@base base `i  1 p 2 36 ]
+>>>>>>> origin/master
 "14
 } 0
 "17
 [v _utoa utoa `(*.39uc  1 e 2 0 ]
 {
 "19
+<<<<<<< HEAD
 [v utoa@v v `ui  1 a 2 27 ]
 "20
 [v utoa@c c `uc  1 a 1 29 ]
@@ -2055,34 +2326,63 @@ CAN_RX_BUFFER_2_OVFL 2
 [v utoa@buf buf `*.39uc  1 p 2 21 ]
 [v utoa@val val `ui  1 p 2 23 ]
 [v utoa@base base `i  1 p 2 25 ]
+=======
+[v utoa@v v `ui  1 a 2 29 ]
+"20
+[v utoa@c c `uc  1 a 1 31 ]
+"17
+[v utoa@buf buf `*.39uc  1 p 2 23 ]
+[v utoa@val val `ui  1 p 2 25 ]
+[v utoa@base base `i  1 p 2 27 ]
+>>>>>>> origin/master
 "37
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
 {
 "11
+<<<<<<< HEAD
 [v ___lwmod@counter counter `uc  1 a 1 18 ]
 "8
 [v ___lwmod@dividend dividend `ui  1 p 2 14 ]
 [v ___lwmod@divisor divisor `ui  1 p 2 16 ]
+=======
+[v ___lwmod@counter counter `uc  1 a 1 20 ]
+"8
+[v ___lwmod@dividend dividend `ui  1 p 2 16 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 18 ]
+>>>>>>> origin/master
 "26
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "11
+<<<<<<< HEAD
 [v ___lwdiv@quotient quotient `ui  1 a 2 18 ]
 "12
 [v ___lwdiv@counter counter `uc  1 a 1 20 ]
 "8
 [v ___lwdiv@dividend dividend `ui  1 p 2 14 ]
 [v ___lwdiv@divisor divisor `ui  1 p 2 16 ]
+=======
+[v ___lwdiv@quotient quotient `ui  1 a 2 20 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 22 ]
+"8
+[v ___lwdiv@dividend dividend `ui  1 p 2 16 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 18 ]
+>>>>>>> origin/master
 "31
 } 0
-"194 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c
+"194 C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
 [v _LCD_write_string LCD_write_string `(v  1 e 0 0 ]
 {
+<<<<<<< HEAD
 [v LCD_write_string@buffer buffer `*.39uc  1 p 2 31 ]
+=======
+[v LCD_write_string@buffer buffer `*.39uc  1 p 2 33 ]
+>>>>>>> origin/master
 "204
 } 0
 "145
@@ -2090,6 +2390,7 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 [v LCD_write_char@value value `uc  1 a 1 wreg ]
 "147
+<<<<<<< HEAD
 [v LCD_write_char@D0 D0 `uc  1 a 1 29 ]
 [v LCD_write_char@D1 D1 `uc  1 a 1 28 ]
 [v LCD_write_char@D2 D2 `uc  1 a 1 27 ]
@@ -2098,6 +2399,16 @@ CAN_RX_BUFFER_2_OVFL 2
 [v LCD_write_char@value value `uc  1 a 1 wreg ]
 "149
 [v LCD_write_char@value value `uc  1 a 1 30 ]
+=======
+[v LCD_write_char@D0 D0 `uc  1 a 1 31 ]
+[v LCD_write_char@D1 D1 `uc  1 a 1 30 ]
+[v LCD_write_char@D2 D2 `uc  1 a 1 29 ]
+[v LCD_write_char@D3 D3 `uc  1 a 1 28 ]
+"145
+[v LCD_write_char@value value `uc  1 a 1 wreg ]
+"149
+[v LCD_write_char@value value `uc  1 a 1 32 ]
+>>>>>>> origin/master
 "168
 } 0
 "283
@@ -2106,26 +2417,40 @@ CAN_RX_BUFFER_2_OVFL 2
 [v LCD_initialize@quartz_frequency quartz_frequency `uc  1 a 1 wreg ]
 [v LCD_initialize@quartz_frequency quartz_frequency `uc  1 a 1 wreg ]
 "285
+<<<<<<< HEAD
 [v LCD_initialize@quartz_frequency quartz_frequency `uc  1 a 1 28 ]
+=======
+[v LCD_initialize@quartz_frequency quartz_frequency `uc  1 a 1 30 ]
+>>>>>>> origin/master
 "316
 } 0
-"115 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\delay.c
+"115 C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\delay.c
 [v _delay_set_quartz delay_set_quartz `(v  1 e 0 0 ]
 {
 [v delay_set_quartz@frequency frequency `uc  1 a 1 wreg ]
 [v delay_set_quartz@frequency frequency `uc  1 a 1 wreg ]
 "117
+<<<<<<< HEAD
 [v delay_set_quartz@frequency frequency `uc  1 a 1 14 ]
+=======
+[v delay_set_quartz@frequency frequency `uc  1 a 1 16 ]
+>>>>>>> origin/master
 "119
 } 0
-"266 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c
+"266 C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
 [v _LCD_cursor LCD_cursor `(v  1 e 0 0 ]
 {
 [v LCD_cursor@active active `uc  1 a 1 wreg ]
 [v LCD_cursor@active active `uc  1 a 1 wreg ]
+<<<<<<< HEAD
 [v LCD_cursor@blinking blinking `uc  1 p 1 26 ]
 "268
 [v LCD_cursor@active active `uc  1 a 1 27 ]
+=======
+[v LCD_cursor@blinking blinking `uc  1 p 1 28 ]
+"268
+[v LCD_cursor@active active `uc  1 a 1 29 ]
+>>>>>>> origin/master
 "270
 } 0
 "257
@@ -2138,9 +2463,15 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 [v LCD_goto_xy@x x `uc  1 a 1 wreg ]
 [v LCD_goto_xy@x x `uc  1 a 1 wreg ]
+<<<<<<< HEAD
 [v LCD_goto_xy@y y `uc  1 p 1 29 ]
 "138
 [v LCD_goto_xy@x x `uc  1 a 1 30 ]
+=======
+[v LCD_goto_xy@y y `uc  1 p 1 31 ]
+"138
+[v LCD_goto_xy@x x `uc  1 a 1 32 ]
+>>>>>>> origin/master
 "140
 } 0
 "98
@@ -2148,12 +2479,21 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 [v LCD_shift_cursor@shift shift `uc  1 a 1 wreg ]
 "100
+<<<<<<< HEAD
 [v LCD_shift_cursor@i i `uc  1 a 1 28 ]
 "98
 [v LCD_shift_cursor@shift shift `uc  1 a 1 wreg ]
 [v LCD_shift_cursor@number_of_shift number_of_shift `uc  1 p 1 26 ]
 "102
 [v LCD_shift_cursor@shift shift `uc  1 a 1 27 ]
+=======
+[v LCD_shift_cursor@i i `uc  1 a 1 30 ]
+"98
+[v LCD_shift_cursor@shift shift `uc  1 a 1 wreg ]
+[v LCD_shift_cursor@number_of_shift number_of_shift `uc  1 p 1 28 ]
+"102
+[v LCD_shift_cursor@shift shift `uc  1 a 1 29 ]
+>>>>>>> origin/master
 "106
 } 0
 "111
@@ -2161,7 +2501,11 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 [v LCD_goto_line@line line `uc  1 a 1 wreg ]
 [v LCD_goto_line@line line `uc  1 a 1 wreg ]
+<<<<<<< HEAD
 [v LCD_goto_line@line line `uc  1 a 1 26 ]
+=======
+[v LCD_goto_line@line line `uc  1 a 1 28 ]
+>>>>>>> origin/master
 "130
 } 0
 "61
@@ -2169,11 +2513,19 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 [v LCD_send_command@D3 D3 `uc  1 a 1 wreg ]
 [v LCD_send_command@D3 D3 `uc  1 a 1 wreg ]
+<<<<<<< HEAD
 [v LCD_send_command@D2 D2 `uc  1 p 1 22 ]
 [v LCD_send_command@D1 D1 `uc  1 p 1 23 ]
 [v LCD_send_command@D0 D0 `uc  1 p 1 24 ]
 "63
 [v LCD_send_command@D3 D3 `uc  1 a 1 25 ]
+=======
+[v LCD_send_command@D2 D2 `uc  1 p 1 24 ]
+[v LCD_send_command@D1 D1 `uc  1 p 1 25 ]
+[v LCD_send_command@D0 D0 `uc  1 p 1 26 ]
+"63
+[v LCD_send_command@D3 D3 `uc  1 a 1 27 ]
+>>>>>>> origin/master
 "68
 } 0
 "49
@@ -2181,16 +2533,21 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 "55
 } 0
-"61 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\delay.c
+"61 C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\delay.c
 [v _delay_ms delay_ms `(v  1 e 0 0 ]
 {
+<<<<<<< HEAD
 [v delay_ms@value_ms value_ms `ui  1 p 2 20 ]
+=======
+[v delay_ms@value_ms value_ms `ui  1 p 2 22 ]
+>>>>>>> origin/master
 "96
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 {
 "17
+<<<<<<< HEAD
 [v ___wmul@product product `ui  1 a 2 18 ]
 "15
 [v ___wmul@multiplier multiplier `ui  1 p 2 14 ]
@@ -2223,17 +2580,60 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _CAN_Send CAN_Send `(v  1 e 0 0 ]
 {
 "465
+=======
+[v ___wmul@product product `ui  1 a 2 20 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 16 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 18 ]
+"53
 } 0
-"294 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
+"451 D:\Documenti\GitHub\RemoteCan.X\RemoteCan.c
+[v _Joystick_Polling Joystick_Polling `(v  1 e 0 0 ]
+{
+"452
+[v Joystick_Polling@i i `uc  1 a 1 17 ]
+"458
+} 0
+"441
+[v _F2_Button_Polling F2_Button_Polling `(v  1 e 0 0 ]
+{
+"449
+} 0
+"431
+[v _F1_Button_Polling F1_Button_Polling `(v  1 e 0 0 ]
+{
+"439
+} 0
+"387
+[v _CAN_interpreter CAN_interpreter `(v  1 e 0 0 ]
+{
+"419
+} 0
+"308
+[v _CAN_Send CAN_Send `(v  1 e 0 0 ]
+{
+"319
+>>>>>>> origin/master
+} 0
+"294 C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
 [v _CANsendMessage CANsendMessage `(v  1 e 0 0 ]
 {
 "296
+<<<<<<< HEAD
 [v CANsendMessage@tamp tamp `ul  1 a 4 26 ]
 "294
 [v CANsendMessage@identifier identifier `ul  1 p 4 14 ]
 [v CANsendMessage@data data `*.39uc  1 p 2 18 ]
 [v CANsendMessage@dataLength dataLength `uc  1 p 1 20 ]
 [v CANsendMessage@flags flags `E16909  1 p 1 21 ]
+=======
+[v CANsendMessage@tamp tamp `ul  1 a 4 28 ]
+"294
+[v CANsendMessage@identifier identifier `ul  1 p 4 16 ]
+[v CANsendMessage@data data `*.39uc  1 p 2 20 ]
+[v CANsendMessage@dataLength dataLength `uc  1 p 1 22 ]
+[v CANsendMessage@flags flags `E16909  1 p 1 23 ]
+>>>>>>> origin/master
 "522
 } 0
 "1154
@@ -2241,19 +2641,32 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 "1157
 } 0
+<<<<<<< HEAD
 "161 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _ISR_bassa ISR_bassa `IIL(v  1 e 0 0 ]
 {
 "168
+=======
+"153 D:\Documenti\GitHub\RemoteCan.X\RemoteCan.c
+[v _ISR_bassa ISR_bassa `IIL(v  1 e 0 0 ]
+{
+"160
+>>>>>>> origin/master
 } 0
 "110
 [v _ISR_alta ISR_alta `IIH(v  1 e 0 0 ]
 {
+<<<<<<< HEAD
 "118
 [v ISR_alta@i i `uc  1 a 1 33 ]
 "159
+=======
+"115
+[v ISR_alta@i i `uc  1 a 1 33 ]
+"151
+>>>>>>> origin/master
 } 0
-"294 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
+"294 C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
 [v i2_CANsendMessage CANsendMessage `(v  1 e 0 0 ]
 {
 [v i2CANsendMessage@tamp CANsendMessage `ul  1 a 4 29 ]
