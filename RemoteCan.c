@@ -124,7 +124,8 @@ __interrupt(high_priority) void ISR_alta(void) {
             }
 
             if (id == 0xAA) {
-                user_data = msg.data[0];
+                user_data = msg.data[1];
+                user_data = ((user_data<<8)|msg.data[0]);
             }
 
             if (id == ECU_STATE) {
