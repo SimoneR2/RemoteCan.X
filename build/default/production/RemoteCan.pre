@@ -19425,7 +19425,7 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config EBTRB = OFF
 
-# 49 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h"
+# 49 "../LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h"
 typedef unsigned char BYTE;
 
 
@@ -20476,7 +20476,7 @@ BYTE CANisRxReady (void)
 return (RXB0CONbits.RXFUL || RXB1CONbits.RXFUL);
 }
 
-# 74 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\delay.h"
+# 74 "../LaurTec_PIC_libraries_v_3.3.0/inc\delay.h"
 void delay_ms (unsigned int value_ms);
 
 # 88
@@ -20485,7 +20485,7 @@ void delay_s (unsigned char value_s);
 # 102
 void delay_set_quartz (unsigned char frequency);
 
-# 49 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\delay.c"
+# 49 "../LaurTec_PIC_libraries_v_3.3.0/src\delay.c"
 volatile unsigned char delay_quartz_frequency_value = 16;
 volatile unsigned int clock_counter_reference = 0;
 
@@ -20592,52 +20592,52 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 165 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\LCD_44780.h"
-void LCD_enable_pulse (void);
+# 164 "../LaurTec_PIC_libraries_v_3.3.0/inc\LCD_44780.h"
+void LCD_enable_pulse(void);
 
-# 184
-void LCD_send_command (unsigned char bit_3, unsigned char bit_2, unsigned char bit_1, unsigned char bit_0);
+# 183
+void LCD_send_command(unsigned char bit_3, unsigned char bit_2, unsigned char bit_1, unsigned char bit_0);
 
-# 193
+# 192
 void LCD_home(void);
 
-# 208
+# 207
 void LCD_shift(unsigned char shift, unsigned char number_of_shift);
 
-# 224
-void LCD_shift_cursor(unsigned char shift,unsigned char number_of_shift);
+# 223
+void LCD_shift_cursor(unsigned char shift, unsigned char number_of_shift);
 
-# 236
-void LCD_goto_line (unsigned char line);
+# 235
+void LCD_goto_line(unsigned char line);
 
-# 251
-void LCD_goto_xy (unsigned char x, unsigned char y);
+# 250
+void LCD_goto_xy(unsigned char x, unsigned char y);
 
-# 262
-void LCD_write_char (unsigned char value);
+# 261
+void LCD_write_char(unsigned char value);
 
-# 281
+# 280
 void LCD_write_message(const unsigned char *buffer);
 
-# 296
+# 295
 void LCD_write_string(unsigned char *buffer);
 
-# 316
+# 315
 void LCD_write_integer(int value, unsigned char number_of_digits, unsigned char zero_cleaning);
 
-# 325
-void LCD_clear (void);
+# 324
+void LCD_clear(void);
 
-# 341
+# 340
 void LCD_cursor(unsigned char active, unsigned char blinking);
 
-# 356
+# 355
 void LCD_backlight(unsigned char active);
 
-# 370
+# 369
 void LCD_initialize(unsigned char quartz_frequency);
 
-# 49 "C:/Users/Simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c"
+# 49 "../LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c"
 void LCD_enable_pulse (void) {
 
 LATCbits.LATC1 = 1;
@@ -20825,17 +20825,7 @@ LCD_send_command (0,0,0,0);
 LCD_send_command (1,1,active,blinking);
 }
 
-
-
-
-void LCD_backlight (unsigned char active) {
-
-LATCbits.LATC4 = active;
-}
-
-
-
-
+# 283
 void LCD_initialize (unsigned char quartz_frequency) {
 
 delay_set_quartz (quartz_frequency);
@@ -20959,15 +20949,16 @@ extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
 
-# 41 "RemoteCan.c"
+# 42 "RemoteCan.c"
 void board_initialization(void);
 void PWR_Button_Polling(void);
 void F1_Button_Polling(void);
 void F2_Button_Polling(void);
 void Joystick_Polling(void);
-void CAN_Send(void);
-void CAN_interpreter(void);
+void CAN_Tx(void);
+void CAN_Rx(void);
 void LCD_Handler(void);
+void LCD_Park(void);
 
 
 volatile unsigned long time_counter = 0;
@@ -20976,7 +20967,7 @@ volatile unsigned long pr_time_2 = 0;
 volatile unsigned long pr_time_3 = 0;
 volatile unsigned long pr_time_4 = 0;
 volatile unsigned long pr_time_5 = 0;
-
+volatile unsigned long pr_time_6 = 0;
 
 
 BYTE data_steering[] = 0;
@@ -20999,6 +20990,7 @@ volatile unsigned long id = 0;
 BYTE data_speed_rx[7] = 0;
 
 
+volatile bit w = 0;
 volatile bit display_refresh = 0;
 unsigned char str [12] = 0;
 float actual_speed_kmh = 0;
@@ -21047,6 +21039,10 @@ if (msg.data[0] == 1) {
 space_available = 1;
 F2_switch = 0;
 }
+if ((msg.data[0] == 3)&&(parking_state == 2)) {
+F1_switch = 0;
+pr_time_6 = time_counter + (2000 / 10);
+}
 }
 
 if (id == 0b00000001110) {
@@ -21056,7 +21052,7 @@ steering_correction = msg.data[0];
 
 if (id == 0xAA) {
 user_data = msg.data[1];
-user_data = ((user_data<<8)|msg.data[0]);
+user_data = ((user_data << 8) | msg.data[0]);
 }
 
 if (id == 0b00000000010) {
@@ -21067,11 +21063,7 @@ _delay((unsigned long)((10)*(16000000/4000000.0)));
 while (CANisTxReady() != 1);
 CANsendMessage(0b00000000010, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 
-<<<<<<< HEAD
-# 151
-=======
-# 143
->>>>>>> origin/master
+# 159
 }
 }
 }
@@ -21094,15 +21086,10 @@ PIR2bits.TMR3IF = 0;
 void main(void) {
 board_initialization();
 
-<<<<<<< HEAD
-# 179
-=======
-# 171
->>>>>>> origin/master
+# 187
 JoystickConstants[0] = 0.703;
-JoystickConstants[1] = 10;
+JoystickConstants[1] = 15;
 
-display_refresh = 1;
 while (1) {
 
 
@@ -21117,10 +21104,10 @@ set_speed = 0;
 data_steering [0] = 90;
 data_brake [0] = 0;
 data_brake [1] = 1;
-CAN_Send();
-LCD_initialize(16);
+CAN_Tx();
 PORTDbits.RD6 = 0;
 PORTDbits.RD5 = 0;
+LCD_initialize(16);
 LCD_goto_line(1);
 LCD_write_message("====================");
 LCD_goto_line(2);
@@ -21140,8 +21127,6 @@ delay_ms(10);
 PORTDbits.RD7 = 0;
 display_refresh = 1;
 }
-
-Joystick_Polling();
 
 
 if (PORTAbits.RA2 == 1) {
@@ -21214,6 +21199,8 @@ PORTDbits.RD6 = 0;
 PORTDbits.RD5 = 0;
 }
 
+Joystick_Polling();
+
 
 data_steering [0] = 180 - (JoystickValues[0])*(JoystickConstants[0]);
 if (parking_state == 1) {
@@ -21245,21 +21232,29 @@ data_brake [0] = 0;
 set_speed = 0;
 data_brake [0] = ((130 - JoystickValues[1]))*(1.9);
 }
+} else {
+set_speed = 0;
+data_brake [0] = 255;
 }
 
 if (newMessageCan == 1) {
-CAN_interpreter();
+CAN_Rx();
 newMessageCan = 0;
 }
 
 if (((time_counter - pr_time_2) >= 2) && (parking_state != 2)) {
 pr_time_2 = time_counter;
-CAN_Send();
+CAN_Tx();
 }
 
+if (time_counter >= pr_time_6) {
 if ((time_counter - pr_time_3) >= (100 / 10)) {
 pr_time_3 = time_counter;
 LCD_Handler();
+}
+w = 0;
+} else {
+LCD_Park();
 }
 }
 }
@@ -21330,6 +21325,21 @@ LCD_write_integer(user_data, 0, 0x01);
 }
 }
 
+void LCD_Park(void) {
+if (w == 0) {
+LCD_goto_line(1);
+LCD_write_message("????????????????????");
+LCD_goto_line(2);
+LCD_write_message("?     PARKING      ?");
+LCD_goto_line(3);
+LCD_write_message("?    COMPLETED!    ?");
+LCD_goto_line(4);
+LCD_write_message("????????????????????");
+display_refresh = 1;
+w = 1;
+}
+}
+
 void PWR_Button_Polling(void) {
 if ((PORTBbits.RB5 == 0) || (wait_low_1 == 0)) {
 wait_low_1 = 0;
@@ -21369,7 +21379,7 @@ ADCON0bits.CHS0 = ~ADCON0bits.CHS0;
 }
 }
 
-void CAN_Send(void) {
+void CAN_Tx(void) {
 
 while (CANisTxReady() != 1);
 CANsendMessage(0b00000000101, data_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
@@ -21387,7 +21397,7 @@ CANsendMessage(0b00000000100, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_
 
 }
 
-void CAN_interpreter(void) {
+void CAN_Rx(void) {
 if (id == 0b00000000010) {
 if (RTR_Flag == 1) {
 pr_time_4 = time_counter;
