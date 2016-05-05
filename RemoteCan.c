@@ -47,7 +47,9 @@ void Joystick_Polling(void);
 void CAN_Tx(void);
 void CAN_Rx(void);
 void LCD_Handler(void);
+void LCD_Gap(void);
 void LCD_Park(void);
+void LCD_End(void);
 
 //variabili per delay non blocking
 volatile unsigned long time_counter = 0;
@@ -79,7 +81,7 @@ volatile unsigned long id = 0;
 BYTE data_speed_rx[7] = 0;
 
 //variabili LCD
-volatile bit w = 0;
+//volatile bit w = 0;
 volatile bit display_refresh = LOW;
 unsigned char str [12] = 0;
 float actual_speed_kmh = 0;
@@ -89,6 +91,7 @@ unsigned int actual_speed = 0;
 //Variabili parcheggio
 volatile bit y = LOW;
 volatile bit space_available = LOW;
+volatile bit space_gap_reached = LOW;
 volatile bit steering_correction_dir = LOW;
 volatile unsigned char steering_correction = 0;
 volatile unsigned char x = 0;
@@ -123,12 +126,26 @@ __interrupt(high_priority) void ISR_alta(void) {
                 }
             }
 
-            if (id == PARK_ASSIST_STATE) {
+            if (id == PARK_ASSIST_STATE) {// 1=> SPAZIO 2=> GAP 3=> END
                 if (msg.data[0] == 1) {
                     space_available = HIGH;
+                    space_gap_reached = LOW;
                     F2_switch = LOW;
+                    LCD_Gap();
                 }
-                if ((msg.data[0] == 3)&&(parking_state == PARKING)) {
+
+                if (msg.data[0] == 2) { //[!!] RIGUARDARE QUI ASSOLUTAMENTE!
+                    dir = FWD;
+                    set_speed = 0;
+                    data_steering [0] = 90;
+                    data_brake [0] = 0;
+                    data_brake [1] = 1;
+                    CAN_Tx();
+                    space_gap_reached = HIGH;
+                    LCD_Park();
+                }
+
+                if (msg.data[0] == 3) {
                     F1_switch = LOW; //Reset parking
                     pr_time_6 = time_counter + (LCD_PKG_DLY / 10); //delay 2s
                 }
@@ -251,7 +268,7 @@ void main(void) {
                 x++;
             }
 
-            if ((F2_switch == HIGH)&&(space_available == HIGH)) {
+            if ((F2_switch == HIGH)&&(space_available == HIGH)&&(space_gap_reached == HIGH)) {
                 if (z < 1) {
                     parking_state = PARKING;
                     while (!CANisTxReady());
@@ -282,6 +299,8 @@ void main(void) {
             x = 0;
             z = 0;
             F2_switch = LOW;
+            space_available = LOW;
+            space_gap_reached = LOW;
             PORTDbits.RD5 = LOW;
             PORTDbits.RD6 = LOW;
             if (y == LOW) {
@@ -339,7 +358,7 @@ void main(void) {
             newMessageCan = 0;
         }
 
-        if (((time_counter - pr_time_2) >= 2) && (parking_state != PARKING)) {
+        if (((time_counter - pr_time_2) >= 2) && (parking_state != PARKING) && (space_gap_reached != HIGH)) {//[!!] RIVEDERE!
             pr_time_2 = time_counter;
             CAN_Tx();
         }
@@ -347,11 +366,14 @@ void main(void) {
         if (time_counter >= pr_time_6) {
             if ((time_counter - pr_time_3) >= (LCD_DLY / 10)) {
                 pr_time_3 = time_counter;
-                LCD_Handler();
+                if (space_available == HIGH) {
+                    display_refresh = HIGH;
+                } else {
+                    LCD_Handler();
+                }
             }
-            w = 0;
         } else {
-            LCD_Park();
+            LCD_End();
         }
     }
 }
@@ -405,15 +427,7 @@ void LCD_Handler(void) {
         if (parking_state == OFF) {
             LCD_write_message("OFF    ");
         } else {
-            if (parking_state == SEARCH) {
-                if (space_available == LOW) {
-                    LCD_write_message("SEARCH ");
-                } else {
-                    LCD_write_message("FOUND! ");
-                }
-            } else {
-                LCD_write_message("PARKING");
-            }
+            LCD_write_message("SEARCH ");
         }
     } else {
         //Print user data sent with id 0xAA
@@ -422,19 +436,40 @@ void LCD_Handler(void) {
     }
 }
 
-void LCD_Park(void) { //Scritture ASCII sperimentali!
-    if (w == 0) {
-        LCD_goto_line(1);
-        LCD_write_message("????????????????????");
-        LCD_goto_line(2);
-        LCD_write_message("?     PARKING      ?");
-        LCD_goto_line(3);
-        LCD_write_message("?    COMPLETED!    ?");
-        LCD_goto_line(4);
-        LCD_write_message("????????????????????");
-        display_refresh = HIGH;
-        w = 1;
-    }
+void LCD_Gap(void) {
+    LCD_initialize(16);
+    LCD_goto_line(1);
+    LCD_write_message("= PARKING MESSAGES =");
+    LCD_goto_line(2);
+    LCD_write_message(" PARKING SPACE FOUND");
+    LCD_goto_line(3);
+    LCD_write_message("->  KEEP MOVING  <-?");
+    LCD_goto_line(4);
+    LCD_write_message(" until next message ");
+}
+
+void LCD_Park(void) {
+    LCD_initialize(16);
+    LCD_goto_line(1);
+    LCD_write_message("= PARKING MESSAGES =");
+    LCD_goto_line(2);
+    LCD_write_message("- DISTANCE REACHED -");
+    LCD_goto_line(3);
+    LCD_write_message("PRESS THE BUTTON TO ");
+    LCD_goto_line(4);
+    LCD_write_message("   START PARKING    ");
+}
+
+void LCD_End(void) {
+    LCD_initialize(16);
+    LCD_goto_line(1);
+    LCD_write_message("= PARKING MESSAGES =");
+    LCD_goto_line(2);
+    LCD_write_message(" PARKING PROCEDURES ");
+    LCD_goto_line(3);
+    LCD_write_message("    SUCCESSFULLY    ");
+    LCD_goto_line(4);
+    LCD_write_message("     COMPLETED!     ");
 }
 
 void PWR_Button_Polling(void) {

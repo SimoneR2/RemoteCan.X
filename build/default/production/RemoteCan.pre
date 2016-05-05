@@ -20958,7 +20958,9 @@ void Joystick_Polling(void);
 void CAN_Tx(void);
 void CAN_Rx(void);
 void LCD_Handler(void);
+void LCD_Gap(void);
 void LCD_Park(void);
+void LCD_End(void);
 
 
 volatile unsigned long time_counter = 0;
@@ -20990,7 +20992,7 @@ volatile unsigned long id = 0;
 BYTE data_speed_rx[7] = 0;
 
 
-volatile bit w = 0;
+
 volatile bit display_refresh = 0;
 unsigned char str [12] = 0;
 float actual_speed_kmh = 0;
@@ -21000,6 +21002,7 @@ unsigned int actual_speed = 0;
 
 volatile bit y = 0;
 volatile bit space_available = 0;
+volatile bit space_gap_reached = 0;
 volatile bit steering_correction_dir = 0;
 volatile unsigned char steering_correction = 0;
 volatile unsigned char x = 0;
@@ -21037,9 +21040,23 @@ data_speed_rx[i] = msg.data[i];
 if (id == 0b00000001011) {
 if (msg.data[0] == 1) {
 space_available = 1;
+space_gap_reached = 0;
 F2_switch = 0;
+LCD_Gap();
 }
-if ((msg.data[0] == 3)&&(parking_state == 2)) {
+
+if (msg.data[0] == 2) {
+dir = 1;
+set_speed = 0;
+data_steering [0] = 90;
+data_brake [0] = 0;
+data_brake [1] = 1;
+CAN_Tx();
+space_gap_reached = 1;
+LCD_Park();
+}
+
+if (msg.data[0] == 3) {
 F1_switch = 0;
 pr_time_6 = time_counter + (2000 / 10);
 }
@@ -21063,7 +21080,7 @@ _delay((unsigned long)((10)*(16000000/4000000.0)));
 while (CANisTxReady() != 1);
 CANsendMessage(0b00000000010, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 
-# 159
+# 176
 }
 }
 }
@@ -21086,7 +21103,7 @@ PIR2bits.TMR3IF = 0;
 void main(void) {
 board_initialization();
 
-# 187
+# 204
 JoystickConstants[0] = 0.703;
 JoystickConstants[1] = 15;
 
@@ -21154,7 +21171,7 @@ CANsendMessage(0b00000001010, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NOR
 x++;
 }
 
-if ((F2_switch == 1)&&(space_available == 1)) {
+if ((F2_switch == 1)&&(space_available == 1)&&(space_gap_reached == 1)) {
 if (z < 1) {
 parking_state = 2;
 while (!CANisTxReady());
@@ -21185,6 +21202,8 @@ PORTDbits.RD5 = 1;
 x = 0;
 z = 0;
 F2_switch = 0;
+space_available = 0;
+space_gap_reached = 0;
 PORTDbits.RD5 = 0;
 PORTDbits.RD6 = 0;
 if (y == 0) {
@@ -21242,7 +21261,7 @@ CAN_Rx();
 newMessageCan = 0;
 }
 
-if (((time_counter - pr_time_2) >= 2) && (parking_state != 2)) {
+if (((time_counter - pr_time_2) >= 2) && (parking_state != 2) && (space_gap_reached != 1)) {
 pr_time_2 = time_counter;
 CAN_Tx();
 }
@@ -21250,11 +21269,14 @@ CAN_Tx();
 if (time_counter >= pr_time_6) {
 if ((time_counter - pr_time_3) >= (100 / 10)) {
 pr_time_3 = time_counter;
+if (space_available == 1) {
+display_refresh = 1;
+} else {
 LCD_Handler();
 }
-w = 0;
+}
 } else {
-LCD_Park();
+LCD_End();
 }
 }
 }
@@ -21308,15 +21330,7 @@ LCD_goto_xy(14, 4);
 if (parking_state == 0) {
 LCD_write_message("OFF    ");
 } else {
-if (parking_state == 1) {
-if (space_available == 0) {
 LCD_write_message("SEARCH ");
-} else {
-LCD_write_message("FOUND! ");
-}
-} else {
-LCD_write_message("PARKING");
-}
 }
 } else {
 
@@ -21325,19 +21339,40 @@ LCD_write_integer(user_data, 0, 0x01);
 }
 }
 
-void LCD_Park(void) {
-if (w == 0) {
+void LCD_Gap(void) {
+LCD_initialize(16);
 LCD_goto_line(1);
-LCD_write_message("????????????????????");
+LCD_write_message("= PARKING MESSAGES =");
 LCD_goto_line(2);
-LCD_write_message("?     PARKING      ?");
+LCD_write_message(" PARKING SPACE FOUND");
 LCD_goto_line(3);
-LCD_write_message("?    COMPLETED!    ?");
+LCD_write_message("->  KEEP MOVING  <-?");
 LCD_goto_line(4);
-LCD_write_message("????????????????????");
-display_refresh = 1;
-w = 1;
+LCD_write_message(" until next message ");
 }
+
+void LCD_Park(void) {
+LCD_initialize(16);
+LCD_goto_line(1);
+LCD_write_message("= PARKING MESSAGES =");
+LCD_goto_line(2);
+LCD_write_message("- DISTANCE REACHED -");
+LCD_goto_line(3);
+LCD_write_message("PRESS THE BUTTON TO ");
+LCD_goto_line(4);
+LCD_write_message("   START PARKING    ");
+}
+
+void LCD_End(void) {
+LCD_initialize(16);
+LCD_goto_line(1);
+LCD_write_message("= PARKING MESSAGES =");
+LCD_goto_line(2);
+LCD_write_message(" PARKING PROCEDURES ");
+LCD_goto_line(3);
+LCD_write_message("    SUCCESSFULLY    ");
+LCD_goto_line(4);
+LCD_write_message("     COMPLETED!     ");
 }
 
 void PWR_Button_Polling(void) {
