@@ -47,9 +47,10 @@ void Joystick_Polling(void);
 void CAN_Tx(void);
 void CAN_Rx(void);
 void LCD_Handler(void);
-void LCD_Gap(void);
-void LCD_Park(void);
-void LCD_End(void);
+void LCD_Gap(void); //Space found, continue forward till distance
+void LCD_Park(void); //Distance REACHED, Parking authorization required!
+void LCD_Parking(void); //Parking procedures wait...
+void LCD_End(void); //Parking procedures COMPLETED
 
 //variabili per delay non blocking
 volatile unsigned long time_counter = 0;
@@ -81,7 +82,7 @@ volatile unsigned long id = 0;
 BYTE data_speed_rx[7] = 0;
 
 //variabili LCD
-//volatile bit w = 0;
+volatile bit w = LOW;
 volatile bit display_refresh = LOW;
 unsigned char str [12] = 0;
 float actual_speed_kmh = 0;
@@ -116,7 +117,7 @@ volatile signed float JoystickConstants[2] = 0;
 __interrupt(high_priority) void ISR_alta(void) {
     if ((PIR3bits.RXB1IF == HIGH) || (PIR3bits.RXB0IF == HIGH)) { //RICEZIONE CAN
         if (CANisRxReady()) {
-            CANreceiveMessage(&msg); //leggilo e salvalo
+            CANreceiveMessage(&msg);
             RTR_Flag = msg.RTR;
             id = msg.identifier;
             newMessageCan = HIGH;
@@ -138,7 +139,7 @@ __interrupt(high_priority) void ISR_alta(void) {
                     dir = FWD;
                     set_speed = 0;
                     data_steering [0] = 90;
-                    data_brake [0] = 0;
+                    data_brake [0] = 150; //<== VALORE FRENATA CAMBIARE?
                     data_brake [1] = 1;
                     CAN_Tx();
                     space_gap_reached = HIGH;
@@ -146,8 +147,9 @@ __interrupt(high_priority) void ISR_alta(void) {
                 }
 
                 if (msg.data[0] == 3) {
+                    LCD_End();
                     F1_switch = LOW; //Reset parking
-                    pr_time_6 = time_counter + (LCD_PKG_DLY / 10); //delay 2s
+                    pr_time_6 = time_counter + (LCD_PKG_DLY / 10);
                 }
             }
 
@@ -185,10 +187,10 @@ __interrupt(high_priority) void ISR_alta(void) {
 
 __interrupt(low_priority) void ISR_bassa(void) {
     if (PIR2bits.TMR3IF == HIGH) { //interrupt timer, ogni 10mS
-        time_counter++; //incrementa di 1 la variabile timer
-        TMR3H = 0x63; //reimposta il timer
-        TMR3L = 0xC0; //reimposta il timer
-        PIR2bits.TMR3IF = 0; //azzera flag interrupt timer
+        time_counter++;
+        TMR3H = 0x63;
+        TMR3L = 0xC0;
+        PIR2bits.TMR3IF = LOW;
     }
 }
 
@@ -270,6 +272,7 @@ void main(void) {
 
             if ((F2_switch == HIGH)&&(space_available == HIGH)&&(space_gap_reached == HIGH)) {
                 if (z < 1) {
+                    LCD_Parking();
                     parking_state = PARKING;
                     while (!CANisTxReady());
                     CANsendMessage(PARK_ASSIST_BEGIN, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
@@ -296,6 +299,7 @@ void main(void) {
                 }
             }
         } else { //RD6/RB4-- RD5/RB1
+            w = LOW;
             x = 0;
             z = 0;
             F2_switch = LOW;
@@ -355,10 +359,10 @@ void main(void) {
 
         if (newMessageCan == HIGH) {
             CAN_Rx();
-            newMessageCan = 0;
+            newMessageCan = LOW;
         }
 
-        if (((time_counter - pr_time_2) >= 2) && (parking_state != PARKING) && (space_gap_reached != HIGH)) {//[!!] RIVEDERE!
+        if (((time_counter - pr_time_2) >= 2) && (space_gap_reached != HIGH)) {
             pr_time_2 = time_counter;
             CAN_Tx();
         }
@@ -366,14 +370,12 @@ void main(void) {
         if (time_counter >= pr_time_6) {
             if ((time_counter - pr_time_3) >= (LCD_DLY / 10)) {
                 pr_time_3 = time_counter;
-                if (space_available == HIGH) {
+                if (w == HIGH) {
                     display_refresh = HIGH;
                 } else {
                     LCD_Handler();
                 }
             }
-        } else {
-            LCD_End();
         }
     }
 }
@@ -437,13 +439,14 @@ void LCD_Handler(void) {
 }
 
 void LCD_Gap(void) {
+    w = HIGH;
     LCD_initialize(16);
     LCD_goto_line(1);
     LCD_write_message("= PARKING MESSAGES =");
     LCD_goto_line(2);
-    LCD_write_message(" PARKING SPACE FOUND");
+    LCD_write_message(" Parking space FOUND");
     LCD_goto_line(3);
-    LCD_write_message("->  KEEP MOVING  <-?");
+    LCD_write_message("->  KEEP MOVING   <-");
     LCD_goto_line(4);
     LCD_write_message(" until next message ");
 }
@@ -453,19 +456,32 @@ void LCD_Park(void) {
     LCD_goto_line(1);
     LCD_write_message("= PARKING MESSAGES =");
     LCD_goto_line(2);
-    LCD_write_message("- DISTANCE REACHED -");
+    LCD_write_message("- Distance REACHED -");
     LCD_goto_line(3);
-    LCD_write_message("PRESS THE BUTTON TO ");
+    LCD_write_message("Press the BUTTON to ");
     LCD_goto_line(4);
-    LCD_write_message("   START PARKING    ");
+    LCD_write_message("   start parking    ");
 }
 
-void LCD_End(void) {
+void LCD_Parking(void) {
     LCD_initialize(16);
     LCD_goto_line(1);
     LCD_write_message("= PARKING MESSAGES =");
     LCD_goto_line(2);
-    LCD_write_message(" PARKING PROCEDURES ");
+    LCD_write_message("=    Parking in    =");
+    LCD_goto_line(3);
+    LCD_write_message("=    progress...   =");
+    LCD_goto_line(4);
+    LCD_write_message("====================");
+}
+
+void LCD_End(void) {
+    w = LOW;
+    LCD_initialize(16);
+    LCD_goto_line(1);
+    LCD_write_message("= PARKING MESSAGES =");
+    LCD_goto_line(2);
+    LCD_write_message(" Parking procedures ");
     LCD_goto_line(3);
     LCD_write_message("    SUCCESSFULLY    ");
     LCD_goto_line(4);
