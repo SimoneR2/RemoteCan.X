@@ -1,11 +1,11 @@
-// User defined parameters //////////////////////////
+// User defined parameters /////////////////////////////////////////////////////
 #define SPD_CNST_STD 15 //max value: 35
 #define SPD_CNST_PKG 1  //max value: 35
 #define LCD_DLY 100   //[ms] multiple of 10 only
 #define LCD_PKG_DLY 2000   //[ms] multiple of 10 only
 #define LCD_4TH_ROW_MODE 1  /* 0 to visualize the parking messages and 1 to
                             visualize the data sent on CANBUS with the ID 0xAA */
-/////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 #define LCD_DEFAULT
 #define _XTAL_FREQ 16000000
@@ -19,7 +19,7 @@
 #include "LCD_44780.h" 
 #include "LCD_44780.c"
 #include <stdio.h>
-#include <math.h>
+//#include <math.h>
 
 #define HIGH 1
 #define LOW 0
@@ -62,11 +62,12 @@ volatile unsigned long pr_time_5 = 0;
 volatile unsigned long pr_time_6 = 0;
 
 //Variabili per can bus invio
+CANmessage msg;
+volatile bit Can_Tx_Force = LOW;
 BYTE data_steering[] = 0;
 BYTE data_speed [] = 0;
 BYTE data_brake [] = 0;
 BYTE data[] = 0; //random
-CANmessage msg;
 BYTE park_assist_state[8] = 0;
 
 //variabili can bus ricezione
@@ -75,30 +76,31 @@ volatile bit newMessageCan = LOW;
 volatile bit MotoreFlag = LOW;
 volatile bit AbsFlag = LOW;
 volatile bit SterzoFlag = LOW;
-unsigned int left_speed = 0;
-unsigned int right_speed = 0;
+volatile unsigned int left_speed = 0;
+volatile unsigned int right_speed = 0;
 volatile unsigned char battery = 0;
 volatile unsigned long id = 0;
 BYTE data_speed_rx[7] = 0;
 
 //variabili LCD
-volatile bit w = LOW;
 volatile bit display_refresh = LOW;
-unsigned char str [12] = 0;
-float actual_speed_kmh = 0;
-unsigned int user_data = 0;
-unsigned int actual_speed = 0;
+volatile bit parking_message_E = LOW;
+volatile unsigned char parking_message_ID = 0; //0=>GAP | 2=>PARK | 4=>PARKING | 6=>END
+volatile unsigned char str [12] = 0;
+volatile float actual_speed_kmh = 0;
+volatile unsigned int user_data = 0;
+volatile unsigned int actual_speed = 0;
 
 //Variabili parcheggio
+volatile bit x = LOW;
 volatile bit y = LOW;
+volatile bit z = LOW;
 volatile bit space_available = LOW;
 volatile bit space_gap_reached = LOW;
 volatile bit steering_correction_dir = LOW;
 volatile unsigned char steering_correction = 0;
-volatile unsigned char x = 0;
-volatile unsigned char z = 0;
+volatile unsigned char parking_state = OFF;
 volatile signed long check = 0;
-volatile char parking_state = OFF;
 
 //variabili per il programma
 volatile bit wait_low_1 = LOW;
@@ -107,7 +109,7 @@ volatile bit wait_low_3 = LOW;
 volatile bit power_switch = LOW;
 volatile bit F1_switch = LOW;
 volatile bit F2_switch = LOW;
-volatile char dir = 0;
+volatile unsigned char dir = 0;
 volatile unsigned char switch_position = 0;
 volatile unsigned char set_steering = 0;
 volatile unsigned int set_speed = 0;
@@ -129,25 +131,29 @@ __interrupt(high_priority) void ISR_alta(void) {
 
             if (id == PARK_ASSIST_STATE) {// 1=> SPAZIO 2=> GAP 3=> END
                 if (msg.data[0] == 1) {
+                    LATDbits.LATD2 = HIGH; //DEBUG
                     space_available = HIGH;
                     space_gap_reached = LOW;
                     F2_switch = LOW;
-                    LCD_Gap();
+                    parking_message_E = HIGH;
+                    parking_message_ID = 0;
                 }
 
-                if (msg.data[0] == 2) { //[!!] RIGUARDARE QUI ASSOLUTAMENTE!
+                if (msg.data[0] == 2) {
+                    LATDbits.LATD3 = HIGH; //DEBUG
+                    space_available = HIGH; //DEBUG
+                    space_gap_reached = HIGH;
                     dir = FWD;
                     set_speed = 0;
                     data_steering [0] = 90;
-                    data_brake [0] = 150; //<== VALORE FRENATA CAMBIARE?
-                    data_brake [1] = 1;
-                    CAN_Tx();
-                    space_gap_reached = HIGH;
-                    LCD_Park();
+                    data_brake [0] = 0; //<== VALORE FRENATA CAMBIARE?
+                    data_brake [1] = 0;
+                    Can_Tx_Force = HIGH;
+                    parking_message_ID = 2;
                 }
 
                 if (msg.data[0] == 3) {
-                    LCD_End();
+                    parking_message_ID = 6;
                     F1_switch = LOW; //Reset parking
                     pr_time_6 = time_counter + (LCD_PKG_DLY / 10);
                 }
@@ -178,8 +184,6 @@ __interrupt(high_priority) void ISR_alta(void) {
                 }
             }
         }
-        LATDbits.LATD2 = HIGH;
-        LATDbits.LATD3 = HIGH;
         PIR3bits.RXB1IF = LOW;
         PIR3bits.RXB0IF = LOW;
     }
@@ -206,6 +210,8 @@ void main(void) {
     JoystickConstants[X_AXIS] = 0.703;
     JoystickConstants[Y_AXIS] = SPD_CNST_STD;
 
+    data_brake [1] = 0;
+
     while (1) {
 
         //Buttons Polling
@@ -218,8 +224,7 @@ void main(void) {
             dir = FWD;
             set_speed = 0;
             data_steering [0] = 90;
-            data_brake [0] = 0;
-            data_brake [1] = 1;
+            data_brake [0] = 3;
             CAN_Tx();
             PORTDbits.RD6 = LOW;
             PORTDbits.RD5 = LOW;
@@ -258,29 +263,29 @@ void main(void) {
         }
 
         //Parking
-        if (F1_switch == HIGH) { //appena è sicuro cambiare < in ==
+        if (F1_switch == HIGH) {
             y = LOW;
-            if ((x < 1)&&(F2_switch == LOW)) {
+            if ((x == LOW)&&(F2_switch == LOW)) {
                 space_available = LOW;
                 parking_state = SEARCH;
                 JoystickConstants[Y_AXIS] = SPD_CNST_PKG;
                 while (!CANisTxReady());
                 park_assist_state[0] = 0b00000001;
                 CANsendMessage(PARK_ASSIST_ENABLE, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-                x++;
+                x = HIGH;
             }
 
             if ((F2_switch == HIGH)&&(space_available == HIGH)&&(space_gap_reached == HIGH)) {
-                if (z < 1) {
-                    LCD_Parking();
+                if (z == LOW) {
+                    parking_message_ID = 4;
                     parking_state = PARKING;
                     while (!CANisTxReady());
                     CANsendMessage(PARK_ASSIST_BEGIN, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-                    x = 0;
-                    z++;
+                    x = LOW;
+                    z = HIGH;
                 }
             } else {
-                z = 0;
+                z = LOW;
             }
 
             if ((time_counter - pr_time_5) >= 30) {
@@ -299,9 +304,9 @@ void main(void) {
                 }
             }
         } else { //RD6/RB4-- RD5/RB1
-            w = LOW;
-            x = 0;
-            z = 0;
+            x = LOW;
+            z = LOW;
+            parking_message_E = LOW;
             F2_switch = LOW;
             space_available = LOW;
             space_gap_reached = LOW;
@@ -347,14 +352,22 @@ void main(void) {
         if (switch_position != HIGH_POS) {
             if (JoystickValues[Y_AXIS] > 132) {
                 set_speed = (JoystickValues[Y_AXIS] - 130)*(JoystickConstants[Y_AXIS]); //guardare
-                data_brake [0] = 0;
+                data_brake [0] = 3;
             } else {
                 set_speed = 0;
-                data_brake [0] = ((130 - JoystickValues[Y_AXIS]))*(1.9);
+                if (JoystickValues[Y_AXIS] <= 65) {
+                    data_brake [0] = 2;
+                }
+                if (JoystickValues[Y_AXIS] <= 20) {
+                    data_brake [0] = 1;
+                }
+                if (JoystickValues[Y_AXIS] <= 5) {
+                    data_brake [0] = 0;
+                }
             }
         } else {
             set_speed = 0;
-            data_brake [0] = 255;
+            data_brake [0] = 0;
         }
 
         if (newMessageCan == HIGH) {
@@ -362,19 +375,39 @@ void main(void) {
             newMessageCan = LOW;
         }
 
-        if (((time_counter - pr_time_2) >= 2) && (space_gap_reached != HIGH)) {
+        if ((((time_counter - pr_time_2) >= 2) && (parking_message_ID < 2)) || (Can_Tx_Force == HIGH)) {
+            Can_Tx_Force = LOW;
             pr_time_2 = time_counter;
             CAN_Tx();
         }
 
+        //LCD
         if (time_counter >= pr_time_6) {
             if ((time_counter - pr_time_3) >= (LCD_DLY / 10)) {
                 pr_time_3 = time_counter;
-                if (w == HIGH) {
+                if (parking_message_E == HIGH) {
                     display_refresh = HIGH;
+                    if (parking_message_ID == 0) {
+                        LCD_Gap();
+                        parking_message_ID++;
+                    }
+                    if (parking_message_ID == 2) {
+                        LCD_Park();
+                        parking_message_ID++;
+                    }
+                    if (parking_message_ID == 4) {
+                        LCD_Parking();
+                        parking_message_ID++;
+                    }
                 } else {
                     LCD_Handler();
                 }
+            }
+        } else {
+            if (parking_message_ID == 6) {
+                LCD_End();
+                parking_message_ID = 0;
+                parking_message_E = LOW;
             }
         }
     }
@@ -439,8 +472,8 @@ void LCD_Handler(void) {
 }
 
 void LCD_Gap(void) {
-    w = HIGH;
     LCD_initialize(16);
+    LCD_clear();
     LCD_goto_line(1);
     LCD_write_message("= PARKING MESSAGES =");
     LCD_goto_line(2);
@@ -453,6 +486,7 @@ void LCD_Gap(void) {
 
 void LCD_Park(void) {
     LCD_initialize(16);
+    LCD_clear();
     LCD_goto_line(1);
     LCD_write_message("= PARKING MESSAGES =");
     LCD_goto_line(2);
@@ -465,6 +499,7 @@ void LCD_Park(void) {
 
 void LCD_Parking(void) {
     LCD_initialize(16);
+    LCD_clear();
     LCD_goto_line(1);
     LCD_write_message("= PARKING MESSAGES =");
     LCD_goto_line(2);
@@ -476,8 +511,8 @@ void LCD_Parking(void) {
 }
 
 void LCD_End(void) {
-    w = LOW;
     LCD_initialize(16);
+    LCD_clear();
     LCD_goto_line(1);
     LCD_write_message("= PARKING MESSAGES =");
     LCD_goto_line(2);

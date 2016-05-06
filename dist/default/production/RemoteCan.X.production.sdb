@@ -88,42 +88,32 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _CANisRxReady CANisRxReady `(uc  1 e 1 0 ]
 "61 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\delay.c
 [v _delay_ms delay_ms `(v  1 e 0 0 ]
-[v i2_delay_ms delay_ms `(v  1 e 0 0 ]
 "115
 [v _delay_set_quartz delay_set_quartz `(v  1 e 0 0 ]
-[v i2_delay_set_quartz delay_set_quartz `(v  1 e 0 0 ]
 "49 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c
 [v _LCD_enable_pulse LCD_enable_pulse `(v  1 e 0 0 ]
-[v i2_LCD_enable_pulse LCD_enable_pulse `(v  1 e 0 0 ]
 "61
 [v _LCD_send_command LCD_send_command `(v  1 e 0 0 ]
-[v i2_LCD_send_command LCD_send_command `(v  1 e 0 0 ]
 "98
 [v _LCD_shift_cursor LCD_shift_cursor `(v  1 e 0 0 ]
 "111
 [v _LCD_goto_line LCD_goto_line `(v  1 e 0 0 ]
-[v i2_LCD_goto_line LCD_goto_line `(v  1 e 0 0 ]
 "136
 [v _LCD_goto_xy LCD_goto_xy `(v  1 e 0 0 ]
 "145
 [v _LCD_write_char LCD_write_char `(v  1 e 0 0 ]
-[v i2_LCD_write_char LCD_write_char `(v  1 e 0 0 ]
 "178
 [v _LCD_write_message LCD_write_message `(v  1 e 0 0 ]
-[v i2_LCD_write_message LCD_write_message `(v  1 e 0 0 ]
 "194
 [v _LCD_write_string LCD_write_string `(v  1 e 0 0 ]
 "210
 [v _LCD_write_integer LCD_write_integer `(v  1 e 0 0 ]
 "257
 [v _LCD_clear LCD_clear `(v  1 e 0 0 ]
-[v i2_LCD_clear LCD_clear `(v  1 e 0 0 ]
 "266
 [v _LCD_cursor LCD_cursor `(v  1 e 0 0 ]
-[v i2_LCD_cursor LCD_cursor `(v  1 e 0 0 ]
 "283
 [v _LCD_initialize LCD_initialize `(v  1 e 0 0 ]
-[v i2_LCD_initialize LCD_initialize `(v  1 e 0 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awmod.c
@@ -178,39 +168,39 @@ CAN_RX_BUFFER_2_OVFL 2
 [v ___flmul __flmul `(d  1 e 4 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
-[v i2___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"116 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"119 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _ISR_alta ISR_alta `IIH(v  1 e 0 0 ]
-"186
+"192
 [v _ISR_bassa ISR_bassa `IIL(v  1 e 0 0 ]
-"195
+"201
 [v _main main `(v  1 e 0 0 ]
-"381
+"416
 [v _LCD_Handler LCD_Handler `(v  1 e 0 0 ]
-"439
+"474
 [v _LCD_Gap LCD_Gap `(v  1 e 0 0 ]
-"451
+"487
 [v _LCD_Park LCD_Park `(v  1 e 0 0 ]
-"463
+"500
+[v _LCD_Parking LCD_Parking `(v  1 e 0 0 ]
+"513
 [v _LCD_End LCD_End `(v  1 e 0 0 ]
-"475
+"526
 [v _PWR_Button_Polling PWR_Button_Polling `(v  1 e 0 0 ]
-"485
+"536
 [v _F1_Button_Polling F1_Button_Polling `(v  1 e 0 0 ]
-"495
+"546
 [v _F2_Button_Polling F2_Button_Polling `(v  1 e 0 0 ]
-"505
+"556
 [v _Joystick_Polling Joystick_Polling `(v  1 e 0 0 ]
-"514
+"565
 [v _CAN_Tx CAN_Tx `(v  1 e 0 0 ]
-[v i2_CAN_Tx CAN_Tx `(v  1 e 0 0 ]
-"532
+"583
 [v _CAN_Rx CAN_Rx `(v  1 e 0 0 ]
-"566
+"617
 [v _board_initialization board_initialization `(v  1 e 0 0 ]
 "49 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\delay.c
 [v _delay_quartz_frequency_value delay_quartz_frequency_value `VEuc  1 e 1 0 ]
@@ -1111,7 +1101,7 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _RXERRCNT RXERRCNT `VEuc  1 e 1 @3957 ]
 "27872
 [v _TXERRCNT TXERRCNT `VEuc  1 e 1 @3958 ]
-[s S2369 . 1 `uc 1 RA0 1 0 :1:0 
+[s S2361 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -1121,7 +1111,7 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 RA7 1 0 :1:7 
 ]
 "28063
-[s S2378 . 1 `uc 1 AN0 1 0 :1:0 
+[s S2370 . 1 `uc 1 AN0 1 0 :1:0 
 `uc 1 AN1 1 0 :1:1 
 `uc 1 AN2 1 0 :1:2 
 `uc 1 AN3 1 0 :1:3 
@@ -1130,7 +1120,7 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 OSC2 1 0 :1:6 
 `uc 1 OSC1 1 0 :1:7 
 ]
-[s S2387 . 1 `uc 1 CVREF 1 0 :1:0 
+[s S2379 . 1 `uc 1 CVREF 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 VREFM 1 0 :1:2 
 `uc 1 VREFP 1 0 :1:3 
@@ -1139,26 +1129,26 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 CLKO 1 0 :1:6 
 `uc 1 CLKI 1 0 :1:7 
 ]
-[s S2396 . 1 `uc 1 . 1 0 :5:0 
+[s S2388 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LVDIN 1 0 :1:5 
 ]
-[s S2399 . 1 `uc 1 . 1 0 :5:0 
+[s S2391 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SS 1 0 :1:5 
 ]
-[s S2402 . 1 `uc 1 . 1 0 :5:0 
+[s S2394 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_SS 1 0 :1:5 
 ]
-[s S2405 . 1 `uc 1 . 1 0 :5:0 
+[s S2397 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 nSS 1 0 :1:5 
 ]
-[s S2408 . 1 `uc 1 . 1 0 :7:0 
+[s S2400 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RJPU 1 0 :1:7 
 ]
-[s S2411 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+[s S2403 . 1 `uc 1 ULPWUIN 1 0 :1:0 
 ]
-[u S2413 . 1 `S2369 1 . 1 0 `S2378 1 . 1 0 `S2387 1 . 1 0 `S2396 1 . 1 0 `S2399 1 . 1 0 `S2402 1 . 1 0 `S2405 1 . 1 0 `S2408 1 . 1 0 `S2411 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES2413  1 e 1 @3968 ]
-[s S2490 . 1 `uc 1 RB0 1 0 :1:0 
+[u S2405 . 1 `S2361 1 . 1 0 `S2370 1 . 1 0 `S2379 1 . 1 0 `S2388 1 . 1 0 `S2391 1 . 1 0 `S2394 1 . 1 0 `S2397 1 . 1 0 `S2400 1 . 1 0 `S2403 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES2405  1 e 1 @3968 ]
+[s S2494 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -1168,7 +1158,7 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 RB7 1 0 :1:7 
 ]
 "28251
-[s S2499 . 1 `uc 1 INT0 1 0 :1:0 
+[s S2503 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 CANRX 1 0 :1:3 
@@ -1177,7 +1167,7 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 KBI2 1 0 :1:6 
 `uc 1 KBI3 1 0 :1:7 
 ]
-[s S2508 . 1 `uc 1 AN10 1 0 :1:0 
+[s S2512 . 1 `uc 1 AN10 1 0 :1:0 
 `uc 1 AN8 1 0 :1:1 
 `uc 1 CANTX 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -1186,14 +1176,14 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S2517 . 1 `uc 1 FLT0 1 0 :1:0 
+[s S2521 . 1 `uc 1 FLT0 1 0 :1:0 
 ]
-[s S2519 . 1 `uc 1 . 1 0 :3:0 
+[s S2523 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S2522 . 1 `S2490 1 . 1 0 `S2499 1 . 1 0 `S2508 1 . 1 0 `S2517 1 . 1 0 `S2519 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES2522  1 e 1 @3969 ]
-[s S2296 . 1 `uc 1 RD0 1 0 :1:0 
+[u S2526 . 1 `S2494 1 . 1 0 `S2503 1 . 1 0 `S2512 1 . 1 0 `S2521 1 . 1 0 `S2523 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES2526  1 e 1 @3969 ]
+[s S2288 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -1203,7 +1193,7 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 RD7 1 0 :1:7 
 ]
 "28597
-[s S2305 . 1 `uc 1 PSP0 1 0 :1:0 
+[s S2297 . 1 `uc 1 PSP0 1 0 :1:0 
 `uc 1 PSP1 1 0 :1:1 
 `uc 1 PSP2 1 0 :1:2 
 `uc 1 PSP3 1 0 :1:3 
@@ -1212,7 +1202,7 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 PSP6 1 0 :1:6 
 `uc 1 PSP7 1 0 :1:7 
 ]
-[s S2314 . 1 `uc 1 C1INB 1 0 :1:0 
+[s S2306 . 1 `uc 1 C1INB 1 0 :1:0 
 `uc 1 C1INA 1 0 :1:1 
 `uc 1 C2INB 1 0 :1:2 
 `uc 1 C2INA 1 0 :1:3 
@@ -1221,14 +1211,14 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 P1C 1 0 :1:6 
 `uc 1 P1D 1 0 :1:7 
 ]
-[s S2323 . 1 `uc 1 . 1 0 :4:0 
+[s S2315 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 ECCP1 1 0 :1:4 
 ]
-[s S2326 . 1 `uc 1 . 1 0 :7:0 
+[s S2318 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 SS2 1 0 :1:7 
 ]
-[u S2329 . 1 `S2296 1 . 1 0 `S2305 1 . 1 0 `S2314 1 . 1 0 `S2323 1 . 1 0 `S2326 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES2329  1 e 1 @3971 ]
+[u S2321 . 1 `S2288 1 . 1 0 `S2297 1 . 1 0 `S2306 1 . 1 0 `S2315 1 . 1 0 `S2318 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES2321  1 e 1 @3971 ]
 "29032
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "29164
@@ -1349,7 +1339,7 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "30546
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
-[s S2868 . 1 `uc 1 ECCP1IE 1 0 :1:0 
+[s S2872 . 1 `uc 1 ECCP1IE 1 0 :1:0 
 `uc 1 TMR3IE 1 0 :1:1 
 `uc 1 HLVDIE 1 0 :1:2 
 `uc 1 BCLIE 1 0 :1:3 
@@ -1359,12 +1349,12 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 OSCFIE 1 0 :1:7 
 ]
 "31035
-[s S2877 . 1 `uc 1 . 1 0 :2:0 
+[s S2881 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIE 1 0 :1:2 
 ]
-[u S2880 . 1 `S2868 1 . 1 0 `S2877 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES2880  1 e 1 @4000 ]
-[s S2250 . 1 `uc 1 ECCP1IF 1 0 :1:0 
+[u S2884 . 1 `S2872 1 . 1 0 `S2881 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES2884  1 e 1 @4000 ]
+[s S2238 . 1 `uc 1 ECCP1IF 1 0 :1:0 
 `uc 1 TMR3IF 1 0 :1:1 
 `uc 1 HLVDIF 1 0 :1:2 
 `uc 1 BCLIF 1 0 :1:3 
@@ -1374,12 +1364,12 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 OSCFIF 1 0 :1:7 
 ]
 "31100
-[s S2259 . 1 `uc 1 . 1 0 :2:0 
+[s S2247 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIF 1 0 :1:2 
 ]
-[u S2262 . 1 `S2250 1 . 1 0 `S2259 1 . 1 0 ]
-[v _PIR2bits PIR2bits `VES2262  1 e 1 @4001 ]
-[s S2760 . 1 `uc 1 ECCP1IP 1 0 :1:0 
+[u S2250 . 1 `S2238 1 . 1 0 `S2247 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES2250  1 e 1 @4001 ]
+[s S2764 . 1 `uc 1 ECCP1IP 1 0 :1:0 
 `uc 1 TMR3IP 1 0 :1:1 
 `uc 1 HLVDIP 1 0 :1:2 
 `uc 1 BCLIP 1 0 :1:3 
@@ -1389,12 +1379,12 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 OSCFIP 1 0 :1:7 
 ]
 "31165
-[s S2769 . 1 `uc 1 . 1 0 :2:0 
+[s S2773 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIP 1 0 :1:2 
 ]
-[u S2772 . 1 `S2760 1 . 1 0 `S2769 1 . 1 0 ]
-[v _IPR2bits IPR2bits `VES2772  1 e 1 @4002 ]
-[s S2817 . 1 `uc 1 RXB0IE 1 0 :1:0 
+[u S2776 . 1 `S2764 1 . 1 0 `S2773 1 . 1 0 ]
+[v _IPR2bits IPR2bits `VES2776  1 e 1 @4002 ]
+[s S2821 . 1 `uc 1 RXB0IE 1 0 :1:0 
 `uc 1 RXB1IE 1 0 :1:1 
 `uc 1 TXB0IE 1 0 :1:2 
 `uc 1 TXB1IE 1 0 :1:3 
@@ -1404,21 +1394,21 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 IRXIE 1 0 :1:7 
 ]
 "31243
-[s S2826 . 1 `uc 1 FIFOWMIE 1 0 :1:0 
+[s S2830 . 1 `uc 1 FIFOWMIE 1 0 :1:0 
 `uc 1 RXBnIE 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBnIE 1 0 :1:4 
 ]
-[s S2831 . 1 `uc 1 FIFOMWIE 1 0 :1:0 
+[s S2835 . 1 `uc 1 FIFOMWIE 1 0 :1:0 
 ]
-[s S2833 . 1 `uc 1 . 1 0 :1:0 
+[s S2837 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIE 1 0 :1:1 
 ]
-[s S2836 . 1 `uc 1 . 1 0 :4:0 
+[s S2840 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXBNIE 1 0 :1:4 
 ]
-[u S2839 . 1 `S2817 1 . 1 0 `S2826 1 . 1 0 `S2831 1 . 1 0 `S2833 1 . 1 0 `S2836 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES2839  1 e 1 @4003 ]
+[u S2843 . 1 `S2821 1 . 1 0 `S2830 1 . 1 0 `S2835 1 . 1 0 `S2837 1 . 1 0 `S2840 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES2843  1 e 1 @4003 ]
 [s S2192 . 1 `uc 1 RXB0IF 1 0 :1:0 
 `uc 1 RXB1IF 1 0 :1:1 
 `uc 1 TXB0IF 1 0 :1:2 
@@ -1442,7 +1432,7 @@ CAN_RX_BUFFER_2_OVFL 2
 ]
 [u S2212 . 1 `S2192 1 . 1 0 `S2201 1 . 1 0 `S2206 1 . 1 0 `S2209 1 . 1 0 ]
 [v _PIR3bits PIR3bits `VES2212  1 e 1 @4004 ]
-[s S2714 . 1 `uc 1 RXB0IP 1 0 :1:0 
+[s S2718 . 1 `uc 1 RXB0IP 1 0 :1:0 
 `uc 1 RXB1IP 1 0 :1:1 
 `uc 1 TXB0IP 1 0 :1:2 
 `uc 1 TXB1IP 1 0 :1:3 
@@ -1452,32 +1442,32 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 IRXIP 1 0 :1:7 
 ]
 "31448
-[s S2723 . 1 `uc 1 FIFOWMIP 1 0 :1:0 
+[s S2727 . 1 `uc 1 FIFOWMIP 1 0 :1:0 
 `uc 1 RXBnIP 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBnIP 1 0 :1:4 
 ]
-[s S2728 . 1 `uc 1 . 1 0 :1:0 
+[s S2732 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIP 1 0 :1:1 
 ]
-[s S2731 . 1 `uc 1 . 1 0 :4:0 
+[s S2735 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXBNIP 1 0 :1:4 
 ]
-[u S2734 . 1 `S2714 1 . 1 0 `S2723 1 . 1 0 `S2728 1 . 1 0 `S2731 1 . 1 0 ]
-[v _IPR3bits IPR3bits `VES2734  1 e 1 @4005 ]
+[u S2738 . 1 `S2718 1 . 1 0 `S2727 1 . 1 0 `S2732 1 . 1 0 `S2735 1 . 1 0 ]
+[v _IPR3bits IPR3bits `VES2738  1 e 1 @4005 ]
 "32151
 [v _T3CON T3CON `VEuc  1 e 1 @4017 ]
 "32285
 [v _TMR3L TMR3L `VEuc  1 e 1 @4018 ]
 "32291
 [v _TMR3H TMR3H `VEuc  1 e 1 @4019 ]
-[s S2789 . 1 `uc 1 ADCS 1 0 :3:0 
+[s S2793 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "32964
-[s S2794 . 1 `uc 1 ADCS0 1 0 :1:0 
+[s S2798 . 1 `uc 1 ADCS0 1 0 :1:0 
 `uc 1 ADCS1 1 0 :1:1 
 `uc 1 ADCS2 1 0 :1:2 
 `uc 1 ACQT0 1 0 :1:3 
@@ -1485,23 +1475,23 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 ACQT2 1 0 :1:5 
 ]
 "32964
-[u S2801 . 1 `S2789 1 . 1 0 `S2794 1 . 1 0 ]
+[u S2805 . 1 `S2793 1 . 1 0 `S2798 1 . 1 0 ]
 "32964
 "32964
-[v _ADCON2bits ADCON2bits `VES2801  1 e 1 @4032 ]
+[v _ADCON2bits ADCON2bits `VES2805  1 e 1 @4032 ]
 "33013
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-[s S2561 . 1 `uc 1 . 1 0 :1:0 
+[s S2565 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "33151
-[s S2564 . 1 `uc 1 ADON 1 0 :1:0 
+[s S2568 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 ]
 "33151
 "33151
-[s S2571 . 1 `uc 1 . 1 0 :1:0 
+[s S2575 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -1509,52 +1499,52 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 CHS3 1 0 :1:5 
 ]
 "33151
-[s S2578 . 1 `uc 1 . 1 0 :1:0 
+[s S2582 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
 "33151
-[s S2581 . 1 `uc 1 . 1 0 :1:0 
+[s S2585 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
 "33151
-[s S2584 . 1 `uc 1 . 1 0 :1:0 
+[s S2588 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
 "33151
-[s S2587 . 1 `uc 1 . 1 0 :1:0 
+[s S2591 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
 "33151
-[s S2590 . 1 `uc 1 . 1 0 :1:0 
+[s S2594 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
 "33151
-[u S2593 . 1 `S2561 1 . 1 0 `S2564 1 . 1 0 `S2561 1 . 1 0 `S2571 1 . 1 0 `S2578 1 . 1 0 `S2581 1 . 1 0 `S2584 1 . 1 0 `S2587 1 . 1 0 `S2590 1 . 1 0 ]
+[u S2597 . 1 `S2565 1 . 1 0 `S2568 1 . 1 0 `S2565 1 . 1 0 `S2575 1 . 1 0 `S2582 1 . 1 0 `S2585 1 . 1 0 `S2588 1 . 1 0 `S2591 1 . 1 0 `S2594 1 . 1 0 ]
 "33151
 "33151
-[v _ADCON0bits ADCON0bits `VES2593  1 e 1 @4034 ]
+[v _ADCON0bits ADCON0bits `VES2597  1 e 1 @4034 ]
 "33237
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
-[s S2647 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S2651 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "34010
-[s S2649 . 1 `uc 1 . 1 0 :1:0 
+[s S2653 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
 "34010
-[s S2652 . 1 `uc 1 . 1 0 :2:0 
+[s S2656 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
 "34010
-[s S2655 . 1 `uc 1 . 1 0 :3:0 
+[s S2659 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
 "34010
-[s S2658 . 1 `uc 1 . 1 0 :4:0 
+[s S2662 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
 "34010
-[s S2661 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S2665 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -1564,18 +1554,18 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 IPEN 1 0 :1:7 
 ]
 "34010
-[s S2670 . 1 `uc 1 BOR 1 0 :1:0 
+[s S2674 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
 "34010
-[u S2676 . 1 `S2647 1 . 1 0 `S2649 1 . 1 0 `S2652 1 . 1 0 `S2655 1 . 1 0 `S2658 1 . 1 0 `S2661 1 . 1 0 `S2670 1 . 1 0 ]
+[u S2680 . 1 `S2651 1 . 1 0 `S2653 1 . 1 0 `S2656 1 . 1 0 `S2659 1 . 1 0 `S2662 1 . 1 0 `S2665 1 . 1 0 `S2674 1 . 1 0 ]
 "34010
 "34010
-[v _RCONbits RCONbits `VES2676  1 e 1 @4048 ]
-[s S2897 . 1 `uc 1 RBIF 1 0 :1:0 
+[v _RCONbits RCONbits `VES2680  1 e 1 @4048 ]
+[s S2901 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -1585,7 +1575,7 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "35017
-[s S2906 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S2910 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -1595,7 +1585,7 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 GIE 1 0 :1:7 
 ]
 "35017
-[s S2915 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S2919 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -1605,7 +1595,7 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 GIEH 1 0 :1:7 
 ]
 "35017
-[s S2924 . 1 `uc 1 . 1 0 :1:0 
+[s S2928 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -1615,129 +1605,135 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 GIE 1 0 :1:7 
 ]
 "35017
-[s S2933 . 1 `uc 1 . 1 0 :6:0 
+[s S2937 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
 "35017
-[u S2937 . 1 `S2897 1 . 1 0 `S2906 1 . 1 0 `S2915 1 . 1 0 `S2924 1 . 1 0 `S2933 1 . 1 0 ]
+[u S2941 . 1 `S2901 1 . 1 0 `S2910 1 . 1 0 `S2919 1 . 1 0 `S2928 1 . 1 0 `S2937 1 . 1 0 ]
 "35017
 "35017
-[v _INTCONbits INTCONbits `VES2937  1 e 1 @4082 ]
+[v _INTCONbits INTCONbits `VES2941  1 e 1 @4082 ]
 "354 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
 [v _dpowers dpowers `C[10]ul  1 s 40 dpowers ]
 "7 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\powers.c
 [v __powers_ _powers_ `C[13]d  1 e 52 0 ]
 "39
 [v __npowers_ _npowers_ `C[13]d  1 e 52 0 ]
-"55 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"56 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _time_counter time_counter `VEul  1 e 4 0 ]
-"56
-[v _pr_time_1 pr_time_1 `VEul  1 e 4 0 ]
 "57
-[v _pr_time_2 pr_time_2 `VEul  1 e 4 0 ]
+[v _pr_time_1 pr_time_1 `VEul  1 e 4 0 ]
 "58
-[v _pr_time_3 pr_time_3 `VEul  1 e 4 0 ]
+[v _pr_time_2 pr_time_2 `VEul  1 e 4 0 ]
 "59
-[v _pr_time_4 pr_time_4 `VEul  1 e 4 0 ]
+[v _pr_time_3 pr_time_3 `VEul  1 e 4 0 ]
 "60
-[v _pr_time_5 pr_time_5 `VEul  1 e 4 0 ]
+[v _pr_time_4 pr_time_4 `VEul  1 e 4 0 ]
 "61
+[v _pr_time_5 pr_time_5 `VEul  1 e 4 0 ]
+"62
 [v _pr_time_6 pr_time_6 `VEul  1 e 4 0 ]
-"64
-[v _data_steering data_steering `[1]uc  1 e 1 0 ]
-"65
-[v _data_speed data_speed `[1]uc  1 e 1 0 ]
-"66
-[v _data_brake data_brake `[1]uc  1 e 1 0 ]
-"67
-[v _data data `[1]uc  1 e 1 0 ]
 [s S853 . 15 `ul 1 identifier 4 0 `[8]uc 1 data 8 4 `uc 1 type 1 12 `uc 1 length 1 13 `uc 1 RTR 1 14 ]
-"68
+"65
 [v _msg msg `S853  1 e 15 0 ]
+"66
+[v _Can_Tx_Force Can_Tx_Force `VEb  1 e 0 0 ]
+"67
+[v _data_steering data_steering `[1]uc  1 e 1 0 ]
+"68
+[v _data_speed data_speed `[1]uc  1 e 1 0 ]
 "69
+[v _data_brake data_brake `[1]uc  1 e 1 0 ]
+"70
+[v _data data `[1]uc  1 e 1 0 ]
+"71
 [v _park_assist_state park_assist_state `[8]uc  1 e 8 0 ]
-"72
-[v _RTR_Flag RTR_Flag `VEb  1 e 0 0 ]
-"73
-[v _newMessageCan newMessageCan `VEb  1 e 0 0 ]
 "74
-[v _MotoreFlag MotoreFlag `VEb  1 e 0 0 ]
+[v _RTR_Flag RTR_Flag `VEb  1 e 0 0 ]
 "75
-[v _AbsFlag AbsFlag `VEb  1 e 0 0 ]
+[v _newMessageCan newMessageCan `VEb  1 e 0 0 ]
 "76
-[v _SterzoFlag SterzoFlag `VEb  1 e 0 0 ]
+[v _MotoreFlag MotoreFlag `VEb  1 e 0 0 ]
 "77
-[v _left_speed left_speed `ui  1 e 2 0 ]
+[v _AbsFlag AbsFlag `VEb  1 e 0 0 ]
 "78
-[v _right_speed right_speed `ui  1 e 2 0 ]
+[v _SterzoFlag SterzoFlag `VEb  1 e 0 0 ]
 "79
-[v _battery battery `VEuc  1 e 1 0 ]
+[v _left_speed left_speed `VEui  1 e 2 0 ]
 "80
-[v _id id `VEul  1 e 4 0 ]
+[v _right_speed right_speed `VEui  1 e 2 0 ]
 "81
+[v _battery battery `VEuc  1 e 1 0 ]
+"82
+[v _id id `VEul  1 e 4 0 ]
+"83
 [v _data_speed_rx data_speed_rx `[7]uc  1 e 7 0 ]
-"85
-[v _display_refresh display_refresh `VEb  1 e 0 0 ]
 "86
-[v _str str `[12]uc  1 e 12 0 ]
+[v _display_refresh display_refresh `VEb  1 e 0 0 ]
 "87
-[v _actual_speed_kmh actual_speed_kmh `f  1 e 4 0 ]
+[v _parking_message_E parking_message_E `VEb  1 e 0 0 ]
 "88
-[v _user_data user_data `ui  1 e 2 0 ]
+[v _parking_message_ID parking_message_ID `VEuc  1 e 1 0 ]
 "89
-[v _actual_speed actual_speed `ui  1 e 2 0 ]
+[v _str str `VE[12]uc  1 e 12 0 ]
+"90
+[v _actual_speed_kmh actual_speed_kmh `VEf  1 e 4 0 ]
+"91
+[v _user_data user_data `VEui  1 e 2 0 ]
 "92
-[v _y y `VEb  1 e 0 0 ]
-"93
-[v _space_available space_available `VEb  1 e 0 0 ]
-"94
-[v _space_gap_reached space_gap_reached `VEb  1 e 0 0 ]
+[v _actual_speed actual_speed `VEui  1 e 2 0 ]
 "95
-[v _steering_correction_dir steering_correction_dir `VEb  1 e 0 0 ]
+[v _x x `VEb  1 e 0 0 ]
 "96
-[v _steering_correction steering_correction `VEuc  1 e 1 0 ]
+[v _y y `VEb  1 e 0 0 ]
 "97
-[v _x x `VEuc  1 e 1 0 ]
+[v _z z `VEb  1 e 0 0 ]
 "98
-[v _z z `VEuc  1 e 1 0 ]
+[v _space_available space_available `VEb  1 e 0 0 ]
 "99
-[v _check check `VEl  1 e 4 0 ]
+[v _space_gap_reached space_gap_reached `VEb  1 e 0 0 ]
 "100
+[v _steering_correction_dir steering_correction_dir `VEb  1 e 0 0 ]
+"101
+[v _steering_correction steering_correction `VEuc  1 e 1 0 ]
+"102
 [v _parking_state parking_state `VEuc  1 e 1 0 ]
 "103
-[v _wait_low_1 wait_low_1 `VEb  1 e 0 0 ]
-"104
-[v _wait_low_2 wait_low_2 `VEb  1 e 0 0 ]
-"105
-[v _wait_low_3 wait_low_3 `VEb  1 e 0 0 ]
+[v _check check `VEl  1 e 4 0 ]
 "106
-[v _power_switch power_switch `VEb  1 e 0 0 ]
+[v _wait_low_1 wait_low_1 `VEb  1 e 0 0 ]
 "107
-[v _F1_switch F1_switch `VEb  1 e 0 0 ]
+[v _wait_low_2 wait_low_2 `VEb  1 e 0 0 ]
 "108
-[v _F2_switch F2_switch `VEb  1 e 0 0 ]
+[v _wait_low_3 wait_low_3 `VEb  1 e 0 0 ]
 "109
-[v _dir dir `VEuc  1 e 1 0 ]
+[v _power_switch power_switch `VEb  1 e 0 0 ]
 "110
-[v _switch_position switch_position `VEuc  1 e 1 0 ]
+[v _F1_switch F1_switch `VEb  1 e 0 0 ]
 "111
-[v _set_steering set_steering `VEuc  1 e 1 0 ]
+[v _F2_switch F2_switch `VEb  1 e 0 0 ]
 "112
-[v _set_speed set_speed `VEui  1 e 2 0 ]
+[v _dir dir `VEuc  1 e 1 0 ]
 "113
-[v _JoystickValues JoystickValues `VE[2]uc  1 e 2 0 ]
+[v _switch_position switch_position `VEuc  1 e 1 0 ]
 "114
+[v _set_steering set_steering `VEuc  1 e 1 0 ]
+"115
+[v _set_speed set_speed `VEui  1 e 2 0 ]
+"116
+[v _JoystickValues JoystickValues `VE[2]uc  1 e 2 0 ]
+"117
 [v _JoystickConstants JoystickConstants `VE[2]f  1 e 8 0 ]
-"195
+"201
 [v _main main `(v  1 e 0 0 ]
 {
-"379
+"414
 } 0
-"566
+"617
 [v _board_initialization board_initialization `(v  1 e 0 0 ]
 {
-"632
+"683
 } 0
 "218 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
 [v _CANInitialize CANInitialize `(v  1 e 0 0 ]
@@ -1795,24 +1791,34 @@ CAN_RX_BUFFER_2_OVFL 2
 [v CANOperationMode@mode mode `E16881  1 a 1 16 ]
 "211
 } 0
-"475 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"526 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _PWR_Button_Polling PWR_Button_Polling `(v  1 e 0 0 ]
 {
-"483
+"534
 } 0
-"381
+"500
+[v _LCD_Parking LCD_Parking `(v  1 e 0 0 ]
+{
+"511
+} 0
+"487
+[v _LCD_Park LCD_Park `(v  1 e 0 0 ]
+{
+"498
+} 0
+"416
 [v _LCD_Handler LCD_Handler `(v  1 e 0 0 ]
 {
-"437
+"472
 } 0
 "492 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
 "516
 [v sprintf@fval fval `d  1 a 4 20 ]
-[u S3592 . 4 `ul 1 vd 4 0 `d 1 integ 4 0 ]
+[u S3604 . 4 `ul 1 vd 4 0 `d 1 integ 4 0 ]
 "526
-[v sprintf@tmpval tmpval `S3592  1 a 4 14 ]
+[v sprintf@tmpval tmpval `S3604  1 a 4 14 ]
 "528
 [v sprintf@val val `ul  1 a 4 8 ]
 "504
@@ -1860,17 +1866,17 @@ CAN_RX_BUFFER_2_OVFL 2
 "8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S3899 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S3911 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S3904 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S3907 . 4 `l 1 i 4 0 `d 1 f 4 0 `S3899 1 fAsBytes 4 0 `S3904 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S3907  1 a 4 49 ]
+[s S3916 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S3919 . 4 `l 1 i 4 0 `d 1 f 4 0 `S3911 1 fAsBytes 4 0 `S3916 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S3919  1 a 4 49 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 44 ]
-[s S3975 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S3987 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S3978 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S3975 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S3978  1 a 2 53 ]
+[u S3990 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S3987 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S3990  1 a 2 53 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 48 ]
 "11
@@ -2124,10 +2130,15 @@ CAN_RX_BUFFER_2_OVFL 2
 [v LCD_shift_cursor@shift shift `uc  1 a 1 29 ]
 "106
 } 0
-"463 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"474 Z:\Centraline\RemoteCan.X\RemoteCan.c
+[v _LCD_Gap LCD_Gap `(v  1 e 0 0 ]
+{
+"485
+} 0
+"513
 [v _LCD_End LCD_End `(v  1 e 0 0 ]
 {
-"473
+"524
 } 0
 "178 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c
 [v _LCD_write_message LCD_write_message `(v  1 e 0 0 ]
@@ -2224,27 +2235,27 @@ CAN_RX_BUFFER_2_OVFL 2
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 18 ]
 "53
 } 0
-"505 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"556 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _Joystick_Polling Joystick_Polling `(v  1 e 0 0 ]
 {
-"506
+"557
 [v Joystick_Polling@i i `uc  1 a 1 17 ]
-"512
+"563
 } 0
-"495
+"546
 [v _F2_Button_Polling F2_Button_Polling `(v  1 e 0 0 ]
 {
-"503
+"554
 } 0
-"485
+"536
 [v _F1_Button_Polling F1_Button_Polling `(v  1 e 0 0 ]
 {
-"493
+"544
 } 0
-"514
+"565
 [v _CAN_Tx CAN_Tx `(v  1 e 0 0 ]
 {
-"530
+"581
 } 0
 "294 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
 [v _CANsendMessage CANsendMessage `(v  1 e 0 0 ]
@@ -2263,27 +2274,22 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 "1157
 } 0
-"532 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"583 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _CAN_Rx CAN_Rx `(v  1 e 0 0 ]
 {
-"564
+"615
 } 0
-"186
+"192
 [v _ISR_bassa ISR_bassa `IIL(v  1 e 0 0 ]
 {
-"193
+"199
 } 0
-"116
+"119
 [v _ISR_alta ISR_alta `IIH(v  1 e 0 0 ]
 {
-"124
-[v ISR_alta@i i `uc  1 a 1 36 ]
-"184
-} 0
-"514
-[v i2_CAN_Tx CAN_Tx `(v  1 e 0 0 ]
-{
-"530
+"127
+[v ISR_alta@i i `uc  1 a 1 33 ]
+"190
 } 0
 "294 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
 [v i2_CANsendMessage CANsendMessage `(v  1 e 0 0 ]
@@ -2300,108 +2306,7 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 "1157
 } 0
-"451 Z:\Centraline\RemoteCan.X\RemoteCan.c
-[v _LCD_Park LCD_Park `(v  1 e 0 0 ]
-{
-"461
-} 0
-"439
-[v _LCD_Gap LCD_Gap `(v  1 e 0 0 ]
-{
-"449
-} 0
-"178 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c
-[v i2_LCD_write_message LCD_write_message `(v  1 e 0 0 ]
-{
-[v i2LCD_write_message@buffer buffer `*.32Cuc  1 p 2 34 ]
-"188
-} 0
-"145
-[v i2_LCD_write_char LCD_write_char `(v  1 e 0 0 ]
-{
-[v i2LCD_write_char@value value `uc  1 a 1 wreg ]
-[v i2LCD_write_char@D0 LCD_write_char `uc  1 a 1 32 ]
-[v i2LCD_write_char@D1 LCD_write_char `uc  1 a 1 31 ]
-[v i2LCD_write_char@D2 LCD_write_char `uc  1 a 1 30 ]
-[v i2LCD_write_char@D3 LCD_write_char `uc  1 a 1 29 ]
-[v i2LCD_write_char@value value `uc  1 a 1 wreg ]
-"149
-[v i2LCD_write_char@value value `uc  1 a 1 33 ]
-"168
-} 0
-"283
-[v i2_LCD_initialize LCD_initialize `(v  1 e 0 0 ]
-{
-[v i2LCD_initialize@quartz_frequency quartz_frequency `uc  1 a 1 wreg ]
-[v i2LCD_initialize@quartz_frequency quartz_frequency `uc  1 a 1 wreg ]
-"285
-[v i2LCD_initialize@quartz_frequency quartz_frequency `uc  1 a 1 31 ]
-"316
-} 0
-"115 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\delay.c
-[v i2_delay_set_quartz delay_set_quartz `(v  1 e 0 0 ]
-{
-[v i2delay_set_quartz@frequency frequency `uc  1 a 1 wreg ]
-[v i2delay_set_quartz@frequency frequency `uc  1 a 1 wreg ]
-"117
-[v i2delay_set_quartz@frequency frequency `uc  1 a 1 17 ]
-"119
-} 0
-"266 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c
-[v i2_LCD_cursor LCD_cursor `(v  1 e 0 0 ]
-{
-[v i2LCD_cursor@active active `uc  1 a 1 wreg ]
-[v i2LCD_cursor@active active `uc  1 a 1 wreg ]
-[v i2LCD_cursor@blinking blinking `uc  1 p 1 29 ]
-"268
-[v i2LCD_cursor@active active `uc  1 a 1 30 ]
-"270
-} 0
-"257
-[v i2_LCD_clear LCD_clear `(v  1 e 0 0 ]
-{
-"261
-} 0
-"111
-[v i2_LCD_goto_line LCD_goto_line `(v  1 e 0 0 ]
-{
-[v i2LCD_goto_line@line line `uc  1 a 1 wreg ]
-[v i2LCD_goto_line@line line `uc  1 a 1 wreg ]
-[v i2LCD_goto_line@line line `uc  1 a 1 29 ]
-"130
-} 0
-"61
-[v i2_LCD_send_command LCD_send_command `(v  1 e 0 0 ]
-{
-[v i2LCD_send_command@D3 D3 `uc  1 a 1 wreg ]
-[v i2LCD_send_command@D3 D3 `uc  1 a 1 wreg ]
-[v i2LCD_send_command@D2 D2 `uc  1 p 1 25 ]
-[v i2LCD_send_command@D1 D1 `uc  1 p 1 26 ]
-[v i2LCD_send_command@D0 D0 `uc  1 p 1 27 ]
-"63
-[v i2LCD_send_command@D3 D3 `uc  1 a 1 28 ]
-"68
-} 0
-"49
-[v i2_LCD_enable_pulse LCD_enable_pulse `(v  1 e 0 0 ]
-{
-"55
-} 0
-"61 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\delay.c
-[v i2_delay_ms delay_ms `(v  1 e 0 0 ]
-{
-[v i2delay_ms@value_ms value_ms `ui  1 p 2 23 ]
-"96
-} 0
-"15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul16.c
-[v i2___wmul __wmul `(ui  1 e 2 0 ]
-{
-[v i2___wmul@product __wmul `ui  1 a 2 21 ]
-[v i2___wmul@multiplier multiplier `ui  1 p 2 17 ]
-[v i2___wmul@multiplicand multiplicand `ui  1 p 2 19 ]
-"53
-} 0
-"528 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
+"528
 [v _CANreceiveMessage CANreceiveMessage `(uc  1 e 1 0 ]
 {
 "530

@@ -20921,34 +20921,6 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 30 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\math.h"
-extern double fabs(double);
-extern double floor(double);
-extern double ceil(double);
-extern double modf(double, double *);
-extern double sqrt(double);
-extern double atof(const char *);
-extern double sin(double) ;
-extern double cos(double) ;
-extern double tan(double) ;
-extern double asin(double) ;
-extern double acos(double) ;
-extern double atan(double);
-extern double atan2(double, double) ;
-extern double log(double);
-extern double log10(double);
-extern double pow(double, double) ;
-extern double exp(double) ;
-extern double sinh(double) ;
-extern double cosh(double) ;
-extern double tanh(double);
-extern double eval_poly(double, const double *, int);
-extern double frexp(double, int *);
-extern double ldexp(double, int);
-extern double fmod(double, double);
-extern double trunc(double);
-extern double round(double);
-
 # 42 "RemoteCan.c"
 void board_initialization(void);
 void PWR_Button_Polling(void);
@@ -20960,6 +20932,7 @@ void CAN_Rx(void);
 void LCD_Handler(void);
 void LCD_Gap(void);
 void LCD_Park(void);
+void LCD_Parking(void);
 void LCD_End(void);
 
 
@@ -20972,11 +20945,12 @@ volatile unsigned long pr_time_5 = 0;
 volatile unsigned long pr_time_6 = 0;
 
 
+CANmessage msg;
+volatile bit Can_Tx_Force = 0;
 BYTE data_steering[] = 0;
 BYTE data_speed [] = 0;
 BYTE data_brake [] = 0;
 BYTE data[] = 0;
-CANmessage msg;
 BYTE park_assist_state[8] = 0;
 
 
@@ -20985,30 +20959,31 @@ volatile bit newMessageCan = 0;
 volatile bit MotoreFlag = 0;
 volatile bit AbsFlag = 0;
 volatile bit SterzoFlag = 0;
-unsigned int left_speed = 0;
-unsigned int right_speed = 0;
+volatile unsigned int left_speed = 0;
+volatile unsigned int right_speed = 0;
 volatile unsigned char battery = 0;
 volatile unsigned long id = 0;
 BYTE data_speed_rx[7] = 0;
 
 
-
 volatile bit display_refresh = 0;
-unsigned char str [12] = 0;
-float actual_speed_kmh = 0;
-unsigned int user_data = 0;
-unsigned int actual_speed = 0;
+volatile bit parking_message_E = 0;
+volatile unsigned char parking_message_ID = 0;
+volatile unsigned char str [12] = 0;
+volatile float actual_speed_kmh = 0;
+volatile unsigned int user_data = 0;
+volatile unsigned int actual_speed = 0;
 
 
+volatile bit x = 0;
 volatile bit y = 0;
+volatile bit z = 0;
 volatile bit space_available = 0;
 volatile bit space_gap_reached = 0;
 volatile bit steering_correction_dir = 0;
 volatile unsigned char steering_correction = 0;
-volatile unsigned char x = 0;
-volatile unsigned char z = 0;
+volatile unsigned char parking_state = 0;
 volatile signed long check = 0;
-volatile char parking_state = 0;
 
 
 volatile bit wait_low_1 = 0;
@@ -21017,7 +20992,7 @@ volatile bit wait_low_3 = 0;
 volatile bit power_switch = 0;
 volatile bit F1_switch = 0;
 volatile bit F2_switch = 0;
-volatile char dir = 0;
+volatile unsigned char dir = 0;
 volatile unsigned char switch_position = 0;
 volatile unsigned char set_steering = 0;
 volatile unsigned int set_speed = 0;
@@ -21039,24 +21014,29 @@ data_speed_rx[i] = msg.data[i];
 
 if (id == 0b00000001011) {
 if (msg.data[0] == 1) {
+LATDbits.LATD2 = 1;
 space_available = 1;
 space_gap_reached = 0;
 F2_switch = 0;
-LCD_Gap();
+parking_message_E = 1;
+parking_message_ID = 0;
 }
 
 if (msg.data[0] == 2) {
+LATDbits.LATD3 = 1;
+space_available = 1;
+space_gap_reached = 1;
 dir = 1;
 set_speed = 0;
 data_steering [0] = 90;
 data_brake [0] = 0;
-data_brake [1] = 1;
-CAN_Tx();
-space_gap_reached = 1;
-LCD_Park();
+data_brake [1] = 0;
+Can_Tx_Force = 1;
+parking_message_ID = 2;
 }
 
 if (msg.data[0] == 3) {
+parking_message_ID = 6;
 F1_switch = 0;
 pr_time_6 = time_counter + (2000 / 10);
 }
@@ -21080,12 +21060,10 @@ _delay((unsigned long)((10)*(16000000/4000000.0)));
 while (CANisTxReady() != 1);
 CANsendMessage(0b00000000010, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 
-# 176
+# 184
 }
 }
 }
-LATDbits.LATD2 = 1;
-LATDbits.LATD3 = 1;
 PIR3bits.RXB1IF = 0;
 PIR3bits.RXB0IF = 0;
 }
@@ -21103,9 +21081,11 @@ PIR2bits.TMR3IF = 0;
 void main(void) {
 board_initialization();
 
-# 204
+# 210
 JoystickConstants[0] = 0.703;
 JoystickConstants[1] = 15;
+
+data_brake [1] = 0;
 
 while (1) {
 
@@ -21119,8 +21099,7 @@ if (power_switch == 0) {
 dir = 1;
 set_speed = 0;
 data_steering [0] = 90;
-data_brake [0] = 0;
-data_brake [1] = 1;
+data_brake [0] = 3;
 CAN_Tx();
 PORTDbits.RD6 = 0;
 PORTDbits.RD5 = 0;
@@ -21161,23 +21140,24 @@ dir = 0;
 
 if (F1_switch == 1) {
 y = 0;
-if ((x < 1)&&(F2_switch == 0)) {
+if ((x == 0)&&(F2_switch == 0)) {
 space_available = 0;
 parking_state = 1;
 JoystickConstants[1] = 1;
 while (!CANisTxReady());
 park_assist_state[0] = 0b00000001;
 CANsendMessage(0b00000001010, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-x++;
+x = 1;
 }
 
 if ((F2_switch == 1)&&(space_available == 1)&&(space_gap_reached == 1)) {
-if (z < 1) {
+if (z == 0) {
+parking_message_ID = 4;
 parking_state = 2;
 while (!CANisTxReady());
 CANsendMessage(0b00000001100, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 x = 0;
-z++;
+z = 1;
 }
 } else {
 z = 0;
@@ -21201,6 +21181,7 @@ PORTDbits.RD5 = 1;
 } else {
 x = 0;
 z = 0;
+parking_message_E = 0;
 F2_switch = 0;
 space_available = 0;
 space_gap_reached = 0;
@@ -21246,14 +21227,22 @@ steering_correction = 0;
 if (switch_position != 0) {
 if (JoystickValues[1] > 132) {
 set_speed = (JoystickValues[1] - 130)*(JoystickConstants[1]);
-data_brake [0] = 0;
+data_brake [0] = 3;
 } else {
 set_speed = 0;
-data_brake [0] = ((130 - JoystickValues[1]))*(1.9);
+if (JoystickValues[1] <= 65) {
+data_brake [0] = 2;
+}
+if (JoystickValues[1] <= 20) {
+data_brake [0] = 1;
+}
+if (JoystickValues[1] <= 5) {
+data_brake [0] = 0;
+}
 }
 } else {
 set_speed = 0;
-data_brake [0] = 255;
+data_brake [0] = 0;
 }
 
 if (newMessageCan == 1) {
@@ -21261,22 +21250,40 @@ CAN_Rx();
 newMessageCan = 0;
 }
 
-if (((time_counter - pr_time_2) >= 2) && (parking_state != 2) && (space_gap_reached != 1)) {
+if ((((time_counter - pr_time_2) >= 2) && (parking_message_ID < 2)) || (Can_Tx_Force == 1)) {
+Can_Tx_Force = 0;
 pr_time_2 = time_counter;
 CAN_Tx();
 }
 
+
 if (time_counter >= pr_time_6) {
 if ((time_counter - pr_time_3) >= (100 / 10)) {
 pr_time_3 = time_counter;
-if (space_available == 1) {
+if (parking_message_E == 1) {
 display_refresh = 1;
+if (parking_message_ID == 0) {
+LCD_Gap();
+parking_message_ID++;
+}
+if (parking_message_ID == 2) {
+LCD_Park();
+parking_message_ID++;
+}
+if (parking_message_ID == 4) {
+LCD_Parking();
+parking_message_ID++;
+}
 } else {
 LCD_Handler();
 }
 }
 } else {
+if (parking_message_ID == 6) {
 LCD_End();
+parking_message_ID = 0;
+parking_message_E = 0;
+}
 }
 }
 }
@@ -21341,34 +21348,50 @@ LCD_write_integer(user_data, 0, 0x01);
 
 void LCD_Gap(void) {
 LCD_initialize(16);
+LCD_clear();
 LCD_goto_line(1);
 LCD_write_message("= PARKING MESSAGES =");
 LCD_goto_line(2);
-LCD_write_message(" PARKING SPACE FOUND");
+LCD_write_message(" Parking space FOUND");
 LCD_goto_line(3);
-LCD_write_message("->  KEEP MOVING  <-?");
+LCD_write_message("->  KEEP MOVING   <-");
 LCD_goto_line(4);
 LCD_write_message(" until next message ");
 }
 
 void LCD_Park(void) {
 LCD_initialize(16);
+LCD_clear();
 LCD_goto_line(1);
 LCD_write_message("= PARKING MESSAGES =");
 LCD_goto_line(2);
-LCD_write_message("- DISTANCE REACHED -");
+LCD_write_message("- Distance REACHED -");
 LCD_goto_line(3);
-LCD_write_message("PRESS THE BUTTON TO ");
+LCD_write_message("Press the BUTTON to ");
 LCD_goto_line(4);
-LCD_write_message("   START PARKING    ");
+LCD_write_message("   start parking    ");
+}
+
+void LCD_Parking(void) {
+LCD_initialize(16);
+LCD_clear();
+LCD_goto_line(1);
+LCD_write_message("= PARKING MESSAGES =");
+LCD_goto_line(2);
+LCD_write_message("=    Parking in    =");
+LCD_goto_line(3);
+LCD_write_message("=    progress...   =");
+LCD_goto_line(4);
+LCD_write_message("====================");
 }
 
 void LCD_End(void) {
 LCD_initialize(16);
+LCD_clear();
 LCD_goto_line(1);
 LCD_write_message("= PARKING MESSAGES =");
 LCD_goto_line(2);
-LCD_write_message(" PARKING PROCEDURES ");
+LCD_write_message(" Parking procedures ");
 LCD_goto_line(3);
 LCD_write_message("    SUCCESSFULLY    ");
 LCD_goto_line(4);
