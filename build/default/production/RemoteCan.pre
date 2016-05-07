@@ -21026,11 +21026,6 @@ if (msg.data[0] == 2) {
 LATDbits.LATD3 = 1;
 space_available = 1;
 space_gap_reached = 1;
-dir = 1;
-set_speed = 0;
-data_steering [0] = 90;
-data_brake [0] = 0;
-data_brake [1] = 0;
 Can_Tx_Force = 1;
 parking_message_ID = 2;
 }
@@ -21060,7 +21055,7 @@ _delay((unsigned long)((10)*(16000000/4000000.0)));
 while (CANisTxReady() != 1);
 CANsendMessage(0b00000000010, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 
-# 184
+# 179
 }
 }
 }
@@ -21081,7 +21076,7 @@ PIR2bits.TMR3IF = 0;
 void main(void) {
 board_initialization();
 
-# 210
+# 205
 JoystickConstants[0] = 0.703;
 JoystickConstants[1] = 15;
 
@@ -21251,7 +21246,14 @@ newMessageCan = 0;
 }
 
 if ((((time_counter - pr_time_2) >= 2) && (parking_message_ID < 2)) || (Can_Tx_Force == 1)) {
+if (Can_Tx_Force == 1) {
+dir = 1;
+set_speed = 0;
+data_steering [0] = 90;
+data_brake [0] = 0;
+data_brake [1] = 0;
 Can_Tx_Force = 0;
+}
 pr_time_2 = time_counter;
 CAN_Tx();
 }

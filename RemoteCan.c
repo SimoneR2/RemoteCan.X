@@ -143,11 +143,6 @@ __interrupt(high_priority) void ISR_alta(void) {
                     LATDbits.LATD3 = HIGH; //DEBUG
                     space_available = HIGH; //DEBUG
                     space_gap_reached = HIGH;
-                    dir = FWD;
-                    set_speed = 0;
-                    data_steering [0] = 90;
-                    data_brake [0] = 0; //<== VALORE FRENATA CAMBIARE?
-                    data_brake [1] = 0;
                     Can_Tx_Force = HIGH;
                     parking_message_ID = 2;
                 }
@@ -376,7 +371,14 @@ void main(void) {
         }
 
         if ((((time_counter - pr_time_2) >= 2) && (parking_message_ID < 2)) || (Can_Tx_Force == HIGH)) {
-            Can_Tx_Force = LOW;
+            if (Can_Tx_Force == HIGH) {
+                dir = FWD;
+                set_speed = 0;
+                data_steering [0] = 90;
+                data_brake [0] = 0; //<== VALORE FRENATA CAMBIARE?
+                data_brake [1] = 0;
+                Can_Tx_Force = LOW;
+            }
             pr_time_2 = time_counter;
             CAN_Tx();
         }
