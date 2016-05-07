@@ -205,7 +205,7 @@ void main(void) {
     JoystickConstants[X_AXIS] = 0.703;
     JoystickConstants[Y_AXIS] = SPD_CNST_STD;
 
-    data_brake [1] = 0;
+    data_brake [1] = 0b00000000;
 
     while (1) {
 
@@ -219,7 +219,7 @@ void main(void) {
             dir = FWD;
             set_speed = 0;
             data_steering [0] = 90;
-            data_brake [0] = 3;
+            data_brake [0] = 0b00000011;
             CAN_Tx();
             PORTDbits.RD6 = LOW;
             PORTDbits.RD5 = LOW;
@@ -347,22 +347,22 @@ void main(void) {
         if (switch_position != HIGH_POS) {
             if (JoystickValues[Y_AXIS] > 132) {
                 set_speed = (JoystickValues[Y_AXIS] - 130)*(JoystickConstants[Y_AXIS]); //guardare
-                data_brake [0] = 3;
+                data_brake [0] = 0b00000011;
             } else {
                 set_speed = 0;
                 if (JoystickValues[Y_AXIS] <= 65) {
-                    data_brake [0] = 2;
+                    data_brake [0] = 0b00000010;
                 }
                 if (JoystickValues[Y_AXIS] <= 20) {
-                    data_brake [0] = 1;
+                    data_brake [0] = 0b00000001;
                 }
                 if (JoystickValues[Y_AXIS] <= 5) {
-                    data_brake [0] = 0;
+                    data_brake [0] = 0b00000000;
                 }
             }
         } else {
             set_speed = 0;
-            data_brake [0] = 0;
+            data_brake [0] = 0b00000000;
         }
 
         if (newMessageCan == HIGH) {
@@ -375,8 +375,7 @@ void main(void) {
                 dir = FWD;
                 set_speed = 0;
                 data_steering [0] = 90;
-                data_brake [0] = 0; //<== VALORE FRENATA CAMBIARE?
-                data_brake [1] = 0;
+                data_brake [0] = 0b00000000; //<== VALORE FRENATA CAMBIARE?
                 Can_Tx_Force = LOW;
             }
             pr_time_2 = time_counter;
@@ -578,7 +577,7 @@ void CAN_Tx(void) {
 
     //Send brake message
     while (CANisTxReady() != HIGH);
-    CANsendMessage(BRAKE_SIGNAL, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_1);
+    CANsendMessage(BRAKE_SIGNAL, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 
 }
 
