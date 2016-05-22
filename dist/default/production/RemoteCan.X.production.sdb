@@ -178,29 +178,29 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _ISR_bassa ISR_bassa `IIL(v  1 e 0 0 ]
 "196
 [v _main main `(v  1 e 0 0 ]
-"418
+"417
 [v _LCD_Handler LCD_Handler `(v  1 e 0 0 ]
-"476
+"475
 [v _LCD_Gap LCD_Gap `(v  1 e 0 0 ]
-"489
+"488
 [v _LCD_Park LCD_Park `(v  1 e 0 0 ]
-"502
+"501
 [v _LCD_Parking LCD_Parking `(v  1 e 0 0 ]
-"515
+"514
 [v _LCD_End LCD_End `(v  1 e 0 0 ]
-"528
+"527
 [v _PWR_Button_Polling PWR_Button_Polling `(v  1 e 0 0 ]
-"538
+"537
 [v _F1_Button_Polling F1_Button_Polling `(v  1 e 0 0 ]
-"548
+"547
 [v _F2_Button_Polling F2_Button_Polling `(v  1 e 0 0 ]
-"558
+"557
 [v _Joystick_Polling Joystick_Polling `(v  1 e 0 0 ]
-"567
+"566
 [v _CAN_Tx CAN_Tx `(v  1 e 0 0 ]
-"585
+"584
 [v _CAN_Rx CAN_Rx `(v  1 e 0 0 ]
-"619
+"618
 [v _board_initialization board_initialization `(v  1 e 0 0 ]
 "49 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\delay.c
 [v _delay_quartz_frequency_value delay_quartz_frequency_value `VEuc  1 e 1 0 ]
@@ -1728,12 +1728,12 @@ CAN_RX_BUFFER_2_OVFL 2
 "196
 [v _main main `(v  1 e 0 0 ]
 {
-"416
+"415
 } 0
-"619
+"618
 [v _board_initialization board_initialization `(v  1 e 0 0 ]
 {
-"685
+"684
 } 0
 "218 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
 [v _CANInitialize CANInitialize `(v  1 e 0 0 ]
@@ -1791,25 +1791,25 @@ CAN_RX_BUFFER_2_OVFL 2
 [v CANOperationMode@mode mode `E16881  1 a 1 17 ]
 "211
 } 0
-"528 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"527 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _PWR_Button_Polling PWR_Button_Polling `(v  1 e 0 0 ]
 {
-"536
+"535
 } 0
-"502
+"501
 [v _LCD_Parking LCD_Parking `(v  1 e 0 0 ]
 {
-"513
+"512
 } 0
-"489
+"488
 [v _LCD_Park LCD_Park `(v  1 e 0 0 ]
 {
-"500
+"499
 } 0
-"418
+"417
 [v _LCD_Handler LCD_Handler `(v  1 e 0 0 ]
 {
-"474
+"473
 } 0
 "492 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
@@ -2130,15 +2130,15 @@ CAN_RX_BUFFER_2_OVFL 2
 [v LCD_shift_cursor@shift shift `uc  1 a 1 30 ]
 "106
 } 0
-"476 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"475 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _LCD_Gap LCD_Gap `(v  1 e 0 0 ]
 {
-"487
+"486
 } 0
-"515
+"514
 [v _LCD_End LCD_End `(v  1 e 0 0 ]
 {
-"526
+"525
 } 0
 "178 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c
 [v _LCD_write_message LCD_write_message `(v  1 e 0 0 ]
@@ -2235,27 +2235,27 @@ CAN_RX_BUFFER_2_OVFL 2
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 19 ]
 "53
 } 0
-"558 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"557 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _Joystick_Polling Joystick_Polling `(v  1 e 0 0 ]
 {
-"559
+"558
 [v Joystick_Polling@i i `uc  1 a 1 18 ]
-"565
+"564
 } 0
-"548
+"547
 [v _F2_Button_Polling F2_Button_Polling `(v  1 e 0 0 ]
 {
-"556
+"555
 } 0
-"538
+"537
 [v _F1_Button_Polling F1_Button_Polling `(v  1 e 0 0 ]
 {
-"546
+"545
 } 0
-"567
+"566
 [v _CAN_Tx CAN_Tx `(v  1 e 0 0 ]
 {
-"583
+"582
 } 0
 "294 Z:\Centraline/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
 [v _CANsendMessage CANsendMessage `(v  1 e 0 0 ]
@@ -2274,10 +2274,10 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 "1157
 } 0
-"585 Z:\Centraline\RemoteCan.X\RemoteCan.c
+"584 Z:\Centraline\RemoteCan.X\RemoteCan.c
 [v _CAN_Rx CAN_Rx `(v  1 e 0 0 ]
 {
-"617
+"616
 } 0
 "187
 [v _ISR_bassa ISR_bassa `IIL(v  1 e 0 0 ]

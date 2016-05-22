@@ -50,7 +50,8 @@ void LCD_Handler(void);
 void LCD_Gap(void); //Space found, continue forward till distance
 void LCD_Park(void); //Distance REACHED, Parking authorization required!
 void LCD_Parking(void); //Parking procedures wait...
-void LCD_End(void); //Parking procedures COMPLETED
+void LCD_End(void); //Parking procedures COMPLETED SUCCESSFULLY
+void LCD_Error(void); //Error occured
 
 //variabili per delay non blocking
 volatile unsigned long time_counter = 0;
@@ -98,6 +99,7 @@ volatile bit z = LOW;
 volatile bit space_available = LOW;
 volatile bit space_gap_reached = LOW;
 volatile bit steering_correction_dir = LOW;
+volatile bit parking_error = LOW;
 volatile unsigned char steering_correction = 0;
 volatile unsigned char parking_state = OFF;
 volatile signed long check = 0;
@@ -109,6 +111,8 @@ volatile bit wait_low_3 = LOW;
 volatile bit power_switch = LOW;
 volatile bit F1_switch = LOW;
 volatile bit F2_switch = LOW;
+volatile bit FWD_sensor = LOW;
+volatile bit BKWD_sensor = LOW;
 volatile unsigned char dir = 0;
 volatile unsigned char switch_position = 0;
 volatile unsigned char set_steering = 0;
@@ -152,6 +156,12 @@ __interrupt(high_priority) void ISR_alta(void) {
                     F1_switch = LOW; //Reset parking
                     pr_time_6 = time_counter + (LCD_PKG_DLY / 10);
                 }
+                if (msg.data[0] == 4) {
+                    parking_message_ID = 6;
+                    parking_error = HIGH; //Error flag
+                    F1_switch = LOW; //Reset parking
+                    pr_time_6 = time_counter + (LCD_PKG_DLY / 10);
+                }
             }
 
             if (id == STEERING_CORRECTION) {
@@ -159,6 +169,10 @@ __interrupt(high_priority) void ISR_alta(void) {
                 steering_correction = msg.data[0];
             }
 
+            if (id == SENSOR_DISTANCE) {
+                FWD_sensor = (msg.data[0] && 0b01000000) >> 6;
+                BKWD_sensor = (msg.data[0] && 0b00001000) >> 3;
+            }
             if (id == 0xAA) {
                 user_data = msg.data[1];
                 user_data = ((user_data << 8) | msg.data[0]);
@@ -219,7 +233,7 @@ void main(void) {
             dir = FWD;
             set_speed = 0;
             data_steering [0] = 90;
-            data_brake [0] = 0b00000011;
+            data_brake [0] = 0b00000000;
             CAN_Tx();
             PORTDbits.RD6 = LOW;
             PORTDbits.RD5 = LOW;
@@ -238,7 +252,7 @@ void main(void) {
                     PORTDbits.RD7 = ~PORTDbits.RD7;
                 }
                 PWR_Button_Polling();
-                delay_ms(10); //[!!]Verificare
+                delay_ms(10);
             }
             PORTDbits.RD7 = LOW; //Turn off ON/OFF switch backlight
             display_refresh = HIGH;
@@ -344,7 +358,7 @@ void main(void) {
         }
 
         //Speed
-        if (switch_position != HIGH_POS) {
+        if ((switch_position != HIGH_POS)&&(((switch_position == MID_POS)&&(FWD_sensor == LOW)) || (switch_position == LOW_POS)&&(BKWD_sensor == LOW))) {
             if (JoystickValues[Y_AXIS] > 132) {
                 set_speed = (JoystickValues[Y_AXIS] - 130)*(JoystickConstants[Y_AXIS]); //guardare
                 data_brake [0] = 0b00000011;
@@ -406,7 +420,15 @@ void main(void) {
             }
         } else {
             if (parking_message_ID == 6) {
-                LCD_End();
+                if (parking_error == HIGH) {
+                    parking_error = LOW;
+                    LCD_Error();
+                    while (CANisTxReady() != HIGH);
+                    data_brake [0] = 0b00000000;
+                    CANsendMessage(BRAKE_SIGNAL, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+                } else {
+                    LCD_End();
+                }
                 parking_message_ID = 0;
                 parking_message_E = LOW;
             }
@@ -522,6 +544,19 @@ void LCD_End(void) {
     LCD_write_message("    SUCCESSFULLY    ");
     LCD_goto_line(4);
     LCD_write_message("     COMPLETED!     ");
+}
+
+void LCD_Error(void) {
+    LCD_initialize(16);
+    LCD_clear();
+    LCD_goto_line(1);
+    LCD_write_message("= PARKING MESSAGES =");
+    LCD_goto_line(2);
+    LCD_write_message(" Parking procedures ");
+    LCD_goto_line(3);
+    LCD_write_message("       FAILED!      ");
+    LCD_goto_line(4);
+    LCD_write_message("   due to an error  ");
 }
 
 void PWR_Button_Polling(void) {

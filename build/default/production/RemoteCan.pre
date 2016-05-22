@@ -21080,7 +21080,7 @@ board_initialization();
 JoystickConstants[0] = 0.703;
 JoystickConstants[1] = 15;
 
-data_brake [1] = 0;
+data_brake [1] = 0b00000000;
 
 while (1) {
 
@@ -21094,7 +21094,7 @@ if (power_switch == 0) {
 dir = 1;
 set_speed = 0;
 data_steering [0] = 90;
-data_brake [0] = 3;
+data_brake [0] = 0b00000011;
 CAN_Tx();
 PORTDbits.RD6 = 0;
 PORTDbits.RD5 = 0;
@@ -21222,22 +21222,22 @@ steering_correction = 0;
 if (switch_position != 0) {
 if (JoystickValues[1] > 132) {
 set_speed = (JoystickValues[1] - 130)*(JoystickConstants[1]);
-data_brake [0] = 3;
+data_brake [0] = 0b00000011;
 } else {
 set_speed = 0;
 if (JoystickValues[1] <= 65) {
-data_brake [0] = 2;
+data_brake [0] = 0b00000010;
 }
 if (JoystickValues[1] <= 20) {
-data_brake [0] = 1;
+data_brake [0] = 0b00000001;
 }
 if (JoystickValues[1] <= 5) {
-data_brake [0] = 0;
+data_brake [0] = 0b00000000;
 }
 }
 } else {
 set_speed = 0;
-data_brake [0] = 0;
+data_brake [0] = 0b00000000;
 }
 
 if (newMessageCan == 1) {
@@ -21250,8 +21250,7 @@ if (Can_Tx_Force == 1) {
 dir = 1;
 set_speed = 0;
 data_steering [0] = 90;
-data_brake [0] = 0;
-data_brake [1] = 0;
+data_brake [0] = 0b00000000;
 Can_Tx_Force = 0;
 }
 pr_time_2 = time_counter;
@@ -21453,7 +21452,7 @@ CANsendMessage(0b00000000011, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_
 
 
 while (CANisTxReady() != 1);
-CANsendMessage(0b00000000100, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_1);
+CANsendMessage(0b00000000100, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 
 }
 
