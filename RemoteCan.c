@@ -113,6 +113,7 @@ volatile bit F1_switch = LOW;
 volatile bit F2_switch = LOW;
 volatile bit FWD_sensor = LOW;
 volatile bit BKWD_sensor = LOW;
+volatile bit collision_risk = LOW;
 volatile unsigned char dir = 0;
 volatile unsigned char switch_position = 0;
 volatile unsigned char set_steering = 0;
@@ -133,9 +134,8 @@ __interrupt(high_priority) void ISR_alta(void) {
                 }
             }
 
-            if (id == PARK_ASSIST_STATE) {// 1=> SPAZIO 2=> GAP 3=> END
+            if (id == PARK_ASSIST_STATE) {// 1=> SPAZIO 2=> GAP 3=> END 4=> ERR
                 if (msg.data[0] == 1) {
-                    LATDbits.LATD2 = HIGH; //DEBUG
                     space_available = HIGH;
                     space_gap_reached = LOW;
                     F2_switch = LOW;
@@ -144,7 +144,6 @@ __interrupt(high_priority) void ISR_alta(void) {
                 }
 
                 if (msg.data[0] == 2) {
-                    LATDbits.LATD3 = HIGH; //DEBUG
                     space_available = HIGH; //DEBUG
                     space_gap_reached = HIGH;
                     Can_Tx_Force = HIGH;
@@ -258,16 +257,26 @@ void main(void) {
             display_refresh = HIGH;
         }
 
-        //Gestione switch tre posizioni
+        //Gestione switch tre posizioni + collision risk routine
         if (PORTAbits.RA2 == HIGH) {
             switch_position = HIGH_POS;
         } else {
             if (PORTAbits.RA3 == LOW) {
                 switch_position = MID_POS;
                 dir = FWD;
+                if (FWD_sensor == HIGH) {
+                    collision_risk = HIGH;
+                } else {
+                    collision_risk = LOW;
+                }
             } else {
                 switch_position = LOW_POS;
                 dir = BKWD;
+                if (BKWD_sensor == HIGH) {
+                    collision_risk = HIGH;
+                } else {
+                    collision_risk = LOW;
+                }
             }
         }
 
@@ -299,17 +308,16 @@ void main(void) {
 
             if ((time_counter - pr_time_5) >= 30) {
                 pr_time_5 = time_counter;
-                if (space_available == LOW) {
-                    PORTDbits.RD6 = ~PORTDbits.RD6;
-                    PORTDbits.RD5 = LOW;
-                } else {
+                if ((space_available == HIGH)&&(space_gap_reached == HIGH)) {
                     PORTDbits.RD6 = HIGH;
                     if (F2_switch == LOW) {
                         PORTDbits.RD5 = ~PORTDbits.RD5;
                     } else {
                         PORTDbits.RD5 = HIGH;
-
                     }
+                } else {
+                    PORTDbits.RD6 = ~PORTDbits.RD6;
+                    PORTDbits.RD5 = LOW;
                 }
             }
         } else { //RD6/RB4-- RD5/RB1
@@ -358,7 +366,7 @@ void main(void) {
         }
 
         //Speed
-        if ((switch_position != HIGH_POS)&&(((switch_position == MID_POS)&&(FWD_sensor == LOW)) || (switch_position == LOW_POS)&&(BKWD_sensor == LOW))) {
+        if ((switch_position != HIGH_POS)&&(collision_risk == LOW)) {
             if (JoystickValues[Y_AXIS] > 132) {
                 set_speed = (JoystickValues[Y_AXIS] - 130)*(JoystickConstants[Y_AXIS]); //guardare
                 data_brake [0] = 0b00000011;
