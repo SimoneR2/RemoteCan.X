@@ -169,8 +169,8 @@ __interrupt(high_priority) void ISR_alta(void) {
             }
 
             if (id == SENSOR_DISTANCE) {
-                FWD_sensor = (msg.data[0] && 0b01000000) >> 6;
-                BKWD_sensor = (msg.data[0] && 0b00001000) >> 3;
+                FWD_sensor = (msg.data[0] & 0b01000000) >> 6;
+                BKWD_sensor = (msg.data[0] & 0b00001000) >> 3;
             }
             if (id == 0xAA) {
                 user_data = msg.data[1];
@@ -218,7 +218,7 @@ void main(void) {
     JoystickConstants[X_AXIS] = 0.703;
     JoystickConstants[Y_AXIS] = SPD_CNST_STD;
 
-    data_brake [1] = 0b00000000;
+    data_brake [1] = 1;
 
     while (1) {
 
@@ -369,7 +369,8 @@ void main(void) {
         if ((switch_position != HIGH_POS)&&(collision_risk == LOW)) {
             if (JoystickValues[Y_AXIS] > 132) {
                 set_speed = (JoystickValues[Y_AXIS] - 130)*(JoystickConstants[Y_AXIS]); //guardare
-                data_brake [0] = 0b00000011;
+                data_brake [0] = 3;
+                data_brake [1] = 1; 
             } else {
                 set_speed = 0;
                 if (JoystickValues[Y_AXIS] <= 65) {
