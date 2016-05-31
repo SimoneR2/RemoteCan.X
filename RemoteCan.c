@@ -177,13 +177,13 @@ __interrupt(high_priority) void ISR_alta(void) {
                 user_data = ((user_data << 8) | msg.data[0]);
             }
 
-            if (id == ECU_STATE) {
+            if (id == ECU_STATE_REMOTECAN) {
                 if (RTR_Flag == 1) { //Se è arrivata la richiesta presenza centraline
                     pr_time_4 = time_counter;
                     data[0] = 0x03;
                     __delay_us(10);
                     while (CANisTxReady() != 1);
-                    CANsendMessage(ECU_STATE, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+                    CANsendMessage(ECU_STATE_REMOTECAN, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 
                     //[!]CONTROLLARE QUESTA PARTE!
                     //MotoreFlag = HIGH;
@@ -625,25 +625,25 @@ void CAN_Tx(void) {
 }
 
 void CAN_Rx(void) {
-    if (id == ECU_STATE) {
-        if (RTR_Flag == HIGH) { //Se è arrivata la richiesta presenza centraline
-            pr_time_4 = time_counter;
-            MotoreFlag = HIGH;
-            AbsFlag = LOW; //resetta flag
-            SterzoFlag = LOW; //resetta flag
-        } else {
-            if (data[0] == 0x01) {
-                AbsFlag = HIGH;
-            }
-            if (data[0] == 0x02) {
-                SterzoFlag = HIGH;
-            }
-        }
-    }
-
-    if (pr_time_4 - time_counter > 450) {
-        //CONTROLLO DEI FLAG DI RISPOSTA ECU
-    }
+//    if (id == ECU_STATE) {
+//        if (RTR_Flag == HIGH) { //Se è arrivata la richiesta presenza centraline
+//            pr_time_4 = time_counter;
+//            MotoreFlag = HIGH;
+//            AbsFlag = LOW; //resetta flag
+//            SterzoFlag = LOW; //resetta flag
+//        } else {
+//            if (data[0] == 0x01) {
+//                AbsFlag = HIGH;
+//            }
+//            if (data[0] == 0x02) {
+//                SterzoFlag = HIGH;
+//            }
+//        }
+//    }
+//
+//    if (pr_time_4 - time_counter > 450) {
+//        //CONTROLLO DEI FLAG DI RISPOSTA ECU
+//    }
 
     if ((id == ACTUAL_SPEED)&&(RTR_Flag == 0)) {
         left_speed = data_speed_rx[1];
