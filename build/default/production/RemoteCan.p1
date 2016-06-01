@@ -1,15 +1,15 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"207 ../../../Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
-[c E16922 0 32 64 96 128 .. ]
-[n E16922 CAN_OP_MODE CAN_OP_MODE_NORMAL CAN_OP_MODE_SLEEP CAN_OP_MODE_LOOP CAN_OP_MODE_LISTEN CAN_OP_MODE_CONFIG  ]
-"27382 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4685.h
+"207 C:/Users/simon/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+[c E16881 0 32 64 96 128 .. ]
+[n E16881 CAN_OP_MODE CAN_OP_MODE_NORMAL CAN_OP_MODE_SLEEP CAN_OP_MODE_LOOP CAN_OP_MODE_LISTEN CAN_OP_MODE_CONFIG  ]
+"27382 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f4685.h
 [v _CANCON `Vuc ~T0 @X0 0 e@3951 ]
 "27274
 [v _CANSTAT `Vuc ~T0 @X0 0 e@3950 ]
-"219 ../../../Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
-[c E16928 255 1 255 254 2 255 253 4 255 251 8 255 247 16 255 239 96 255 223 191 159 .. ]
-[n E16928 CAN_CONFIG_FLAGS CAN_CONFIG_DEFAULT CAN_CONFIG_PHSEG2_PRG_BIT CAN_CONFIG_PHSEG2_PRG_ON CAN_CONFIG_PHSEG2_PRG_OFF CAN_CONFIG_LINE_FILTER_BIT CAN_CONFIG_LINE_FILTER_ON CAN_CONFIG_LINE_FILTER_OFF CAN_CONFIG_SAMPLE_BIT CAN_CONFIG_SAMPLE_ONCE CAN_CONFIG_SAMPLE_THRICE CAN_CONFIG_MSG_TYPE_BIT CAN_CONFIG_STD_MSG CAN_CONFIG_XTD_MSG CAN_CONFIG_DBL_BUFFER_BIT CAN_CONFIG_DBL_BUFFER_ON CAN_CONFIG_DBL_BUFFER_OFF CAN_CONFIG_MSG_BITS CAN_CONFIG_ALL_MSG CAN_CONFIG_VALID_XTD_MSG CAN_CONFIG_VALID_STD_MSG CAN_CONFIG_ALL_VALID_MSG  ]
-"27485 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4685.h
+"219 C:/Users/simon/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+[c E16887 255 1 255 254 2 255 253 4 255 251 8 255 247 16 255 239 96 255 223 191 159 .. ]
+[n E16887 CAN_CONFIG_FLAGS CAN_CONFIG_DEFAULT CAN_CONFIG_PHSEG2_PRG_BIT CAN_CONFIG_PHSEG2_PRG_ON CAN_CONFIG_PHSEG2_PRG_OFF CAN_CONFIG_LINE_FILTER_BIT CAN_CONFIG_LINE_FILTER_ON CAN_CONFIG_LINE_FILTER_OFF CAN_CONFIG_SAMPLE_BIT CAN_CONFIG_SAMPLE_ONCE CAN_CONFIG_SAMPLE_THRICE CAN_CONFIG_MSG_TYPE_BIT CAN_CONFIG_STD_MSG CAN_CONFIG_XTD_MSG CAN_CONFIG_DBL_BUFFER_BIT CAN_CONFIG_DBL_BUFFER_ON CAN_CONFIG_DBL_BUFFER_OFF CAN_CONFIG_MSG_BITS CAN_CONFIG_ALL_MSG CAN_CONFIG_VALID_XTD_MSG CAN_CONFIG_VALID_STD_MSG CAN_CONFIG_ALL_VALID_MSG  ]
+"27485 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f4685.h
 [v _BRGCON1 `Vuc ~T0 @X0 0 e@3952 ]
 "27546
 [v _BRGCON2 `Vuc ~T0 @X0 0 e@3953 ]
@@ -85,20 +85,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RXB0CONbits `VS1638 ~T0 @X0 0 e@3936 ]
 "24434
 [v _RXB1CON `Vuc ~T0 @X0 0 e@3920 ]
-"259 ../../../Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
-[c E16962 1 2 .. ]
-[n E16962 CAN_MASK CAN_MASK_B1 CAN_MASK_B2  ]
+"259 C:/Users/simon/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+[c E16921 1 2 .. ]
+[n E16921 CAN_MASK CAN_MASK_B1 CAN_MASK_B2  ]
 "179
-[v _CANSetMask `(v ~T0 @X0 0 ef3`E16962`ul`E16928 ]
+[v _CANSetMask `(v ~T0 @X0 0 ef3`E16921`ul`E16887 ]
 "280
-[c E16965 0 1 2 3 4 5 .. ]
-[n E16965 CAN_FILTER CAN_FILTER_B1_F1 CAN_FILTER_B1_F2 CAN_FILTER_B2_F1 CAN_FILTER_B2_F2 CAN_FILTER_B2_F3 CAN_FILTER_B2_F4  ]
+[c E16924 0 1 2 3 4 5 .. ]
+[n E16924 CAN_FILTER CAN_FILTER_B1_F1 CAN_FILTER_B1_F2 CAN_FILTER_B2_F1 CAN_FILTER_B2_F2 CAN_FILTER_B2_F3 CAN_FILTER_B2_F4  ]
 "180
-[v _CANSetFilter `(v ~T0 @X0 0 ef3`E16965`ul`E16928 ]
+[v _CANSetFilter `(v ~T0 @X0 0 ef3`E16924`ul`E16887 ]
 "295
-[c E16950 3 252 253 254 255 8 247 255 64 255 191 .. ]
-[n E16950 CAN_TX_MSG_FLAGS CAN_TX_PRIORITY_MASK CAN_TX_PRIORITY_0 CAN_TX_PRIORITY_1 CAN_TX_PRIORITY_2 CAN_TX_PRIORITY_3 CAN_TX_FRAME_MASK CAN_TX_STD_FRAME CAN_TX_XTD_FRAME CAN_TX_RTR_MASK CAN_REMOTE_TX_FRAME CAN_NORMAL_TX_FRAME  ]
-"23071 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4685.h
+[c E16909 3 252 253 254 255 8 247 255 64 255 191 .. ]
+[n E16909 CAN_TX_MSG_FLAGS CAN_TX_PRIORITY_MASK CAN_TX_PRIORITY_0 CAN_TX_PRIORITY_1 CAN_TX_PRIORITY_2 CAN_TX_PRIORITY_3 CAN_TX_FRAME_MASK CAN_TX_STD_FRAME CAN_TX_XTD_FRAME CAN_TX_RTR_MASK CAN_REMOTE_TX_FRAME CAN_NORMAL_TX_FRAME  ]
+"23071 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f4685.h
 [s S1478 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1478 . TXPRI0 TXPRI1 . TXREQ TXERR TXLARB TXABT TXBIF ]
 "23081
@@ -416,10 +416,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TXB2D6 `Vuc ~T0 @X0 0 e@3884 ]
 "21451
 [v _TXB2D7 `Vuc ~T0 @X0 0 e@3885 ]
-"53 ../../../Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
-[s S2160 `ul 1 `uc -> 8 `i `uc 1 `uc 1 `uc 1 ]
-[n S2160 . identifier data type length RTR ]
-"27692 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4685.h
+"53 C:/Users/simon/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+[s S2159 `ul 1 `uc -> 8 `i `uc 1 `uc 1 `uc 1 ]
+[n S2159 . identifier data type length RTR ]
+"27692 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f4685.h
 [s S1736 :7 `uc 1 :1 `uc 1 ]
 [n S1736 . . RXB0OVFL_NOT_FIFOEMPTY ]
 "27696
@@ -448,10 +448,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1735 . . . . . . . . . ]
 "27732
 [v _COMSTATbits `VS1735 ~T0 @X0 0 e@3956 ]
-"534 ../../../Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
-[c E16972 1 2 .. ]
-[n E16972 CAN_RX_ERRORS CAN_RX_BUFFER_1_OVFL CAN_RX_BUFFER_2_OVFL  ]
-"24440 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4685.h
+"534 C:/Users/simon/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+[c E16931 1 2 .. ]
+[n E16931 CAN_RX_ERRORS CAN_RX_BUFFER_1_OVFL CAN_RX_BUFFER_2_OVFL  ]
+"24440 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f4685.h
 [s S1554 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1554 . FILHIT0 FILHIT1 FILHIT2 RXRTRRO_FILHIT3 FILHIT4 RXM0_RTRRO RXM1 RXFUL ]
 "24450
@@ -977,111 +977,47 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TXERRCNT `Vuc ~T0 @X0 0 e@3958 ]
 "27811
 [v _RXERRCNT `Vuc ~T0 @X0 0 e@3957 ]
-[v F16908 `(v ~T0 @X0 1 tf1`ul ]
-"161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
-[v __delay `JF16908 ~T0 @X0 0 e ]
+[v F16867 `(v ~T0 @X0 1 tf1`ul ]
+"152 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18.h
+[v __delay `JF16867 ~T0 @X0 0 e ]
 [p i __delay ]
-"29302 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4685.h
-[s S1829 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1829 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"29312
-[s S1830 :1 `uc 1 ]
-[n S1830 . LC0 ]
-"29315
-[s S1831 :1 `uc 1 :1 `uc 1 ]
-[n S1831 . . LC1 ]
-"29319
-[s S1832 :2 `uc 1 :1 `uc 1 ]
-[n S1832 . . LC2 ]
-"29323
-[s S1833 :3 `uc 1 :1 `uc 1 ]
-[n S1833 . . LC3 ]
-"29327
-[s S1834 :4 `uc 1 :1 `uc 1 ]
-[n S1834 . . LC4 ]
-"29331
-[s S1835 :5 `uc 1 :1 `uc 1 ]
-[n S1835 . . LC5 ]
-"29335
-[s S1836 :6 `uc 1 :1 `uc 1 ]
-[n S1836 . . LC6 ]
-"29339
-[s S1837 :7 `uc 1 :1 `uc 1 ]
-[n S1837 . . LC7 ]
-"29301
-[u S1828 `S1829 1 `S1830 1 `S1831 1 `S1832 1 `S1833 1 `S1834 1 `S1835 1 `S1836 1 `S1837 1 ]
-[n S1828 . . . . . . . . . . ]
-"29344
-[v _LATCbits `VS1828 ~T0 @X0 0 e@3979 ]
-"29434
-[s S1839 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1839 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
-"29444
-[s S1840 :1 `uc 1 ]
-[n S1840 . LD0 ]
-"29447
-[s S1841 :1 `uc 1 :1 `uc 1 ]
-[n S1841 . . LD1 ]
-"29451
-[s S1842 :2 `uc 1 :1 `uc 1 ]
-[n S1842 . . LD2 ]
-"29455
-[s S1843 :3 `uc 1 :1 `uc 1 ]
-[n S1843 . . LD3 ]
-"29459
-[s S1844 :4 `uc 1 :1 `uc 1 ]
-[n S1844 . . LD4 ]
-"29463
-[s S1845 :5 `uc 1 :1 `uc 1 ]
-[n S1845 . . LD5 ]
-"29467
-[s S1846 :6 `uc 1 :1 `uc 1 ]
-[n S1846 . . LD6 ]
-"29471
-[s S1847 :7 `uc 1 :1 `uc 1 ]
-[n S1847 . . LD7 ]
-"29433
-[u S1838 `S1839 1 `S1840 1 `S1841 1 `S1842 1 `S1843 1 `S1844 1 `S1845 1 `S1846 1 `S1847 1 ]
-[n S1838 . . . . . . . . . . ]
-"29476
-[v _LATDbits `VS1838 ~T0 @X0 0 e@3980 ]
-"29566
-[s S1849 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1849 . LATE0 LATE1 LATE2 ]
-"29571
-[s S1850 :1 `uc 1 ]
-[n S1850 . LE0 ]
-"29574
-[s S1851 :1 `uc 1 :1 `uc 1 ]
-[n S1851 . . LE1 ]
-"29578
-[s S1852 :2 `uc 1 :1 `uc 1 ]
-[n S1852 . . LE2 ]
-"29582
-[s S1853 :3 `uc 1 :1 `uc 1 ]
-[n S1853 . . LE3 ]
-"29586
-[s S1854 :4 `uc 1 :1 `uc 1 ]
-[n S1854 . . LE4 ]
-"29590
-[s S1855 :5 `uc 1 :1 `uc 1 ]
-[n S1855 . . LE5 ]
-"29594
-[s S1856 :6 `uc 1 :1 `uc 1 ]
-[n S1856 . . LE6 ]
-"29598
-[s S1857 :7 `uc 1 :1 `uc 1 ]
-[n S1857 . . LE7 ]
-"29565
-[u S1848 `S1849 1 `S1850 1 `S1851 1 `S1852 1 `S1853 1 `S1854 1 `S1855 1 `S1856 1 `S1857 1 ]
-[n S1848 . . . . . . . . . . ]
-"29603
-[v _LATEbits `VS1848 ~T0 @X0 0 e@3981 ]
-"108 C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdlib.h
+"29170 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f4685.h
+[s S1819 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1819 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
+"29180
+[s S1820 :1 `uc 1 ]
+[n S1820 . LB0 ]
+"29183
+[s S1821 :1 `uc 1 :1 `uc 1 ]
+[n S1821 . . LB1 ]
+"29187
+[s S1822 :2 `uc 1 :1 `uc 1 ]
+[n S1822 . . LB2 ]
+"29191
+[s S1823 :3 `uc 1 :1 `uc 1 ]
+[n S1823 . . LB3 ]
+"29195
+[s S1824 :4 `uc 1 :1 `uc 1 ]
+[n S1824 . . LB4 ]
+"29199
+[s S1825 :5 `uc 1 :1 `uc 1 ]
+[n S1825 . . LB5 ]
+"29203
+[s S1826 :6 `uc 1 :1 `uc 1 ]
+[n S1826 . . LB6 ]
+"29207
+[s S1827 :7 `uc 1 :1 `uc 1 ]
+[n S1827 . . LB7 ]
+"29169
+[u S1818 `S1819 1 `S1820 1 `S1821 1 `S1822 1 `S1823 1 `S1824 1 `S1825 1 `S1826 1 `S1827 1 ]
+[n S1818 . . . . . . . . . . ]
+"29212
+[v _LATBbits `VS1818 ~T0 @X0 0 e@3978 ]
+"95 C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdlib.h
 [v _itoa `(*uc ~T0 @X0 0 ef3`*uc`i`i ]
 [t ~ __interrupt__ s ]
-[t T55 __interrupt__ __high_priority ]
-"31323 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4685.h
+[t T59 __interrupt__ __high_priority ]
+"31323 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f4685.h
 [s S1920 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1920 . RXB0IF RXB1IF TXB0IF TXB1IF TXB2IF ERRIF WAKIF IRXIF ]
 "31333
@@ -1098,7 +1034,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1919 . . . . . ]
 "31348
 [v _PIR3bits `VS1919 ~T0 @X0 0 e@4004 ]
-[t T56 __interrupt__ __low_priority ]
+[t T60 __interrupt__ __low_priority ]
 "31085
 [s S1908 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1908 . ECCP1IF TMR3IF HLVDIF BCLIF EEIF . CMIF OSCFIF ]
@@ -1125,7 +1061,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _F2_Button_Polling `(v ~T0 @X0 0 ef ]
 "47
 [v _CAN_Tx `(v ~T0 @X0 0 ef ]
-"28558 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4685.h
+"28558 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f4685.h
 [s S1775 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1775 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
 "28568
@@ -1193,9 +1129,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LCD_Error `(v ~T0 @X0 0 ef ]
 "53
 [v _LCD_End `(v ~T0 @X0 0 ef ]
-"206 C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h
+"194 C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"28213 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4685.h
+"28213 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f4685.h
 [s S1762 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1762 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
 "28223
@@ -1390,9 +1326,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "35017
 [v _INTCONbits `VS2114 ~T0 @X0 0 e@4082 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
+[; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4685.h: 49: extern volatile unsigned char RXF6SIDH @ 0xD60;
-"51 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4685.h
+"51 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f4685.h
 [; ;pic18f4685.h: 51: asm("RXF6SIDH equ 0D60h");
 [; <" RXF6SIDH equ 0D60h ;# ">
 [; ;pic18f4685.h: 54: typedef union {
@@ -16137,409 +16074,358 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;EEP.h: 36: void Busy_eep ( void );
 [; ;EEP.h: 37: unsigned char Read_b_eep( unsigned int badd );
 [; ;EEP.h: 38: void Write_b_eep( unsigned int badd, unsigned char bdat );
-[; ;stddef.h: 2: typedef int ptrdiff_t;
-[; ;stddef.h: 3: typedef unsigned size_t;
-[; ;stddef.h: 4: typedef unsigned short wchar_t;
-[; ;stddef.h: 13: extern int errno;
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stddef.h: 6: typedef int ptrdiff_t;
 [; ;GenericTypeDefs.h: 65: typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
 [; ;GenericTypeDefs.h: 68: typedef enum _BIT { CLEAR = 0, SET } BIT;
 [; ;GenericTypeDefs.h: 75: typedef signed int INT;
 [; ;GenericTypeDefs.h: 76: typedef signed char INT8;
 [; ;GenericTypeDefs.h: 77: typedef signed short int INT16;
 [; ;GenericTypeDefs.h: 78: typedef signed long int INT32;
-[; ;GenericTypeDefs.h: 82: typedef signed long long INT64;
 [; ;GenericTypeDefs.h: 86: typedef unsigned int UINT;
 [; ;GenericTypeDefs.h: 87: typedef unsigned char UINT8;
 [; ;GenericTypeDefs.h: 88: typedef unsigned short int UINT16;
-[; ;GenericTypeDefs.h: 93: typedef unsigned long int UINT32;
-[; ;GenericTypeDefs.h: 96: typedef unsigned long long UINT64;
-[; ;GenericTypeDefs.h: 99: typedef union
-[; ;GenericTypeDefs.h: 100: {
-[; ;GenericTypeDefs.h: 101: UINT8 Val;
-[; ;GenericTypeDefs.h: 102: struct
-[; ;GenericTypeDefs.h: 103: {
-[; ;GenericTypeDefs.h: 104: UINT8 b0:1;
-[; ;GenericTypeDefs.h: 105: UINT8 b1:1;
-[; ;GenericTypeDefs.h: 106: UINT8 b2:1;
-[; ;GenericTypeDefs.h: 107: UINT8 b3:1;
-[; ;GenericTypeDefs.h: 108: UINT8 b4:1;
-[; ;GenericTypeDefs.h: 109: UINT8 b5:1;
-[; ;GenericTypeDefs.h: 110: UINT8 b6:1;
-[; ;GenericTypeDefs.h: 111: UINT8 b7:1;
-[; ;GenericTypeDefs.h: 112: } bits;
-[; ;GenericTypeDefs.h: 113: } UINT8_VAL, UINT8_BITS;
-[; ;GenericTypeDefs.h: 115: typedef union
-[; ;GenericTypeDefs.h: 116: {
-[; ;GenericTypeDefs.h: 117: UINT16 Val;
-[; ;GenericTypeDefs.h: 118: UINT8 v[2] ;
-[; ;GenericTypeDefs.h: 119: struct 
+[; ;GenericTypeDefs.h: 89: typedef unsigned long int UINT32;
+[; ;GenericTypeDefs.h: 93: typedef UINT32 UINT24;
+[; ;GenericTypeDefs.h: 103: typedef union
+[; ;GenericTypeDefs.h: 104: {
+[; ;GenericTypeDefs.h: 105: UINT8 Val;
+[; ;GenericTypeDefs.h: 106: struct
+[; ;GenericTypeDefs.h: 107: {
+[; ;GenericTypeDefs.h: 108: UINT8 b0:1;
+[; ;GenericTypeDefs.h: 109: UINT8 b1:1;
+[; ;GenericTypeDefs.h: 110: UINT8 b2:1;
+[; ;GenericTypeDefs.h: 111: UINT8 b3:1;
+[; ;GenericTypeDefs.h: 112: UINT8 b4:1;
+[; ;GenericTypeDefs.h: 113: UINT8 b5:1;
+[; ;GenericTypeDefs.h: 114: UINT8 b6:1;
+[; ;GenericTypeDefs.h: 115: UINT8 b7:1;
+[; ;GenericTypeDefs.h: 116: } bits;
+[; ;GenericTypeDefs.h: 117: } UINT8_VAL, UINT8_BITS;
+[; ;GenericTypeDefs.h: 119: typedef union
 [; ;GenericTypeDefs.h: 120: {
-[; ;GenericTypeDefs.h: 121: UINT8 LB;
-[; ;GenericTypeDefs.h: 122: UINT8 HB;
-[; ;GenericTypeDefs.h: 123: } byte;
-[; ;GenericTypeDefs.h: 124: struct 
-[; ;GenericTypeDefs.h: 125: {
-[; ;GenericTypeDefs.h: 126: UINT8 b0:1;
-[; ;GenericTypeDefs.h: 127: UINT8 b1:1;
-[; ;GenericTypeDefs.h: 128: UINT8 b2:1;
-[; ;GenericTypeDefs.h: 129: UINT8 b3:1;
-[; ;GenericTypeDefs.h: 130: UINT8 b4:1;
-[; ;GenericTypeDefs.h: 131: UINT8 b5:1;
-[; ;GenericTypeDefs.h: 132: UINT8 b6:1;
-[; ;GenericTypeDefs.h: 133: UINT8 b7:1;
-[; ;GenericTypeDefs.h: 134: UINT8 b8:1;
-[; ;GenericTypeDefs.h: 135: UINT8 b9:1;
-[; ;GenericTypeDefs.h: 136: UINT8 b10:1;
-[; ;GenericTypeDefs.h: 137: UINT8 b11:1;
-[; ;GenericTypeDefs.h: 138: UINT8 b12:1;
-[; ;GenericTypeDefs.h: 139: UINT8 b13:1;
-[; ;GenericTypeDefs.h: 140: UINT8 b14:1;
-[; ;GenericTypeDefs.h: 141: UINT8 b15:1;
-[; ;GenericTypeDefs.h: 142: } bits;
-[; ;GenericTypeDefs.h: 143: } UINT16_VAL, UINT16_BITS;
-[; ;GenericTypeDefs.h: 187: typedef union
-[; ;GenericTypeDefs.h: 188: {
-[; ;GenericTypeDefs.h: 189: UINT32 Val;
-[; ;GenericTypeDefs.h: 190: UINT16 w[2] ;
-[; ;GenericTypeDefs.h: 191: UINT8 v[4] ;
-[; ;GenericTypeDefs.h: 192: struct 
-[; ;GenericTypeDefs.h: 193: {
-[; ;GenericTypeDefs.h: 194: UINT16 LW;
-[; ;GenericTypeDefs.h: 195: UINT16 HW;
-[; ;GenericTypeDefs.h: 196: } word;
-[; ;GenericTypeDefs.h: 197: struct 
-[; ;GenericTypeDefs.h: 198: {
-[; ;GenericTypeDefs.h: 199: UINT8 LB;
-[; ;GenericTypeDefs.h: 200: UINT8 HB;
-[; ;GenericTypeDefs.h: 201: UINT8 UB;
-[; ;GenericTypeDefs.h: 202: UINT8 MB;
-[; ;GenericTypeDefs.h: 203: } byte;
-[; ;GenericTypeDefs.h: 204: struct 
-[; ;GenericTypeDefs.h: 205: {
-[; ;GenericTypeDefs.h: 206: UINT16_VAL low;
-[; ;GenericTypeDefs.h: 207: UINT16_VAL high;
-[; ;GenericTypeDefs.h: 208: }wordUnion;
-[; ;GenericTypeDefs.h: 209: struct 
-[; ;GenericTypeDefs.h: 210: {
-[; ;GenericTypeDefs.h: 211: UINT8 b0:1;
-[; ;GenericTypeDefs.h: 212: UINT8 b1:1;
-[; ;GenericTypeDefs.h: 213: UINT8 b2:1;
-[; ;GenericTypeDefs.h: 214: UINT8 b3:1;
-[; ;GenericTypeDefs.h: 215: UINT8 b4:1;
-[; ;GenericTypeDefs.h: 216: UINT8 b5:1;
-[; ;GenericTypeDefs.h: 217: UINT8 b6:1;
-[; ;GenericTypeDefs.h: 218: UINT8 b7:1;
-[; ;GenericTypeDefs.h: 219: UINT8 b8:1;
-[; ;GenericTypeDefs.h: 220: UINT8 b9:1;
-[; ;GenericTypeDefs.h: 221: UINT8 b10:1;
-[; ;GenericTypeDefs.h: 222: UINT8 b11:1;
-[; ;GenericTypeDefs.h: 223: UINT8 b12:1;
-[; ;GenericTypeDefs.h: 224: UINT8 b13:1;
-[; ;GenericTypeDefs.h: 225: UINT8 b14:1;
-[; ;GenericTypeDefs.h: 226: UINT8 b15:1;
-[; ;GenericTypeDefs.h: 227: UINT8 b16:1;
-[; ;GenericTypeDefs.h: 228: UINT8 b17:1;
-[; ;GenericTypeDefs.h: 229: UINT8 b18:1;
-[; ;GenericTypeDefs.h: 230: UINT8 b19:1;
-[; ;GenericTypeDefs.h: 231: UINT8 b20:1;
-[; ;GenericTypeDefs.h: 232: UINT8 b21:1;
-[; ;GenericTypeDefs.h: 233: UINT8 b22:1;
-[; ;GenericTypeDefs.h: 234: UINT8 b23:1;
-[; ;GenericTypeDefs.h: 235: UINT8 b24:1;
-[; ;GenericTypeDefs.h: 236: UINT8 b25:1;
-[; ;GenericTypeDefs.h: 237: UINT8 b26:1;
-[; ;GenericTypeDefs.h: 238: UINT8 b27:1;
-[; ;GenericTypeDefs.h: 239: UINT8 b28:1;
-[; ;GenericTypeDefs.h: 240: UINT8 b29:1;
-[; ;GenericTypeDefs.h: 241: UINT8 b30:1;
-[; ;GenericTypeDefs.h: 242: UINT8 b31:1;
-[; ;GenericTypeDefs.h: 243: } bits;
-[; ;GenericTypeDefs.h: 244: } UINT32_VAL;
-[; ;GenericTypeDefs.h: 248: typedef union
-[; ;GenericTypeDefs.h: 249: {
-[; ;GenericTypeDefs.h: 250: UINT64 Val;
-[; ;GenericTypeDefs.h: 251: UINT32 d[2] ;
-[; ;GenericTypeDefs.h: 252: UINT16 w[4] ;
-[; ;GenericTypeDefs.h: 253: UINT8 v[8] ;
-[; ;GenericTypeDefs.h: 254: struct 
-[; ;GenericTypeDefs.h: 255: {
-[; ;GenericTypeDefs.h: 256: UINT32 LD;
-[; ;GenericTypeDefs.h: 257: UINT32 HD;
-[; ;GenericTypeDefs.h: 258: } dword;
-[; ;GenericTypeDefs.h: 259: struct 
-[; ;GenericTypeDefs.h: 260: {
-[; ;GenericTypeDefs.h: 261: UINT16 LW;
-[; ;GenericTypeDefs.h: 262: UINT16 HW;
-[; ;GenericTypeDefs.h: 263: UINT16 UW;
-[; ;GenericTypeDefs.h: 264: UINT16 MW;
-[; ;GenericTypeDefs.h: 265: } word;
-[; ;GenericTypeDefs.h: 266: struct 
-[; ;GenericTypeDefs.h: 267: {
-[; ;GenericTypeDefs.h: 268: UINT8 b0:1;
-[; ;GenericTypeDefs.h: 269: UINT8 b1:1;
-[; ;GenericTypeDefs.h: 270: UINT8 b2:1;
-[; ;GenericTypeDefs.h: 271: UINT8 b3:1;
-[; ;GenericTypeDefs.h: 272: UINT8 b4:1;
-[; ;GenericTypeDefs.h: 273: UINT8 b5:1;
-[; ;GenericTypeDefs.h: 274: UINT8 b6:1;
-[; ;GenericTypeDefs.h: 275: UINT8 b7:1;
-[; ;GenericTypeDefs.h: 276: UINT8 b8:1;
-[; ;GenericTypeDefs.h: 277: UINT8 b9:1;
-[; ;GenericTypeDefs.h: 278: UINT8 b10:1;
-[; ;GenericTypeDefs.h: 279: UINT8 b11:1;
-[; ;GenericTypeDefs.h: 280: UINT8 b12:1;
-[; ;GenericTypeDefs.h: 281: UINT8 b13:1;
-[; ;GenericTypeDefs.h: 282: UINT8 b14:1;
-[; ;GenericTypeDefs.h: 283: UINT8 b15:1;
-[; ;GenericTypeDefs.h: 284: UINT8 b16:1;
-[; ;GenericTypeDefs.h: 285: UINT8 b17:1;
-[; ;GenericTypeDefs.h: 286: UINT8 b18:1;
-[; ;GenericTypeDefs.h: 287: UINT8 b19:1;
-[; ;GenericTypeDefs.h: 288: UINT8 b20:1;
-[; ;GenericTypeDefs.h: 289: UINT8 b21:1;
-[; ;GenericTypeDefs.h: 290: UINT8 b22:1;
-[; ;GenericTypeDefs.h: 291: UINT8 b23:1;
-[; ;GenericTypeDefs.h: 292: UINT8 b24:1;
-[; ;GenericTypeDefs.h: 293: UINT8 b25:1;
-[; ;GenericTypeDefs.h: 294: UINT8 b26:1;
-[; ;GenericTypeDefs.h: 295: UINT8 b27:1;
-[; ;GenericTypeDefs.h: 296: UINT8 b28:1;
-[; ;GenericTypeDefs.h: 297: UINT8 b29:1;
-[; ;GenericTypeDefs.h: 298: UINT8 b30:1;
-[; ;GenericTypeDefs.h: 299: UINT8 b31:1;
-[; ;GenericTypeDefs.h: 300: UINT8 b32:1;
-[; ;GenericTypeDefs.h: 301: UINT8 b33:1;
-[; ;GenericTypeDefs.h: 302: UINT8 b34:1;
-[; ;GenericTypeDefs.h: 303: UINT8 b35:1;
-[; ;GenericTypeDefs.h: 304: UINT8 b36:1;
-[; ;GenericTypeDefs.h: 305: UINT8 b37:1;
-[; ;GenericTypeDefs.h: 306: UINT8 b38:1;
-[; ;GenericTypeDefs.h: 307: UINT8 b39:1;
-[; ;GenericTypeDefs.h: 308: UINT8 b40:1;
-[; ;GenericTypeDefs.h: 309: UINT8 b41:1;
-[; ;GenericTypeDefs.h: 310: UINT8 b42:1;
-[; ;GenericTypeDefs.h: 311: UINT8 b43:1;
-[; ;GenericTypeDefs.h: 312: UINT8 b44:1;
-[; ;GenericTypeDefs.h: 313: UINT8 b45:1;
-[; ;GenericTypeDefs.h: 314: UINT8 b46:1;
-[; ;GenericTypeDefs.h: 315: UINT8 b47:1;
-[; ;GenericTypeDefs.h: 316: UINT8 b48:1;
-[; ;GenericTypeDefs.h: 317: UINT8 b49:1;
-[; ;GenericTypeDefs.h: 318: UINT8 b50:1;
-[; ;GenericTypeDefs.h: 319: UINT8 b51:1;
-[; ;GenericTypeDefs.h: 320: UINT8 b52:1;
-[; ;GenericTypeDefs.h: 321: UINT8 b53:1;
-[; ;GenericTypeDefs.h: 322: UINT8 b54:1;
-[; ;GenericTypeDefs.h: 323: UINT8 b55:1;
-[; ;GenericTypeDefs.h: 324: UINT8 b56:1;
-[; ;GenericTypeDefs.h: 325: UINT8 b57:1;
-[; ;GenericTypeDefs.h: 326: UINT8 b58:1;
-[; ;GenericTypeDefs.h: 327: UINT8 b59:1;
-[; ;GenericTypeDefs.h: 328: UINT8 b60:1;
-[; ;GenericTypeDefs.h: 329: UINT8 b61:1;
-[; ;GenericTypeDefs.h: 330: UINT8 b62:1;
-[; ;GenericTypeDefs.h: 331: UINT8 b63:1;
-[; ;GenericTypeDefs.h: 332: } bits;
-[; ;GenericTypeDefs.h: 333: } UINT64_VAL;
-[; ;GenericTypeDefs.h: 339: typedef void VOID;
-[; ;GenericTypeDefs.h: 341: typedef char CHAR8;
-[; ;GenericTypeDefs.h: 342: typedef unsigned char UCHAR8;
-[; ;GenericTypeDefs.h: 344: typedef unsigned char BYTE;
-[; ;GenericTypeDefs.h: 345: typedef unsigned short int WORD;
-[; ;GenericTypeDefs.h: 346: typedef unsigned long DWORD;
-[; ;GenericTypeDefs.h: 349: typedef unsigned long long QWORD;
-[; ;GenericTypeDefs.h: 350: typedef signed char CHAR;
-[; ;GenericTypeDefs.h: 351: typedef signed short int SHORT;
-[; ;GenericTypeDefs.h: 352: typedef signed long LONG;
-[; ;GenericTypeDefs.h: 355: typedef signed long long LONGLONG;
-[; ;GenericTypeDefs.h: 356: typedef union
-[; ;GenericTypeDefs.h: 357: {
-[; ;GenericTypeDefs.h: 358: BYTE Val;
-[; ;GenericTypeDefs.h: 359: struct 
-[; ;GenericTypeDefs.h: 360: {
-[; ;GenericTypeDefs.h: 361: BYTE b0:1;
-[; ;GenericTypeDefs.h: 362: BYTE b1:1;
-[; ;GenericTypeDefs.h: 363: BYTE b2:1;
-[; ;GenericTypeDefs.h: 364: BYTE b3:1;
-[; ;GenericTypeDefs.h: 365: BYTE b4:1;
-[; ;GenericTypeDefs.h: 366: BYTE b5:1;
-[; ;GenericTypeDefs.h: 367: BYTE b6:1;
-[; ;GenericTypeDefs.h: 368: BYTE b7:1;
-[; ;GenericTypeDefs.h: 369: } bits;
-[; ;GenericTypeDefs.h: 370: } BYTE_VAL, BYTE_BITS;
-[; ;GenericTypeDefs.h: 372: typedef union
-[; ;GenericTypeDefs.h: 373: {
-[; ;GenericTypeDefs.h: 374: WORD Val;
-[; ;GenericTypeDefs.h: 375: BYTE v[2] ;
-[; ;GenericTypeDefs.h: 376: struct 
+[; ;GenericTypeDefs.h: 121: UINT16 Val;
+[; ;GenericTypeDefs.h: 122: UINT8 v[2] ;
+[; ;GenericTypeDefs.h: 123: struct 
+[; ;GenericTypeDefs.h: 124: {
+[; ;GenericTypeDefs.h: 125: UINT8 LB;
+[; ;GenericTypeDefs.h: 126: UINT8 HB;
+[; ;GenericTypeDefs.h: 127: } byte;
+[; ;GenericTypeDefs.h: 128: struct 
+[; ;GenericTypeDefs.h: 129: {
+[; ;GenericTypeDefs.h: 130: UINT8 b0:1;
+[; ;GenericTypeDefs.h: 131: UINT8 b1:1;
+[; ;GenericTypeDefs.h: 132: UINT8 b2:1;
+[; ;GenericTypeDefs.h: 133: UINT8 b3:1;
+[; ;GenericTypeDefs.h: 134: UINT8 b4:1;
+[; ;GenericTypeDefs.h: 135: UINT8 b5:1;
+[; ;GenericTypeDefs.h: 136: UINT8 b6:1;
+[; ;GenericTypeDefs.h: 137: UINT8 b7:1;
+[; ;GenericTypeDefs.h: 138: UINT8 b8:1;
+[; ;GenericTypeDefs.h: 139: UINT8 b9:1;
+[; ;GenericTypeDefs.h: 140: UINT8 b10:1;
+[; ;GenericTypeDefs.h: 141: UINT8 b11:1;
+[; ;GenericTypeDefs.h: 142: UINT8 b12:1;
+[; ;GenericTypeDefs.h: 143: UINT8 b13:1;
+[; ;GenericTypeDefs.h: 144: UINT8 b14:1;
+[; ;GenericTypeDefs.h: 145: UINT8 b15:1;
+[; ;GenericTypeDefs.h: 146: } bits;
+[; ;GenericTypeDefs.h: 147: } UINT16_VAL, UINT16_BITS;
+[; ;GenericTypeDefs.h: 151: typedef union
+[; ;GenericTypeDefs.h: 152: {
+[; ;GenericTypeDefs.h: 153: UINT24 Val;
+[; ;GenericTypeDefs.h: 154: UINT8 v[3] ;
+[; ;GenericTypeDefs.h: 155: struct 
+[; ;GenericTypeDefs.h: 156: {
+[; ;GenericTypeDefs.h: 157: UINT8 LB;
+[; ;GenericTypeDefs.h: 158: UINT8 HB;
+[; ;GenericTypeDefs.h: 159: UINT8 UB;
+[; ;GenericTypeDefs.h: 160: } byte;
+[; ;GenericTypeDefs.h: 161: struct 
+[; ;GenericTypeDefs.h: 162: {
+[; ;GenericTypeDefs.h: 163: UINT8 b0:1;
+[; ;GenericTypeDefs.h: 164: UINT8 b1:1;
+[; ;GenericTypeDefs.h: 165: UINT8 b2:1;
+[; ;GenericTypeDefs.h: 166: UINT8 b3:1;
+[; ;GenericTypeDefs.h: 167: UINT8 b4:1;
+[; ;GenericTypeDefs.h: 168: UINT8 b5:1;
+[; ;GenericTypeDefs.h: 169: UINT8 b6:1;
+[; ;GenericTypeDefs.h: 170: UINT8 b7:1;
+[; ;GenericTypeDefs.h: 171: UINT8 b8:1;
+[; ;GenericTypeDefs.h: 172: UINT8 b9:1;
+[; ;GenericTypeDefs.h: 173: UINT8 b10:1;
+[; ;GenericTypeDefs.h: 174: UINT8 b11:1;
+[; ;GenericTypeDefs.h: 175: UINT8 b12:1;
+[; ;GenericTypeDefs.h: 176: UINT8 b13:1;
+[; ;GenericTypeDefs.h: 177: UINT8 b14:1;
+[; ;GenericTypeDefs.h: 178: UINT8 b15:1;
+[; ;GenericTypeDefs.h: 179: UINT8 b16:1;
+[; ;GenericTypeDefs.h: 180: UINT8 b17:1;
+[; ;GenericTypeDefs.h: 181: UINT8 b18:1;
+[; ;GenericTypeDefs.h: 182: UINT8 b19:1;
+[; ;GenericTypeDefs.h: 183: UINT8 b20:1;
+[; ;GenericTypeDefs.h: 184: UINT8 b21:1;
+[; ;GenericTypeDefs.h: 185: UINT8 b22:1;
+[; ;GenericTypeDefs.h: 186: UINT8 b23:1;
+[; ;GenericTypeDefs.h: 187: } bits;
+[; ;GenericTypeDefs.h: 188: } UINT24_VAL, UINT24_BITS;
+[; ;GenericTypeDefs.h: 191: typedef union
+[; ;GenericTypeDefs.h: 192: {
+[; ;GenericTypeDefs.h: 193: UINT32 Val;
+[; ;GenericTypeDefs.h: 194: UINT16 w[2] ;
+[; ;GenericTypeDefs.h: 195: UINT8 v[4] ;
+[; ;GenericTypeDefs.h: 196: struct 
+[; ;GenericTypeDefs.h: 197: {
+[; ;GenericTypeDefs.h: 198: UINT16 LW;
+[; ;GenericTypeDefs.h: 199: UINT16 HW;
+[; ;GenericTypeDefs.h: 200: } word;
+[; ;GenericTypeDefs.h: 201: struct 
+[; ;GenericTypeDefs.h: 202: {
+[; ;GenericTypeDefs.h: 203: UINT8 LB;
+[; ;GenericTypeDefs.h: 204: UINT8 HB;
+[; ;GenericTypeDefs.h: 205: UINT8 UB;
+[; ;GenericTypeDefs.h: 206: UINT8 MB;
+[; ;GenericTypeDefs.h: 207: } byte;
+[; ;GenericTypeDefs.h: 208: struct 
+[; ;GenericTypeDefs.h: 209: {
+[; ;GenericTypeDefs.h: 210: UINT16_VAL low;
+[; ;GenericTypeDefs.h: 211: UINT16_VAL high;
+[; ;GenericTypeDefs.h: 212: }wordUnion;
+[; ;GenericTypeDefs.h: 213: struct 
+[; ;GenericTypeDefs.h: 214: {
+[; ;GenericTypeDefs.h: 215: UINT8 b0:1;
+[; ;GenericTypeDefs.h: 216: UINT8 b1:1;
+[; ;GenericTypeDefs.h: 217: UINT8 b2:1;
+[; ;GenericTypeDefs.h: 218: UINT8 b3:1;
+[; ;GenericTypeDefs.h: 219: UINT8 b4:1;
+[; ;GenericTypeDefs.h: 220: UINT8 b5:1;
+[; ;GenericTypeDefs.h: 221: UINT8 b6:1;
+[; ;GenericTypeDefs.h: 222: UINT8 b7:1;
+[; ;GenericTypeDefs.h: 223: UINT8 b8:1;
+[; ;GenericTypeDefs.h: 224: UINT8 b9:1;
+[; ;GenericTypeDefs.h: 225: UINT8 b10:1;
+[; ;GenericTypeDefs.h: 226: UINT8 b11:1;
+[; ;GenericTypeDefs.h: 227: UINT8 b12:1;
+[; ;GenericTypeDefs.h: 228: UINT8 b13:1;
+[; ;GenericTypeDefs.h: 229: UINT8 b14:1;
+[; ;GenericTypeDefs.h: 230: UINT8 b15:1;
+[; ;GenericTypeDefs.h: 231: UINT8 b16:1;
+[; ;GenericTypeDefs.h: 232: UINT8 b17:1;
+[; ;GenericTypeDefs.h: 233: UINT8 b18:1;
+[; ;GenericTypeDefs.h: 234: UINT8 b19:1;
+[; ;GenericTypeDefs.h: 235: UINT8 b20:1;
+[; ;GenericTypeDefs.h: 236: UINT8 b21:1;
+[; ;GenericTypeDefs.h: 237: UINT8 b22:1;
+[; ;GenericTypeDefs.h: 238: UINT8 b23:1;
+[; ;GenericTypeDefs.h: 239: UINT8 b24:1;
+[; ;GenericTypeDefs.h: 240: UINT8 b25:1;
+[; ;GenericTypeDefs.h: 241: UINT8 b26:1;
+[; ;GenericTypeDefs.h: 242: UINT8 b27:1;
+[; ;GenericTypeDefs.h: 243: UINT8 b28:1;
+[; ;GenericTypeDefs.h: 244: UINT8 b29:1;
+[; ;GenericTypeDefs.h: 245: UINT8 b30:1;
+[; ;GenericTypeDefs.h: 246: UINT8 b31:1;
+[; ;GenericTypeDefs.h: 247: } bits;
+[; ;GenericTypeDefs.h: 248: } UINT32_VAL;
+[; ;GenericTypeDefs.h: 343: typedef void VOID;
+[; ;GenericTypeDefs.h: 345: typedef char CHAR8;
+[; ;GenericTypeDefs.h: 346: typedef unsigned char UCHAR8;
+[; ;GenericTypeDefs.h: 348: typedef unsigned char BYTE;
+[; ;GenericTypeDefs.h: 349: typedef unsigned short int WORD;
+[; ;GenericTypeDefs.h: 350: typedef unsigned long DWORD;
+[; ;GenericTypeDefs.h: 353: typedef unsigned long long QWORD;
+[; ;GenericTypeDefs.h: 354: typedef signed char CHAR;
+[; ;GenericTypeDefs.h: 355: typedef signed short int SHORT;
+[; ;GenericTypeDefs.h: 356: typedef signed long LONG;
+[; ;GenericTypeDefs.h: 359: typedef signed long long LONGLONG;
+[; ;GenericTypeDefs.h: 360: typedef union
+[; ;GenericTypeDefs.h: 361: {
+[; ;GenericTypeDefs.h: 362: BYTE Val;
+[; ;GenericTypeDefs.h: 363: struct 
+[; ;GenericTypeDefs.h: 364: {
+[; ;GenericTypeDefs.h: 365: BYTE b0:1;
+[; ;GenericTypeDefs.h: 366: BYTE b1:1;
+[; ;GenericTypeDefs.h: 367: BYTE b2:1;
+[; ;GenericTypeDefs.h: 368: BYTE b3:1;
+[; ;GenericTypeDefs.h: 369: BYTE b4:1;
+[; ;GenericTypeDefs.h: 370: BYTE b5:1;
+[; ;GenericTypeDefs.h: 371: BYTE b6:1;
+[; ;GenericTypeDefs.h: 372: BYTE b7:1;
+[; ;GenericTypeDefs.h: 373: } bits;
+[; ;GenericTypeDefs.h: 374: } BYTE_VAL, BYTE_BITS;
+[; ;GenericTypeDefs.h: 376: typedef union
 [; ;GenericTypeDefs.h: 377: {
-[; ;GenericTypeDefs.h: 378: BYTE LB;
-[; ;GenericTypeDefs.h: 379: BYTE HB;
-[; ;GenericTypeDefs.h: 380: } byte;
-[; ;GenericTypeDefs.h: 381: struct 
-[; ;GenericTypeDefs.h: 382: {
-[; ;GenericTypeDefs.h: 383: BYTE b0:1;
-[; ;GenericTypeDefs.h: 384: BYTE b1:1;
-[; ;GenericTypeDefs.h: 385: BYTE b2:1;
-[; ;GenericTypeDefs.h: 386: BYTE b3:1;
-[; ;GenericTypeDefs.h: 387: BYTE b4:1;
-[; ;GenericTypeDefs.h: 388: BYTE b5:1;
-[; ;GenericTypeDefs.h: 389: BYTE b6:1;
-[; ;GenericTypeDefs.h: 390: BYTE b7:1;
-[; ;GenericTypeDefs.h: 391: BYTE b8:1;
-[; ;GenericTypeDefs.h: 392: BYTE b9:1;
-[; ;GenericTypeDefs.h: 393: BYTE b10:1;
-[; ;GenericTypeDefs.h: 394: BYTE b11:1;
-[; ;GenericTypeDefs.h: 395: BYTE b12:1;
-[; ;GenericTypeDefs.h: 396: BYTE b13:1;
-[; ;GenericTypeDefs.h: 397: BYTE b14:1;
-[; ;GenericTypeDefs.h: 398: BYTE b15:1;
-[; ;GenericTypeDefs.h: 399: } bits;
-[; ;GenericTypeDefs.h: 400: } WORD_VAL, WORD_BITS;
-[; ;GenericTypeDefs.h: 402: typedef union
-[; ;GenericTypeDefs.h: 403: {
-[; ;GenericTypeDefs.h: 404: DWORD Val;
-[; ;GenericTypeDefs.h: 405: WORD w[2] ;
-[; ;GenericTypeDefs.h: 406: BYTE v[4] ;
-[; ;GenericTypeDefs.h: 407: struct 
-[; ;GenericTypeDefs.h: 408: {
-[; ;GenericTypeDefs.h: 409: WORD LW;
-[; ;GenericTypeDefs.h: 410: WORD HW;
-[; ;GenericTypeDefs.h: 411: } word;
-[; ;GenericTypeDefs.h: 412: struct 
-[; ;GenericTypeDefs.h: 413: {
-[; ;GenericTypeDefs.h: 414: BYTE LB;
-[; ;GenericTypeDefs.h: 415: BYTE HB;
-[; ;GenericTypeDefs.h: 416: BYTE UB;
-[; ;GenericTypeDefs.h: 417: BYTE MB;
-[; ;GenericTypeDefs.h: 418: } byte;
-[; ;GenericTypeDefs.h: 419: struct 
-[; ;GenericTypeDefs.h: 420: {
-[; ;GenericTypeDefs.h: 421: WORD_VAL low;
-[; ;GenericTypeDefs.h: 422: WORD_VAL high;
-[; ;GenericTypeDefs.h: 423: }wordUnion;
-[; ;GenericTypeDefs.h: 424: struct 
-[; ;GenericTypeDefs.h: 425: {
-[; ;GenericTypeDefs.h: 426: BYTE b0:1;
-[; ;GenericTypeDefs.h: 427: BYTE b1:1;
-[; ;GenericTypeDefs.h: 428: BYTE b2:1;
-[; ;GenericTypeDefs.h: 429: BYTE b3:1;
-[; ;GenericTypeDefs.h: 430: BYTE b4:1;
-[; ;GenericTypeDefs.h: 431: BYTE b5:1;
-[; ;GenericTypeDefs.h: 432: BYTE b6:1;
-[; ;GenericTypeDefs.h: 433: BYTE b7:1;
-[; ;GenericTypeDefs.h: 434: BYTE b8:1;
-[; ;GenericTypeDefs.h: 435: BYTE b9:1;
-[; ;GenericTypeDefs.h: 436: BYTE b10:1;
-[; ;GenericTypeDefs.h: 437: BYTE b11:1;
-[; ;GenericTypeDefs.h: 438: BYTE b12:1;
-[; ;GenericTypeDefs.h: 439: BYTE b13:1;
-[; ;GenericTypeDefs.h: 440: BYTE b14:1;
-[; ;GenericTypeDefs.h: 441: BYTE b15:1;
-[; ;GenericTypeDefs.h: 442: BYTE b16:1;
-[; ;GenericTypeDefs.h: 443: BYTE b17:1;
-[; ;GenericTypeDefs.h: 444: BYTE b18:1;
-[; ;GenericTypeDefs.h: 445: BYTE b19:1;
-[; ;GenericTypeDefs.h: 446: BYTE b20:1;
-[; ;GenericTypeDefs.h: 447: BYTE b21:1;
-[; ;GenericTypeDefs.h: 448: BYTE b22:1;
-[; ;GenericTypeDefs.h: 449: BYTE b23:1;
-[; ;GenericTypeDefs.h: 450: BYTE b24:1;
-[; ;GenericTypeDefs.h: 451: BYTE b25:1;
-[; ;GenericTypeDefs.h: 452: BYTE b26:1;
-[; ;GenericTypeDefs.h: 453: BYTE b27:1;
-[; ;GenericTypeDefs.h: 454: BYTE b28:1;
-[; ;GenericTypeDefs.h: 455: BYTE b29:1;
-[; ;GenericTypeDefs.h: 456: BYTE b30:1;
-[; ;GenericTypeDefs.h: 457: BYTE b31:1;
-[; ;GenericTypeDefs.h: 458: } bits;
-[; ;GenericTypeDefs.h: 459: } DWORD_VAL;
-[; ;GenericTypeDefs.h: 462: typedef union
-[; ;GenericTypeDefs.h: 463: {
-[; ;GenericTypeDefs.h: 464: QWORD Val;
-[; ;GenericTypeDefs.h: 465: DWORD d[2] ;
-[; ;GenericTypeDefs.h: 466: WORD w[4] ;
-[; ;GenericTypeDefs.h: 467: BYTE v[8] ;
-[; ;GenericTypeDefs.h: 468: struct 
-[; ;GenericTypeDefs.h: 469: {
-[; ;GenericTypeDefs.h: 470: DWORD LD;
-[; ;GenericTypeDefs.h: 471: DWORD HD;
-[; ;GenericTypeDefs.h: 472: } dword;
-[; ;GenericTypeDefs.h: 473: struct 
-[; ;GenericTypeDefs.h: 474: {
-[; ;GenericTypeDefs.h: 475: WORD LW;
-[; ;GenericTypeDefs.h: 476: WORD HW;
-[; ;GenericTypeDefs.h: 477: WORD UW;
-[; ;GenericTypeDefs.h: 478: WORD MW;
-[; ;GenericTypeDefs.h: 479: } word;
-[; ;GenericTypeDefs.h: 480: struct 
-[; ;GenericTypeDefs.h: 481: {
-[; ;GenericTypeDefs.h: 482: BYTE b0:1;
-[; ;GenericTypeDefs.h: 483: BYTE b1:1;
-[; ;GenericTypeDefs.h: 484: BYTE b2:1;
-[; ;GenericTypeDefs.h: 485: BYTE b3:1;
-[; ;GenericTypeDefs.h: 486: BYTE b4:1;
-[; ;GenericTypeDefs.h: 487: BYTE b5:1;
-[; ;GenericTypeDefs.h: 488: BYTE b6:1;
-[; ;GenericTypeDefs.h: 489: BYTE b7:1;
-[; ;GenericTypeDefs.h: 490: BYTE b8:1;
-[; ;GenericTypeDefs.h: 491: BYTE b9:1;
-[; ;GenericTypeDefs.h: 492: BYTE b10:1;
-[; ;GenericTypeDefs.h: 493: BYTE b11:1;
-[; ;GenericTypeDefs.h: 494: BYTE b12:1;
-[; ;GenericTypeDefs.h: 495: BYTE b13:1;
-[; ;GenericTypeDefs.h: 496: BYTE b14:1;
-[; ;GenericTypeDefs.h: 497: BYTE b15:1;
-[; ;GenericTypeDefs.h: 498: BYTE b16:1;
-[; ;GenericTypeDefs.h: 499: BYTE b17:1;
-[; ;GenericTypeDefs.h: 500: BYTE b18:1;
-[; ;GenericTypeDefs.h: 501: BYTE b19:1;
-[; ;GenericTypeDefs.h: 502: BYTE b20:1;
-[; ;GenericTypeDefs.h: 503: BYTE b21:1;
-[; ;GenericTypeDefs.h: 504: BYTE b22:1;
-[; ;GenericTypeDefs.h: 505: BYTE b23:1;
-[; ;GenericTypeDefs.h: 506: BYTE b24:1;
-[; ;GenericTypeDefs.h: 507: BYTE b25:1;
-[; ;GenericTypeDefs.h: 508: BYTE b26:1;
-[; ;GenericTypeDefs.h: 509: BYTE b27:1;
-[; ;GenericTypeDefs.h: 510: BYTE b28:1;
-[; ;GenericTypeDefs.h: 511: BYTE b29:1;
-[; ;GenericTypeDefs.h: 512: BYTE b30:1;
-[; ;GenericTypeDefs.h: 513: BYTE b31:1;
-[; ;GenericTypeDefs.h: 514: BYTE b32:1;
-[; ;GenericTypeDefs.h: 515: BYTE b33:1;
-[; ;GenericTypeDefs.h: 516: BYTE b34:1;
-[; ;GenericTypeDefs.h: 517: BYTE b35:1;
-[; ;GenericTypeDefs.h: 518: BYTE b36:1;
-[; ;GenericTypeDefs.h: 519: BYTE b37:1;
-[; ;GenericTypeDefs.h: 520: BYTE b38:1;
-[; ;GenericTypeDefs.h: 521: BYTE b39:1;
-[; ;GenericTypeDefs.h: 522: BYTE b40:1;
-[; ;GenericTypeDefs.h: 523: BYTE b41:1;
-[; ;GenericTypeDefs.h: 524: BYTE b42:1;
-[; ;GenericTypeDefs.h: 525: BYTE b43:1;
-[; ;GenericTypeDefs.h: 526: BYTE b44:1;
-[; ;GenericTypeDefs.h: 527: BYTE b45:1;
-[; ;GenericTypeDefs.h: 528: BYTE b46:1;
-[; ;GenericTypeDefs.h: 529: BYTE b47:1;
-[; ;GenericTypeDefs.h: 530: BYTE b48:1;
-[; ;GenericTypeDefs.h: 531: BYTE b49:1;
-[; ;GenericTypeDefs.h: 532: BYTE b50:1;
-[; ;GenericTypeDefs.h: 533: BYTE b51:1;
-[; ;GenericTypeDefs.h: 534: BYTE b52:1;
-[; ;GenericTypeDefs.h: 535: BYTE b53:1;
-[; ;GenericTypeDefs.h: 536: BYTE b54:1;
-[; ;GenericTypeDefs.h: 537: BYTE b55:1;
-[; ;GenericTypeDefs.h: 538: BYTE b56:1;
-[; ;GenericTypeDefs.h: 539: BYTE b57:1;
-[; ;GenericTypeDefs.h: 540: BYTE b58:1;
-[; ;GenericTypeDefs.h: 541: BYTE b59:1;
-[; ;GenericTypeDefs.h: 542: BYTE b60:1;
-[; ;GenericTypeDefs.h: 543: BYTE b61:1;
-[; ;GenericTypeDefs.h: 544: BYTE b62:1;
-[; ;GenericTypeDefs.h: 545: BYTE b63:1;
-[; ;GenericTypeDefs.h: 546: } bits;
-[; ;GenericTypeDefs.h: 547: } QWORD_VAL;
+[; ;GenericTypeDefs.h: 378: WORD Val;
+[; ;GenericTypeDefs.h: 379: BYTE v[2] ;
+[; ;GenericTypeDefs.h: 380: struct 
+[; ;GenericTypeDefs.h: 381: {
+[; ;GenericTypeDefs.h: 382: BYTE LB;
+[; ;GenericTypeDefs.h: 383: BYTE HB;
+[; ;GenericTypeDefs.h: 384: } byte;
+[; ;GenericTypeDefs.h: 385: struct 
+[; ;GenericTypeDefs.h: 386: {
+[; ;GenericTypeDefs.h: 387: BYTE b0:1;
+[; ;GenericTypeDefs.h: 388: BYTE b1:1;
+[; ;GenericTypeDefs.h: 389: BYTE b2:1;
+[; ;GenericTypeDefs.h: 390: BYTE b3:1;
+[; ;GenericTypeDefs.h: 391: BYTE b4:1;
+[; ;GenericTypeDefs.h: 392: BYTE b5:1;
+[; ;GenericTypeDefs.h: 393: BYTE b6:1;
+[; ;GenericTypeDefs.h: 394: BYTE b7:1;
+[; ;GenericTypeDefs.h: 395: BYTE b8:1;
+[; ;GenericTypeDefs.h: 396: BYTE b9:1;
+[; ;GenericTypeDefs.h: 397: BYTE b10:1;
+[; ;GenericTypeDefs.h: 398: BYTE b11:1;
+[; ;GenericTypeDefs.h: 399: BYTE b12:1;
+[; ;GenericTypeDefs.h: 400: BYTE b13:1;
+[; ;GenericTypeDefs.h: 401: BYTE b14:1;
+[; ;GenericTypeDefs.h: 402: BYTE b15:1;
+[; ;GenericTypeDefs.h: 403: } bits;
+[; ;GenericTypeDefs.h: 404: } WORD_VAL, WORD_BITS;
+[; ;GenericTypeDefs.h: 406: typedef union
+[; ;GenericTypeDefs.h: 407: {
+[; ;GenericTypeDefs.h: 408: DWORD Val;
+[; ;GenericTypeDefs.h: 409: WORD w[2] ;
+[; ;GenericTypeDefs.h: 410: BYTE v[4] ;
+[; ;GenericTypeDefs.h: 411: struct 
+[; ;GenericTypeDefs.h: 412: {
+[; ;GenericTypeDefs.h: 413: WORD LW;
+[; ;GenericTypeDefs.h: 414: WORD HW;
+[; ;GenericTypeDefs.h: 415: } word;
+[; ;GenericTypeDefs.h: 416: struct 
+[; ;GenericTypeDefs.h: 417: {
+[; ;GenericTypeDefs.h: 418: BYTE LB;
+[; ;GenericTypeDefs.h: 419: BYTE HB;
+[; ;GenericTypeDefs.h: 420: BYTE UB;
+[; ;GenericTypeDefs.h: 421: BYTE MB;
+[; ;GenericTypeDefs.h: 422: } byte;
+[; ;GenericTypeDefs.h: 423: struct 
+[; ;GenericTypeDefs.h: 424: {
+[; ;GenericTypeDefs.h: 425: WORD_VAL low;
+[; ;GenericTypeDefs.h: 426: WORD_VAL high;
+[; ;GenericTypeDefs.h: 427: }wordUnion;
+[; ;GenericTypeDefs.h: 428: struct 
+[; ;GenericTypeDefs.h: 429: {
+[; ;GenericTypeDefs.h: 430: BYTE b0:1;
+[; ;GenericTypeDefs.h: 431: BYTE b1:1;
+[; ;GenericTypeDefs.h: 432: BYTE b2:1;
+[; ;GenericTypeDefs.h: 433: BYTE b3:1;
+[; ;GenericTypeDefs.h: 434: BYTE b4:1;
+[; ;GenericTypeDefs.h: 435: BYTE b5:1;
+[; ;GenericTypeDefs.h: 436: BYTE b6:1;
+[; ;GenericTypeDefs.h: 437: BYTE b7:1;
+[; ;GenericTypeDefs.h: 438: BYTE b8:1;
+[; ;GenericTypeDefs.h: 439: BYTE b9:1;
+[; ;GenericTypeDefs.h: 440: BYTE b10:1;
+[; ;GenericTypeDefs.h: 441: BYTE b11:1;
+[; ;GenericTypeDefs.h: 442: BYTE b12:1;
+[; ;GenericTypeDefs.h: 443: BYTE b13:1;
+[; ;GenericTypeDefs.h: 444: BYTE b14:1;
+[; ;GenericTypeDefs.h: 445: BYTE b15:1;
+[; ;GenericTypeDefs.h: 446: BYTE b16:1;
+[; ;GenericTypeDefs.h: 447: BYTE b17:1;
+[; ;GenericTypeDefs.h: 448: BYTE b18:1;
+[; ;GenericTypeDefs.h: 449: BYTE b19:1;
+[; ;GenericTypeDefs.h: 450: BYTE b20:1;
+[; ;GenericTypeDefs.h: 451: BYTE b21:1;
+[; ;GenericTypeDefs.h: 452: BYTE b22:1;
+[; ;GenericTypeDefs.h: 453: BYTE b23:1;
+[; ;GenericTypeDefs.h: 454: BYTE b24:1;
+[; ;GenericTypeDefs.h: 455: BYTE b25:1;
+[; ;GenericTypeDefs.h: 456: BYTE b26:1;
+[; ;GenericTypeDefs.h: 457: BYTE b27:1;
+[; ;GenericTypeDefs.h: 458: BYTE b28:1;
+[; ;GenericTypeDefs.h: 459: BYTE b29:1;
+[; ;GenericTypeDefs.h: 460: BYTE b30:1;
+[; ;GenericTypeDefs.h: 461: BYTE b31:1;
+[; ;GenericTypeDefs.h: 462: } bits;
+[; ;GenericTypeDefs.h: 463: } DWORD_VAL;
+[; ;GenericTypeDefs.h: 466: typedef union
+[; ;GenericTypeDefs.h: 467: {
+[; ;GenericTypeDefs.h: 468: QWORD Val;
+[; ;GenericTypeDefs.h: 469: DWORD d[2] ;
+[; ;GenericTypeDefs.h: 470: WORD w[4] ;
+[; ;GenericTypeDefs.h: 471: BYTE v[8] ;
+[; ;GenericTypeDefs.h: 472: struct 
+[; ;GenericTypeDefs.h: 473: {
+[; ;GenericTypeDefs.h: 474: DWORD LD;
+[; ;GenericTypeDefs.h: 475: DWORD HD;
+[; ;GenericTypeDefs.h: 476: } dword;
+[; ;GenericTypeDefs.h: 477: struct 
+[; ;GenericTypeDefs.h: 478: {
+[; ;GenericTypeDefs.h: 479: WORD LW;
+[; ;GenericTypeDefs.h: 480: WORD HW;
+[; ;GenericTypeDefs.h: 481: WORD UW;
+[; ;GenericTypeDefs.h: 482: WORD MW;
+[; ;GenericTypeDefs.h: 483: } word;
+[; ;GenericTypeDefs.h: 484: struct 
+[; ;GenericTypeDefs.h: 485: {
+[; ;GenericTypeDefs.h: 486: BYTE b0:1;
+[; ;GenericTypeDefs.h: 487: BYTE b1:1;
+[; ;GenericTypeDefs.h: 488: BYTE b2:1;
+[; ;GenericTypeDefs.h: 489: BYTE b3:1;
+[; ;GenericTypeDefs.h: 490: BYTE b4:1;
+[; ;GenericTypeDefs.h: 491: BYTE b5:1;
+[; ;GenericTypeDefs.h: 492: BYTE b6:1;
+[; ;GenericTypeDefs.h: 493: BYTE b7:1;
+[; ;GenericTypeDefs.h: 494: BYTE b8:1;
+[; ;GenericTypeDefs.h: 495: BYTE b9:1;
+[; ;GenericTypeDefs.h: 496: BYTE b10:1;
+[; ;GenericTypeDefs.h: 497: BYTE b11:1;
+[; ;GenericTypeDefs.h: 498: BYTE b12:1;
+[; ;GenericTypeDefs.h: 499: BYTE b13:1;
+[; ;GenericTypeDefs.h: 500: BYTE b14:1;
+[; ;GenericTypeDefs.h: 501: BYTE b15:1;
+[; ;GenericTypeDefs.h: 502: BYTE b16:1;
+[; ;GenericTypeDefs.h: 503: BYTE b17:1;
+[; ;GenericTypeDefs.h: 504: BYTE b18:1;
+[; ;GenericTypeDefs.h: 505: BYTE b19:1;
+[; ;GenericTypeDefs.h: 506: BYTE b20:1;
+[; ;GenericTypeDefs.h: 507: BYTE b21:1;
+[; ;GenericTypeDefs.h: 508: BYTE b22:1;
+[; ;GenericTypeDefs.h: 509: BYTE b23:1;
+[; ;GenericTypeDefs.h: 510: BYTE b24:1;
+[; ;GenericTypeDefs.h: 511: BYTE b25:1;
+[; ;GenericTypeDefs.h: 512: BYTE b26:1;
+[; ;GenericTypeDefs.h: 513: BYTE b27:1;
+[; ;GenericTypeDefs.h: 514: BYTE b28:1;
+[; ;GenericTypeDefs.h: 515: BYTE b29:1;
+[; ;GenericTypeDefs.h: 516: BYTE b30:1;
+[; ;GenericTypeDefs.h: 517: BYTE b31:1;
+[; ;GenericTypeDefs.h: 518: BYTE b32:1;
+[; ;GenericTypeDefs.h: 519: BYTE b33:1;
+[; ;GenericTypeDefs.h: 520: BYTE b34:1;
+[; ;GenericTypeDefs.h: 521: BYTE b35:1;
+[; ;GenericTypeDefs.h: 522: BYTE b36:1;
+[; ;GenericTypeDefs.h: 523: BYTE b37:1;
+[; ;GenericTypeDefs.h: 524: BYTE b38:1;
+[; ;GenericTypeDefs.h: 525: BYTE b39:1;
+[; ;GenericTypeDefs.h: 526: BYTE b40:1;
+[; ;GenericTypeDefs.h: 527: BYTE b41:1;
+[; ;GenericTypeDefs.h: 528: BYTE b42:1;
+[; ;GenericTypeDefs.h: 529: BYTE b43:1;
+[; ;GenericTypeDefs.h: 530: BYTE b44:1;
+[; ;GenericTypeDefs.h: 531: BYTE b45:1;
+[; ;GenericTypeDefs.h: 532: BYTE b46:1;
+[; ;GenericTypeDefs.h: 533: BYTE b47:1;
+[; ;GenericTypeDefs.h: 534: BYTE b48:1;
+[; ;GenericTypeDefs.h: 535: BYTE b49:1;
+[; ;GenericTypeDefs.h: 536: BYTE b50:1;
+[; ;GenericTypeDefs.h: 537: BYTE b51:1;
+[; ;GenericTypeDefs.h: 538: BYTE b52:1;
+[; ;GenericTypeDefs.h: 539: BYTE b53:1;
+[; ;GenericTypeDefs.h: 540: BYTE b54:1;
+[; ;GenericTypeDefs.h: 541: BYTE b55:1;
+[; ;GenericTypeDefs.h: 542: BYTE b56:1;
+[; ;GenericTypeDefs.h: 543: BYTE b57:1;
+[; ;GenericTypeDefs.h: 544: BYTE b58:1;
+[; ;GenericTypeDefs.h: 545: BYTE b59:1;
+[; ;GenericTypeDefs.h: 546: BYTE b60:1;
+[; ;GenericTypeDefs.h: 547: BYTE b61:1;
+[; ;GenericTypeDefs.h: 548: BYTE b62:1;
+[; ;GenericTypeDefs.h: 549: BYTE b63:1;
+[; ;GenericTypeDefs.h: 550: } bits;
+[; ;GenericTypeDefs.h: 551: } QWORD_VAL;
 [; ;flash.h: 113: extern void ReadFlash(unsigned long startaddr, unsigned int num_bytes, unsigned char *flash_array);
 [; ;flash.h: 120: extern void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 [; ;flash.h: 122: extern void WriteBlockFlash(unsigned long startaddr, unsigned char num_blocks, unsigned char *flash_array);
@@ -16680,11 +16566,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;delays.h: 25: void Delay100TCYx(unsigned char);
 [; ;delays.h: 31: void Delay1KTCYx(unsigned char);
 [; ;delays.h: 37: void Delay10KTCYx(unsigned char);
-[; ;pic18.h: 18: __attribute__((__unsupported__("The flash_write routine is no longer supported. Please use the peripheral library functions: WriteBytesFlash, WriteBlockFlash or WriteWordFlash"))) void flash_write(const unsigned char *, unsigned int, __far unsigned c
-[; ;pic18.h: 42: extern void __nop(void);
-[; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
-[; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
-[; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
+[; ;pic18.h: 18: __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+[; ;pic18.h: 19: __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
+[; ;pic18.h: 43: extern void __nop(void);
+[; ;pic18.h: 121: __attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
+[; ;pic18.h: 122: __attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
+[; ;pic18.h: 123: __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
+[; ;pic18.h: 152: extern __nonreentrant void _delay(unsigned long);
+[; ;pic18.h: 154: extern __nonreentrant void _delaywdt(unsigned long);
+[; ;pic18.h: 156: extern __nonreentrant void _delay3(unsigned char);
 "12 pic_config.h
 [p x OSC=HS ]
 "13
@@ -16853,15 +16743,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\CANlib.h: 190: BYTE CANgetRXerrorCount (void);
 [; ;inc\CANlib.h: 192: BYTE CANisBusOFF (void);
 [; ;inc\CANlib.h: 193: void CANAbortMessages (void);
-"206 ../../../Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
-[v _CANOperationMode `(v ~T0 @X0 1 ef1`E16922 ]
+"206 C:/Users/simon/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
+[v _CANOperationMode `(v ~T0 @X0 1 ef1`E16881 ]
 "207
 {
 [; ;inc\CANlib.h: 206: void CANOperationMode (enum CAN_OP_MODE mode)
 [; ;inc\CANlib.h: 207: {
 [e :U _CANOperationMode ]
 "206
-[v _mode `E16922 ~T0 @X0 1 r1 ]
+[v _mode `E16881 ~T0 @X0 1 r1 ]
 "207
 [f ]
 [; ;inc\CANlib.h: 208: CANCON = mode;
@@ -16869,17 +16759,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _CANCON -> _mode `uc ]
 [; ;inc\CANlib.h: 210: while((CANSTAT & 0b11100000) != mode );
 "210
-[e $U 2162  ]
-[e :U 2163 ]
+[e $U 2161  ]
 [e :U 2162 ]
-[e $ != & -> _CANSTAT `i -> 224 `i -> _mode `i 2163  ]
-[e :U 2164 ]
+[e :U 2161 ]
+[e $ != & -> _CANSTAT `i -> 224 `i -> _mode `i 2162  ]
+[e :U 2163 ]
 [; ;inc\CANlib.h: 211: }
 "211
-[e :UE 2161 ]
+[e :UE 2160 ]
 }
 "218
-[v _CANInitialize `(v ~T0 @X0 1 ef6`uc`uc`uc`uc`uc`E16928 ]
+[v _CANInitialize `(v ~T0 @X0 1 ef6`uc`uc`uc`uc`uc`E16887 ]
 "219
 {
 [; ;inc\CANlib.h: 218: void CANInitialize (BYTE propSeg, BYTE phaseSeg1, BYTE phaseSeg2,BYTE SJW, BYTE BRP, enum CAN_CONFIG_FLAGS flags)
@@ -16891,7 +16781,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _phaseSeg2 `uc ~T0 @X0 1 r3 ]
 [v _SJW `uc ~T0 @X0 1 r4 ]
 [v _BRP `uc ~T0 @X0 1 r5 ]
-[v _flags `E16928 ~T0 @X0 1 r6 ]
+[v _flags `E16887 ~T0 @X0 1 r6 ]
 "219
 [f ]
 "220
@@ -16902,7 +16792,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\CANlib.h: 221: BYTE FilterConfig2;
 [; ;inc\CANlib.h: 223: CANOperationMode(CAN_OP_MODE_CONFIG);
 "223
-[e ( _CANOperationMode (1 . `E16922 4 ]
+[e ( _CANOperationMode (1 . `E16881 4 ]
 [; ;inc\CANlib.h: 225: BRGCON1 = 0x00;
 "225
 [e = _BRGCON1 -> -> 0 `i `uc ]
@@ -16932,127 +16822,127 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =| _BRGCON2 _phaseSeg1 ]
 [; ;inc\CANlib.h: 237: if ( !(flags & CAN_CONFIG_SAMPLE_BIT) )
 "237
-[e $ ! ! != & -> _flags `i -> . `E16928 7 `i -> 0 `i 2166  ]
+[e $ ! ! != & -> _flags `i -> . `E16887 7 `i -> 0 `i 2165  ]
 [; ;inc\CANlib.h: 238: BRGCON2bits.SAM= 1;
 "238
 [e = . . _BRGCON2bits 0 6 -> -> 1 `i `uc ]
-[e :U 2166 ]
+[e :U 2165 ]
 [; ;inc\CANlib.h: 240: if ( flags & CAN_CONFIG_PHSEG2_PRG_BIT )
 "240
-[e $ ! != & -> _flags `i -> . `E16928 1 `i -> 0 `i 2167  ]
+[e $ ! != & -> _flags `i -> . `E16887 1 `i -> 0 `i 2166  ]
 [; ;inc\CANlib.h: 241: BRGCON2bits.SEG2PHTS = 1;
 "241
 [e = . . _BRGCON2bits 1 1 -> -> 1 `i `uc ]
-[e :U 2167 ]
+[e :U 2166 ]
 [; ;inc\CANlib.h: 243: BRGCON3 |= phaseSeg2;
 "243
 [e =| _BRGCON3 _phaseSeg2 ]
 [; ;inc\CANlib.h: 245: if ( flags & CAN_CONFIG_LINE_FILTER_BIT )
 "245
-[e $ ! != & -> _flags `i -> . `E16928 4 `i -> 0 `i 2168  ]
+[e $ ! != & -> _flags `i -> . `E16887 4 `i -> 0 `i 2167  ]
 [; ;inc\CANlib.h: 246: BRGCON3bits.WAKFIL = 1;
 "246
 [e = . . _BRGCON3bits 0 4 -> -> 1 `i `uc ]
-[e :U 2168 ]
+[e :U 2167 ]
 [; ;inc\CANlib.h: 251: RXB0CON = flags & CAN_CONFIG_MSG_BITS;
 "251
-[e = _RXB0CON -> & -> _flags `i -> . `E16928 16 `i `uc ]
+[e = _RXB0CON -> & -> _flags `i -> . `E16887 16 `i `uc ]
 [; ;inc\CANlib.h: 252: if ( (flags & CAN_CONFIG_DBL_BUFFER_BIT)== CAN_CONFIG_DBL_BUFFER_ON )
 "252
-[e $ ! == & -> _flags `i -> . `E16928 13 `i -> . `E16928 14 `i 2169  ]
+[e $ ! == & -> _flags `i -> . `E16887 13 `i -> . `E16887 14 `i 2168  ]
 [; ;inc\CANlib.h: 253: RXB0CONbits.RXB0DBEN = 1;
 "253
 [e = . . _RXB0CONbits 1 2 -> -> 1 `i `uc ]
-[e :U 2169 ]
+[e :U 2168 ]
 [; ;inc\CANlib.h: 255: RXB1CON = RXB0CON;
 "255
 [e = _RXB1CON _RXB0CON ]
 [; ;inc\CANlib.h: 259: CANSetMask (CAN_MASK_B1, 0x00000000, CAN_CONFIG_XTD_MSG);
 "259
-[e ( _CANSetMask (3 , , . `E16962 0 -> -> -> 0 `i `l `ul . `E16928 12 ]
+[e ( _CANSetMask (3 , , . `E16921 0 -> -> -> 0 `i `l `ul . `E16887 12 ]
 [; ;inc\CANlib.h: 260: CANSetMask (CAN_MASK_B2, 0x00000000, CAN_CONFIG_XTD_MSG);
 "260
-[e ( _CANSetMask (3 , , . `E16962 1 -> -> -> 0 `i `l `ul . `E16928 12 ]
+[e ( _CANSetMask (3 , , . `E16921 1 -> -> -> 0 `i `l `ul . `E16887 12 ]
 [; ;inc\CANlib.h: 263: switch( (flags & CAN_CONFIG_MSG_BITS) | ~CAN_CONFIG_MSG_BITS )
 "263
-[e $U 2171  ]
+[e $U 2170  ]
 [; ;inc\CANlib.h: 264: {
 "264
 {
 [; ;inc\CANlib.h: 265: case CAN_CONFIG_VALID_XTD_MSG:
 "265
-[e :U 2172 ]
+[e :U 2171 ]
 [; ;inc\CANlib.h: 266: FilterConfig1 = CAN_CONFIG_XTD_MSG;
 "266
-[e = _FilterConfig1 -> . `E16928 12 `uc ]
+[e = _FilterConfig1 -> . `E16887 12 `uc ]
 [; ;inc\CANlib.h: 267: FilterConfig2 = CAN_CONFIG_XTD_MSG;
 "267
-[e = _FilterConfig2 -> . `E16928 12 `uc ]
+[e = _FilterConfig2 -> . `E16887 12 `uc ]
 [; ;inc\CANlib.h: 268: break;
 "268
-[e $U 2170  ]
+[e $U 2169  ]
 [; ;inc\CANlib.h: 270: case CAN_CONFIG_VALID_STD_MSG:
 "270
-[e :U 2173 ]
+[e :U 2172 ]
 [; ;inc\CANlib.h: 271: FilterConfig1 = CAN_CONFIG_STD_MSG;
 "271
-[e = _FilterConfig1 -> . `E16928 11 `uc ]
+[e = _FilterConfig1 -> . `E16887 11 `uc ]
 [; ;inc\CANlib.h: 272: FilterConfig2 = CAN_CONFIG_STD_MSG;
 "272
-[e = _FilterConfig2 -> . `E16928 11 `uc ]
+[e = _FilterConfig2 -> . `E16887 11 `uc ]
 [; ;inc\CANlib.h: 273: break;
 "273
-[e $U 2170  ]
+[e $U 2169  ]
 [; ;inc\CANlib.h: 274: default:
 "274
-[e :U 2174 ]
+[e :U 2173 ]
 [; ;inc\CANlib.h: 275: FilterConfig1 = CAN_CONFIG_STD_MSG;
 "275
-[e = _FilterConfig1 -> . `E16928 11 `uc ]
+[e = _FilterConfig1 -> . `E16887 11 `uc ]
 [; ;inc\CANlib.h: 276: FilterConfig2 = CAN_CONFIG_XTD_MSG;
 "276
-[e = _FilterConfig2 -> . `E16928 12 `uc ]
+[e = _FilterConfig2 -> . `E16887 12 `uc ]
 [; ;inc\CANlib.h: 277: break;
 "277
-[e $U 2170  ]
+[e $U 2169  ]
 "278
 }
 [; ;inc\CANlib.h: 278: }
-[e $U 2170  ]
+[e $U 2169  ]
 "263
-[e :U 2171 ]
-[e [\ | & -> _flags `i -> . `E16928 16 `i ~ -> . `E16928 16 `i , $ -> . `E16928 18 `i 2172
- , $ -> . `E16928 19 `i 2173
- 2174 ]
-"278
 [e :U 2170 ]
+[e [\ | & -> _flags `i -> . `E16887 16 `i ~ -> . `E16887 16 `i , $ -> . `E16887 18 `i 2171
+ , $ -> . `E16887 19 `i 2172
+ 2173 ]
+"278
+[e :U 2169 ]
 [; ;inc\CANlib.h: 280: CANSetFilter(CAN_FILTER_B1_F1, 0, FilterConfig1);
 "280
-[e ( _CANSetFilter (3 , , . `E16965 0 -> -> -> 0 `i `l `ul -> _FilterConfig1 `E16928 ]
+[e ( _CANSetFilter (3 , , . `E16924 0 -> -> -> 0 `i `l `ul -> _FilterConfig1 `E16887 ]
 [; ;inc\CANlib.h: 281: CANSetFilter(CAN_FILTER_B1_F2, 0, FilterConfig1);
 "281
-[e ( _CANSetFilter (3 , , . `E16965 1 -> -> -> 0 `i `l `ul -> _FilterConfig1 `E16928 ]
+[e ( _CANSetFilter (3 , , . `E16924 1 -> -> -> 0 `i `l `ul -> _FilterConfig1 `E16887 ]
 [; ;inc\CANlib.h: 282: CANSetFilter(CAN_FILTER_B2_F1, 0, FilterConfig2);
 "282
-[e ( _CANSetFilter (3 , , . `E16965 2 -> -> -> 0 `i `l `ul -> _FilterConfig2 `E16928 ]
+[e ( _CANSetFilter (3 , , . `E16924 2 -> -> -> 0 `i `l `ul -> _FilterConfig2 `E16887 ]
 [; ;inc\CANlib.h: 283: CANSetFilter(CAN_FILTER_B2_F2, 0, FilterConfig2);
 "283
-[e ( _CANSetFilter (3 , , . `E16965 3 -> -> -> 0 `i `l `ul -> _FilterConfig2 `E16928 ]
+[e ( _CANSetFilter (3 , , . `E16924 3 -> -> -> 0 `i `l `ul -> _FilterConfig2 `E16887 ]
 [; ;inc\CANlib.h: 284: CANSetFilter(CAN_FILTER_B2_F3, 0, FilterConfig2);
 "284
-[e ( _CANSetFilter (3 , , . `E16965 4 -> -> -> 0 `i `l `ul -> _FilterConfig2 `E16928 ]
+[e ( _CANSetFilter (3 , , . `E16924 4 -> -> -> 0 `i `l `ul -> _FilterConfig2 `E16887 ]
 [; ;inc\CANlib.h: 285: CANSetFilter(CAN_FILTER_B2_F4, 0, FilterConfig2);
 "285
-[e ( _CANSetFilter (3 , , . `E16965 5 -> -> -> 0 `i `l `ul -> _FilterConfig2 `E16928 ]
+[e ( _CANSetFilter (3 , , . `E16924 5 -> -> -> 0 `i `l `ul -> _FilterConfig2 `E16887 ]
 [; ;inc\CANlib.h: 287: CANOperationMode(CAN_OP_MODE_NORMAL);
 "287
-[e ( _CANOperationMode (1 . `E16922 0 ]
+[e ( _CANOperationMode (1 . `E16881 0 ]
 [; ;inc\CANlib.h: 289: }
 "289
-[e :UE 2165 ]
+[e :UE 2164 ]
 }
 "294
-[v _CANsendMessage `(v ~T0 @X0 1 ef4`ul`*uc`uc`E16950 ]
+[v _CANsendMessage `(v ~T0 @X0 1 ef4`ul`*uc`uc`E16909 ]
 "295
 {
 [; ;inc\CANlib.h: 294: void CANsendMessage (unsigned long identifier, BYTE *data, BYTE dataLength, enum CAN_TX_MSG_FLAGS flags)
@@ -17062,7 +16952,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _identifier `ul ~T0 @X0 1 r1 ]
 [v _data `*uc ~T0 @X0 1 r2 ]
 [v _dataLength `uc ~T0 @X0 1 r3 ]
-[v _flags `E16950 ~T0 @X0 1 r4 ]
+[v _flags `E16909 ~T0 @X0 1 r4 ]
 "295
 [f ]
 "296
@@ -17070,28 +16960,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\CANlib.h: 296: unsigned long tamp;
 [; ;inc\CANlib.h: 298: if (TXB0CONbits.TXREQ == 0)
 "298
-[e $ ! == -> . . _TXB0CONbits 0 3 `i -> 0 `i 2176  ]
+[e $ ! == -> . . _TXB0CONbits 0 3 `i -> 0 `i 2175  ]
 [; ;inc\CANlib.h: 299: { TXB0DLC = dataLength;
 "299
 {
 [e = _TXB0DLC _dataLength ]
 [; ;inc\CANlib.h: 300: if (0b01000000 & flags)
 "300
-[e $ ! != & -> 64 `i -> _flags `i -> 0 `i 2177  ]
+[e $ ! != & -> 64 `i -> _flags `i -> 0 `i 2176  ]
 [; ;inc\CANlib.h: 301: TXB0DLCbits.TXRTR = 0x01;
 "301
 [e = . . _TXB0DLCbits 0 5 -> -> 1 `i `uc ]
-[e $U 2178  ]
+[e $U 2177  ]
 "302
-[e :U 2177 ]
+[e :U 2176 ]
 [; ;inc\CANlib.h: 302: else
 [; ;inc\CANlib.h: 303: TXB0DLCbits.TXRTR = 0x00;
 "303
 [e = . . _TXB0DLCbits 0 5 -> -> 0 `i `uc ]
-[e :U 2178 ]
+[e :U 2177 ]
 [; ;inc\CANlib.h: 305: if (CAN_TX_FRAME_MASK & flags)
 "305
-[e $ ! != & -> . `E16950 5 `i -> _flags `i -> 0 `i 2179  ]
+[e $ ! != & -> . `E16909 5 `i -> _flags `i -> 0 `i 2178  ]
 [; ;inc\CANlib.h: 306: {
 "306
 {
@@ -17118,39 +17008,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _TXB0SIDLbits 0 3 -> -> 1 `i `uc ]
 [; ;inc\CANlib.h: 318: if (identifier & 0x00010000)
 "318
-[e $ ! != & _identifier -> -> 65536 `l `ul -> -> 0 `i `ul 2180  ]
+[e $ ! != & _identifier -> -> 65536 `l `ul -> -> 0 `i `ul 2179  ]
 [; ;inc\CANlib.h: 319: TXB0SIDLbits.EID16 = 0x01;
 "319
 [e = . . _TXB0SIDLbits 0 0 -> -> 1 `i `uc ]
-[e :U 2180 ]
+[e :U 2179 ]
 [; ;inc\CANlib.h: 320: if (identifier & 0x00020000)
 "320
-[e $ ! != & _identifier -> -> 131072 `l `ul -> -> 0 `i `ul 2181  ]
+[e $ ! != & _identifier -> -> 131072 `l `ul -> -> 0 `i `ul 2180  ]
 [; ;inc\CANlib.h: 321: TXB0SIDLbits.EID17 = 0x01;
 "321
 [e = . . _TXB0SIDLbits 0 1 -> -> 1 `i `uc ]
-[e :U 2181 ]
+[e :U 2180 ]
 [; ;inc\CANlib.h: 322: if (identifier & 0x00040000)
 "322
-[e $ ! != & _identifier -> -> 262144 `l `ul -> -> 0 `i `ul 2182  ]
+[e $ ! != & _identifier -> -> 262144 `l `ul -> -> 0 `i `ul 2181  ]
 [; ;inc\CANlib.h: 323: TXB0SIDLbits.SID0 = 0x01;
 "323
 [e = . . _TXB0SIDLbits 0 5 -> -> 1 `i `uc ]
-[e :U 2182 ]
+[e :U 2181 ]
 [; ;inc\CANlib.h: 324: if (identifier & 0x00080000)
 "324
-[e $ ! != & _identifier -> -> 524288 `l `ul -> -> 0 `i `ul 2183  ]
+[e $ ! != & _identifier -> -> 524288 `l `ul -> -> 0 `i `ul 2182  ]
 [; ;inc\CANlib.h: 325: TXB0SIDLbits.SID1 = 0x01;
 "325
 [e = . . _TXB0SIDLbits 0 6 -> -> 1 `i `uc ]
-[e :U 2183 ]
+[e :U 2182 ]
 [; ;inc\CANlib.h: 326: if (identifier & 0x00100000)
 "326
-[e $ ! != & _identifier -> -> 1048576 `l `ul -> -> 0 `i `ul 2184  ]
+[e $ ! != & _identifier -> -> 1048576 `l `ul -> -> 0 `i `ul 2183  ]
 [; ;inc\CANlib.h: 327: TXB0SIDLbits.SID2 = 0x01;
 "327
 [e = . . _TXB0SIDLbits 0 7 -> -> 1 `i `uc ]
-[e :U 2184 ]
+[e :U 2183 ]
 [; ;inc\CANlib.h: 329: tamp = (identifier >> 21);
 "329
 [e = _tamp >> _identifier -> 21 `i ]
@@ -17163,9 +17053,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "332
 }
 [; ;inc\CANlib.h: 332: }
-[e $U 2185  ]
+[e $U 2184  ]
 "334
-[e :U 2179 ]
+[e :U 2178 ]
 [; ;inc\CANlib.h: 334: else
 [; ;inc\CANlib.h: 336: {
 "336
@@ -17196,36 +17086,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _TXB0SIDL -> _tamp `uc ]
 "347
 }
-[e :U 2185 ]
+[e :U 2184 ]
 [; ;inc\CANlib.h: 347: }
 [; ;inc\CANlib.h: 349: if (0b00000001 & flags)
 "349
-[e $ ! != & -> 1 `i -> _flags `i -> 0 `i 2186  ]
+[e $ ! != & -> 1 `i -> _flags `i -> 0 `i 2185  ]
 [; ;inc\CANlib.h: 350: TXB0CONbits.TXPRI0 = 0x01;
 "350
 [e = . . _TXB0CONbits 0 0 -> -> 1 `i `uc ]
-[e $U 2187  ]
+[e $U 2186  ]
 "351
-[e :U 2186 ]
+[e :U 2185 ]
 [; ;inc\CANlib.h: 351: else
 [; ;inc\CANlib.h: 352: TXB0CONbits.TXPRI0 = 0x00;
 "352
 [e = . . _TXB0CONbits 0 0 -> -> 0 `i `uc ]
-[e :U 2187 ]
+[e :U 2186 ]
 [; ;inc\CANlib.h: 353: if (0b00000010 & flags)
 "353
-[e $ ! != & -> 2 `i -> _flags `i -> 0 `i 2188  ]
+[e $ ! != & -> 2 `i -> _flags `i -> 0 `i 2187  ]
 [; ;inc\CANlib.h: 354: TXB0CONbits.TXPRI1 = 0x01;
 "354
 [e = . . _TXB0CONbits 0 1 -> -> 1 `i `uc ]
-[e $U 2189  ]
+[e $U 2188  ]
 "355
-[e :U 2188 ]
+[e :U 2187 ]
 [; ;inc\CANlib.h: 355: else
 [; ;inc\CANlib.h: 356: TXB0CONbits.TXPRI1 = 0x00;
 "356
 [e = . . _TXB0CONbits 0 1 -> -> 0 `i `uc ]
-[e :U 2189 ]
+[e :U 2188 ]
 [; ;inc\CANlib.h: 358: TXB0D0 = data[0];
 "358
 [e = _TXB0D0 *U + _data * -> -> 0 `i `x -> -> # *U _data `i `x ]
@@ -17255,35 +17145,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _TXB0CONbits 0 3 -> -> 1 `i `uc ]
 [; ;inc\CANlib.h: 368: return;
 "368
-[e $UE 2175  ]
+[e $UE 2174  ]
 "369
 }
-[e :U 2176 ]
+[e :U 2175 ]
 [; ;inc\CANlib.h: 369: }
 [; ;inc\CANlib.h: 373: if (TXB1CONbits.TXREQ == 0)
 "373
-[e $ ! == -> . . _TXB1CONbits 0 3 `i -> 0 `i 2190  ]
+[e $ ! == -> . . _TXB1CONbits 0 3 `i -> 0 `i 2189  ]
 [; ;inc\CANlib.h: 374: { TXB1DLC = dataLength;
 "374
 {
 [e = _TXB1DLC _dataLength ]
 [; ;inc\CANlib.h: 376: if (0b01000000 & flags)
 "376
-[e $ ! != & -> 64 `i -> _flags `i -> 0 `i 2191  ]
+[e $ ! != & -> 64 `i -> _flags `i -> 0 `i 2190  ]
 [; ;inc\CANlib.h: 377: TXB1DLCbits.TXRTR = 0x01;
 "377
 [e = . . _TXB1DLCbits 0 5 -> -> 1 `i `uc ]
-[e $U 2192  ]
+[e $U 2191  ]
 "378
-[e :U 2191 ]
+[e :U 2190 ]
 [; ;inc\CANlib.h: 378: else
 [; ;inc\CANlib.h: 379: TXB1DLCbits.TXRTR = 0x00;
 "379
 [e = . . _TXB1DLCbits 0 5 -> -> 0 `i `uc ]
-[e :U 2192 ]
+[e :U 2191 ]
 [; ;inc\CANlib.h: 381: if (CAN_TX_FRAME_MASK & flags)
 "381
-[e $ ! != & -> . `E16950 5 `i -> _flags `i -> 0 `i 2193  ]
+[e $ ! != & -> . `E16909 5 `i -> _flags `i -> 0 `i 2192  ]
 [; ;inc\CANlib.h: 382: {
 "382
 {
@@ -17310,39 +17200,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _TXB1SIDLbits 0 3 -> -> 1 `i `uc ]
 [; ;inc\CANlib.h: 393: if (identifier & 0x00010000)
 "393
-[e $ ! != & _identifier -> -> 65536 `l `ul -> -> 0 `i `ul 2194  ]
+[e $ ! != & _identifier -> -> 65536 `l `ul -> -> 0 `i `ul 2193  ]
 [; ;inc\CANlib.h: 394: TXB1SIDLbits.EID16 = 0x01;
 "394
 [e = . . _TXB1SIDLbits 0 0 -> -> 1 `i `uc ]
-[e :U 2194 ]
+[e :U 2193 ]
 [; ;inc\CANlib.h: 395: if (identifier & 0x00020000)
 "395
-[e $ ! != & _identifier -> -> 131072 `l `ul -> -> 0 `i `ul 2195  ]
+[e $ ! != & _identifier -> -> 131072 `l `ul -> -> 0 `i `ul 2194  ]
 [; ;inc\CANlib.h: 396: TXB1SIDLbits.EID17 = 0x01;
 "396
 [e = . . _TXB1SIDLbits 0 1 -> -> 1 `i `uc ]
-[e :U 2195 ]
+[e :U 2194 ]
 [; ;inc\CANlib.h: 397: if (identifier & 0x00040000)
 "397
-[e $ ! != & _identifier -> -> 262144 `l `ul -> -> 0 `i `ul 2196  ]
+[e $ ! != & _identifier -> -> 262144 `l `ul -> -> 0 `i `ul 2195  ]
 [; ;inc\CANlib.h: 398: TXB1SIDLbits.SID0 = 0x01;
 "398
 [e = . . _TXB1SIDLbits 0 5 -> -> 1 `i `uc ]
-[e :U 2196 ]
+[e :U 2195 ]
 [; ;inc\CANlib.h: 399: if (identifier & 0x00080000)
 "399
-[e $ ! != & _identifier -> -> 524288 `l `ul -> -> 0 `i `ul 2197  ]
+[e $ ! != & _identifier -> -> 524288 `l `ul -> -> 0 `i `ul 2196  ]
 [; ;inc\CANlib.h: 400: TXB1SIDLbits.SID1 = 0x01;
 "400
 [e = . . _TXB1SIDLbits 0 6 -> -> 1 `i `uc ]
-[e :U 2197 ]
+[e :U 2196 ]
 [; ;inc\CANlib.h: 401: if (identifier & 0x00100000)
 "401
-[e $ ! != & _identifier -> -> 1048576 `l `ul -> -> 0 `i `ul 2198  ]
+[e $ ! != & _identifier -> -> 1048576 `l `ul -> -> 0 `i `ul 2197  ]
 [; ;inc\CANlib.h: 402: TXB1SIDLbits.SID2 = 0x01;
 "402
 [e = . . _TXB1SIDLbits 0 7 -> -> 1 `i `uc ]
-[e :U 2198 ]
+[e :U 2197 ]
 [; ;inc\CANlib.h: 404: tamp = (identifier >> 21);
 "404
 [e = _tamp >> _identifier -> 21 `i ]
@@ -17355,9 +17245,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "407
 }
 [; ;inc\CANlib.h: 407: }
-[e $U 2199  ]
+[e $U 2198  ]
 "409
-[e :U 2193 ]
+[e :U 2192 ]
 [; ;inc\CANlib.h: 409: else
 [; ;inc\CANlib.h: 411: {
 "411
@@ -17388,36 +17278,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _TXB1SIDL -> _tamp `uc ]
 "422
 }
-[e :U 2199 ]
+[e :U 2198 ]
 [; ;inc\CANlib.h: 422: }
 [; ;inc\CANlib.h: 424: if (0b00000001 & flags)
 "424
-[e $ ! != & -> 1 `i -> _flags `i -> 0 `i 2200  ]
+[e $ ! != & -> 1 `i -> _flags `i -> 0 `i 2199  ]
 [; ;inc\CANlib.h: 425: TXB1CONbits.TXPRI0 = 0x01;
 "425
 [e = . . _TXB1CONbits 0 0 -> -> 1 `i `uc ]
-[e $U 2201  ]
+[e $U 2200  ]
 "426
-[e :U 2200 ]
+[e :U 2199 ]
 [; ;inc\CANlib.h: 426: else
 [; ;inc\CANlib.h: 427: TXB1CONbits.TXPRI0 = 0x00;
 "427
 [e = . . _TXB1CONbits 0 0 -> -> 0 `i `uc ]
-[e :U 2201 ]
+[e :U 2200 ]
 [; ;inc\CANlib.h: 428: if (0b00000010 & flags)
 "428
-[e $ ! != & -> 2 `i -> _flags `i -> 0 `i 2202  ]
+[e $ ! != & -> 2 `i -> _flags `i -> 0 `i 2201  ]
 [; ;inc\CANlib.h: 429: TXB1CONbits.TXPRI1 = 0x01;
 "429
 [e = . . _TXB1CONbits 0 1 -> -> 1 `i `uc ]
-[e $U 2203  ]
+[e $U 2202  ]
 "430
-[e :U 2202 ]
+[e :U 2201 ]
 [; ;inc\CANlib.h: 430: else
 [; ;inc\CANlib.h: 431: TXB1CONbits.TXPRI1 = 0x00;
 "431
 [e = . . _TXB1CONbits 0 1 -> -> 0 `i `uc ]
-[e :U 2203 ]
+[e :U 2202 ]
 [; ;inc\CANlib.h: 433: TXB1D0 = data[0];
 "433
 [e = _TXB1D0 *U + _data * -> -> 0 `i `x -> -> # *U _data `i `x ]
@@ -17447,35 +17337,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _TXB1CONbits 0 3 -> -> 1 `i `uc ]
 [; ;inc\CANlib.h: 444: return;
 "444
-[e $UE 2175  ]
+[e $UE 2174  ]
 "445
 }
-[e :U 2190 ]
+[e :U 2189 ]
 [; ;inc\CANlib.h: 445: }
 [; ;inc\CANlib.h: 449: if (TXB2CONbits.TXREQ == 0)
 "449
-[e $ ! == -> . . _TXB2CONbits 0 3 `i -> 0 `i 2204  ]
+[e $ ! == -> . . _TXB2CONbits 0 3 `i -> 0 `i 2203  ]
 [; ;inc\CANlib.h: 450: { TXB2DLC = dataLength;
 "450
 {
 [e = _TXB2DLC _dataLength ]
 [; ;inc\CANlib.h: 452: if (0b01000000 & flags)
 "452
-[e $ ! != & -> 64 `i -> _flags `i -> 0 `i 2205  ]
+[e $ ! != & -> 64 `i -> _flags `i -> 0 `i 2204  ]
 [; ;inc\CANlib.h: 453: TXB2DLCbits.TXRTR = 0x01;
 "453
 [e = . . _TXB2DLCbits 0 5 -> -> 1 `i `uc ]
-[e $U 2206  ]
+[e $U 2205  ]
 "454
-[e :U 2205 ]
+[e :U 2204 ]
 [; ;inc\CANlib.h: 454: else
 [; ;inc\CANlib.h: 455: TXB2DLCbits.TXRTR = 0x00;
 "455
 [e = . . _TXB2DLCbits 0 5 -> -> 0 `i `uc ]
-[e :U 2206 ]
+[e :U 2205 ]
 [; ;inc\CANlib.h: 457: if (CAN_TX_FRAME_MASK & flags)
 "457
-[e $ ! != & -> . `E16950 5 `i -> _flags `i -> 0 `i 2207  ]
+[e $ ! != & -> . `E16909 5 `i -> _flags `i -> 0 `i 2206  ]
 [; ;inc\CANlib.h: 458: {
 "458
 {
@@ -17502,39 +17392,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _TXB2SIDLbits 0 3 -> -> 1 `i `uc ]
 [; ;inc\CANlib.h: 469: if (identifier & 0x00010000)
 "469
-[e $ ! != & _identifier -> -> 65536 `l `ul -> -> 0 `i `ul 2208  ]
+[e $ ! != & _identifier -> -> 65536 `l `ul -> -> 0 `i `ul 2207  ]
 [; ;inc\CANlib.h: 470: TXB2SIDLbits.EID16 = 0x01;
 "470
 [e = . . _TXB2SIDLbits 0 0 -> -> 1 `i `uc ]
-[e :U 2208 ]
+[e :U 2207 ]
 [; ;inc\CANlib.h: 471: if (identifier & 0x00020000)
 "471
-[e $ ! != & _identifier -> -> 131072 `l `ul -> -> 0 `i `ul 2209  ]
+[e $ ! != & _identifier -> -> 131072 `l `ul -> -> 0 `i `ul 2208  ]
 [; ;inc\CANlib.h: 472: TXB2SIDLbits.EID17 = 0x01;
 "472
 [e = . . _TXB2SIDLbits 0 1 -> -> 1 `i `uc ]
-[e :U 2209 ]
+[e :U 2208 ]
 [; ;inc\CANlib.h: 473: if (identifier & 0x00040000)
 "473
-[e $ ! != & _identifier -> -> 262144 `l `ul -> -> 0 `i `ul 2210  ]
+[e $ ! != & _identifier -> -> 262144 `l `ul -> -> 0 `i `ul 2209  ]
 [; ;inc\CANlib.h: 474: TXB2SIDLbits.SID0 = 0x01;
 "474
 [e = . . _TXB2SIDLbits 0 5 -> -> 1 `i `uc ]
-[e :U 2210 ]
+[e :U 2209 ]
 [; ;inc\CANlib.h: 475: if (identifier & 0x00080000)
 "475
-[e $ ! != & _identifier -> -> 524288 `l `ul -> -> 0 `i `ul 2211  ]
+[e $ ! != & _identifier -> -> 524288 `l `ul -> -> 0 `i `ul 2210  ]
 [; ;inc\CANlib.h: 476: TXB2SIDLbits.SID1 = 0x01;
 "476
 [e = . . _TXB2SIDLbits 0 6 -> -> 1 `i `uc ]
-[e :U 2211 ]
+[e :U 2210 ]
 [; ;inc\CANlib.h: 477: if (identifier & 0x00100000)
 "477
-[e $ ! != & _identifier -> -> 1048576 `l `ul -> -> 0 `i `ul 2212  ]
+[e $ ! != & _identifier -> -> 1048576 `l `ul -> -> 0 `i `ul 2211  ]
 [; ;inc\CANlib.h: 478: TXB2SIDLbits.SID2 = 0x01;
 "478
 [e = . . _TXB2SIDLbits 0 7 -> -> 1 `i `uc ]
-[e :U 2212 ]
+[e :U 2211 ]
 [; ;inc\CANlib.h: 480: tamp = (identifier >> 21);
 "480
 [e = _tamp >> _identifier -> 21 `i ]
@@ -17547,9 +17437,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "483
 }
 [; ;inc\CANlib.h: 483: }
-[e $U 2213  ]
+[e $U 2212  ]
 "485
-[e :U 2207 ]
+[e :U 2206 ]
 [; ;inc\CANlib.h: 485: else
 [; ;inc\CANlib.h: 487: {
 "487
@@ -17580,36 +17470,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _TXB2SIDL -> _tamp `uc ]
 "498
 }
-[e :U 2213 ]
+[e :U 2212 ]
 [; ;inc\CANlib.h: 498: }
 [; ;inc\CANlib.h: 500: if (0b00000001 & flags)
 "500
-[e $ ! != & -> 1 `i -> _flags `i -> 0 `i 2214  ]
+[e $ ! != & -> 1 `i -> _flags `i -> 0 `i 2213  ]
 [; ;inc\CANlib.h: 501: TXB2CONbits.TXPRI0 = 0x01;
 "501
 [e = . . _TXB2CONbits 0 0 -> -> 1 `i `uc ]
-[e $U 2215  ]
+[e $U 2214  ]
 "502
-[e :U 2214 ]
+[e :U 2213 ]
 [; ;inc\CANlib.h: 502: else
 [; ;inc\CANlib.h: 503: TXB2CONbits.TXPRI0 = 0x00;
 "503
 [e = . . _TXB2CONbits 0 0 -> -> 0 `i `uc ]
-[e :U 2215 ]
+[e :U 2214 ]
 [; ;inc\CANlib.h: 504: if (0b00000010 & flags)
 "504
-[e $ ! != & -> 2 `i -> _flags `i -> 0 `i 2216  ]
+[e $ ! != & -> 2 `i -> _flags `i -> 0 `i 2215  ]
 [; ;inc\CANlib.h: 505: TXB2CONbits.TXPRI1 = 0x01;
 "505
 [e = . . _TXB2CONbits 0 1 -> -> 1 `i `uc ]
-[e $U 2217  ]
+[e $U 2216  ]
 "506
-[e :U 2216 ]
+[e :U 2215 ]
 [; ;inc\CANlib.h: 506: else
 [; ;inc\CANlib.h: 507: TXB2CONbits.TXPRI1 = 0x00;
 "507
 [e = . . _TXB2CONbits 0 1 -> -> 0 `i `uc ]
-[e :U 2217 ]
+[e :U 2216 ]
 [; ;inc\CANlib.h: 509: TXB2D0 = data[0];
 "509
 [e = _TXB2D0 *U + _data * -> -> 0 `i `x -> -> # *U _data `i `x ]
@@ -17639,24 +17529,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _TXB2CONbits 0 3 -> -> 1 `i `uc ]
 [; ;inc\CANlib.h: 520: return;
 "520
-[e $UE 2175  ]
+[e $UE 2174  ]
 "521
 }
-[e :U 2204 ]
+[e :U 2203 ]
 [; ;inc\CANlib.h: 521: }
 [; ;inc\CANlib.h: 522: }
 "522
-[e :UE 2175 ]
+[e :UE 2174 ]
 }
 "528
-[v _CANreceiveMessage `(uc ~T0 @X0 1 ef1`*S2160 ]
+[v _CANreceiveMessage `(uc ~T0 @X0 1 ef1`*S2159 ]
 "529
 {
 [; ;inc\CANlib.h: 528: BYTE CANreceiveMessage (CANmessage *msg)
 [; ;inc\CANlib.h: 529: {
 [e :U _CANreceiveMessage ]
 "528
-[v _msg `*S2160 ~T0 @X0 1 r1 ]
+[v _msg `*S2159 ~T0 @X0 1 r1 ]
 "529
 [f ]
 "530
@@ -17668,21 +17558,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _error -> -> 0 `i `uc ]
 [; ;inc\CANlib.h: 533: if (COMSTATbits.RXB0OVFL == 0x01)
 "533
-[e $ ! == -> . . _COMSTATbits 3 2 `i -> 1 `i 2219  ]
+[e $ ! == -> . . _COMSTATbits 3 2 `i -> 1 `i 2218  ]
 [; ;inc\CANlib.h: 534: error |= CAN_RX_BUFFER_1_OVFL;
 "534
-[e =| _error -> . `E16972 0 `uc ]
-[e :U 2219 ]
+[e =| _error -> . `E16931 0 `uc ]
+[e :U 2218 ]
 [; ;inc\CANlib.h: 536: if (COMSTATbits.RXB1OVFL == 0x01)
 "536
-[e $ ! == -> . . _COMSTATbits 3 1 `i -> 1 `i 2220  ]
+[e $ ! == -> . . _COMSTATbits 3 1 `i -> 1 `i 2219  ]
 [; ;inc\CANlib.h: 537: error |= CAN_RX_BUFFER_2_OVFL;
 "537
-[e =| _error -> . `E16972 1 `uc ]
-[e :U 2220 ]
+[e =| _error -> . `E16931 1 `uc ]
+[e :U 2219 ]
 [; ;inc\CANlib.h: 540: if (RXB1CONbits.RXFUL ==0x01)
 "540
-[e $ ! == -> . . _RXB1CONbits 0 7 `i -> 1 `i 2221  ]
+[e $ ! == -> . . _RXB1CONbits 0 7 `i -> 1 `i 2220  ]
 [; ;inc\CANlib.h: 541: {
 "541
 {
@@ -17724,7 +17614,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . *U _msg 2 . . _RXB1SIDLbits 0 3 ]
 [; ;inc\CANlib.h: 558: if (RXB1SIDLbits.EXID == 0)
 "558
-[e $ ! == -> . . _RXB1SIDLbits 0 3 `i -> 0 `i 2222  ]
+[e $ ! == -> . . _RXB1SIDLbits 0 3 `i -> 0 `i 2221  ]
 [; ;inc\CANlib.h: 559: {
 "559
 {
@@ -17740,9 +17630,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "563
 }
 [; ;inc\CANlib.h: 563: }
-[e $U 2223  ]
+[e $U 2222  ]
 "564
-[e :U 2222 ]
+[e :U 2221 ]
 [; ;inc\CANlib.h: 564: else
 [; ;inc\CANlib.h: 565: {
 "565
@@ -17755,45 +17645,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =+ . *U _msg 0 << -> _RXB1EIDH `ul -> 8 `i ]
 [; ;inc\CANlib.h: 569: if (RXB1SIDLbits.EID16)
 "569
-[e $ ! != -> . . _RXB1SIDLbits 0 0 `i -> -> -> 0 `i `Vuc `i 2224  ]
+[e $ ! != -> . . _RXB1SIDLbits 0 0 `i -> -> -> 0 `i `Vuc `i 2223  ]
 [; ;inc\CANlib.h: 570: msg->identifier |= 0x00010000;
 "570
 [e =| . *U _msg 0 -> -> 65536 `l `ul ]
-[e :U 2224 ]
+[e :U 2223 ]
 [; ;inc\CANlib.h: 571: if (RXB1SIDLbits.EID17)
 "571
-[e $ ! != -> . . _RXB1SIDLbits 0 1 `i -> -> -> 0 `i `Vuc `i 2225  ]
+[e $ ! != -> . . _RXB1SIDLbits 0 1 `i -> -> -> 0 `i `Vuc `i 2224  ]
 [; ;inc\CANlib.h: 572: msg->identifier |= 0x00020000;
 "572
 [e =| . *U _msg 0 -> -> 131072 `l `ul ]
-[e :U 2225 ]
+[e :U 2224 ]
 [; ;inc\CANlib.h: 573: if (RXB1SIDLbits.SID0)
 "573
-[e $ ! != -> . . _RXB1SIDLbits 0 5 `i -> -> -> 0 `i `Vuc `i 2226  ]
+[e $ ! != -> . . _RXB1SIDLbits 0 5 `i -> -> -> 0 `i `Vuc `i 2225  ]
 [; ;inc\CANlib.h: 574: msg->identifier |= 0x00040000;
 "574
 [e =| . *U _msg 0 -> -> 262144 `l `ul ]
-[e :U 2226 ]
+[e :U 2225 ]
 [; ;inc\CANlib.h: 575: if (RXB1SIDLbits.SID1)
 "575
-[e $ ! != -> . . _RXB1SIDLbits 0 6 `i -> -> -> 0 `i `Vuc `i 2227  ]
+[e $ ! != -> . . _RXB1SIDLbits 0 6 `i -> -> -> 0 `i `Vuc `i 2226  ]
 [; ;inc\CANlib.h: 576: msg->identifier |= 0x00080000;
 "576
 [e =| . *U _msg 0 -> -> 524288 `l `ul ]
-[e :U 2227 ]
+[e :U 2226 ]
 [; ;inc\CANlib.h: 577: if (RXB1SIDLbits.SID2)
 "577
-[e $ ! != -> . . _RXB1SIDLbits 0 7 `i -> -> -> 0 `i `Vuc `i 2228  ]
+[e $ ! != -> . . _RXB1SIDLbits 0 7 `i -> -> -> 0 `i `Vuc `i 2227  ]
 [; ;inc\CANlib.h: 578: msg->identifier |= 0x00100000;
 "578
 [e =| . *U _msg 0 -> -> 1048576 `l `ul ]
-[e :U 2228 ]
+[e :U 2227 ]
 [; ;inc\CANlib.h: 580: msg->identifier |= ((unsigned long) RXB1SIDH) << 21;
 "580
 [e =| . *U _msg 0 << -> _RXB1SIDH `ul -> 21 `i ]
 "581
 }
-[e :U 2223 ]
+[e :U 2222 ]
 [; ;inc\CANlib.h: 581: }
 [; ;inc\CANlib.h: 583: RXB1CONbits.RXFUL = 0x00;
 "583
@@ -17801,14 +17691,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\CANlib.h: 584: return (error);
 "584
 [e ) _error ]
-[e $UE 2218  ]
+[e $UE 2217  ]
 "585
 }
-[e :U 2221 ]
+[e :U 2220 ]
 [; ;inc\CANlib.h: 585: }
 [; ;inc\CANlib.h: 587: if (RXB0CONbits.RXFUL ==0x01)
 "587
-[e $ ! == -> . . _RXB0CONbits 0 7 `i -> 1 `i 2229  ]
+[e $ ! == -> . . _RXB0CONbits 0 7 `i -> 1 `i 2228  ]
 [; ;inc\CANlib.h: 588: {
 "588
 {
@@ -17850,7 +17740,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . *U _msg 2 . . _RXB0SIDLbits 0 3 ]
 [; ;inc\CANlib.h: 605: if (RXB0SIDLbits.EXID == 0)
 "605
-[e $ ! == -> . . _RXB0SIDLbits 0 3 `i -> 0 `i 2230  ]
+[e $ ! == -> . . _RXB0SIDLbits 0 3 `i -> 0 `i 2229  ]
 [; ;inc\CANlib.h: 606: {
 "606
 {
@@ -17866,9 +17756,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "610
 }
 [; ;inc\CANlib.h: 610: }
-[e $U 2231  ]
+[e $U 2230  ]
 "611
-[e :U 2230 ]
+[e :U 2229 ]
 [; ;inc\CANlib.h: 611: else
 [; ;inc\CANlib.h: 612: {
 "612
@@ -17881,45 +17771,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =+ . *U _msg 0 << -> _RXB0EIDH `ul -> 8 `i ]
 [; ;inc\CANlib.h: 616: if (RXB0SIDLbits.EID16)
 "616
-[e $ ! != -> . . _RXB0SIDLbits 0 0 `i -> -> -> 0 `i `Vuc `i 2232  ]
+[e $ ! != -> . . _RXB0SIDLbits 0 0 `i -> -> -> 0 `i `Vuc `i 2231  ]
 [; ;inc\CANlib.h: 617: msg->identifier |= 0x00010000;
 "617
 [e =| . *U _msg 0 -> -> 65536 `l `ul ]
-[e :U 2232 ]
+[e :U 2231 ]
 [; ;inc\CANlib.h: 618: if (RXB0SIDLbits.EID17)
 "618
-[e $ ! != -> . . _RXB0SIDLbits 0 1 `i -> -> -> 0 `i `Vuc `i 2233  ]
+[e $ ! != -> . . _RXB0SIDLbits 0 1 `i -> -> -> 0 `i `Vuc `i 2232  ]
 [; ;inc\CANlib.h: 619: msg->identifier |= 0x00020000;
 "619
 [e =| . *U _msg 0 -> -> 131072 `l `ul ]
-[e :U 2233 ]
+[e :U 2232 ]
 [; ;inc\CANlib.h: 620: if (RXB0SIDLbits.SID0)
 "620
-[e $ ! != -> . . _RXB0SIDLbits 0 5 `i -> -> -> 0 `i `Vuc `i 2234  ]
+[e $ ! != -> . . _RXB0SIDLbits 0 5 `i -> -> -> 0 `i `Vuc `i 2233  ]
 [; ;inc\CANlib.h: 621: msg->identifier |= 0x00040000;
 "621
 [e =| . *U _msg 0 -> -> 262144 `l `ul ]
-[e :U 2234 ]
+[e :U 2233 ]
 [; ;inc\CANlib.h: 622: if (RXB0SIDLbits.SID1)
 "622
-[e $ ! != -> . . _RXB0SIDLbits 0 6 `i -> -> -> 0 `i `Vuc `i 2235  ]
+[e $ ! != -> . . _RXB0SIDLbits 0 6 `i -> -> -> 0 `i `Vuc `i 2234  ]
 [; ;inc\CANlib.h: 623: msg->identifier |= 0x00080000;
 "623
 [e =| . *U _msg 0 -> -> 524288 `l `ul ]
-[e :U 2235 ]
+[e :U 2234 ]
 [; ;inc\CANlib.h: 624: if (RXB0SIDLbits.SID2)
 "624
-[e $ ! != -> . . _RXB0SIDLbits 0 7 `i -> -> -> 0 `i `Vuc `i 2236  ]
+[e $ ! != -> . . _RXB0SIDLbits 0 7 `i -> -> -> 0 `i `Vuc `i 2235  ]
 [; ;inc\CANlib.h: 625: msg->identifier |= 0x00100000;
 "625
 [e =| . *U _msg 0 -> -> 1048576 `l `ul ]
-[e :U 2236 ]
+[e :U 2235 ]
 [; ;inc\CANlib.h: 627: msg->identifier |= ((unsigned long) RXB0SIDH) << 21;
 "627
 [e =| . *U _msg 0 << -> _RXB0SIDH `ul -> 21 `i ]
 "629
 }
-[e :U 2231 ]
+[e :U 2230 ]
 [; ;inc\CANlib.h: 629: }
 [; ;inc\CANlib.h: 630: RXB0CONbits.RXFUL = 0x00;
 "630
@@ -17927,32 +17817,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\CANlib.h: 632: return (error);
 "632
 [e ) _error ]
-[e $UE 2218  ]
+[e $UE 2217  ]
 "633
 }
-[e :U 2229 ]
+[e :U 2228 ]
 [; ;inc\CANlib.h: 633: }
 [; ;inc\CANlib.h: 634: }
 "634
-[e :UE 2218 ]
+[e :UE 2217 ]
 }
 "640
-[v _CANSetMask `(v ~T0 @X0 1 ef3`E16962`ul`E16928 ]
+[v _CANSetMask `(v ~T0 @X0 1 ef3`E16921`ul`E16887 ]
 "641
 {
 [; ;inc\CANlib.h: 640: void CANSetMask(enum CAN_MASK numBuffer, unsigned long mask, enum CAN_CONFIG_FLAGS type)
 [; ;inc\CANlib.h: 641: { unsigned long tamp;
 [e :U _CANSetMask ]
 "640
-[v _numBuffer `E16962 ~T0 @X0 1 r1 ]
+[v _numBuffer `E16921 ~T0 @X0 1 r1 ]
 [v _mask `ul ~T0 @X0 1 r2 ]
-[v _type `E16928 ~T0 @X0 1 r3 ]
+[v _type `E16887 ~T0 @X0 1 r3 ]
 "641
 [f ]
 [v _tamp `ul ~T0 @X0 1 a ]
 [; ;inc\CANlib.h: 643: if ((numBuffer ==CAN_MASK_B1) && (type == CAN_CONFIG_STD_MSG))
 "643
-[e $ ! && == -> _numBuffer `i -> . `E16962 0 `i == -> _type `i -> . `E16928 11 `i 2238  ]
+[e $ ! && == -> _numBuffer `i -> . `E16921 0 `i == -> _type `i -> . `E16887 11 `i 2237  ]
 [; ;inc\CANlib.h: 644: {
 "644
 {
@@ -17976,11 +17866,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXM0SIDL -> _tamp `uc ]
 "652
 }
-[e :U 2238 ]
+[e :U 2237 ]
 [; ;inc\CANlib.h: 652: }
 [; ;inc\CANlib.h: 654: if ((numBuffer ==CAN_MASK_B2) && (type == CAN_CONFIG_STD_MSG))
 "654
-[e $ ! && == -> _numBuffer `i -> . `E16962 1 `i == -> _type `i -> . `E16928 11 `i 2239  ]
+[e $ ! && == -> _numBuffer `i -> . `E16921 1 `i == -> _type `i -> . `E16887 11 `i 2238  ]
 [; ;inc\CANlib.h: 655: {
 "655
 {
@@ -18004,11 +17894,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXM1SIDL -> _tamp `uc ]
 "663
 }
-[e :U 2239 ]
+[e :U 2238 ]
 [; ;inc\CANlib.h: 663: }
 [; ;inc\CANlib.h: 665: if ((numBuffer ==CAN_MASK_B1) && (type == CAN_CONFIG_XTD_MSG))
 "665
-[e $ ! && == -> _numBuffer `i -> . `E16962 0 `i == -> _type `i -> . `E16928 12 `i 2240  ]
+[e $ ! && == -> _numBuffer `i -> . `E16921 0 `i == -> _type `i -> . `E16887 12 `i 2239  ]
 [; ;inc\CANlib.h: 666: {
 "666
 {
@@ -18029,74 +17919,74 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXM0EIDH -> _tamp `uc ]
 [; ;inc\CANlib.h: 674: if (mask & 0x00010000)
 "674
-[e $ ! != & _mask -> -> 65536 `l `ul -> -> 0 `i `ul 2241  ]
+[e $ ! != & _mask -> -> 65536 `l `ul -> -> 0 `i `ul 2240  ]
 [; ;inc\CANlib.h: 675: RXM0SIDLbits.EID16 = 0x01;
 "675
 [e = . . _RXM0SIDLbits 0 0 -> -> 1 `i `uc ]
-[e $U 2242  ]
+[e $U 2241  ]
 "676
-[e :U 2241 ]
+[e :U 2240 ]
 [; ;inc\CANlib.h: 676: else
 [; ;inc\CANlib.h: 677: RXM0SIDLbits.EID16 = 0x00;
 "677
 [e = . . _RXM0SIDLbits 0 0 -> -> 0 `i `uc ]
-[e :U 2242 ]
+[e :U 2241 ]
 [; ;inc\CANlib.h: 679: if (mask & 0x00020000)
 "679
-[e $ ! != & _mask -> -> 131072 `l `ul -> -> 0 `i `ul 2243  ]
+[e $ ! != & _mask -> -> 131072 `l `ul -> -> 0 `i `ul 2242  ]
 [; ;inc\CANlib.h: 680: RXM0SIDLbits.EID17 = 0x01;
 "680
 [e = . . _RXM0SIDLbits 0 1 -> -> 1 `i `uc ]
-[e $U 2244  ]
+[e $U 2243  ]
 "681
-[e :U 2243 ]
+[e :U 2242 ]
 [; ;inc\CANlib.h: 681: else
 [; ;inc\CANlib.h: 682: RXM0SIDLbits.EID17 = 0x00;
 "682
 [e = . . _RXM0SIDLbits 0 1 -> -> 0 `i `uc ]
-[e :U 2244 ]
+[e :U 2243 ]
 [; ;inc\CANlib.h: 684: if (mask & 0x00040000)
 "684
-[e $ ! != & _mask -> -> 262144 `l `ul -> -> 0 `i `ul 2245  ]
+[e $ ! != & _mask -> -> 262144 `l `ul -> -> 0 `i `ul 2244  ]
 [; ;inc\CANlib.h: 685: RXM0SIDLbits.SID0 = 0x01;
 "685
 [e = . . _RXM0SIDLbits 0 5 -> -> 1 `i `uc ]
-[e $U 2246  ]
+[e $U 2245  ]
 "686
-[e :U 2245 ]
+[e :U 2244 ]
 [; ;inc\CANlib.h: 686: else
 [; ;inc\CANlib.h: 687: RXM0SIDLbits.SID0 = 0x00;
 "687
 [e = . . _RXM0SIDLbits 0 5 -> -> 0 `i `uc ]
-[e :U 2246 ]
+[e :U 2245 ]
 [; ;inc\CANlib.h: 689: if (mask & 0x00080000)
 "689
-[e $ ! != & _mask -> -> 524288 `l `ul -> -> 0 `i `ul 2247  ]
+[e $ ! != & _mask -> -> 524288 `l `ul -> -> 0 `i `ul 2246  ]
 [; ;inc\CANlib.h: 690: RXM0SIDLbits.SID1 = 0x01;
 "690
 [e = . . _RXM0SIDLbits 0 6 -> -> 1 `i `uc ]
-[e $U 2248  ]
+[e $U 2247  ]
 "691
-[e :U 2247 ]
+[e :U 2246 ]
 [; ;inc\CANlib.h: 691: else
 [; ;inc\CANlib.h: 692: RXM0SIDLbits.SID1 = 0x00;
 "692
 [e = . . _RXM0SIDLbits 0 6 -> -> 0 `i `uc ]
-[e :U 2248 ]
+[e :U 2247 ]
 [; ;inc\CANlib.h: 694: if (mask & 0x00100000)
 "694
-[e $ ! != & _mask -> -> 1048576 `l `ul -> -> 0 `i `ul 2249  ]
+[e $ ! != & _mask -> -> 1048576 `l `ul -> -> 0 `i `ul 2248  ]
 [; ;inc\CANlib.h: 695: RXM0SIDLbits.SID2 = 0x01 ;
 "695
 [e = . . _RXM0SIDLbits 0 7 -> -> 1 `i `uc ]
-[e $U 2250  ]
+[e $U 2249  ]
 "696
-[e :U 2249 ]
+[e :U 2248 ]
 [; ;inc\CANlib.h: 696: else
 [; ;inc\CANlib.h: 697: RXM0SIDLbits.SID2 = 0x00 ;
 "697
 [e = . . _RXM0SIDLbits 0 7 -> -> 0 `i `uc ]
-[e :U 2250 ]
+[e :U 2249 ]
 [; ;inc\CANlib.h: 699: tamp = (mask >> 21);
 "699
 [e = _tamp >> _mask -> 21 `i ]
@@ -18108,11 +17998,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXM0SIDH -> _tamp `uc ]
 "702
 }
-[e :U 2240 ]
+[e :U 2239 ]
 [; ;inc\CANlib.h: 702: }
 [; ;inc\CANlib.h: 704: if ((numBuffer ==CAN_MASK_B2) && (type == CAN_CONFIG_XTD_MSG))
 "704
-[e $ ! && == -> _numBuffer `i -> . `E16962 1 `i == -> _type `i -> . `E16928 12 `i 2251  ]
+[e $ ! && == -> _numBuffer `i -> . `E16921 1 `i == -> _type `i -> . `E16887 12 `i 2250  ]
 [; ;inc\CANlib.h: 705: {
 "705
 {
@@ -18133,74 +18023,74 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXM1EIDH -> _tamp `uc ]
 [; ;inc\CANlib.h: 713: if (mask & 0x00010000)
 "713
-[e $ ! != & _mask -> -> 65536 `l `ul -> -> 0 `i `ul 2252  ]
+[e $ ! != & _mask -> -> 65536 `l `ul -> -> 0 `i `ul 2251  ]
 [; ;inc\CANlib.h: 714: RXM1SIDLbits.EID16 = 0x01;
 "714
 [e = . . _RXM1SIDLbits 0 0 -> -> 1 `i `uc ]
-[e $U 2253  ]
+[e $U 2252  ]
 "715
-[e :U 2252 ]
+[e :U 2251 ]
 [; ;inc\CANlib.h: 715: else
 [; ;inc\CANlib.h: 716: RXM1SIDLbits.EID16 = 0x00;
 "716
 [e = . . _RXM1SIDLbits 0 0 -> -> 0 `i `uc ]
-[e :U 2253 ]
+[e :U 2252 ]
 [; ;inc\CANlib.h: 718: if (mask & 0x00020000)
 "718
-[e $ ! != & _mask -> -> 131072 `l `ul -> -> 0 `i `ul 2254  ]
+[e $ ! != & _mask -> -> 131072 `l `ul -> -> 0 `i `ul 2253  ]
 [; ;inc\CANlib.h: 719: RXM1SIDLbits.EID17 = 0x01;
 "719
 [e = . . _RXM1SIDLbits 0 1 -> -> 1 `i `uc ]
-[e $U 2255  ]
+[e $U 2254  ]
 "720
-[e :U 2254 ]
+[e :U 2253 ]
 [; ;inc\CANlib.h: 720: else
 [; ;inc\CANlib.h: 721: RXM1SIDLbits.EID17 = 0x00;
 "721
 [e = . . _RXM1SIDLbits 0 1 -> -> 0 `i `uc ]
-[e :U 2255 ]
+[e :U 2254 ]
 [; ;inc\CANlib.h: 723: if (mask & 0x00040000)
 "723
-[e $ ! != & _mask -> -> 262144 `l `ul -> -> 0 `i `ul 2256  ]
+[e $ ! != & _mask -> -> 262144 `l `ul -> -> 0 `i `ul 2255  ]
 [; ;inc\CANlib.h: 724: RXM1SIDLbits.SID0 = 0x01;
 "724
 [e = . . _RXM1SIDLbits 0 5 -> -> 1 `i `uc ]
-[e $U 2257  ]
+[e $U 2256  ]
 "725
-[e :U 2256 ]
+[e :U 2255 ]
 [; ;inc\CANlib.h: 725: else
 [; ;inc\CANlib.h: 726: RXM1SIDLbits.SID0 = 0x00;
 "726
 [e = . . _RXM1SIDLbits 0 5 -> -> 0 `i `uc ]
-[e :U 2257 ]
+[e :U 2256 ]
 [; ;inc\CANlib.h: 728: if (mask & 0x00080000)
 "728
-[e $ ! != & _mask -> -> 524288 `l `ul -> -> 0 `i `ul 2258  ]
+[e $ ! != & _mask -> -> 524288 `l `ul -> -> 0 `i `ul 2257  ]
 [; ;inc\CANlib.h: 729: RXM1SIDLbits.SID1 = 0x01;
 "729
 [e = . . _RXM1SIDLbits 0 6 -> -> 1 `i `uc ]
-[e $U 2259  ]
+[e $U 2258  ]
 "730
-[e :U 2258 ]
+[e :U 2257 ]
 [; ;inc\CANlib.h: 730: else
 [; ;inc\CANlib.h: 731: RXM1SIDLbits.SID1 = 0x00;
 "731
 [e = . . _RXM1SIDLbits 0 6 -> -> 0 `i `uc ]
-[e :U 2259 ]
+[e :U 2258 ]
 [; ;inc\CANlib.h: 733: if (mask & 0x00100000)
 "733
-[e $ ! != & _mask -> -> 1048576 `l `ul -> -> 0 `i `ul 2260  ]
+[e $ ! != & _mask -> -> 1048576 `l `ul -> -> 0 `i `ul 2259  ]
 [; ;inc\CANlib.h: 734: RXM1SIDLbits.SID2 = 0x01 ;
 "734
 [e = . . _RXM1SIDLbits 0 7 -> -> 1 `i `uc ]
-[e $U 2261  ]
+[e $U 2260  ]
 "735
-[e :U 2260 ]
+[e :U 2259 ]
 [; ;inc\CANlib.h: 735: else
 [; ;inc\CANlib.h: 736: RXM1SIDLbits.SID2 = 0x00 ;
 "736
 [e = . . _RXM1SIDLbits 0 7 -> -> 0 `i `uc ]
-[e :U 2261 ]
+[e :U 2260 ]
 [; ;inc\CANlib.h: 738: tamp = (mask >> 21);
 "738
 [e = _tamp >> _mask -> 21 `i ]
@@ -18212,23 +18102,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXM1SIDH -> _tamp `uc ]
 "741
 }
-[e :U 2251 ]
+[e :U 2250 ]
 [; ;inc\CANlib.h: 741: }
 [; ;inc\CANlib.h: 742: }
 "742
-[e :UE 2237 ]
+[e :UE 2236 ]
 }
 "748
-[v _CANSetFilter `(v ~T0 @X0 1 ef3`E16965`ul`E16928 ]
+[v _CANSetFilter `(v ~T0 @X0 1 ef3`E16924`ul`E16887 ]
 "749
 {
 [; ;inc\CANlib.h: 748: void CANSetFilter(enum CAN_FILTER numBuffer, unsigned long filter, enum CAN_CONFIG_FLAGS type)
 [; ;inc\CANlib.h: 749: {
 [e :U _CANSetFilter ]
 "748
-[v _numBuffer `E16965 ~T0 @X0 1 r1 ]
+[v _numBuffer `E16924 ~T0 @X0 1 r1 ]
 [v _filter `ul ~T0 @X0 1 r2 ]
-[v _type `E16928 ~T0 @X0 1 r3 ]
+[v _type `E16887 ~T0 @X0 1 r3 ]
 "749
 [f ]
 "750
@@ -18236,7 +18126,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\CANlib.h: 750: unsigned long tamp;
 [; ;inc\CANlib.h: 752: if ((numBuffer ==CAN_FILTER_B1_F1) && (type == CAN_CONFIG_STD_MSG))
 "752
-[e $ ! && == -> _numBuffer `i -> . `E16965 0 `i == -> _type `i -> . `E16928 11 `i 2263  ]
+[e $ ! && == -> _numBuffer `i -> . `E16924 0 `i == -> _type `i -> . `E16887 11 `i 2262  ]
 [; ;inc\CANlib.h: 753: {
 "753
 {
@@ -18263,11 +18153,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF0SIDL -> _tamp `uc ]
 "763
 }
-[e :U 2263 ]
+[e :U 2262 ]
 [; ;inc\CANlib.h: 763: }
 [; ;inc\CANlib.h: 765: if ((numBuffer ==CAN_FILTER_B1_F2) && (type == CAN_CONFIG_STD_MSG))
 "765
-[e $ ! && == -> _numBuffer `i -> . `E16965 1 `i == -> _type `i -> . `E16928 11 `i 2264  ]
+[e $ ! && == -> _numBuffer `i -> . `E16924 1 `i == -> _type `i -> . `E16887 11 `i 2263  ]
 [; ;inc\CANlib.h: 766: {
 "766
 {
@@ -18294,11 +18184,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF1SIDL -> _tamp `uc ]
 "776
 }
-[e :U 2264 ]
+[e :U 2263 ]
 [; ;inc\CANlib.h: 776: }
 [; ;inc\CANlib.h: 778: if ((numBuffer ==CAN_FILTER_B2_F1) && (type == CAN_CONFIG_STD_MSG))
 "778
-[e $ ! && == -> _numBuffer `i -> . `E16965 2 `i == -> _type `i -> . `E16928 11 `i 2265  ]
+[e $ ! && == -> _numBuffer `i -> . `E16924 2 `i == -> _type `i -> . `E16887 11 `i 2264  ]
 [; ;inc\CANlib.h: 779: {
 "779
 {
@@ -18325,11 +18215,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF2SIDL -> _tamp `uc ]
 "789
 }
-[e :U 2265 ]
+[e :U 2264 ]
 [; ;inc\CANlib.h: 789: }
 [; ;inc\CANlib.h: 791: if ((numBuffer ==CAN_FILTER_B2_F2) && (type == CAN_CONFIG_STD_MSG))
 "791
-[e $ ! && == -> _numBuffer `i -> . `E16965 3 `i == -> _type `i -> . `E16928 11 `i 2266  ]
+[e $ ! && == -> _numBuffer `i -> . `E16924 3 `i == -> _type `i -> . `E16887 11 `i 2265  ]
 [; ;inc\CANlib.h: 792: {
 "792
 {
@@ -18356,11 +18246,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF3SIDL -> _tamp `uc ]
 "802
 }
-[e :U 2266 ]
+[e :U 2265 ]
 [; ;inc\CANlib.h: 802: }
 [; ;inc\CANlib.h: 804: if ((numBuffer ==CAN_FILTER_B2_F3) && (type == CAN_CONFIG_STD_MSG))
 "804
-[e $ ! && == -> _numBuffer `i -> . `E16965 4 `i == -> _type `i -> . `E16928 11 `i 2267  ]
+[e $ ! && == -> _numBuffer `i -> . `E16924 4 `i == -> _type `i -> . `E16887 11 `i 2266  ]
 [; ;inc\CANlib.h: 805: {
 "805
 {
@@ -18387,11 +18277,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF4SIDL -> _tamp `uc ]
 "815
 }
-[e :U 2267 ]
+[e :U 2266 ]
 [; ;inc\CANlib.h: 815: }
 [; ;inc\CANlib.h: 817: if ((numBuffer ==CAN_FILTER_B2_F4) && (type == CAN_CONFIG_STD_MSG))
 "817
-[e $ ! && == -> _numBuffer `i -> . `E16965 5 `i == -> _type `i -> . `E16928 11 `i 2268  ]
+[e $ ! && == -> _numBuffer `i -> . `E16924 5 `i == -> _type `i -> . `E16887 11 `i 2267  ]
 [; ;inc\CANlib.h: 818: {
 "818
 {
@@ -18418,11 +18308,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF5SIDL -> _tamp `uc ]
 "828
 }
-[e :U 2268 ]
+[e :U 2267 ]
 [; ;inc\CANlib.h: 828: }
 [; ;inc\CANlib.h: 831: if ((numBuffer ==CAN_FILTER_B1_F1) && (type == CAN_CONFIG_XTD_MSG))
 "831
-[e $ ! && == -> _numBuffer `i -> . `E16965 0 `i == -> _type `i -> . `E16928 12 `i 2269  ]
+[e $ ! && == -> _numBuffer `i -> . `E16924 0 `i == -> _type `i -> . `E16887 12 `i 2268  ]
 [; ;inc\CANlib.h: 832: {
 "832
 {
@@ -18446,74 +18336,74 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF0EIDH -> _tamp `uc ]
 [; ;inc\CANlib.h: 842: if (filter & 0x00010000)
 "842
-[e $ ! != & _filter -> -> 65536 `l `ul -> -> 0 `i `ul 2270  ]
+[e $ ! != & _filter -> -> 65536 `l `ul -> -> 0 `i `ul 2269  ]
 [; ;inc\CANlib.h: 843: RXF0SIDLbits.EID16 = 0x01;
 "843
 [e = . . _RXF0SIDLbits 0 0 -> -> 1 `i `uc ]
-[e $U 2271  ]
+[e $U 2270  ]
 "844
-[e :U 2270 ]
+[e :U 2269 ]
 [; ;inc\CANlib.h: 844: else
 [; ;inc\CANlib.h: 845: RXF0SIDLbits.EID16 = 0x00;
 "845
 [e = . . _RXF0SIDLbits 0 0 -> -> 0 `i `uc ]
-[e :U 2271 ]
+[e :U 2270 ]
 [; ;inc\CANlib.h: 847: if (filter & 0x00020000)
 "847
-[e $ ! != & _filter -> -> 131072 `l `ul -> -> 0 `i `ul 2272  ]
+[e $ ! != & _filter -> -> 131072 `l `ul -> -> 0 `i `ul 2271  ]
 [; ;inc\CANlib.h: 848: RXF0SIDLbits.EID17 = 0x01;
 "848
 [e = . . _RXF0SIDLbits 0 1 -> -> 1 `i `uc ]
-[e $U 2273  ]
+[e $U 2272  ]
 "849
-[e :U 2272 ]
+[e :U 2271 ]
 [; ;inc\CANlib.h: 849: else
 [; ;inc\CANlib.h: 850: RXF0SIDLbits.EID17 = 0x00;
 "850
 [e = . . _RXF0SIDLbits 0 1 -> -> 0 `i `uc ]
-[e :U 2273 ]
+[e :U 2272 ]
 [; ;inc\CANlib.h: 852: if (filter & 0x00040000)
 "852
-[e $ ! != & _filter -> -> 262144 `l `ul -> -> 0 `i `ul 2274  ]
+[e $ ! != & _filter -> -> 262144 `l `ul -> -> 0 `i `ul 2273  ]
 [; ;inc\CANlib.h: 853: RXF0SIDLbits.SID0 = 0x01;
 "853
 [e = . . _RXF0SIDLbits 0 5 -> -> 1 `i `uc ]
-[e $U 2275  ]
+[e $U 2274  ]
 "854
-[e :U 2274 ]
+[e :U 2273 ]
 [; ;inc\CANlib.h: 854: else
 [; ;inc\CANlib.h: 855: RXF0SIDLbits.SID0 = 0x00;
 "855
 [e = . . _RXF0SIDLbits 0 5 -> -> 0 `i `uc ]
-[e :U 2275 ]
+[e :U 2274 ]
 [; ;inc\CANlib.h: 857: if (filter & 0x00080000)
 "857
-[e $ ! != & _filter -> -> 524288 `l `ul -> -> 0 `i `ul 2276  ]
+[e $ ! != & _filter -> -> 524288 `l `ul -> -> 0 `i `ul 2275  ]
 [; ;inc\CANlib.h: 858: RXF0SIDLbits.SID1 = 0x01;
 "858
 [e = . . _RXF0SIDLbits 0 6 -> -> 1 `i `uc ]
-[e $U 2277  ]
+[e $U 2276  ]
 "859
-[e :U 2276 ]
+[e :U 2275 ]
 [; ;inc\CANlib.h: 859: else
 [; ;inc\CANlib.h: 860: RXF0SIDLbits.SID1 = 0x00;
 "860
 [e = . . _RXF0SIDLbits 0 6 -> -> 0 `i `uc ]
-[e :U 2277 ]
+[e :U 2276 ]
 [; ;inc\CANlib.h: 862: if (filter & 0x00100000)
 "862
-[e $ ! != & _filter -> -> 1048576 `l `ul -> -> 0 `i `ul 2278  ]
+[e $ ! != & _filter -> -> 1048576 `l `ul -> -> 0 `i `ul 2277  ]
 [; ;inc\CANlib.h: 863: RXF0SIDLbits.SID2 = 0x01 ;
 "863
 [e = . . _RXF0SIDLbits 0 7 -> -> 1 `i `uc ]
-[e $U 2279  ]
+[e $U 2278  ]
 "864
-[e :U 2278 ]
+[e :U 2277 ]
 [; ;inc\CANlib.h: 864: else
 [; ;inc\CANlib.h: 865: RXF0SIDLbits.SID2 = 0x00 ;
 "865
 [e = . . _RXF0SIDLbits 0 7 -> -> 0 `i `uc ]
-[e :U 2279 ]
+[e :U 2278 ]
 [; ;inc\CANlib.h: 867: tamp = (filter >> 21);
 "867
 [e = _tamp >> _filter -> 21 `i ]
@@ -18525,11 +18415,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF0SIDH -> _tamp `uc ]
 "870
 }
-[e :U 2269 ]
+[e :U 2268 ]
 [; ;inc\CANlib.h: 870: }
 [; ;inc\CANlib.h: 872: if ((numBuffer ==CAN_FILTER_B1_F2) && (type == CAN_CONFIG_XTD_MSG))
 "872
-[e $ ! && == -> _numBuffer `i -> . `E16965 1 `i == -> _type `i -> . `E16928 12 `i 2280  ]
+[e $ ! && == -> _numBuffer `i -> . `E16924 1 `i == -> _type `i -> . `E16887 12 `i 2279  ]
 [; ;inc\CANlib.h: 873: {
 "873
 {
@@ -18553,74 +18443,74 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF1EIDH -> _tamp `uc ]
 [; ;inc\CANlib.h: 883: if (filter & 0x00010000)
 "883
-[e $ ! != & _filter -> -> 65536 `l `ul -> -> 0 `i `ul 2281  ]
+[e $ ! != & _filter -> -> 65536 `l `ul -> -> 0 `i `ul 2280  ]
 [; ;inc\CANlib.h: 884: RXF1SIDLbits.EID16 = 0x01;
 "884
 [e = . . _RXF1SIDLbits 0 0 -> -> 1 `i `uc ]
-[e $U 2282  ]
+[e $U 2281  ]
 "885
-[e :U 2281 ]
+[e :U 2280 ]
 [; ;inc\CANlib.h: 885: else
 [; ;inc\CANlib.h: 886: RXF1SIDLbits.EID16 = 0x00;
 "886
 [e = . . _RXF1SIDLbits 0 0 -> -> 0 `i `uc ]
-[e :U 2282 ]
+[e :U 2281 ]
 [; ;inc\CANlib.h: 888: if (filter & 0x00020000)
 "888
-[e $ ! != & _filter -> -> 131072 `l `ul -> -> 0 `i `ul 2283  ]
+[e $ ! != & _filter -> -> 131072 `l `ul -> -> 0 `i `ul 2282  ]
 [; ;inc\CANlib.h: 889: RXF1SIDLbits.EID17 = 0x01;
 "889
 [e = . . _RXF1SIDLbits 0 1 -> -> 1 `i `uc ]
-[e $U 2284  ]
+[e $U 2283  ]
 "890
-[e :U 2283 ]
+[e :U 2282 ]
 [; ;inc\CANlib.h: 890: else
 [; ;inc\CANlib.h: 891: RXF1SIDLbits.EID17 = 0x00;
 "891
 [e = . . _RXF1SIDLbits 0 1 -> -> 0 `i `uc ]
-[e :U 2284 ]
+[e :U 2283 ]
 [; ;inc\CANlib.h: 893: if (filter & 0x00040000)
 "893
-[e $ ! != & _filter -> -> 262144 `l `ul -> -> 0 `i `ul 2285  ]
+[e $ ! != & _filter -> -> 262144 `l `ul -> -> 0 `i `ul 2284  ]
 [; ;inc\CANlib.h: 894: RXF1SIDLbits.SID0 = 0x01;
 "894
 [e = . . _RXF1SIDLbits 0 5 -> -> 1 `i `uc ]
-[e $U 2286  ]
+[e $U 2285  ]
 "895
-[e :U 2285 ]
+[e :U 2284 ]
 [; ;inc\CANlib.h: 895: else
 [; ;inc\CANlib.h: 896: RXF1SIDLbits.SID0 = 0x00;
 "896
 [e = . . _RXF1SIDLbits 0 5 -> -> 0 `i `uc ]
-[e :U 2286 ]
+[e :U 2285 ]
 [; ;inc\CANlib.h: 898: if (filter & 0x00080000)
 "898
-[e $ ! != & _filter -> -> 524288 `l `ul -> -> 0 `i `ul 2287  ]
+[e $ ! != & _filter -> -> 524288 `l `ul -> -> 0 `i `ul 2286  ]
 [; ;inc\CANlib.h: 899: RXF1SIDLbits.SID1 = 0x01;
 "899
 [e = . . _RXF1SIDLbits 0 6 -> -> 1 `i `uc ]
-[e $U 2288  ]
+[e $U 2287  ]
 "900
-[e :U 2287 ]
+[e :U 2286 ]
 [; ;inc\CANlib.h: 900: else
 [; ;inc\CANlib.h: 901: RXF1SIDLbits.SID1 = 0x00;
 "901
 [e = . . _RXF1SIDLbits 0 6 -> -> 0 `i `uc ]
-[e :U 2288 ]
+[e :U 2287 ]
 [; ;inc\CANlib.h: 903: if (filter & 0x00100000)
 "903
-[e $ ! != & _filter -> -> 1048576 `l `ul -> -> 0 `i `ul 2289  ]
+[e $ ! != & _filter -> -> 1048576 `l `ul -> -> 0 `i `ul 2288  ]
 [; ;inc\CANlib.h: 904: RXF1SIDLbits.SID2 = 0x01 ;
 "904
 [e = . . _RXF1SIDLbits 0 7 -> -> 1 `i `uc ]
-[e $U 2290  ]
+[e $U 2289  ]
 "905
-[e :U 2289 ]
+[e :U 2288 ]
 [; ;inc\CANlib.h: 905: else
 [; ;inc\CANlib.h: 906: RXF1SIDLbits.SID2 = 0x00 ;
 "906
 [e = . . _RXF1SIDLbits 0 7 -> -> 0 `i `uc ]
-[e :U 2290 ]
+[e :U 2289 ]
 [; ;inc\CANlib.h: 908: tamp = (filter >> 21);
 "908
 [e = _tamp >> _filter -> 21 `i ]
@@ -18632,11 +18522,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF1SIDH -> _tamp `uc ]
 "911
 }
-[e :U 2280 ]
+[e :U 2279 ]
 [; ;inc\CANlib.h: 911: }
 [; ;inc\CANlib.h: 914: if ((numBuffer ==CAN_FILTER_B2_F1) && (type == CAN_CONFIG_XTD_MSG))
 "914
-[e $ ! && == -> _numBuffer `i -> . `E16965 2 `i == -> _type `i -> . `E16928 12 `i 2291  ]
+[e $ ! && == -> _numBuffer `i -> . `E16924 2 `i == -> _type `i -> . `E16887 12 `i 2290  ]
 [; ;inc\CANlib.h: 915: {
 "915
 {
@@ -18660,74 +18550,74 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF2EIDH -> _tamp `uc ]
 [; ;inc\CANlib.h: 925: if (filter & 0x00010000)
 "925
-[e $ ! != & _filter -> -> 65536 `l `ul -> -> 0 `i `ul 2292  ]
+[e $ ! != & _filter -> -> 65536 `l `ul -> -> 0 `i `ul 2291  ]
 [; ;inc\CANlib.h: 926: RXF2SIDLbits.EID16 = 0x01;
 "926
 [e = . . _RXF2SIDLbits 0 0 -> -> 1 `i `uc ]
-[e $U 2293  ]
+[e $U 2292  ]
 "927
-[e :U 2292 ]
+[e :U 2291 ]
 [; ;inc\CANlib.h: 927: else
 [; ;inc\CANlib.h: 928: RXF2SIDLbits.EID16 = 0x00;
 "928
 [e = . . _RXF2SIDLbits 0 0 -> -> 0 `i `uc ]
-[e :U 2293 ]
+[e :U 2292 ]
 [; ;inc\CANlib.h: 930: if (filter & 0x00020000)
 "930
-[e $ ! != & _filter -> -> 131072 `l `ul -> -> 0 `i `ul 2294  ]
+[e $ ! != & _filter -> -> 131072 `l `ul -> -> 0 `i `ul 2293  ]
 [; ;inc\CANlib.h: 931: RXF2SIDLbits.EID17 = 0x01;
 "931
 [e = . . _RXF2SIDLbits 0 1 -> -> 1 `i `uc ]
-[e $U 2295  ]
+[e $U 2294  ]
 "932
-[e :U 2294 ]
+[e :U 2293 ]
 [; ;inc\CANlib.h: 932: else
 [; ;inc\CANlib.h: 933: RXF2SIDLbits.EID17 = 0x00;
 "933
 [e = . . _RXF2SIDLbits 0 1 -> -> 0 `i `uc ]
-[e :U 2295 ]
+[e :U 2294 ]
 [; ;inc\CANlib.h: 935: if (filter & 0x00040000)
 "935
-[e $ ! != & _filter -> -> 262144 `l `ul -> -> 0 `i `ul 2296  ]
+[e $ ! != & _filter -> -> 262144 `l `ul -> -> 0 `i `ul 2295  ]
 [; ;inc\CANlib.h: 936: RXF2SIDLbits.SID0 = 0x01;
 "936
 [e = . . _RXF2SIDLbits 0 5 -> -> 1 `i `uc ]
-[e $U 2297  ]
+[e $U 2296  ]
 "937
-[e :U 2296 ]
+[e :U 2295 ]
 [; ;inc\CANlib.h: 937: else
 [; ;inc\CANlib.h: 938: RXF2SIDLbits.SID0 = 0x00;
 "938
 [e = . . _RXF2SIDLbits 0 5 -> -> 0 `i `uc ]
-[e :U 2297 ]
+[e :U 2296 ]
 [; ;inc\CANlib.h: 940: if (filter & 0x00080000)
 "940
-[e $ ! != & _filter -> -> 524288 `l `ul -> -> 0 `i `ul 2298  ]
+[e $ ! != & _filter -> -> 524288 `l `ul -> -> 0 `i `ul 2297  ]
 [; ;inc\CANlib.h: 941: RXF2SIDLbits.SID1 = 0x01;
 "941
 [e = . . _RXF2SIDLbits 0 6 -> -> 1 `i `uc ]
-[e $U 2299  ]
+[e $U 2298  ]
 "942
-[e :U 2298 ]
+[e :U 2297 ]
 [; ;inc\CANlib.h: 942: else
 [; ;inc\CANlib.h: 943: RXF2SIDLbits.SID1 = 0x00;
 "943
 [e = . . _RXF2SIDLbits 0 6 -> -> 0 `i `uc ]
-[e :U 2299 ]
+[e :U 2298 ]
 [; ;inc\CANlib.h: 945: if (filter & 0x00100000)
 "945
-[e $ ! != & _filter -> -> 1048576 `l `ul -> -> 0 `i `ul 2300  ]
+[e $ ! != & _filter -> -> 1048576 `l `ul -> -> 0 `i `ul 2299  ]
 [; ;inc\CANlib.h: 946: RXF2SIDLbits.SID2 = 0x01 ;
 "946
 [e = . . _RXF2SIDLbits 0 7 -> -> 1 `i `uc ]
-[e $U 2301  ]
+[e $U 2300  ]
 "947
-[e :U 2300 ]
+[e :U 2299 ]
 [; ;inc\CANlib.h: 947: else
 [; ;inc\CANlib.h: 948: RXF2SIDLbits.SID2 = 0x00 ;
 "948
 [e = . . _RXF2SIDLbits 0 7 -> -> 0 `i `uc ]
-[e :U 2301 ]
+[e :U 2300 ]
 [; ;inc\CANlib.h: 950: tamp = (filter >> 21);
 "950
 [e = _tamp >> _filter -> 21 `i ]
@@ -18739,11 +18629,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF2SIDH -> _tamp `uc ]
 "953
 }
-[e :U 2291 ]
+[e :U 2290 ]
 [; ;inc\CANlib.h: 953: }
 [; ;inc\CANlib.h: 955: if ((numBuffer ==CAN_FILTER_B2_F2) && (type == CAN_CONFIG_XTD_MSG))
 "955
-[e $ ! && == -> _numBuffer `i -> . `E16965 3 `i == -> _type `i -> . `E16928 12 `i 2302  ]
+[e $ ! && == -> _numBuffer `i -> . `E16924 3 `i == -> _type `i -> . `E16887 12 `i 2301  ]
 [; ;inc\CANlib.h: 956: {
 "956
 {
@@ -18767,74 +18657,74 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF3EIDH -> _tamp `uc ]
 [; ;inc\CANlib.h: 966: if (filter & 0x00010000)
 "966
-[e $ ! != & _filter -> -> 65536 `l `ul -> -> 0 `i `ul 2303  ]
+[e $ ! != & _filter -> -> 65536 `l `ul -> -> 0 `i `ul 2302  ]
 [; ;inc\CANlib.h: 967: RXF3SIDLbits.EID16 = 0x01;
 "967
 [e = . . _RXF3SIDLbits 0 0 -> -> 1 `i `uc ]
-[e $U 2304  ]
+[e $U 2303  ]
 "968
-[e :U 2303 ]
+[e :U 2302 ]
 [; ;inc\CANlib.h: 968: else
 [; ;inc\CANlib.h: 969: RXF3SIDLbits.EID16 = 0x00;
 "969
 [e = . . _RXF3SIDLbits 0 0 -> -> 0 `i `uc ]
-[e :U 2304 ]
+[e :U 2303 ]
 [; ;inc\CANlib.h: 971: if (filter & 0x00020000)
 "971
-[e $ ! != & _filter -> -> 131072 `l `ul -> -> 0 `i `ul 2305  ]
+[e $ ! != & _filter -> -> 131072 `l `ul -> -> 0 `i `ul 2304  ]
 [; ;inc\CANlib.h: 972: RXF3SIDLbits.EID17 = 0x01;
 "972
 [e = . . _RXF3SIDLbits 0 1 -> -> 1 `i `uc ]
-[e $U 2306  ]
+[e $U 2305  ]
 "973
-[e :U 2305 ]
+[e :U 2304 ]
 [; ;inc\CANlib.h: 973: else
 [; ;inc\CANlib.h: 974: RXF3SIDLbits.EID17 = 0x00;
 "974
 [e = . . _RXF3SIDLbits 0 1 -> -> 0 `i `uc ]
-[e :U 2306 ]
+[e :U 2305 ]
 [; ;inc\CANlib.h: 976: if (filter & 0x00040000)
 "976
-[e $ ! != & _filter -> -> 262144 `l `ul -> -> 0 `i `ul 2307  ]
+[e $ ! != & _filter -> -> 262144 `l `ul -> -> 0 `i `ul 2306  ]
 [; ;inc\CANlib.h: 977: RXF3SIDLbits.SID0 = 0x01;
 "977
 [e = . . _RXF3SIDLbits 0 5 -> -> 1 `i `uc ]
-[e $U 2308  ]
+[e $U 2307  ]
 "978
-[e :U 2307 ]
+[e :U 2306 ]
 [; ;inc\CANlib.h: 978: else
 [; ;inc\CANlib.h: 979: RXF3SIDLbits.SID0 = 0x00;
 "979
 [e = . . _RXF3SIDLbits 0 5 -> -> 0 `i `uc ]
-[e :U 2308 ]
+[e :U 2307 ]
 [; ;inc\CANlib.h: 981: if (filter & 0x00080000)
 "981
-[e $ ! != & _filter -> -> 524288 `l `ul -> -> 0 `i `ul 2309  ]
+[e $ ! != & _filter -> -> 524288 `l `ul -> -> 0 `i `ul 2308  ]
 [; ;inc\CANlib.h: 982: RXF3SIDLbits.SID1 = 0x01;
 "982
 [e = . . _RXF3SIDLbits 0 6 -> -> 1 `i `uc ]
-[e $U 2310  ]
+[e $U 2309  ]
 "983
-[e :U 2309 ]
+[e :U 2308 ]
 [; ;inc\CANlib.h: 983: else
 [; ;inc\CANlib.h: 984: RXF3SIDLbits.SID1 = 0x00;
 "984
 [e = . . _RXF3SIDLbits 0 6 -> -> 0 `i `uc ]
-[e :U 2310 ]
+[e :U 2309 ]
 [; ;inc\CANlib.h: 986: if (filter & 0x00100000)
 "986
-[e $ ! != & _filter -> -> 1048576 `l `ul -> -> 0 `i `ul 2311  ]
+[e $ ! != & _filter -> -> 1048576 `l `ul -> -> 0 `i `ul 2310  ]
 [; ;inc\CANlib.h: 987: RXF3SIDLbits.SID2 = 0x01 ;
 "987
 [e = . . _RXF3SIDLbits 0 7 -> -> 1 `i `uc ]
-[e $U 2312  ]
+[e $U 2311  ]
 "988
-[e :U 2311 ]
+[e :U 2310 ]
 [; ;inc\CANlib.h: 988: else
 [; ;inc\CANlib.h: 989: RXF3SIDLbits.SID2 = 0x00 ;
 "989
 [e = . . _RXF3SIDLbits 0 7 -> -> 0 `i `uc ]
-[e :U 2312 ]
+[e :U 2311 ]
 [; ;inc\CANlib.h: 991: tamp = (filter >> 21);
 "991
 [e = _tamp >> _filter -> 21 `i ]
@@ -18846,11 +18736,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF3SIDH -> _tamp `uc ]
 "994
 }
-[e :U 2302 ]
+[e :U 2301 ]
 [; ;inc\CANlib.h: 994: }
 [; ;inc\CANlib.h: 996: if ((numBuffer ==CAN_FILTER_B2_F3) && (type == CAN_CONFIG_XTD_MSG))
 "996
-[e $ ! && == -> _numBuffer `i -> . `E16965 4 `i == -> _type `i -> . `E16928 12 `i 2313  ]
+[e $ ! && == -> _numBuffer `i -> . `E16924 4 `i == -> _type `i -> . `E16887 12 `i 2312  ]
 [; ;inc\CANlib.h: 997: {
 "997
 {
@@ -18874,74 +18764,74 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF4EIDH -> _tamp `uc ]
 [; ;inc\CANlib.h: 1007: if (filter & 0x00010000)
 "1007
-[e $ ! != & _filter -> -> 65536 `l `ul -> -> 0 `i `ul 2314  ]
+[e $ ! != & _filter -> -> 65536 `l `ul -> -> 0 `i `ul 2313  ]
 [; ;inc\CANlib.h: 1008: RXF4SIDLbits.EID16 = 0x01;
 "1008
 [e = . . _RXF4SIDLbits 0 0 -> -> 1 `i `uc ]
-[e $U 2315  ]
+[e $U 2314  ]
 "1009
-[e :U 2314 ]
+[e :U 2313 ]
 [; ;inc\CANlib.h: 1009: else
 [; ;inc\CANlib.h: 1010: RXF4SIDLbits.EID16 = 0x00;
 "1010
 [e = . . _RXF4SIDLbits 0 0 -> -> 0 `i `uc ]
-[e :U 2315 ]
+[e :U 2314 ]
 [; ;inc\CANlib.h: 1012: if (filter & 0x00020000)
 "1012
-[e $ ! != & _filter -> -> 131072 `l `ul -> -> 0 `i `ul 2316  ]
+[e $ ! != & _filter -> -> 131072 `l `ul -> -> 0 `i `ul 2315  ]
 [; ;inc\CANlib.h: 1013: RXF4SIDLbits.EID17 = 0x01;
 "1013
 [e = . . _RXF4SIDLbits 0 1 -> -> 1 `i `uc ]
-[e $U 2317  ]
+[e $U 2316  ]
 "1014
-[e :U 2316 ]
+[e :U 2315 ]
 [; ;inc\CANlib.h: 1014: else
 [; ;inc\CANlib.h: 1015: RXF4SIDLbits.EID17 = 0x00;
 "1015
 [e = . . _RXF4SIDLbits 0 1 -> -> 0 `i `uc ]
-[e :U 2317 ]
+[e :U 2316 ]
 [; ;inc\CANlib.h: 1017: if (filter & 0x00040000)
 "1017
-[e $ ! != & _filter -> -> 262144 `l `ul -> -> 0 `i `ul 2318  ]
+[e $ ! != & _filter -> -> 262144 `l `ul -> -> 0 `i `ul 2317  ]
 [; ;inc\CANlib.h: 1018: RXF4SIDLbits.SID0 = 0x01;
 "1018
 [e = . . _RXF4SIDLbits 0 5 -> -> 1 `i `uc ]
-[e $U 2319  ]
+[e $U 2318  ]
 "1019
-[e :U 2318 ]
+[e :U 2317 ]
 [; ;inc\CANlib.h: 1019: else
 [; ;inc\CANlib.h: 1020: RXF4SIDLbits.SID0 = 0x00;
 "1020
 [e = . . _RXF4SIDLbits 0 5 -> -> 0 `i `uc ]
-[e :U 2319 ]
+[e :U 2318 ]
 [; ;inc\CANlib.h: 1022: if (filter & 0x00080000)
 "1022
-[e $ ! != & _filter -> -> 524288 `l `ul -> -> 0 `i `ul 2320  ]
+[e $ ! != & _filter -> -> 524288 `l `ul -> -> 0 `i `ul 2319  ]
 [; ;inc\CANlib.h: 1023: RXF4SIDLbits.SID1 = 0x01;
 "1023
 [e = . . _RXF4SIDLbits 0 6 -> -> 1 `i `uc ]
-[e $U 2321  ]
+[e $U 2320  ]
 "1024
-[e :U 2320 ]
+[e :U 2319 ]
 [; ;inc\CANlib.h: 1024: else
 [; ;inc\CANlib.h: 1025: RXF4SIDLbits.SID1 = 0x00;
 "1025
 [e = . . _RXF4SIDLbits 0 6 -> -> 0 `i `uc ]
-[e :U 2321 ]
+[e :U 2320 ]
 [; ;inc\CANlib.h: 1027: if (filter & 0x00100000)
 "1027
-[e $ ! != & _filter -> -> 1048576 `l `ul -> -> 0 `i `ul 2322  ]
+[e $ ! != & _filter -> -> 1048576 `l `ul -> -> 0 `i `ul 2321  ]
 [; ;inc\CANlib.h: 1028: RXF4SIDLbits.SID2 = 0x01 ;
 "1028
 [e = . . _RXF4SIDLbits 0 7 -> -> 1 `i `uc ]
-[e $U 2323  ]
+[e $U 2322  ]
 "1029
-[e :U 2322 ]
+[e :U 2321 ]
 [; ;inc\CANlib.h: 1029: else
 [; ;inc\CANlib.h: 1030: RXF4SIDLbits.SID2 = 0x00 ;
 "1030
 [e = . . _RXF4SIDLbits 0 7 -> -> 0 `i `uc ]
-[e :U 2323 ]
+[e :U 2322 ]
 [; ;inc\CANlib.h: 1032: tamp = (filter >> 21);
 "1032
 [e = _tamp >> _filter -> 21 `i ]
@@ -18953,11 +18843,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF4SIDH -> _tamp `uc ]
 "1035
 }
-[e :U 2313 ]
+[e :U 2312 ]
 [; ;inc\CANlib.h: 1035: }
 [; ;inc\CANlib.h: 1037: if ((numBuffer ==CAN_FILTER_B2_F4) && (type == CAN_CONFIG_XTD_MSG))
 "1037
-[e $ ! && == -> _numBuffer `i -> . `E16965 5 `i == -> _type `i -> . `E16928 12 `i 2324  ]
+[e $ ! && == -> _numBuffer `i -> . `E16924 5 `i == -> _type `i -> . `E16887 12 `i 2323  ]
 [; ;inc\CANlib.h: 1038: {
 "1038
 {
@@ -18981,74 +18871,74 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF5EIDH -> _tamp `uc ]
 [; ;inc\CANlib.h: 1048: if (filter & 0x00010000)
 "1048
-[e $ ! != & _filter -> -> 65536 `l `ul -> -> 0 `i `ul 2325  ]
+[e $ ! != & _filter -> -> 65536 `l `ul -> -> 0 `i `ul 2324  ]
 [; ;inc\CANlib.h: 1049: RXF5SIDLbits.EID16 = 0x01;
 "1049
 [e = . . _RXF5SIDLbits 0 0 -> -> 1 `i `uc ]
-[e $U 2326  ]
+[e $U 2325  ]
 "1050
-[e :U 2325 ]
+[e :U 2324 ]
 [; ;inc\CANlib.h: 1050: else
 [; ;inc\CANlib.h: 1051: RXF5SIDLbits.EID16 = 0x00;
 "1051
 [e = . . _RXF5SIDLbits 0 0 -> -> 0 `i `uc ]
-[e :U 2326 ]
+[e :U 2325 ]
 [; ;inc\CANlib.h: 1053: if (filter & 0x00020000)
 "1053
-[e $ ! != & _filter -> -> 131072 `l `ul -> -> 0 `i `ul 2327  ]
+[e $ ! != & _filter -> -> 131072 `l `ul -> -> 0 `i `ul 2326  ]
 [; ;inc\CANlib.h: 1054: RXF5SIDLbits.EID17 = 0x01;
 "1054
 [e = . . _RXF5SIDLbits 0 1 -> -> 1 `i `uc ]
-[e $U 2328  ]
+[e $U 2327  ]
 "1055
-[e :U 2327 ]
+[e :U 2326 ]
 [; ;inc\CANlib.h: 1055: else
 [; ;inc\CANlib.h: 1056: RXF5SIDLbits.EID17 = 0x00;
 "1056
 [e = . . _RXF5SIDLbits 0 1 -> -> 0 `i `uc ]
-[e :U 2328 ]
+[e :U 2327 ]
 [; ;inc\CANlib.h: 1058: if (filter & 0x00040000)
 "1058
-[e $ ! != & _filter -> -> 262144 `l `ul -> -> 0 `i `ul 2329  ]
+[e $ ! != & _filter -> -> 262144 `l `ul -> -> 0 `i `ul 2328  ]
 [; ;inc\CANlib.h: 1059: RXF5SIDLbits.SID0 = 0x01;
 "1059
 [e = . . _RXF5SIDLbits 0 5 -> -> 1 `i `uc ]
-[e $U 2330  ]
+[e $U 2329  ]
 "1060
-[e :U 2329 ]
+[e :U 2328 ]
 [; ;inc\CANlib.h: 1060: else
 [; ;inc\CANlib.h: 1061: RXF5SIDLbits.SID0 = 0x00;
 "1061
 [e = . . _RXF5SIDLbits 0 5 -> -> 0 `i `uc ]
-[e :U 2330 ]
+[e :U 2329 ]
 [; ;inc\CANlib.h: 1063: if (filter & 0x00080000)
 "1063
-[e $ ! != & _filter -> -> 524288 `l `ul -> -> 0 `i `ul 2331  ]
+[e $ ! != & _filter -> -> 524288 `l `ul -> -> 0 `i `ul 2330  ]
 [; ;inc\CANlib.h: 1064: RXF5SIDLbits.SID1 = 0x01;
 "1064
 [e = . . _RXF5SIDLbits 0 6 -> -> 1 `i `uc ]
-[e $U 2332  ]
+[e $U 2331  ]
 "1065
-[e :U 2331 ]
+[e :U 2330 ]
 [; ;inc\CANlib.h: 1065: else
 [; ;inc\CANlib.h: 1066: RXF5SIDLbits.SID1 = 0x00;
 "1066
 [e = . . _RXF5SIDLbits 0 6 -> -> 0 `i `uc ]
-[e :U 2332 ]
+[e :U 2331 ]
 [; ;inc\CANlib.h: 1068: if (filter & 0x00100000)
 "1068
-[e $ ! != & _filter -> -> 1048576 `l `ul -> -> 0 `i `ul 2333  ]
+[e $ ! != & _filter -> -> 1048576 `l `ul -> -> 0 `i `ul 2332  ]
 [; ;inc\CANlib.h: 1069: RXF5SIDLbits.SID2 = 0x01 ;
 "1069
 [e = . . _RXF5SIDLbits 0 7 -> -> 1 `i `uc ]
-[e $U 2334  ]
+[e $U 2333  ]
 "1070
-[e :U 2333 ]
+[e :U 2332 ]
 [; ;inc\CANlib.h: 1070: else
 [; ;inc\CANlib.h: 1071: RXF5SIDLbits.SID2 = 0x00 ;
 "1071
 [e = . . _RXF5SIDLbits 0 7 -> -> 0 `i `uc ]
-[e :U 2334 ]
+[e :U 2333 ]
 [; ;inc\CANlib.h: 1073: tamp = (filter >> 21);
 "1073
 [e = _tamp >> _filter -> 21 `i ]
@@ -19060,11 +18950,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RXF5SIDH -> _tamp `uc ]
 "1076
 }
-[e :U 2324 ]
+[e :U 2323 ]
 [; ;inc\CANlib.h: 1076: }
 [; ;inc\CANlib.h: 1078: }
 "1078
-[e :UE 2262 ]
+[e :UE 2261 ]
 }
 "1085
 [v _CANAbortMessages `(v ~T0 @X0 1 ef ]
@@ -19079,7 +18969,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _CANCONbits 0 4 -> -> 1 `i `uc ]
 [; ;inc\CANlib.h: 1088: }
 "1088
-[e :UE 2335 ]
+[e :UE 2334 ]
 }
 "1094
 [v _CANisBusOFF `(uc ~T0 @X0 1 ef ]
@@ -19092,10 +18982,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\CANlib.h: 1096: return (COMSTATbits.TXBO);
 "1096
 [e ) . . _COMSTATbits 1 5 ]
-[e $UE 2336  ]
+[e $UE 2335  ]
 [; ;inc\CANlib.h: 1097: }
 "1097
-[e :UE 2336 ]
+[e :UE 2335 ]
 }
 "1102
 [v _CANisTXpassive `(uc ~T0 @X0 1 ef ]
@@ -19108,10 +18998,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\CANlib.h: 1104: return (COMSTATbits.TXBP);
 "1104
 [e ) . . _COMSTATbits 1 4 ]
-[e $UE 2337  ]
+[e $UE 2336  ]
 [; ;inc\CANlib.h: 1105: }
 "1105
-[e :UE 2337 ]
+[e :UE 2336 ]
 }
 "1111
 [v _CANisRXpassive `(uc ~T0 @X0 1 ef ]
@@ -19124,10 +19014,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\CANlib.h: 1113: return (COMSTATbits.RXBP);
 "1113
 [e ) . . _COMSTATbits 1 3 ]
-[e $UE 2338  ]
+[e $UE 2337  ]
 [; ;inc\CANlib.h: 1114: }
 "1114
-[e :UE 2338 ]
+[e :UE 2337 ]
 }
 "1119
 [v _CANisTXwarningON `(uc ~T0 @X0 1 ef ]
@@ -19140,10 +19030,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\CANlib.h: 1121: return (COMSTATbits.TXWARN);
 "1121
 [e ) . . _COMSTATbits 1 2 ]
-[e $UE 2339  ]
+[e $UE 2338  ]
 [; ;inc\CANlib.h: 1122: }
 "1122
-[e :UE 2339 ]
+[e :UE 2338 ]
 }
 "1127
 [v _CANisRXwarningON `(uc ~T0 @X0 1 ef ]
@@ -19156,10 +19046,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\CANlib.h: 1129: return (COMSTATbits.RXWARN);
 "1129
 [e ) . . _COMSTATbits 1 1 ]
-[e $UE 2340  ]
+[e $UE 2339  ]
 [; ;inc\CANlib.h: 1130: }
 "1130
-[e :UE 2340 ]
+[e :UE 2339 ]
 }
 "1136
 [v _CANgetTXerrorCount `(uc ~T0 @X0 1 ef ]
@@ -19172,10 +19062,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\CANlib.h: 1138: return (TXERRCNT);
 "1138
 [e ) _TXERRCNT ]
-[e $UE 2341  ]
+[e $UE 2340  ]
 [; ;inc\CANlib.h: 1139: }
 "1139
-[e :UE 2341 ]
+[e :UE 2340 ]
 }
 "1145
 [v _CANgetRXerrorCount `(uc ~T0 @X0 1 ef ]
@@ -19188,10 +19078,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\CANlib.h: 1147: return (RXERRCNT);
 "1147
 [e ) _RXERRCNT ]
-[e $UE 2342  ]
+[e $UE 2341  ]
 [; ;inc\CANlib.h: 1148: }
 "1148
-[e :UE 2342 ]
+[e :UE 2341 ]
 }
 "1154
 [v _CANisTxReady `(uc ~T0 @X0 1 ef ]
@@ -19204,10 +19094,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\CANlib.h: 1156: return (!TXB0CONbits.TXREQ || !TXB1CONbits.TXREQ || !TXB2CONbits.TXREQ);
 "1156
 [e ) -> -> || || ! != -> . . _TXB0CONbits 0 3 `i -> -> -> 0 `i `Vuc `i ! != -> . . _TXB1CONbits 0 3 `i -> -> -> 0 `i `Vuc `i ! != -> . . _TXB2CONbits 0 3 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[e $UE 2343  ]
+[e $UE 2342  ]
 [; ;inc\CANlib.h: 1157: }
 "1157
-[e :UE 2343 ]
+[e :UE 2342 ]
 }
 "1163
 [v _CANisRxReady `(uc ~T0 @X0 1 ef ]
@@ -19220,20 +19110,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\CANlib.h: 1165: return (RXB0CONbits.RXFUL || RXB1CONbits.RXFUL);
 "1165
 [e ) -> -> || != -> . . _RXB0CONbits 0 7 `i -> -> -> 0 `i `Vuc `i != -> . . _RXB1CONbits 0 7 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[e $UE 2344  ]
+[e $UE 2343  ]
 [; ;inc\CANlib.h: 1166: }
 "1166
-[e :UE 2344 ]
+[e :UE 2343 ]
 }
 [; ;inc\delay.h: 74: void delay_ms (unsigned int value_ms);
 [; ;inc\delay.h: 88: void delay_s (unsigned char value_s);
 [; ;inc\delay.h: 102: void delay_set_quartz (unsigned char frequency);
-"49 ../../../Desktop/LaurTec_PIC_libraries_v_3.3.1/src\delay.c
+"49 C:/Users/simon/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\delay.c
 [v _delay_quartz_frequency_value `Vuc ~T0 @X0 1 e ]
 [i _delay_quartz_frequency_value
--> -> 16 `i `uc
+-> -> 20 `i `uc
 ]
-[; ;src\delay.c: 49: volatile unsigned char delay_quartz_frequency_value = 16;
+[; ;src\delay.c: 49: volatile unsigned char delay_quartz_frequency_value = 20;
 "50
 [v _clock_counter_reference `Vui ~T0 @X0 1 e ]
 [i _clock_counter_reference
@@ -19252,8 +19142,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _clock_counter_reference * _value_ms -> _delay_quartz_frequency_value `ui ]
 [; ;src\delay.c: 75: while (clock_counter_reference) {
 "75
-[e $U 2346  ]
-[e :U 2347 ]
+[e $U 2345  ]
+[e :U 2346 ]
 {
 [; ;src\delay.c: 85: _delay(240);
 "85
@@ -19263,14 +19153,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e -- _clock_counter_reference -> -> 1 `i `ui ]
 "89
 }
-[e :U 2346 ]
+[e :U 2345 ]
 "75
-[e $ != _clock_counter_reference -> -> 0 `i `Vui 2347  ]
-[e :U 2348 ]
+[e $ != _clock_counter_reference -> -> 0 `i `Vui 2346  ]
+[e :U 2347 ]
 [; ;src\delay.c: 89: }
 [; ;src\delay.c: 96: }
 "96
-[e :UE 2345 ]
+[e :UE 2344 ]
 }
 "102
 [v _delay_s `(v ~T0 @X0 1 ef1`uc ]
@@ -19286,21 +19176,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 "106
 {
 [e = _repeat_loop -> -> 0 `i `uc ]
-[e $U 2353  ]
+[e $U 2352  ]
 "107
-[e :U 2350 ]
+[e :U 2349 ]
 [; ;src\delay.c: 107: delay_ms (1000);
 [e ( _delay_ms (1 -> -> 1000 `i `ui ]
 "106
 [e ++ _repeat_loop -> -> 1 `i `uc ]
-[e :U 2353 ]
-[e $ < -> _repeat_loop `i -> _value_s `i 2350  ]
-[e :U 2351 ]
+[e :U 2352 ]
+[e $ < -> _repeat_loop `i -> _value_s `i 2349  ]
+[e :U 2350 ]
 "107
 }
 [; ;src\delay.c: 108: }
 "108
-[e :UE 2349 ]
+[e :UE 2348 ]
 }
 "115
 [v _delay_set_quartz `(v ~T0 @X0 1 ef1`uc ]
@@ -19314,57 +19204,58 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _delay_quartz_frequency_value _frequency ]
 [; ;src\delay.c: 119: }
 "119
-[e :UE 2354 ]
+[e :UE 2353 ]
 }
+[; ;stdlib.h: 7: typedef unsigned short wchar_t;
+[; ;stdlib.h: 15: typedef struct {
+[; ;stdlib.h: 16: int rem;
+[; ;stdlib.h: 17: int quot;
+[; ;stdlib.h: 18: } div_t;
+[; ;stdlib.h: 19: typedef struct {
+[; ;stdlib.h: 20: unsigned rem;
+[; ;stdlib.h: 21: unsigned quot;
+[; ;stdlib.h: 22: } udiv_t;
+[; ;stdlib.h: 23: typedef struct {
+[; ;stdlib.h: 24: long quot;
+[; ;stdlib.h: 25: long rem;
+[; ;stdlib.h: 26: } ldiv_t;
 [; ;stdlib.h: 27: typedef struct {
-[; ;stdlib.h: 28: int rem;
-[; ;stdlib.h: 29: int quot;
-[; ;stdlib.h: 30: } div_t;
-[; ;stdlib.h: 31: typedef struct {
-[; ;stdlib.h: 32: unsigned rem;
-[; ;stdlib.h: 33: unsigned quot;
-[; ;stdlib.h: 34: } udiv_t;
-[; ;stdlib.h: 35: typedef struct {
-[; ;stdlib.h: 36: long quot;
-[; ;stdlib.h: 37: long rem;
-[; ;stdlib.h: 38: } ldiv_t;
-[; ;stdlib.h: 39: typedef struct {
-[; ;stdlib.h: 40: unsigned long quot;
-[; ;stdlib.h: 41: unsigned long rem;
-[; ;stdlib.h: 42: } uldiv_t;
-[; ;stdlib.h: 65: extern double atof(const char *);
-[; ;stdlib.h: 66: extern double strtod(const char *, const char **);
-[; ;stdlib.h: 67: extern int atoi(const char *);
-[; ;stdlib.h: 68: extern unsigned xtoi(const char *);
-[; ;stdlib.h: 69: extern long atol(const char *);
-[; ;stdlib.h: 70: extern long strtol(const char *, char **, int);
-[; ;stdlib.h: 72: extern int rand(void);
-[; ;stdlib.h: 73: extern void srand(unsigned int);
-[; ;stdlib.h: 74: extern void * calloc(size_t, size_t);
-[; ;stdlib.h: 75: extern div_t div(int numer, int denom);
-[; ;stdlib.h: 76: extern udiv_t udiv(unsigned numer, unsigned denom);
-[; ;stdlib.h: 77: extern ldiv_t ldiv(long numer, long denom);
-[; ;stdlib.h: 78: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-[; ;stdlib.h: 79: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-[; ;stdlib.h: 80: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-[; ;stdlib.h: 81: extern unsigned int _rotl(unsigned int value, unsigned int shift);
-[; ;stdlib.h: 82: extern unsigned int _rotr(unsigned int value, unsigned int shift);
-[; ;stdlib.h: 87: extern void * malloc(size_t);
-[; ;stdlib.h: 88: extern void free(void *);
-[; ;stdlib.h: 89: extern void * realloc(void *, size_t);
-[; ;stdlib.h: 98: extern int atexit(void (*)(void));
-[; ;stdlib.h: 99: extern char * getenv(const char *);
-[; ;stdlib.h: 100: extern char ** environ;
-[; ;stdlib.h: 101: extern int system(char *);
-[; ;stdlib.h: 102: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-[; ;stdlib.h: 103: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-[; ;stdlib.h: 104: extern int abs(int);
-[; ;stdlib.h: 105: extern long labs(long);
-[; ;stdlib.h: 108: extern char * itoa(char * buf, int val, int base);
-[; ;stdlib.h: 109: extern char * utoa(char * buf, unsigned val, int base);
-[; ;stdlib.h: 114: extern char * ltoa(char * buf, long val, int base);
-[; ;stdlib.h: 115: extern char * ultoa(char * buf, unsigned long val, int base);
-[; ;stdlib.h: 117: extern char * ftoa(float f, int * status);
+[; ;stdlib.h: 28: unsigned long quot;
+[; ;stdlib.h: 29: unsigned long rem;
+[; ;stdlib.h: 30: } uldiv_t;
+[; ;stdlib.h: 53: extern double atof(const char *);
+[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 55: extern int atoi(const char *);
+[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 57: extern long atol(const char *);
+[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 60: extern int rand(void);
+[; ;stdlib.h: 61: extern void srand(unsigned int);
+[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 75: extern void * malloc(size_t);
+[; ;stdlib.h: 76: extern void free(void *);
+[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
+[; ;stdlib.h: 86: extern int atexit(void (*)(void));
+[; ;stdlib.h: 87: extern char * getenv(const char *);
+[; ;stdlib.h: 88: extern char ** environ;
+[; ;stdlib.h: 89: extern int system(char *);
+[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 92: extern int abs(int);
+[; ;stdlib.h: 93: extern long labs(long);
+[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
 [; ;inc\LCD_44780.h: 165: void LCD_enable_pulse (void);
 [; ;inc\LCD_44780.h: 184: void LCD_send_command (unsigned char bit_3, unsigned char bit_2, unsigned char bit_1, unsigned char bit_0);
 [; ;inc\LCD_44780.h: 193: void LCD_home(void);
@@ -19380,32 +19271,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\LCD_44780.h: 341: void LCD_cursor(unsigned char active, unsigned char blinking);
 [; ;inc\LCD_44780.h: 356: void LCD_backlight(unsigned char active);
 [; ;inc\LCD_44780.h: 370: void LCD_initialize(unsigned char quartz_frequency);
-[; ;stdlib.h: 108: extern char * itoa(char * buf, int val, int base);
-[; ;stdlib.h: 109: extern char * utoa(char * buf, unsigned val, int base);
-[; ;stdlib.h: 114: extern char * ltoa(char * buf, long val, int base);
-[; ;stdlib.h: 115: extern char * ultoa(char * buf, unsigned long val, int base);
-[; ;stdlib.h: 117: extern char * ftoa(float f, int * status);
-"49 ../../../Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
+"49 C:/Users/simon/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
 [v _LCD_enable_pulse `(v ~T0 @X0 1 ef ]
 {
 [; ;src\LCD_44780.c: 49: void LCD_enable_pulse (void) {
 [e :U _LCD_enable_pulse ]
 [f ]
-[; ;src\LCD_44780.c: 51: LATCbits.LATC1 = 1;
+[; ;src\LCD_44780.c: 51: LATBbits.LATB3 = 1;
 "51
-[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
 [; ;src\LCD_44780.c: 52: delay_ms (1);
 "52
 [e ( _delay_ms (1 -> -> 1 `i `ui ]
-[; ;src\LCD_44780.c: 53: LATCbits.LATC1 = 0;
+[; ;src\LCD_44780.c: 53: LATBbits.LATB3 = 0;
 "53
-[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
 [; ;src\LCD_44780.c: 54: delay_ms (1);
 "54
 [e ( _delay_ms (1 -> -> 1 `i `ui ]
 [; ;src\LCD_44780.c: 55: }
 "55
-[e :UE 2359 ]
+[e :UE 2358 ]
 }
 "61
 [v _LCD_send_command `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
@@ -19417,24 +19303,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _D1 `uc ~T0 @X0 1 r3 ]
 [v _D0 `uc ~T0 @X0 1 r4 ]
 [f ]
-[; ;src\LCD_44780.c: 63: LATCbits.LATC2 = D0;
+[; ;src\LCD_44780.c: 63: LATBbits.LATB4 = D0;
 "63
-[e = . . _LATCbits 0 2 _D0 ]
-[; ;src\LCD_44780.c: 64: LATCbits.LATC3 = D1;
+[e = . . _LATBbits 0 4 _D0 ]
+[; ;src\LCD_44780.c: 64: LATBbits.LATB5 = D1;
 "64
-[e = . . _LATCbits 0 3 _D1 ]
-[; ;src\LCD_44780.c: 65: LATDbits.LATD0 = D2;
+[e = . . _LATBbits 0 5 _D1 ]
+[; ;src\LCD_44780.c: 65: LATBbits.LATB6 = D2;
 "65
-[e = . . _LATDbits 0 0 _D2 ]
-[; ;src\LCD_44780.c: 66: LATDbits.LATD1 = D3;
+[e = . . _LATBbits 0 6 _D2 ]
+[; ;src\LCD_44780.c: 66: LATBbits.LATB7 = D3;
 "66
-[e = . . _LATDbits 0 1 _D3 ]
+[e = . . _LATBbits 0 7 _D3 ]
 [; ;src\LCD_44780.c: 67: LCD_enable_pulse ();
 "67
 [e ( _LCD_enable_pulse ..  ]
 [; ;src\LCD_44780.c: 68: }
 "68
-[e :UE 2360 ]
+[e :UE 2359 ]
 }
 "74
 [v _LCD_home `(v ~T0 @X0 1 ef ]
@@ -19450,7 +19336,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_send_command (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 1 `i `uc -> -> 0 `i `uc ]
 [; ;src\LCD_44780.c: 78: }
 "78
-[e :UE 2361 ]
+[e :UE 2360 ]
 }
 "84
 [v _LCD_shift `(v ~T0 @X0 1 ef2`uc`uc ]
@@ -19467,8 +19353,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "88
 {
 [e = _i -> -> 0 `i `uc ]
-[e $U 2366  ]
-[e :U 2363 ]
+[e $U 2365  ]
+[e :U 2362 ]
 {
 [; ;src\LCD_44780.c: 89: LCD_send_command (0,0,0,1);
 "89
@@ -19480,15 +19366,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "88
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 2366 ]
-[e $ < -> _i `i -> _number_of_shift `i 2363  ]
-[e :U 2364 ]
+[e :U 2365 ]
+[e $ < -> _i `i -> _number_of_shift `i 2362  ]
+[e :U 2363 ]
 "91
 }
 [; ;src\LCD_44780.c: 91: }
 [; ;src\LCD_44780.c: 92: }
 "92
-[e :UE 2362 ]
+[e :UE 2361 ]
 }
 "98
 [v _LCD_shift_cursor `(v ~T0 @X0 1 ef2`uc`uc ]
@@ -19505,8 +19391,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "102
 {
 [e = _i -> -> 0 `i `uc ]
-[e $U 2371  ]
-[e :U 2368 ]
+[e $U 2370  ]
+[e :U 2367 ]
 {
 [; ;src\LCD_44780.c: 103: LCD_send_command (0,0,0,1);
 "103
@@ -19518,15 +19404,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "102
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 2371 ]
-[e $ < -> _i `i -> _number_of_shift `i 2368  ]
-[e :U 2369 ]
+[e :U 2370 ]
+[e $ < -> _i `i -> _number_of_shift `i 2367  ]
+[e :U 2368 ]
 "105
 }
 [; ;src\LCD_44780.c: 105: }
 [; ;src\LCD_44780.c: 106: }
 "106
-[e :UE 2367 ]
+[e :UE 2366 ]
 }
 "111
 [v _LCD_goto_line `(v ~T0 @X0 1 ef1`uc ]
@@ -19537,41 +19423,41 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;src\LCD_44780.c: 113: switch(line) {
 "113
-[e $U 2374  ]
+[e $U 2373  ]
 {
 [; ;src\LCD_44780.c: 115: case 1: LCD_send_command(1,0,0,0);
 "115
-[e :U 2375 ]
+[e :U 2374 ]
 [e ( _LCD_send_command (4 , , , -> -> 1 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
 [; ;src\LCD_44780.c: 116: LCD_send_command(0,0,0,0);
 "116
 [e ( _LCD_send_command (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
 [; ;src\LCD_44780.c: 117: break;
 "117
-[e $U 2373  ]
+[e $U 2372  ]
 [; ;src\LCD_44780.c: 119: case 2: LCD_send_command(1,1,0,0);
 "119
-[e :U 2376 ]
+[e :U 2375 ]
 [e ( _LCD_send_command (4 , , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
 [; ;src\LCD_44780.c: 120: LCD_send_command(0,0,0,0);
 "120
 [e ( _LCD_send_command (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
 [; ;src\LCD_44780.c: 121: break;
 "121
-[e $U 2373  ]
+[e $U 2372  ]
 [; ;src\LCD_44780.c: 123: case 3: LCD_send_command(1,0,0,1);
 "123
-[e :U 2377 ]
+[e :U 2376 ]
 [e ( _LCD_send_command (4 , , , -> -> 1 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 1 `i `uc ]
 [; ;src\LCD_44780.c: 124: LCD_send_command(0,1,0,0);
 "124
 [e ( _LCD_send_command (4 , , , -> -> 0 `i `uc -> -> 1 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
 [; ;src\LCD_44780.c: 125: break;
 "125
-[e $U 2373  ]
+[e $U 2372  ]
 [; ;src\LCD_44780.c: 127: case 4: LCD_send_command(1,1,0,1);
 "127
-[e :U 2378 ]
+[e :U 2377 ]
 [e ( _LCD_send_command (4 , , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 0 `i `uc -> -> 1 `i `uc ]
 [; ;src\LCD_44780.c: 128: LCD_send_command(0,1,0,0);
 "128
@@ -19579,19 +19465,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 "129
 }
 [; ;src\LCD_44780.c: 129: }
-[e $U 2373  ]
+[e $U 2372  ]
 "113
-[e :U 2374 ]
-[e [\ _line , $ -> -> 1 `i `uc 2375
- , $ -> -> 2 `i `uc 2376
- , $ -> -> 3 `i `uc 2377
- , $ -> -> 4 `i `uc 2378
- 2373 ]
-"129
 [e :U 2373 ]
+[e [\ _line , $ -> -> 1 `i `uc 2374
+ , $ -> -> 2 `i `uc 2375
+ , $ -> -> 3 `i `uc 2376
+ , $ -> -> 4 `i `uc 2377
+ 2372 ]
+"129
+[e :U 2372 ]
 [; ;src\LCD_44780.c: 130: }
 "130
-[e :UE 2372 ]
+[e :UE 2371 ]
 }
 "136
 [v _LCD_goto_xy `(v ~T0 @X0 1 ef2`uc`uc ]
@@ -19609,7 +19495,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_shift_cursor (2 , -> -> 1 `i `uc -> - -> _x `i -> 1 `i `uc ]
 [; ;src\LCD_44780.c: 140: }
 "140
-[e :UE 2379 ]
+[e :UE 2378 ]
 }
 "145
 [v _LCD_write_char `(v ~T0 @X0 1 ef1`uc ]
@@ -19624,9 +19510,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _D1 `uc ~T0 @X0 1 a ]
 [v _D0 `uc ~T0 @X0 1 a ]
 [; ;src\LCD_44780.c: 147: unsigned char D3,D2,D1,D0;
-[; ;src\LCD_44780.c: 149: LATEbits.LATE2 = 1;
+[; ;src\LCD_44780.c: 149: LATBbits.LATB1 = 1;
 "149
-[e = . . _LATEbits 0 2 -> -> 1 `i `uc ]
+[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
 [; ;src\LCD_44780.c: 152: D3 = (value & 0b10000000) >> 7;
 "152
 [e = _D3 -> >> & -> _value `i -> 128 `i -> 7 `i `uc ]
@@ -19657,12 +19543,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;src\LCD_44780.c: 165: LCD_send_command (D3,D2,D1,D0);
 "165
 [e ( _LCD_send_command (4 , , , _D3 _D2 _D1 _D0 ]
-[; ;src\LCD_44780.c: 167: LATEbits.LATE2 = 0;
+[; ;src\LCD_44780.c: 167: LATBbits.LATB1 = 0;
 "167
-[e = . . _LATEbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
 [; ;src\LCD_44780.c: 168: }
 "168
-[e :UE 2380 ]
+[e :UE 2379 ]
 }
 "178
 [v _LCD_write_message `(v ~T0 @X0 1 ef1`*Cuc ]
@@ -19673,8 +19559,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;src\LCD_44780.c: 181: while(*buffer) {
 "181
-[e $U 2382  ]
-[e :U 2383 ]
+[e $U 2381  ]
+[e :U 2382 ]
 {
 [; ;src\LCD_44780.c: 184: LCD_write_char(*buffer);
 "184
@@ -19684,14 +19570,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _buffer * -> -> 1 `i `x -> -> # *U _buffer `i `x ]
 "187
 }
-[e :U 2382 ]
+[e :U 2381 ]
 "181
-[e $ != -> *U _buffer `i -> -> -> 0 `i `Cuc `i 2383  ]
-[e :U 2384 ]
+[e $ != -> *U _buffer `i -> -> -> 0 `i `Cuc `i 2382  ]
+[e :U 2383 ]
 [; ;src\LCD_44780.c: 187: }
 [; ;src\LCD_44780.c: 188: }
 "188
-[e :UE 2381 ]
+[e :UE 2380 ]
 }
 "194
 [v _LCD_write_string `(v ~T0 @X0 1 ef1`*uc ]
@@ -19702,8 +19588,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;src\LCD_44780.c: 197: while(*buffer){
 "197
-[e $U 2386  ]
-[e :U 2387 ]
+[e $U 2385  ]
+[e :U 2386 ]
 {
 [; ;src\LCD_44780.c: 200: LCD_write_char(*buffer);
 "200
@@ -19713,14 +19599,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _buffer * -> -> 1 `i `x -> -> # *U _buffer `i `x ]
 "203
 }
-[e :U 2386 ]
+[e :U 2385 ]
 "197
-[e $ != -> *U _buffer `i -> -> -> 0 `i `uc `i 2387  ]
-[e :U 2388 ]
+[e $ != -> *U _buffer `i -> -> -> 0 `i `uc `i 2386  ]
+[e :U 2387 ]
 [; ;src\LCD_44780.c: 203: }
 [; ;src\LCD_44780.c: 204: }
 "204
-[e :UE 2385 ]
+[e :UE 2384 ]
 }
 "210
 [v _LCD_write_integer `(v ~T0 @X0 1 ef3`i`uc`uc ]
@@ -19731,8 +19617,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _number_of_digits `uc ~T0 @X0 1 r2 ]
 [v _zero_cleaning `uc ~T0 @X0 1 r3 ]
 [f ]
-[v F17326 `uc ~T0 @X0 -> 6 `i s ]
-[i F17326
+[v F17272 `uc ~T0 @X0 -> 6 `i s ]
+[i F17272
 :U ..
 "213
 -> -> 0 `i `uc
@@ -19745,7 +19631,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [v _convertedInt `uc ~T0 @X0 -> 6 `i a ]
 [; ;src\LCD_44780.c: 213: unsigned char convertedInt [6] = {0,0,0,0,0,0};
-[e = _convertedInt F17326 ]
+[e = _convertedInt F17272 ]
 "216
 [v _index `uc ~T0 @X0 1 a ]
 [; ;src\LCD_44780.c: 216: unsigned char index;
@@ -19754,30 +19640,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _itoa (3 , , &U _convertedInt _value -> 10 `i ]
 [; ;src\LCD_44780.c: 228: if (number_of_digits >0 ) {
 "228
-[e $ ! > -> _number_of_digits `i -> 0 `i 2390  ]
+[e $ ! > -> _number_of_digits `i -> 0 `i 2389  ]
 {
 [; ;src\LCD_44780.c: 230: convertedInt[number_of_digits] = '\0';
 "230
 [e = *U + &U _convertedInt * -> _number_of_digits `ux -> -> # *U &U _convertedInt `ui `ux -> -> 0 `ui `uc ]
 [; ;src\LCD_44780.c: 234: while (!(convertedInt[number_of_digits-1] <= '9' && convertedInt[number_of_digits-1] >= '0')){
 "234
-[e $U 2391  ]
-[e :U 2392 ]
+[e $U 2390  ]
+[e :U 2391 ]
 {
 [; ;src\LCD_44780.c: 236: for (index = number_of_digits-1; index > 0; index--){
 "236
 {
 [e = _index -> - -> _number_of_digits `i -> 1 `i `uc ]
-[e $ > -> _index `i -> 0 `i 2394  ]
-[e $U 2395  ]
-[e :U 2394 ]
+[e $ > -> _index `i -> 0 `i 2393  ]
+[e $U 2394  ]
+[e :U 2393 ]
 {
 [; ;src\LCD_44780.c: 237: convertedInt[index] = convertedInt[index-1];
 "237
 [e = *U + &U _convertedInt * -> _index `ux -> -> # *U &U _convertedInt `ui `ux *U + &U _convertedInt * -> -> - -> _index `i -> 1 `i `ui `ux -> -> # *U &U _convertedInt `ui `ux ]
 [; ;src\LCD_44780.c: 239: if (zero_cleaning == 0x01) {
 "239
-[e $ ! == -> _zero_cleaning `i -> 1 `i 2397  ]
+[e $ ! == -> _zero_cleaning `i -> 1 `i 2396  ]
 {
 [; ;src\LCD_44780.c: 240: convertedInt[index-1] = ' ';
 "240
@@ -19785,32 +19671,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 "241
 }
 [; ;src\LCD_44780.c: 241: } else {
-[e $U 2398  ]
-[e :U 2397 ]
+[e $U 2397  ]
+[e :U 2396 ]
 {
 [; ;src\LCD_44780.c: 242: convertedInt[index-1] = '0';
 "242
 [e = *U + &U _convertedInt * -> -> - -> _index `i -> 1 `i `ui `ux -> -> # *U &U _convertedInt `ui `ux -> -> 48 `ui `uc ]
 "243
 }
-[e :U 2398 ]
+[e :U 2397 ]
 "245
 }
 "236
 [e -- _index -> -> 1 `i `uc ]
-[e $ > -> _index `i -> 0 `i 2394  ]
-[e :U 2395 ]
+[e $ > -> _index `i -> 0 `i 2393  ]
+[e :U 2394 ]
 "245
 }
 "246
 }
-[e :U 2391 ]
+[e :U 2390 ]
 "234
-[e $ ! && <= -> *U + &U _convertedInt * -> -> - -> _number_of_digits `i -> 1 `i `ui `ux -> -> # *U &U _convertedInt `ui `ux `ui -> 57 `ui >= -> *U + &U _convertedInt * -> -> - -> _number_of_digits `i -> 1 `i `ui `ux -> -> # *U &U _convertedInt `ui `ux `ui -> 48 `ui 2392  ]
-[e :U 2393 ]
+[e $ ! && <= -> *U + &U _convertedInt * -> -> - -> _number_of_digits `i -> 1 `i `ui `ux -> -> # *U &U _convertedInt `ui `ux `ui -> 57 `ui >= -> *U + &U _convertedInt * -> -> - -> _number_of_digits `i -> 1 `i `ui `ux -> -> # *U &U _convertedInt `ui `ux `ui -> 48 `ui 2391  ]
+[e :U 2392 ]
 "247
 }
-[e :U 2390 ]
+[e :U 2389 ]
 [; ;src\LCD_44780.c: 243: }
 [; ;src\LCD_44780.c: 245: }
 [; ;src\LCD_44780.c: 246: }
@@ -19820,7 +19706,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_write_string (1 &U _convertedInt ]
 [; ;src\LCD_44780.c: 251: }
 "251
-[e :UE 2389 ]
+[e :UE 2388 ]
 }
 "257
 [v _LCD_clear `(v ~T0 @X0 1 ef ]
@@ -19836,7 +19722,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_send_command (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 1 `i `uc ]
 [; ;src\LCD_44780.c: 261: }
 "261
-[e :UE 2399 ]
+[e :UE 2398 ]
 }
 "266
 [v _LCD_cursor `(v ~T0 @X0 1 ef2`uc`uc ]
@@ -19854,21 +19740,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_send_command (4 , , , -> -> 1 `i `uc -> -> 1 `i `uc _active _blinking ]
 [; ;src\LCD_44780.c: 270: }
 "270
-[e :UE 2400 ]
-}
-"275
-[v _LCD_backlight `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;src\LCD_44780.c: 275: void LCD_backlight (unsigned char active) {
-[e :U _LCD_backlight ]
-[v _active `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;src\LCD_44780.c: 277: LATCbits.LATC4 = active;
-"277
-[e = . . _LATCbits 0 4 _active ]
-[; ;src\LCD_44780.c: 278: }
-"278
-[e :UE 2401 ]
+[e :UE 2399 ]
 }
 "283
 [v _LCD_initialize `(v ~T0 @X0 1 ef1`uc ]
@@ -19880,15 +19752,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;src\LCD_44780.c: 285: delay_set_quartz (quartz_frequency);
 "285
 [e ( _delay_set_quartz (1 _quartz_frequency ]
-[; ;src\LCD_44780.c: 287: LATEbits.LATE2 = 0x00;
+[; ;src\LCD_44780.c: 287: LATBbits.LATB1 = 0x00;
 "287
-[e = . . _LATEbits 0 2 -> -> 0 `i `uc ]
-[; ;src\LCD_44780.c: 288: LATCbits.LATC1 = 0x00;
+[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
+[; ;src\LCD_44780.c: 288: LATBbits.LATB3 = 0x00;
 "288
-[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
-[; ;src\LCD_44780.c: 289: LATCbits.LATC0 = 0x00;
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
+[; ;src\LCD_44780.c: 289: LATBbits.LATB2 = 0x00;
 "289
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
 [; ;src\LCD_44780.c: 291: delay_ms (100);
 "291
 [e ( _delay_ms (1 -> -> 100 `i `ui ]
@@ -19942,38 +19814,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_cursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
 [; ;src\LCD_44780.c: 316: }
 "316
-[e :UE 2402 ]
+[e :UE 2400 ]
 }
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 24: extern int errno;
-[; ;stdio.h: 55: struct __prbuf
-[; ;stdio.h: 56: {
-[; ;stdio.h: 57: char * ptr;
-[; ;stdio.h: 58: void (* func)(char);
-[; ;stdio.h: 59: };
-[; ;conio.h: 17: extern int errno;
-[; ;conio.h: 20: extern void init_uart(void);
-[; ;conio.h: 22: extern char getch(void);
-[; ;conio.h: 23: extern char getche(void);
-[; ;conio.h: 24: extern void putch(char);
-[; ;conio.h: 25: extern void ungetch(char);
-[; ;conio.h: 27: extern __bit kbhit(void);
-[; ;conio.h: 31: extern char * cgets(char *);
-[; ;conio.h: 32: extern void cputs(const char *);
-[; ;stdio.h: 100: extern int cprintf(char *, ...);
-[; ;stdio.h: 105: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 195: extern char * gets(char *);
-[; ;stdio.h: 196: extern int puts(const char *);
-[; ;stdio.h: 197: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 198: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 199: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 200: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 201: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 202: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 206: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 207: extern int printf(const char *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 25: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;RemoteCan.c: 42: void board_initialization(void);
 [; ;RemoteCan.c: 43: void PWR_Button_Polling(void);
 [; ;RemoteCan.c: 44: void F1_Button_Polling(void);
@@ -20030,7 +19901,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;RemoteCan.c: 63: volatile unsigned long pr_time_6 = 0;
 "66
-[v _msg `S2160 ~T0 @X0 1 e ]
+[v _msg `S2159 ~T0 @X0 1 e ]
 [; ;RemoteCan.c: 66: CANmessage msg;
 "67
 [v _Can_Tx_Force `Vb ~T0 @X0 1 e ]
@@ -20039,37 +19910,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;RemoteCan.c: 67: volatile bit Can_Tx_Force = 0;
 "68
-[v _data_steering `uc ~T0 @X0 -> 0 `x e ]
+[v _data_steering `uc ~T0 @X0 -> 8 `i e ]
 [i _data_steering
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;RemoteCan.c: 68: BYTE data_steering[] = 0;
+[; ;RemoteCan.c: 68: BYTE data_steering[8] = 0;
 "69
-[v _data_speed `uc ~T0 @X0 -> 0 `x e ]
+[v _data_speed `uc ~T0 @X0 -> 8 `i e ]
 [i _data_speed
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;RemoteCan.c: 69: BYTE data_speed [] = 0;
+[; ;RemoteCan.c: 69: BYTE data_speed [8] = 0;
 "70
-[v _data_brake `uc ~T0 @X0 -> 0 `x e ]
+[v _data_brake `uc ~T0 @X0 -> 8 `i e ]
 [i _data_brake
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;RemoteCan.c: 70: BYTE data_brake [] = 0;
+[; ;RemoteCan.c: 70: BYTE data_brake [8] = 0;
 "71
-[v _data `uc ~T0 @X0 -> 0 `x e ]
+[v _data `uc ~T0 @X0 -> 8 `i e ]
 [i _data
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;RemoteCan.c: 71: BYTE data[] = 0;
+[; ;RemoteCan.c: 71: BYTE data[8] = 0;
 "72
 [v _park_assist_state `uc ~T0 @X0 -> 8 `i e ]
 [i _park_assist_state
@@ -20338,20 +20209,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [; ;RemoteCan.c: 122: volatile signed float JoystickConstants[2] = 0;
-[v F17478 `(v ~T0 @X0 1 tf ]
+[v F17424 `(v ~T0 @X0 1 tf ]
 "124
-[v _ISR_alta `IF17478 ~T55 @X0 1 e ]
+[v _ISR_alta `IF17424 ~T59 @X0 1 e ]
 {
 [; ;RemoteCan.c: 124: __attribute__((interrupt("__high_priority"))) void ISR_alta(void) {
 [e :U _ISR_alta ]
 [f ]
 [; ;RemoteCan.c: 125: if ((PIR3bits.RXB1IF == 1) || (PIR3bits.RXB0IF == 1)) {
 "125
-[e $ ! || == -> . . _PIR3bits 0 1 `i -> 1 `i == -> . . _PIR3bits 0 0 `i -> 1 `i 2405  ]
+[e $ ! || == -> . . _PIR3bits 0 1 `i -> 1 `i == -> . . _PIR3bits 0 0 `i -> 1 `i 2403  ]
 {
 [; ;RemoteCan.c: 126: if (CANisRxReady()) {
 "126
-[e $ ! != -> ( _CANisRxReady ..  `i -> -> -> 0 `i `uc `i 2406  ]
+[e $ ! != -> ( _CANisRxReady ..  `i -> -> -> 0 `i `uc `i 2404  ]
 {
 [; ;RemoteCan.c: 127: CANreceiveMessage(&msg);
 "127
@@ -20367,16 +20238,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _newMessageCan -> -> 1 `i `b ]
 [; ;RemoteCan.c: 131: if (id == 0b00000001000) {
 "131
-[e $ ! == _id -> -> -> 8 `i `l `ul 2407  ]
+[e $ ! == _id -> -> -> 8 `i `l `ul 2405  ]
 {
 [; ;RemoteCan.c: 132: for (unsigned char i = 0; i < 8; i++) {
 "132
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 2408  ]
-[e $U 2409  ]
-[e :U 2408 ]
+[e $ < -> _i `i -> 8 `i 2406  ]
+[e $U 2407  ]
+[e :U 2406 ]
 {
 [; ;RemoteCan.c: 133: data_speed_rx[i] = msg.data[i];
 "133
@@ -20385,22 +20256,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "132
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 2408  ]
-[e :U 2409 ]
+[e $ < -> _i `i -> 8 `i 2406  ]
+[e :U 2407 ]
 "134
 }
 "135
 }
-[e :U 2407 ]
+[e :U 2405 ]
 [; ;RemoteCan.c: 134: }
 [; ;RemoteCan.c: 135: }
 [; ;RemoteCan.c: 137: if (id == 0b00000001101) {
 "137
-[e $ ! == _id -> -> -> 13 `i `l `ul 2411  ]
+[e $ ! == _id -> -> -> 13 `i `l `ul 2409  ]
 {
 [; ;RemoteCan.c: 138: if (msg.data[0] == 1) {
 "138
-[e $ ! == -> *U + &U . _msg 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux `i -> 1 `i 2412  ]
+[e $ ! == -> *U + &U . _msg 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux `i -> 1 `i 2410  ]
 {
 [; ;RemoteCan.c: 139: space_available = 1;
 "139
@@ -20419,11 +20290,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _parking_message_ID -> -> 0 `i `uc ]
 "144
 }
-[e :U 2412 ]
+[e :U 2410 ]
 [; ;RemoteCan.c: 144: }
 [; ;RemoteCan.c: 146: if (msg.data[0] == 2) {
 "146
-[e $ ! == -> *U + &U . _msg 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux `i -> 2 `i 2413  ]
+[e $ ! == -> *U + &U . _msg 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux `i -> 2 `i 2411  ]
 {
 [; ;RemoteCan.c: 147: space_available = 1;
 "147
@@ -20439,11 +20310,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _parking_message_ID -> -> 2 `i `uc ]
 "151
 }
-[e :U 2413 ]
+[e :U 2411 ]
 [; ;RemoteCan.c: 151: }
 [; ;RemoteCan.c: 153: if (msg.data[0] == 3) {
 "153
-[e $ ! == -> *U + &U . _msg 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux `i -> 3 `i 2414  ]
+[e $ ! == -> *U + &U . _msg 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux `i -> 3 `i 2412  ]
 {
 [; ;RemoteCan.c: 154: parking_message_ID = 6;
 "154
@@ -20456,11 +20327,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _pr_time_6 + _time_counter -> -> / -> 2000 `i -> 10 `i `l `ul ]
 "157
 }
-[e :U 2414 ]
+[e :U 2412 ]
 [; ;RemoteCan.c: 157: }
 [; ;RemoteCan.c: 158: if (msg.data[0] == 4) {
 "158
-[e $ ! == -> *U + &U . _msg 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux `i -> 4 `i 2415  ]
+[e $ ! == -> *U + &U . _msg 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux `i -> 4 `i 2413  ]
 {
 [; ;RemoteCan.c: 159: parking_message_ID = 6;
 "159
@@ -20476,15 +20347,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _pr_time_6 + _time_counter -> -> / -> 2000 `i -> 10 `i `l `ul ]
 "163
 }
-[e :U 2415 ]
+[e :U 2413 ]
 "164
 }
-[e :U 2411 ]
+[e :U 2409 ]
 [; ;RemoteCan.c: 163: }
 [; ;RemoteCan.c: 164: }
 [; ;RemoteCan.c: 166: if (id == 0b00000010000) {
 "166
-[e $ ! == _id -> -> -> 16 `i `l `ul 2416  ]
+[e $ ! == _id -> -> -> 16 `i `l `ul 2414  ]
 {
 [; ;RemoteCan.c: 167: steering_correction_dir = msg.data[1];
 "167
@@ -20494,11 +20365,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _steering_correction *U + &U . _msg 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux ]
 "169
 }
-[e :U 2416 ]
+[e :U 2414 ]
 [; ;RemoteCan.c: 169: }
 [; ;RemoteCan.c: 171: if (id == 0b00000010001) {
 "171
-[e $ ! == _id -> -> -> 17 `i `l `ul 2417  ]
+[e $ ! == _id -> -> -> 17 `i `l `ul 2415  ]
 {
 [; ;RemoteCan.c: 172: FWD_sensor = (msg.data[0] & 0b01000000) >> 6;
 "172
@@ -20508,11 +20379,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _BKWD_sensor -> >> & -> *U + &U . _msg 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux `i -> 8 `i -> 3 `i `b ]
 "174
 }
-[e :U 2417 ]
+[e :U 2415 ]
 [; ;RemoteCan.c: 174: }
 [; ;RemoteCan.c: 175: if (id == 0xAA) {
 "175
-[e $ ! == _id -> -> -> 170 `i `l `ul 2418  ]
+[e $ ! == _id -> -> -> 170 `i `l `ul 2416  ]
 {
 [; ;RemoteCan.c: 176: user_data = msg.data[1];
 "176
@@ -20522,15 +20393,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _user_data | << _user_data -> 8 `i -> *U + &U . _msg 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _msg 1 `ui `ux `ui ]
 "178
 }
-[e :U 2418 ]
+[e :U 2416 ]
 [; ;RemoteCan.c: 178: }
 [; ;RemoteCan.c: 180: if (id == 0b00000000100) {
 "180
-[e $ ! == _id -> -> -> 4 `i `l `ul 2419  ]
+[e $ ! == _id -> -> -> 4 `i `l `ul 2417  ]
 {
 [; ;RemoteCan.c: 181: if (RTR_Flag == 1) {
 "181
-[e $ ! == -> _RTR_Flag `i -> 1 `i 2420  ]
+[e $ ! == -> _RTR_Flag `i -> 1 `i 2418  ]
 {
 [; ;RemoteCan.c: 182: pr_time_4 = time_counter;
 "182
@@ -20543,23 +20414,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
 [; ;RemoteCan.c: 185: while (CANisTxReady() != 1);
 "185
-[e $U 2421  ]
-[e :U 2422 ]
+[e $U 2419  ]
+[e :U 2420 ]
+[e :U 2419 ]
+[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2420  ]
 [e :U 2421 ]
-[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2422  ]
-[e :U 2423 ]
 [; ;RemoteCan.c: 186: CANsendMessage(0b00000000100, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 "186
-[e ( _CANsendMessage (4 , , , -> -> -> 4 `i `l `ul &U _data -> -> 8 `i `uc -> & & -> . `E16928 11 `i -> . `E16950 10 `i -> . `E16950 1 `i `E16950 ]
+[e ( _CANsendMessage (4 , , , -> -> -> 4 `i `l `ul &U _data -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
 "192
 }
-[e :U 2420 ]
+[e :U 2418 ]
 "193
 }
-[e :U 2419 ]
+[e :U 2417 ]
 "194
 }
-[e :U 2406 ]
+[e :U 2404 ]
 [; ;RemoteCan.c: 192: }
 [; ;RemoteCan.c: 193: }
 [; ;RemoteCan.c: 194: }
@@ -20571,22 +20442,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PIR3bits 0 0 -> -> 0 `i `uc ]
 "197
 }
-[e :U 2405 ]
+[e :U 2403 ]
 [; ;RemoteCan.c: 197: }
 [; ;RemoteCan.c: 198: }
 "198
-[e :UE 2404 ]
+[e :UE 2402 ]
 }
-[v F17483 `(v ~T0 @X0 1 tf ]
+[v F17429 `(v ~T0 @X0 1 tf ]
 "200
-[v _ISR_bassa `IF17483 ~T56 @X0 1 e ]
+[v _ISR_bassa `IF17429 ~T60 @X0 1 e ]
 {
 [; ;RemoteCan.c: 200: __attribute__((interrupt("__low_priority"))) void ISR_bassa(void) {
 [e :U _ISR_bassa ]
 [f ]
 [; ;RemoteCan.c: 201: if (PIR2bits.TMR3IF == 1) {
 "201
-[e $ ! == -> . . _PIR2bits 0 1 `i -> 1 `i 2425  ]
+[e $ ! == -> . . _PIR2bits 0 1 `i -> 1 `i 2423  ]
 {
 [; ;RemoteCan.c: 202: time_counter++;
 "202
@@ -20602,11 +20473,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
 "206
 }
-[e :U 2425 ]
+[e :U 2423 ]
 [; ;RemoteCan.c: 206: }
 [; ;RemoteCan.c: 207: }
 "207
-[e :UE 2424 ]
+[e :UE 2422 ]
 }
 "209
 [v _main `(v ~T0 @X0 1 ef ]
@@ -20628,7 +20499,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _data_brake * -> -> -> 1 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> -> 1 `i `uc ]
 [; ;RemoteCan.c: 223: while (1) {
 "223
-[e :U 2428 ]
+[e :U 2426 ]
 {
 [; ;RemoteCan.c: 226: PWR_Button_Polling();
 "226
@@ -20641,7 +20512,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _F2_Button_Polling ..  ]
 [; ;RemoteCan.c: 231: if (power_switch == 0) {
 "231
-[e $ ! == -> _power_switch `i -> 0 `i 2430  ]
+[e $ ! == -> _power_switch `i -> 0 `i 2428  ]
 {
 [; ;RemoteCan.c: 232: dir = 1;
 "232
@@ -20693,12 +20564,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_write_message (1 :s 4C ]
 [; ;RemoteCan.c: 248: while (power_switch == 0) {
 "248
-[e $U 2431  ]
-[e :U 2432 ]
+[e $U 2429  ]
+[e :U 2430 ]
 {
 [; ;RemoteCan.c: 249: if ((time_counter - pr_time_1) >= 30) {
 "249
-[e $ ! >= - _time_counter _pr_time_1 -> -> -> 30 `i `l `ul 2434  ]
+[e $ ! >= - _time_counter _pr_time_1 -> -> -> 30 `i `l `ul 2432  ]
 {
 [; ;RemoteCan.c: 250: pr_time_1 = time_counter;
 "250
@@ -20708,7 +20579,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PORTDbits 0 7 -> ~ -> . . _PORTDbits 0 7 `i `uc ]
 "252
 }
-[e :U 2434 ]
+[e :U 2432 ]
 [; ;RemoteCan.c: 252: }
 [; ;RemoteCan.c: 253: PWR_Button_Polling();
 "253
@@ -20718,10 +20589,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _delay_ms (1 -> -> 10 `i `ui ]
 "255
 }
-[e :U 2431 ]
+[e :U 2429 ]
 "248
-[e $ == -> _power_switch `i -> 0 `i 2432  ]
-[e :U 2433 ]
+[e $ == -> _power_switch `i -> 0 `i 2430  ]
+[e :U 2431 ]
 [; ;RemoteCan.c: 255: }
 [; ;RemoteCan.c: 256: PORTDbits.RD7 = 0;
 "256
@@ -20731,11 +20602,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _display_refresh -> -> 1 `i `b ]
 "258
 }
-[e :U 2430 ]
+[e :U 2428 ]
 [; ;RemoteCan.c: 258: }
 [; ;RemoteCan.c: 261: if (PORTAbits.RA2 == 1) {
 "261
-[e $ ! == -> . . _PORTAbits 0 2 `i -> 1 `i 2435  ]
+[e $ ! == -> . . _PORTAbits 0 2 `i -> 1 `i 2433  ]
 {
 [; ;RemoteCan.c: 262: switch_position = 0;
 "262
@@ -20743,12 +20614,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "263
 }
 [; ;RemoteCan.c: 263: } else {
-[e $U 2436  ]
-[e :U 2435 ]
+[e $U 2434  ]
+[e :U 2433 ]
 {
 [; ;RemoteCan.c: 264: if (PORTAbits.RA3 == 0) {
 "264
-[e $ ! == -> . . _PORTAbits 0 3 `i -> 0 `i 2437  ]
+[e $ ! == -> . . _PORTAbits 0 3 `i -> 0 `i 2435  ]
 {
 [; ;RemoteCan.c: 265: switch_position = 1;
 "265
@@ -20758,7 +20629,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _dir -> -> 1 `i `uc ]
 [; ;RemoteCan.c: 267: if (FWD_sensor == 1) {
 "267
-[e $ ! == -> _FWD_sensor `i -> 1 `i 2438  ]
+[e $ ! == -> _FWD_sensor `i -> 1 `i 2436  ]
 {
 [; ;RemoteCan.c: 268: collision_risk = 1;
 "268
@@ -20766,21 +20637,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 "269
 }
 [; ;RemoteCan.c: 269: } else {
-[e $U 2439  ]
-[e :U 2438 ]
+[e $U 2437  ]
+[e :U 2436 ]
 {
 [; ;RemoteCan.c: 270: collision_risk = 0;
 "270
 [e = _collision_risk -> -> 0 `i `b ]
 "271
 }
-[e :U 2439 ]
+[e :U 2437 ]
 "272
 }
 [; ;RemoteCan.c: 271: }
 [; ;RemoteCan.c: 272: } else {
-[e $U 2440  ]
-[e :U 2437 ]
+[e $U 2438  ]
+[e :U 2435 ]
 {
 [; ;RemoteCan.c: 273: switch_position = 2;
 "273
@@ -20790,7 +20661,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _dir -> -> 0 `i `uc ]
 [; ;RemoteCan.c: 275: if (BKWD_sensor == 1) {
 "275
-[e $ ! == -> _BKWD_sensor `i -> 1 `i 2441  ]
+[e $ ! == -> _BKWD_sensor `i -> 1 `i 2439  ]
 {
 [; ;RemoteCan.c: 276: collision_risk = 1;
 "276
@@ -20798,34 +20669,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 "277
 }
 [; ;RemoteCan.c: 277: } else {
-[e $U 2442  ]
-[e :U 2441 ]
+[e $U 2440  ]
+[e :U 2439 ]
 {
 [; ;RemoteCan.c: 278: collision_risk = 0;
 "278
 [e = _collision_risk -> -> 0 `i `b ]
 "279
 }
-[e :U 2442 ]
+[e :U 2440 ]
 "280
 }
-[e :U 2440 ]
+[e :U 2438 ]
 "281
 }
-[e :U 2436 ]
+[e :U 2434 ]
 [; ;RemoteCan.c: 279: }
 [; ;RemoteCan.c: 280: }
 [; ;RemoteCan.c: 281: }
 [; ;RemoteCan.c: 284: if (F1_switch == 1) {
 "284
-[e $ ! == -> _F1_switch `i -> 1 `i 2443  ]
+[e $ ! == -> _F1_switch `i -> 1 `i 2441  ]
 {
 [; ;RemoteCan.c: 285: y = 0;
 "285
 [e = _y -> -> 0 `i `b ]
 [; ;RemoteCan.c: 286: if ((x == 0)&&(F2_switch == 0)) {
 "286
-[e $ ! && == -> _x `i -> 0 `i == -> _F2_switch `i -> 0 `i 2444  ]
+[e $ ! && == -> _x `i -> 0 `i == -> _F2_switch `i -> 0 `i 2442  ]
 {
 [; ;RemoteCan.c: 287: space_available = 0;
 "287
@@ -20838,31 +20709,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _JoystickConstants * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickConstants `ui `ux -> -> 1 `i `f ]
 [; ;RemoteCan.c: 290: while (!CANisTxReady());
 "290
-[e $U 2445  ]
-[e :U 2446 ]
+[e $U 2443  ]
+[e :U 2444 ]
+[e :U 2443 ]
+[e $ ! != -> ( _CANisTxReady ..  `i -> -> -> 0 `i `uc `i 2444  ]
 [e :U 2445 ]
-[e $ ! != -> ( _CANisTxReady ..  `i -> -> -> 0 `i `uc `i 2446  ]
-[e :U 2447 ]
 [; ;RemoteCan.c: 291: park_assist_state[0] = 0b00000001;
 "291
 [e = *U + &U _park_assist_state * -> -> -> 0 `i `ui `ux -> -> # *U &U _park_assist_state `ui `ux -> -> 1 `i `uc ]
 [; ;RemoteCan.c: 292: CANsendMessage(0b00000001100, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 "292
-[e ( _CANsendMessage (4 , , , -> -> -> 12 `i `l `ul &U _park_assist_state -> -> 8 `i `uc -> & & -> . `E16928 11 `i -> . `E16950 10 `i -> . `E16950 1 `i `E16950 ]
+[e ( _CANsendMessage (4 , , , -> -> -> 12 `i `l `ul &U _park_assist_state -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
 [; ;RemoteCan.c: 293: x = 1;
 "293
 [e = _x -> -> 1 `i `b ]
 "294
 }
-[e :U 2444 ]
+[e :U 2442 ]
 [; ;RemoteCan.c: 294: }
 [; ;RemoteCan.c: 296: if ((F2_switch == 1)&&(space_available == 1)&&(space_gap_reached == 1)) {
 "296
-[e $ ! && && == -> _F2_switch `i -> 1 `i == -> _space_available `i -> 1 `i == -> _space_gap_reached `i -> 1 `i 2448  ]
+[e $ ! && && == -> _F2_switch `i -> 1 `i == -> _space_available `i -> 1 `i == -> _space_gap_reached `i -> 1 `i 2446  ]
 {
 [; ;RemoteCan.c: 297: if (z == 0) {
 "297
-[e $ ! == -> _z `i -> 0 `i 2449  ]
+[e $ ! == -> _z `i -> 0 `i 2447  ]
 {
 [; ;RemoteCan.c: 298: parking_message_ID = 4;
 "298
@@ -20872,14 +20743,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _parking_state -> -> 2 `i `uc ]
 [; ;RemoteCan.c: 300: while (!CANisTxReady());
 "300
-[e $U 2450  ]
-[e :U 2451 ]
+[e $U 2448  ]
+[e :U 2449 ]
+[e :U 2448 ]
+[e $ ! != -> ( _CANisTxReady ..  `i -> -> -> 0 `i `uc `i 2449  ]
 [e :U 2450 ]
-[e $ ! != -> ( _CANisTxReady ..  `i -> -> -> 0 `i `uc `i 2451  ]
-[e :U 2452 ]
 [; ;RemoteCan.c: 301: CANsendMessage(0b00000001110, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 "301
-[e ( _CANsendMessage (4 , , , -> -> -> 14 `i `l `ul &U _data -> -> 8 `i `uc -> & & -> . `E16928 11 `i -> . `E16950 10 `i -> . `E16950 1 `i `E16950 ]
+[e ( _CANsendMessage (4 , , , -> -> -> 14 `i `l `ul &U _data -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
 [; ;RemoteCan.c: 302: x = 0;
 "302
 [e = _x -> -> 0 `i `b ]
@@ -20888,38 +20759,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _z -> -> 1 `i `b ]
 "304
 }
-[e :U 2449 ]
+[e :U 2447 ]
 "305
 }
 [; ;RemoteCan.c: 304: }
 [; ;RemoteCan.c: 305: } else {
-[e $U 2453  ]
-[e :U 2448 ]
+[e $U 2451  ]
+[e :U 2446 ]
 {
 [; ;RemoteCan.c: 306: z = 0;
 "306
 [e = _z -> -> 0 `i `b ]
 "307
 }
-[e :U 2453 ]
+[e :U 2451 ]
 [; ;RemoteCan.c: 307: }
 [; ;RemoteCan.c: 309: if ((time_counter - pr_time_5) >= 30) {
 "309
-[e $ ! >= - _time_counter _pr_time_5 -> -> -> 30 `i `l `ul 2454  ]
+[e $ ! >= - _time_counter _pr_time_5 -> -> -> 30 `i `l `ul 2452  ]
 {
 [; ;RemoteCan.c: 310: pr_time_5 = time_counter;
 "310
 [e = _pr_time_5 _time_counter ]
 [; ;RemoteCan.c: 311: if ((space_available == 1)&&(space_gap_reached == 1)) {
 "311
-[e $ ! && == -> _space_available `i -> 1 `i == -> _space_gap_reached `i -> 1 `i 2455  ]
+[e $ ! && == -> _space_available `i -> 1 `i == -> _space_gap_reached `i -> 1 `i 2453  ]
 {
 [; ;RemoteCan.c: 312: PORTDbits.RD6 = 1;
 "312
 [e = . . _PORTDbits 0 6 -> -> 1 `i `uc ]
 [; ;RemoteCan.c: 313: if (F2_switch == 0) {
 "313
-[e $ ! == -> _F2_switch `i -> 0 `i 2456  ]
+[e $ ! == -> _F2_switch `i -> 0 `i 2454  ]
 {
 [; ;RemoteCan.c: 314: PORTDbits.RD5 = ~PORTDbits.RD5;
 "314
@@ -20927,21 +20798,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 "315
 }
 [; ;RemoteCan.c: 315: } else {
-[e $U 2457  ]
-[e :U 2456 ]
+[e $U 2455  ]
+[e :U 2454 ]
 {
 [; ;RemoteCan.c: 316: PORTDbits.RD5 = 1;
 "316
 [e = . . _PORTDbits 0 5 -> -> 1 `i `uc ]
 "317
 }
-[e :U 2457 ]
+[e :U 2455 ]
 "318
 }
 [; ;RemoteCan.c: 317: }
 [; ;RemoteCan.c: 318: } else {
-[e $U 2458  ]
-[e :U 2455 ]
+[e $U 2456  ]
+[e :U 2453 ]
 {
 [; ;RemoteCan.c: 319: PORTDbits.RD6 = ~PORTDbits.RD6;
 "319
@@ -20951,17 +20822,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
 "321
 }
-[e :U 2458 ]
+[e :U 2456 ]
 "322
 }
-[e :U 2454 ]
+[e :U 2452 ]
 "323
 }
 [; ;RemoteCan.c: 321: }
 [; ;RemoteCan.c: 322: }
 [; ;RemoteCan.c: 323: } else {
-[e $U 2459  ]
-[e :U 2443 ]
+[e $U 2457  ]
+[e :U 2441 ]
 {
 [; ;RemoteCan.c: 324: x = 0;
 "324
@@ -20989,7 +20860,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
 [; ;RemoteCan.c: 332: if (y == 0) {
 "332
-[e $ ! == -> _y `i -> 0 `i 2460  ]
+[e $ ! == -> _y `i -> 0 `i 2458  ]
 {
 [; ;RemoteCan.c: 333: parking_state = 0;
 "333
@@ -20999,23 +20870,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _JoystickConstants * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickConstants `ui `ux -> -> 15 `i `f ]
 [; ;RemoteCan.c: 335: while (!CANisTxReady());
 "335
-[e $U 2461  ]
-[e :U 2462 ]
+[e $U 2459  ]
+[e :U 2460 ]
+[e :U 2459 ]
+[e $ ! != -> ( _CANisTxReady ..  `i -> -> -> 0 `i `uc `i 2460  ]
 [e :U 2461 ]
-[e $ ! != -> ( _CANisTxReady ..  `i -> -> -> 0 `i `uc `i 2462  ]
-[e :U 2463 ]
 [; ;RemoteCan.c: 336: park_assist_state[0] = 0b00000000;
 "336
 [e = *U + &U _park_assist_state * -> -> -> 0 `i `ui `ux -> -> # *U &U _park_assist_state `ui `ux -> -> 0 `i `uc ]
 [; ;RemoteCan.c: 337: CANsendMessage(0b00000001100, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 "337
-[e ( _CANsendMessage (4 , , , -> -> -> 12 `i `l `ul &U _park_assist_state -> -> 8 `i `uc -> & & -> . `E16928 11 `i -> . `E16950 10 `i -> . `E16950 1 `i `E16950 ]
+[e ( _CANsendMessage (4 , , , -> -> -> 12 `i `l `ul &U _park_assist_state -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
 [; ;RemoteCan.c: 338: y = 1;
 "338
 [e = _y -> -> 1 `i `b ]
 "339
 }
-[e :U 2460 ]
+[e :U 2458 ]
 [; ;RemoteCan.c: 339: }
 [; ;RemoteCan.c: 340: PORTDbits.RD6 = 0;
 "340
@@ -21025,7 +20896,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
 "342
 }
-[e :U 2459 ]
+[e :U 2457 ]
 [; ;RemoteCan.c: 342: }
 [; ;RemoteCan.c: 344: Joystick_Polling();
 "344
@@ -21035,11 +20906,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _data_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_steering `ui `ux -> - -> -> 180 `i `f * -> *U + &U _JoystickValues * -> -> -> 0 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `f *U + &U _JoystickConstants * -> -> -> 0 `i `ui `ux -> -> # *U &U _JoystickConstants `ui `ux `uc ]
 [; ;RemoteCan.c: 348: if (parking_state == 1) {
 "348
-[e $ ! == -> _parking_state `i -> 1 `i 2464  ]
+[e $ ! == -> _parking_state `i -> 1 `i 2462  ]
 {
 [; ;RemoteCan.c: 349: if (steering_correction_dir == 1) {
 "349
-[e $ ! == -> _steering_correction_dir `i -> 1 `i 2465  ]
+[e $ ! == -> _steering_correction_dir `i -> 1 `i 2463  ]
 {
 [; ;RemoteCan.c: 350: check = data_steering[0] + steering_correction;
 "350
@@ -21047,19 +20918,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 "351
 }
 [; ;RemoteCan.c: 351: } else {
-[e $U 2466  ]
-[e :U 2465 ]
+[e $U 2464  ]
+[e :U 2463 ]
 {
 [; ;RemoteCan.c: 352: check = data_steering[0] - steering_correction;
 "352
 [e = _check -> - -> *U + &U _data_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_steering `ui `ux `i -> _steering_correction `i `l ]
 "353
 }
-[e :U 2466 ]
+[e :U 2464 ]
 [; ;RemoteCan.c: 353: }
 [; ;RemoteCan.c: 354: if ((check >= 0)&&(check <= 180)) {
 "354
-[e $ ! && >= _check -> -> 0 `i `l <= _check -> -> 180 `i `l 2467  ]
+[e $ ! && >= _check -> -> 0 `i `l <= _check -> -> 180 `i `l 2465  ]
 {
 [; ;RemoteCan.c: 355: data_steering[0] = check;
 "355
@@ -21067,12 +20938,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "356
 }
 [; ;RemoteCan.c: 356: } else {
-[e $U 2468  ]
-[e :U 2467 ]
+[e $U 2466  ]
+[e :U 2465 ]
 {
 [; ;RemoteCan.c: 357: if (check > 180) {
 "357
-[e $ ! > _check -> -> 180 `i `l 2469  ]
+[e $ ! > _check -> -> 180 `i `l 2467  ]
 {
 [; ;RemoteCan.c: 358: data_steering[0] = 180;
 "358
@@ -21080,25 +20951,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 "359
 }
 [; ;RemoteCan.c: 359: } else {
-[e $U 2470  ]
-[e :U 2469 ]
+[e $U 2468  ]
+[e :U 2467 ]
 {
 [; ;RemoteCan.c: 360: data_steering[0] = 0;
 "360
 [e = *U + &U _data_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_steering `ui `ux -> -> 0 `i `uc ]
 "361
 }
-[e :U 2470 ]
+[e :U 2468 ]
 "362
 }
-[e :U 2468 ]
+[e :U 2466 ]
 "363
 }
 [; ;RemoteCan.c: 361: }
 [; ;RemoteCan.c: 362: }
 [; ;RemoteCan.c: 363: } else {
-[e $U 2471  ]
-[e :U 2464 ]
+[e $U 2469  ]
+[e :U 2462 ]
 {
 [; ;RemoteCan.c: 364: steering_correction_dir = 0;
 "364
@@ -21108,15 +20979,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _steering_correction -> -> 0 `i `uc ]
 "366
 }
-[e :U 2471 ]
+[e :U 2469 ]
 [; ;RemoteCan.c: 366: }
 [; ;RemoteCan.c: 369: if ((switch_position != 0)&&(collision_risk == 0)) {
 "369
-[e $ ! && != -> _switch_position `i -> 0 `i == -> _collision_risk `i -> 0 `i 2472  ]
+[e $ ! && != -> _switch_position `i -> 0 `i == -> _collision_risk `i -> 0 `i 2470  ]
 {
 [; ;RemoteCan.c: 370: if (JoystickValues[1] > 132) {
 "370
-[e $ ! > -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 132 `i 2473  ]
+[e $ ! > -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 132 `i 2471  ]
 {
 [; ;RemoteCan.c: 371: set_speed = (JoystickValues[1] - 130)*(JoystickConstants[1]);
 "371
@@ -21130,54 +21001,54 @@ Version 3.2 HI-TECH Software Intermediate Code
 "374
 }
 [; ;RemoteCan.c: 374: } else {
-[e $U 2474  ]
-[e :U 2473 ]
+[e $U 2472  ]
+[e :U 2471 ]
 {
 [; ;RemoteCan.c: 375: set_speed = 0;
 "375
 [e = _set_speed -> -> 0 `i `ui ]
 [; ;RemoteCan.c: 376: if (JoystickValues[1] <= 65) {
 "376
-[e $ ! <= -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 65 `i 2475  ]
+[e $ ! <= -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 65 `i 2473  ]
 {
 [; ;RemoteCan.c: 377: data_brake [0] = 0b00000010;
 "377
 [e = *U + &U _data_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> -> 2 `i `uc ]
 "378
 }
-[e :U 2475 ]
+[e :U 2473 ]
 [; ;RemoteCan.c: 378: }
 [; ;RemoteCan.c: 379: if (JoystickValues[1] <= 20) {
 "379
-[e $ ! <= -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 20 `i 2476  ]
+[e $ ! <= -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 20 `i 2474  ]
 {
 [; ;RemoteCan.c: 380: data_brake [0] = 0b00000001;
 "380
 [e = *U + &U _data_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> -> 1 `i `uc ]
 "381
 }
-[e :U 2476 ]
+[e :U 2474 ]
 [; ;RemoteCan.c: 381: }
 [; ;RemoteCan.c: 382: if (JoystickValues[1] <= 5) {
 "382
-[e $ ! <= -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 5 `i 2477  ]
+[e $ ! <= -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 5 `i 2475  ]
 {
 [; ;RemoteCan.c: 383: data_brake [0] = 0b00000000;
 "383
 [e = *U + &U _data_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> -> 0 `i `uc ]
 "384
 }
-[e :U 2477 ]
+[e :U 2475 ]
 "385
 }
-[e :U 2474 ]
+[e :U 2472 ]
 "386
 }
 [; ;RemoteCan.c: 384: }
 [; ;RemoteCan.c: 385: }
 [; ;RemoteCan.c: 386: } else {
-[e $U 2478  ]
-[e :U 2472 ]
+[e $U 2476  ]
+[e :U 2470 ]
 {
 [; ;RemoteCan.c: 387: set_speed = 0;
 "387
@@ -21187,11 +21058,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _data_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> -> 0 `i `uc ]
 "389
 }
-[e :U 2478 ]
+[e :U 2476 ]
 [; ;RemoteCan.c: 389: }
 [; ;RemoteCan.c: 391: if (newMessageCan == 1) {
 "391
-[e $ ! == -> _newMessageCan `i -> 1 `i 2479  ]
+[e $ ! == -> _newMessageCan `i -> 1 `i 2477  ]
 {
 [; ;RemoteCan.c: 392: CAN_Rx();
 "392
@@ -21201,15 +21072,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _newMessageCan -> -> 0 `i `b ]
 "394
 }
-[e :U 2479 ]
+[e :U 2477 ]
 [; ;RemoteCan.c: 394: }
 [; ;RemoteCan.c: 396: if ((((time_counter - pr_time_2) >= 2) && (parking_message_ID < 2)) || (Can_Tx_Force == 1)) {
 "396
-[e $ ! || && >= - _time_counter _pr_time_2 -> -> -> 2 `i `l `ul < -> _parking_message_ID `i -> 2 `i == -> _Can_Tx_Force `i -> 1 `i 2480  ]
+[e $ ! || && >= - _time_counter _pr_time_2 -> -> -> 2 `i `l `ul < -> _parking_message_ID `i -> 2 `i == -> _Can_Tx_Force `i -> 1 `i 2478  ]
 {
 [; ;RemoteCan.c: 397: if (Can_Tx_Force == 1) {
 "397
-[e $ ! == -> _Can_Tx_Force `i -> 1 `i 2481  ]
+[e $ ! == -> _Can_Tx_Force `i -> 1 `i 2479  ]
 {
 [; ;RemoteCan.c: 398: dir = 1;
 "398
@@ -21228,7 +21099,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _Can_Tx_Force -> -> 0 `i `b ]
 "403
 }
-[e :U 2481 ]
+[e :U 2479 ]
 [; ;RemoteCan.c: 403: }
 [; ;RemoteCan.c: 404: pr_time_2 = time_counter;
 "404
@@ -21238,29 +21109,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _CAN_Tx ..  ]
 "406
 }
-[e :U 2480 ]
+[e :U 2478 ]
 [; ;RemoteCan.c: 406: }
 [; ;RemoteCan.c: 409: if (time_counter >= pr_time_6) {
 "409
-[e $ ! >= _time_counter _pr_time_6 2482  ]
+[e $ ! >= _time_counter _pr_time_6 2480  ]
 {
 [; ;RemoteCan.c: 410: if ((time_counter - pr_time_3) >= (100 / 10)) {
 "410
-[e $ ! >= - _time_counter _pr_time_3 -> -> / -> 100 `i -> 10 `i `l `ul 2483  ]
+[e $ ! >= - _time_counter _pr_time_3 -> -> / -> 100 `i -> 10 `i `l `ul 2481  ]
 {
 [; ;RemoteCan.c: 411: pr_time_3 = time_counter;
 "411
 [e = _pr_time_3 _time_counter ]
 [; ;RemoteCan.c: 412: if (parking_message_E == 1) {
 "412
-[e $ ! == -> _parking_message_E `i -> 1 `i 2484  ]
+[e $ ! == -> _parking_message_E `i -> 1 `i 2482  ]
 {
 [; ;RemoteCan.c: 413: display_refresh = 1;
 "413
 [e = _display_refresh -> -> 1 `i `b ]
 [; ;RemoteCan.c: 414: if (parking_message_ID == 0) {
 "414
-[e $ ! == -> _parking_message_ID `i -> 0 `i 2485  ]
+[e $ ! == -> _parking_message_ID `i -> 0 `i 2483  ]
 {
 [; ;RemoteCan.c: 415: LCD_Gap();
 "415
@@ -21270,11 +21141,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _parking_message_ID -> -> 1 `i `uc ]
 "417
 }
-[e :U 2485 ]
+[e :U 2483 ]
 [; ;RemoteCan.c: 417: }
 [; ;RemoteCan.c: 418: if (parking_message_ID == 2) {
 "418
-[e $ ! == -> _parking_message_ID `i -> 2 `i 2486  ]
+[e $ ! == -> _parking_message_ID `i -> 2 `i 2484  ]
 {
 [; ;RemoteCan.c: 419: LCD_Park();
 "419
@@ -21284,11 +21155,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _parking_message_ID -> -> 1 `i `uc ]
 "421
 }
-[e :U 2486 ]
+[e :U 2484 ]
 [; ;RemoteCan.c: 421: }
 [; ;RemoteCan.c: 422: if (parking_message_ID == 4) {
 "422
-[e $ ! == -> _parking_message_ID `i -> 4 `i 2487  ]
+[e $ ! == -> _parking_message_ID `i -> 4 `i 2485  ]
 {
 [; ;RemoteCan.c: 423: LCD_Parking();
 "423
@@ -21298,38 +21169,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _parking_message_ID -> -> 1 `i `uc ]
 "425
 }
-[e :U 2487 ]
+[e :U 2485 ]
 "426
 }
 [; ;RemoteCan.c: 425: }
 [; ;RemoteCan.c: 426: } else {
-[e $U 2488  ]
-[e :U 2484 ]
+[e $U 2486  ]
+[e :U 2482 ]
 {
 [; ;RemoteCan.c: 427: LCD_Handler();
 "427
 [e ( _LCD_Handler ..  ]
 "428
 }
-[e :U 2488 ]
+[e :U 2486 ]
 "429
 }
-[e :U 2483 ]
+[e :U 2481 ]
 "430
 }
 [; ;RemoteCan.c: 428: }
 [; ;RemoteCan.c: 429: }
 [; ;RemoteCan.c: 430: } else {
-[e $U 2489  ]
-[e :U 2482 ]
+[e $U 2487  ]
+[e :U 2480 ]
 {
 [; ;RemoteCan.c: 431: if (parking_message_ID == 6) {
 "431
-[e $ ! == -> _parking_message_ID `i -> 6 `i 2490  ]
+[e $ ! == -> _parking_message_ID `i -> 6 `i 2488  ]
 {
 [; ;RemoteCan.c: 432: if (parking_error == 1) {
 "432
-[e $ ! == -> _parking_error `i -> 1 `i 2491  ]
+[e $ ! == -> _parking_error `i -> 1 `i 2489  ]
 {
 [; ;RemoteCan.c: 433: parking_error = 0;
 "433
@@ -21339,29 +21210,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_Error ..  ]
 [; ;RemoteCan.c: 435: while (CANisTxReady() != 1);
 "435
-[e $U 2492  ]
-[e :U 2493 ]
+[e $U 2490  ]
+[e :U 2491 ]
+[e :U 2490 ]
+[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2491  ]
 [e :U 2492 ]
-[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2493  ]
-[e :U 2494 ]
 [; ;RemoteCan.c: 436: data_brake [0] = 0b00000000;
 "436
 [e = *U + &U _data_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> -> 0 `i `uc ]
 [; ;RemoteCan.c: 437: CANsendMessage(0b00000000110, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 "437
-[e ( _CANsendMessage (4 , , , -> -> -> 6 `i `l `ul &U _data_brake -> -> 8 `i `uc -> & & -> . `E16928 11 `i -> . `E16950 10 `i -> . `E16950 1 `i `E16950 ]
+[e ( _CANsendMessage (4 , , , -> -> -> 6 `i `l `ul &U _data_brake -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
 "438
 }
 [; ;RemoteCan.c: 438: } else {
-[e $U 2495  ]
-[e :U 2491 ]
+[e $U 2493  ]
+[e :U 2489 ]
 {
 [; ;RemoteCan.c: 439: LCD_End();
 "439
 [e ( _LCD_End ..  ]
 "440
 }
-[e :U 2495 ]
+[e :U 2493 ]
 [; ;RemoteCan.c: 440: }
 [; ;RemoteCan.c: 441: parking_message_ID = 0;
 "441
@@ -21371,22 +21242,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _parking_message_E -> -> 0 `i `b ]
 "443
 }
-[e :U 2490 ]
+[e :U 2488 ]
 "444
 }
-[e :U 2489 ]
+[e :U 2487 ]
 "445
 }
-[e :U 2427 ]
+[e :U 2425 ]
 "223
-[e $U 2428  ]
-[e :U 2429 ]
+[e $U 2426  ]
+[e :U 2427 ]
 [; ;RemoteCan.c: 443: }
 [; ;RemoteCan.c: 444: }
 [; ;RemoteCan.c: 445: }
 [; ;RemoteCan.c: 446: }
 "446
-[e :UE 2426 ]
+[e :UE 2424 ]
 }
 "448
 [v _LCD_Handler `(v ~T0 @X0 1 ef ]
@@ -21396,14 +21267,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;RemoteCan.c: 450: while (CANisTxReady() != 1);
 "450
-[e $U 2497  ]
-[e :U 2498 ]
+[e $U 2495  ]
+[e :U 2496 ]
+[e :U 2495 ]
+[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2496  ]
 [e :U 2497 ]
-[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2498  ]
-[e :U 2499 ]
 [; ;RemoteCan.c: 451: CANsendMessage(0b00000001000, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_REMOTE_TX_FRAME & CAN_TX_PRIORITY_0);
 "451
-[e ( _CANsendMessage (4 , , , -> -> -> 8 `i `l `ul &U _data_speed -> -> 8 `i `uc -> & & -> . `E16928 11 `i -> . `E16950 9 `i -> . `E16950 1 `i `E16950 ]
+[e ( _CANsendMessage (4 , , , -> -> -> 8 `i `l `ul &U _data_speed -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 9 `i -> . `E16909 1 `i `E16909 ]
 [; ;RemoteCan.c: 453: actual_speed_kmh = ((actual_speed) / 278.0);
 "453
 [e = _actual_speed_kmh -> / -> _actual_speed `d .278.0 `f ]
@@ -21415,7 +21286,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _str * -> -> -> 11 `i `ui `ux -> -> # *U &U _str `ui `ux -> -> 0 `ui `uc ]
 [; ;RemoteCan.c: 457: if (display_refresh == 1) {
 "457
-[e $ ! == -> _display_refresh `i -> 1 `i 2500  ]
+[e $ ! == -> _display_refresh `i -> 1 `i 2498  ]
 {
 [; ;RemoteCan.c: 458: LCD_initialize(16);
 "458
@@ -21446,7 +21317,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_goto_line (1 -> -> 4 `i `uc ]
 [; ;RemoteCan.c: 467: if (1 == 0) {
 "467
-[e $ ! == -> 1 `i -> 0 `i 2501  ]
+[e $ ! == -> 1 `i -> 0 `i 2499  ]
 {
 [; ;RemoteCan.c: 468: LCD_write_message("Park assist: ");
 "468
@@ -21454,33 +21325,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 "469
 }
 [; ;RemoteCan.c: 469: } else {
-[e $U 2502  ]
-[e :U 2501 ]
+[e $U 2500  ]
+[e :U 2499 ]
 {
 [; ;RemoteCan.c: 470: LCD_write_message("Data: ");
 "470
 [e ( _LCD_write_message (1 :s 10C ]
 "471
 }
-[e :U 2502 ]
+[e :U 2500 ]
 [; ;RemoteCan.c: 471: }
 [; ;RemoteCan.c: 472: display_refresh = 0;
 "472
 [e = _display_refresh -> -> 0 `i `b ]
 "473
 }
-[e :U 2500 ]
+[e :U 2498 ]
 [; ;RemoteCan.c: 473: }
 [; ;RemoteCan.c: 476: LCD_goto_xy(12, 2);
 "476
 [e ( _LCD_goto_xy (2 , -> -> 12 `i `uc -> -> 2 `i `uc ]
 [; ;RemoteCan.c: 477: if (switch_position != 0) {
 "477
-[e $ ! != -> _switch_position `i -> 0 `i 2503  ]
+[e $ ! != -> _switch_position `i -> 0 `i 2501  ]
 {
 [; ;RemoteCan.c: 478: if (dir == 1) {
 "478
-[e $ ! == -> _dir `i -> 1 `i 2504  ]
+[e $ ! == -> _dir `i -> 1 `i 2502  ]
 {
 [; ;RemoteCan.c: 479: LCD_write_message("FWD ");
 "479
@@ -21488,28 +21359,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 "480
 }
 [; ;RemoteCan.c: 480: } else {
-[e $U 2505  ]
-[e :U 2504 ]
+[e $U 2503  ]
+[e :U 2502 ]
 {
 [; ;RemoteCan.c: 481: LCD_write_message("BKWD");
 "481
 [e ( _LCD_write_message (1 :s 12C ]
 "482
 }
-[e :U 2505 ]
+[e :U 2503 ]
 "483
 }
 [; ;RemoteCan.c: 482: }
 [; ;RemoteCan.c: 483: } else {
-[e $U 2506  ]
-[e :U 2503 ]
+[e $U 2504  ]
+[e :U 2501 ]
 {
 [; ;RemoteCan.c: 484: LCD_write_message("P   ");
 "484
 [e ( _LCD_write_message (1 :s 13C ]
 "485
 }
-[e :U 2506 ]
+[e :U 2504 ]
 [; ;RemoteCan.c: 485: }
 [; ;RemoteCan.c: 488: LCD_goto_xy(8, 3);
 "488
@@ -21519,14 +21390,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_write_string (1 -> &U _str `*uc ]
 [; ;RemoteCan.c: 491: if (1 == 0) {
 "491
-[e $ ! == -> 1 `i -> 0 `i 2507  ]
+[e $ ! == -> 1 `i -> 0 `i 2505  ]
 {
 [; ;RemoteCan.c: 493: LCD_goto_xy(14, 4);
 "493
 [e ( _LCD_goto_xy (2 , -> -> 14 `i `uc -> -> 4 `i `uc ]
 [; ;RemoteCan.c: 494: if (parking_state == 0) {
 "494
-[e $ ! == -> _parking_state `i -> 0 `i 2508  ]
+[e $ ! == -> _parking_state `i -> 0 `i 2506  ]
 {
 [; ;RemoteCan.c: 495: LCD_write_message("OFF    ");
 "495
@@ -21534,21 +21405,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 "496
 }
 [; ;RemoteCan.c: 496: } else {
-[e $U 2509  ]
-[e :U 2508 ]
+[e $U 2507  ]
+[e :U 2506 ]
 {
 [; ;RemoteCan.c: 497: LCD_write_message("SEARCH ");
 "497
 [e ( _LCD_write_message (1 :s 15C ]
 "498
 }
-[e :U 2509 ]
+[e :U 2507 ]
 "499
 }
 [; ;RemoteCan.c: 498: }
 [; ;RemoteCan.c: 499: } else {
-[e $U 2510  ]
-[e :U 2507 ]
+[e $U 2508  ]
+[e :U 2505 ]
 {
 [; ;RemoteCan.c: 501: LCD_goto_xy(7, 4);
 "501
@@ -21558,11 +21429,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_write_integer (3 , , -> _user_data `i -> -> 0 `i `uc -> -> 1 `i `uc ]
 "503
 }
-[e :U 2510 ]
+[e :U 2508 ]
 [; ;RemoteCan.c: 503: }
 [; ;RemoteCan.c: 504: }
 "504
-[e :UE 2496 ]
+[e :UE 2494 ]
 }
 "506
 [v _LCD_Gap `(v ~T0 @X0 1 ef ]
@@ -21602,7 +21473,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_write_message (1 :s 19C ]
 [; ;RemoteCan.c: 517: }
 "517
-[e :UE 2511 ]
+[e :UE 2509 ]
 }
 "519
 [v _LCD_Park `(v ~T0 @X0 1 ef ]
@@ -21642,7 +21513,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_write_message (1 :s 23C ]
 [; ;RemoteCan.c: 530: }
 "530
-[e :UE 2512 ]
+[e :UE 2510 ]
 }
 "532
 [v _LCD_Parking `(v ~T0 @X0 1 ef ]
@@ -21682,7 +21553,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_write_message (1 :s 27C ]
 [; ;RemoteCan.c: 543: }
 "543
-[e :UE 2513 ]
+[e :UE 2511 ]
 }
 "545
 [v _LCD_End `(v ~T0 @X0 1 ef ]
@@ -21722,7 +21593,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_write_message (1 :s 31C ]
 [; ;RemoteCan.c: 556: }
 "556
-[e :UE 2514 ]
+[e :UE 2512 ]
 }
 "558
 [v _LCD_Error `(v ~T0 @X0 1 ef ]
@@ -21762,7 +21633,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_write_message (1 :s 35C ]
 [; ;RemoteCan.c: 569: }
 "569
-[e :UE 2515 ]
+[e :UE 2513 ]
 }
 "571
 [v _PWR_Button_Polling `(v ~T0 @X0 1 ef ]
@@ -21772,14 +21643,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;RemoteCan.c: 572: if ((PORTBbits.RB5 == 0) || (wait_low_1 == 0)) {
 "572
-[e $ ! || == -> . . _PORTBbits 0 5 `i -> 0 `i == -> _wait_low_1 `i -> 0 `i 2517  ]
+[e $ ! || == -> . . _PORTBbits 0 5 `i -> 0 `i == -> _wait_low_1 `i -> 0 `i 2515  ]
 {
 [; ;RemoteCan.c: 573: wait_low_1 = 0;
 "573
 [e = _wait_low_1 -> -> 0 `i `b ]
 [; ;RemoteCan.c: 574: if (PORTBbits.RB5 == 1) {
 "574
-[e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 2518  ]
+[e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 2516  ]
 {
 [; ;RemoteCan.c: 575: power_switch = ~power_switch;
 "575
@@ -21789,15 +21660,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _wait_low_1 -> -> 1 `i `b ]
 "577
 }
-[e :U 2518 ]
+[e :U 2516 ]
 "578
 }
-[e :U 2517 ]
+[e :U 2515 ]
 [; ;RemoteCan.c: 577: }
 [; ;RemoteCan.c: 578: }
 [; ;RemoteCan.c: 579: }
 "579
-[e :UE 2516 ]
+[e :UE 2514 ]
 }
 "581
 [v _F1_Button_Polling `(v ~T0 @X0 1 ef ]
@@ -21807,14 +21678,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;RemoteCan.c: 582: if ((PORTBbits.RB4 == 0) || (wait_low_2 == 0)) {
 "582
-[e $ ! || == -> . . _PORTBbits 0 4 `i -> 0 `i == -> _wait_low_2 `i -> 0 `i 2520  ]
+[e $ ! || == -> . . _PORTBbits 0 4 `i -> 0 `i == -> _wait_low_2 `i -> 0 `i 2518  ]
 {
 [; ;RemoteCan.c: 583: wait_low_2 = 0;
 "583
 [e = _wait_low_2 -> -> 0 `i `b ]
 [; ;RemoteCan.c: 584: if (PORTBbits.RB4 == 1) {
 "584
-[e $ ! == -> . . _PORTBbits 0 4 `i -> 1 `i 2521  ]
+[e $ ! == -> . . _PORTBbits 0 4 `i -> 1 `i 2519  ]
 {
 [; ;RemoteCan.c: 585: F1_switch = ~F1_switch;
 "585
@@ -21824,15 +21695,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _wait_low_2 -> -> 1 `i `b ]
 "587
 }
-[e :U 2521 ]
+[e :U 2519 ]
 "588
 }
-[e :U 2520 ]
+[e :U 2518 ]
 [; ;RemoteCan.c: 587: }
 [; ;RemoteCan.c: 588: }
 [; ;RemoteCan.c: 589: }
 "589
-[e :UE 2519 ]
+[e :UE 2517 ]
 }
 "591
 [v _F2_Button_Polling `(v ~T0 @X0 1 ef ]
@@ -21842,14 +21713,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;RemoteCan.c: 592: if ((PORTBbits.RB1 == 0) || (wait_low_3 == 0)) {
 "592
-[e $ ! || == -> . . _PORTBbits 0 1 `i -> 0 `i == -> _wait_low_3 `i -> 0 `i 2523  ]
+[e $ ! || == -> . . _PORTBbits 0 1 `i -> 0 `i == -> _wait_low_3 `i -> 0 `i 2521  ]
 {
 [; ;RemoteCan.c: 593: wait_low_3 = 0;
 "593
 [e = _wait_low_3 -> -> 0 `i `b ]
 [; ;RemoteCan.c: 594: if (PORTBbits.RB1 == 1) {
 "594
-[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 2524  ]
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 2522  ]
 {
 [; ;RemoteCan.c: 595: F2_switch = ~F2_switch;
 "595
@@ -21859,15 +21730,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _wait_low_3 -> -> 1 `i `b ]
 "597
 }
-[e :U 2524 ]
+[e :U 2522 ]
 "598
 }
-[e :U 2523 ]
+[e :U 2521 ]
 [; ;RemoteCan.c: 597: }
 [; ;RemoteCan.c: 598: }
 [; ;RemoteCan.c: 599: }
 "599
-[e :UE 2522 ]
+[e :UE 2520 ]
 }
 "601
 [v _Joystick_Polling `(v ~T0 @X0 1 ef ]
@@ -21880,20 +21751,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 2 `i 2526  ]
-[e $U 2527  ]
-[e :U 2526 ]
+[e $ < -> _i `i -> 2 `i 2524  ]
+[e $U 2525  ]
+[e :U 2524 ]
 {
 [; ;RemoteCan.c: 603: ADCON0bits.GO = 1;
 "603
 [e = . . _ADCON0bits 5 1 -> -> 1 `i `uc ]
 [; ;RemoteCan.c: 604: while (ADCON0bits.GO);
 "604
-[e $U 2529  ]
-[e :U 2530 ]
+[e $U 2527  ]
+[e :U 2528 ]
+[e :U 2527 ]
+[e $ != -> . . _ADCON0bits 5 1 `i -> -> -> 0 `i `Vuc `i 2528  ]
 [e :U 2529 ]
-[e $ != -> . . _ADCON0bits 5 1 `i -> -> -> 0 `i `Vuc `i 2530  ]
-[e :U 2531 ]
 [; ;RemoteCan.c: 605: JoystickValues[i] = ADRESH;
 "605
 [e = *U + &U _JoystickValues * -> _i `ux -> -> # *U &U _JoystickValues `ui `ux _ADRESH ]
@@ -21904,14 +21775,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "602
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 2 `i 2526  ]
-[e :U 2527 ]
+[e $ < -> _i `i -> 2 `i 2524  ]
+[e :U 2525 ]
 "607
 }
 [; ;RemoteCan.c: 607: }
 [; ;RemoteCan.c: 608: }
 "608
-[e :UE 2525 ]
+[e :UE 2523 ]
 }
 "610
 [v _CAN_Tx `(v ~T0 @X0 1 ef ]
@@ -21921,14 +21792,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;RemoteCan.c: 612: while (CANisTxReady() != 1);
 "612
-[e $U 2533  ]
-[e :U 2534 ]
+[e $U 2531  ]
+[e :U 2532 ]
+[e :U 2531 ]
+[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2532  ]
 [e :U 2533 ]
-[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2534  ]
-[e :U 2535 ]
 [; ;RemoteCan.c: 613: CANsendMessage(0b00000000111, data_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 "613
-[e ( _CANsendMessage (4 , , , -> -> -> 7 `i `l `ul &U _data_steering -> -> 8 `i `uc -> & & -> . `E16928 11 `i -> . `E16950 10 `i -> . `E16950 1 `i `E16950 ]
+[e ( _CANsendMessage (4 , , , -> -> -> 7 `i `l `ul &U _data_steering -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
 [; ;RemoteCan.c: 616: data_speed[0] = set_speed;
 "616
 [e = *U + &U _data_speed * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_speed `ui `ux -> _set_speed `uc ]
@@ -21940,27 +21811,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _data_speed * -> -> -> 2 `i `ui `ux -> -> # *U &U _data_speed `ui `ux _dir ]
 [; ;RemoteCan.c: 619: while (CANisTxReady() != 1);
 "619
-[e $U 2536  ]
-[e :U 2537 ]
+[e $U 2534  ]
+[e :U 2535 ]
+[e :U 2534 ]
+[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2535  ]
 [e :U 2536 ]
-[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2537  ]
-[e :U 2538 ]
 [; ;RemoteCan.c: 620: CANsendMessage(0b00000000101, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 "620
-[e ( _CANsendMessage (4 , , , -> -> -> 5 `i `l `ul &U _data_speed -> -> 8 `i `uc -> & & -> . `E16928 11 `i -> . `E16950 10 `i -> . `E16950 1 `i `E16950 ]
+[e ( _CANsendMessage (4 , , , -> -> -> 5 `i `l `ul &U _data_speed -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
 [; ;RemoteCan.c: 623: while (CANisTxReady() != 1);
 "623
-[e $U 2539  ]
-[e :U 2540 ]
+[e $U 2537  ]
+[e :U 2538 ]
+[e :U 2537 ]
+[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2538  ]
 [e :U 2539 ]
-[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2540  ]
-[e :U 2541 ]
 [; ;RemoteCan.c: 624: CANsendMessage(0b00000000110, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 "624
-[e ( _CANsendMessage (4 , , , -> -> -> 6 `i `l `ul &U _data_brake -> -> 8 `i `uc -> & & -> . `E16928 11 `i -> . `E16950 10 `i -> . `E16950 1 `i `E16950 ]
+[e ( _CANsendMessage (4 , , , -> -> -> 6 `i `l `ul &U _data_brake -> -> 8 `i `uc -> & & -> . `E16887 11 `i -> . `E16909 10 `i -> . `E16909 1 `i `E16909 ]
 [; ;RemoteCan.c: 626: }
 "626
-[e :UE 2532 ]
+[e :UE 2530 ]
 }
 "628
 [v _CAN_Rx `(v ~T0 @X0 1 ef ]
@@ -21970,7 +21841,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;RemoteCan.c: 649: if ((id == 0b00000001000)&&(RTR_Flag == 0)) {
 "649
-[e $ ! && == _id -> -> -> 8 `i `l `ul == -> _RTR_Flag `i -> 0 `i 2543  ]
+[e $ ! && == _id -> -> -> 8 `i `l `ul == -> _RTR_Flag `i -> 0 `i 2541  ]
 {
 [; ;RemoteCan.c: 650: left_speed = data_speed_rx[1];
 "650
@@ -21989,22 +21860,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _actual_speed / + _right_speed _left_speed -> -> 2 `i `ui ]
 "655
 }
-[e :U 2543 ]
+[e :U 2541 ]
 [; ;RemoteCan.c: 655: }
 [; ;RemoteCan.c: 657: if (id == 0b00000001011) {
 "657
-[e $ ! == _id -> -> -> 11 `i `l `ul 2544  ]
+[e $ ! == _id -> -> -> 11 `i `l `ul 2542  ]
 {
 [; ;RemoteCan.c: 658: battery = data[0];
 "658
 [e = _battery *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux ]
 "659
 }
-[e :U 2544 ]
+[e :U 2542 ]
 [; ;RemoteCan.c: 659: }
 [; ;RemoteCan.c: 660: }
 "660
-[e :UE 2542 ]
+[e :UE 2540 ]
 }
 "662
 [v _board_initialization `(v ~T0 @X0 1 ef ]
@@ -22044,7 +21915,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _TRISE -> -> 0 `i `uc ]
 [; ;RemoteCan.c: 675: CANInitialize(4, 6, 5, 1, 3, CAN_CONFIG_LINE_FILTER_OFF & CAN_CONFIG_SAMPLE_ONCE & CAN_CONFIG_ALL_VALID_MSG & CAN_CONFIG_DBL_BUFFER_ON);
 "675
-[e ( _CANInitialize (4 , , , , , -> -> 4 `i `uc -> -> 6 `i `uc -> -> 5 `i `uc -> -> 1 `i `uc -> -> 3 `i `uc -> & & & -> . `E16928 6 `i -> . `E16928 8 `i -> . `E16928 20 `i -> . `E16928 14 `i `E16928 ]
+[e ( _CANInitialize (4 , , , , , -> -> 4 `i `uc -> -> 6 `i `uc -> -> 5 `i `uc -> -> 1 `i `uc -> -> 3 `i `uc -> & & & -> . `E16887 6 `i -> . `E16887 8 `i -> . `E16887 20 `i -> . `E16887 14 `i `E16887 ]
 [; ;RemoteCan.c: 679: PIR2bits.TMR3IF = 0;
 "679
 [e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
@@ -22146,7 +22017,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _INTCONbits 2 6 -> -> 1 `i `uc ]
 [; ;RemoteCan.c: 728: }
 "728
-[e :UE 2545 ]
+[e :UE 2543 ]
 }
 [p f _sprintf 8462336 ]
 [a 8C 83 112 101 101 100 58 32 48 46 48 48 32 75 109 47 104 0 ]

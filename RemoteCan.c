@@ -65,10 +65,10 @@ volatile unsigned long pr_time_6 = 0;
 //Variabili per can bus invio
 CANmessage msg;
 volatile bit Can_Tx_Force = LOW;
-BYTE data_steering[] = 0;
-BYTE data_speed [] = 0;
-BYTE data_brake [] = 0;
-BYTE data[] = 0; //random
+BYTE data_steering[8] = 0;
+BYTE data_speed [8] = 0;
+BYTE data_brake [8] = 0;
+BYTE data[8] = 0; //random
 BYTE park_assist_state[8] = 0;
 
 //variabili can bus ricezione
@@ -181,7 +181,7 @@ __interrupt(high_priority) void ISR_alta(void) {
                 if (RTR_Flag == 1) { //Se è arrivata la richiesta presenza centraline
                     pr_time_4 = time_counter;
                     data[0] = 0x03;
-                    __delay_us(10);
+                    __delay_us(10); //DELAY INUTILE!!
                     while (CANisTxReady() != 1);
                     CANsendMessage(ECU_STATE_REMOTECAN, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 
