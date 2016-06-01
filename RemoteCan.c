@@ -1,6 +1,6 @@
 // User defined parameters /////////////////////////////////////////////////////
-#define SPD_CNST_STD 15 //max value: 35
-#define SPD_CNST_PKG 1  //max value: 35
+#define SPD_CNST_STD 20 //max value: 35
+#define SPD_CNST_PKG 5  //max value: 35
 #define LCD_DLY 100   //[ms] multiple of 10 only
 #define LCD_PKG_DLY 2000   //[ms] multiple of 10 only
 #define LCD_4TH_ROW_MODE 1  /* 0 to visualize the parking messages and 1 to
@@ -218,7 +218,7 @@ void main(void) {
     JoystickConstants[X_AXIS] = 0.703;
     JoystickConstants[Y_AXIS] = SPD_CNST_STD;
 
-    data_brake [1] = 1;
+    data_brake [1] = 0;
 
     while (1) {
 
@@ -370,17 +370,20 @@ void main(void) {
             if (JoystickValues[Y_AXIS] > 132) {
                 set_speed = (JoystickValues[Y_AXIS] - 130)*(JoystickConstants[Y_AXIS]); //guardare
                 data_brake [0] = 3;
-                data_brake [1] = 1; 
+                data_brake [1] = 0; 
             } else {
                 set_speed = 0;
                 if (JoystickValues[Y_AXIS] <= 65) {
                     data_brake [0] = 0b00000010;
+                    data_brake [1] = 0; 
                 }
                 if (JoystickValues[Y_AXIS] <= 20) {
                     data_brake [0] = 0b00000001;
+                    data_brake [1] = 0; 
                 }
                 if (JoystickValues[Y_AXIS] <= 5) {
                     data_brake [0] = 0b00000000;
+                    data_brake [1] = 0; 
                 }
             }
         } else {
