@@ -1,15 +1,17 @@
 
 # 1 "RemoteCan.c"
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
+extern double __fpnormalize(double);
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\xc8debug.h"
+
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4685.h"
+# 49 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f4685.h"
 extern volatile unsigned char RXF6SIDH @ 0xD60;
 
 asm("RXF6SIDH equ 0D60h");
@@ -18480,7 +18482,7 @@ extern volatile __bit nWR @ (((unsigned) &PORTE)*8) + 1;
 
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
-# 2008 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\adc.h"
+# 2008 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\adc.h"
 union ADCResult
 {
 int lr;
@@ -18507,11 +18509,11 @@ void SetChanADC(unsigned char );
 # 2100
 void SelChanConvADC( unsigned char );
 
-# 38 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\ancomp.h"
+# 38 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\ancomp.h"
 void Close_ancomp( void );
 void Open_ancomp(unsigned char config);
 
-# 584 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\spi.h"
+# 584 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\spi.h"
 void OpenSPI( unsigned char sync_mode,
 unsigned char bus_mode,
 unsigned char smp_phase );
@@ -18524,7 +18526,7 @@ void putsSPI( unsigned char *wrptr );
 
 unsigned char ReadSPI( void );
 
-# 414 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\can2510.h"
+# 414 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\can2510.h"
 void CAN2510Initialize(  unsigned int configuration,
  unsigned char brp,
  unsigned char interruptFlags,
@@ -18631,7 +18633,7 @@ unsigned char CAN2510DataRead(  unsigned char bufferNum,
  unsigned char *numBytes,
  unsigned char *data );
 
-# 64 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\capture.h"
+# 64 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\capture.h"
 union capstatus
 {
 
@@ -18670,7 +18672,7 @@ void OpenECapture1 ( unsigned char config);
 unsigned int ReadECapture1 (void);
 void CloseECapture1 (void);
 
-# 385 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\compare.h"
+# 385 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\compare.h"
 void OpenCompare1(unsigned char config,unsigned int period);
 void CloseCompare1(void);
 
@@ -18678,20 +18680,18 @@ void CloseCompare1(void);
 void OpenECompare1(unsigned char config,unsigned int period);
 void CloseECompare1(void);
 
-# 36 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\EEP.h"
+# 36 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\EEP.h"
 void Busy_eep ( void );
 unsigned char Read_b_eep( unsigned int badd );
 void Write_b_eep( unsigned int badd, unsigned char bdat );
 
-# 2 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stddef.h"
-typedef int ptrdiff_t;
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\__size_t.h"
 typedef unsigned size_t;
-typedef unsigned short wchar_t;
 
-# 13
-extern int errno;
+# 6 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stddef.h"
+typedef int ptrdiff_t;
 
-# 65 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\GenericTypeDefs.h"
+# 65 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\GenericTypeDefs.h"
 typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
 
 
@@ -18703,23 +18703,17 @@ typedef signed char INT8;
 typedef signed short int INT16;
 typedef signed long int INT32;
 
-
-
- typedef signed long long INT64;
-
-
-
+# 86
 typedef unsigned int UINT;
 typedef unsigned char UINT8;
 typedef unsigned short int UINT16;
-
-# 93
 typedef unsigned long int UINT32;
 
 
- typedef unsigned long long UINT64;
 
+typedef UINT32 UINT24;
 
+# 103
 typedef union
 {
 UINT8 Val;
@@ -18766,7 +18760,48 @@ struct
 } bits;
 } UINT16_VAL, UINT16_BITS;
 
-# 187
+
+
+typedef union
+{
+UINT24 Val;
+UINT8 v[3] ;
+struct 
+{
+UINT8 LB;
+UINT8 HB;
+UINT8 UB;
+} byte;
+struct 
+{
+ UINT8 b0:1;
+ UINT8 b1:1;
+ UINT8 b2:1;
+ UINT8 b3:1;
+ UINT8 b4:1;
+ UINT8 b5:1;
+ UINT8 b6:1;
+ UINT8 b7:1;
+ UINT8 b8:1;
+ UINT8 b9:1;
+ UINT8 b10:1;
+ UINT8 b11:1;
+ UINT8 b12:1;
+ UINT8 b13:1;
+ UINT8 b14:1;
+ UINT8 b15:1;
+ UINT8 b16:1;
+ UINT8 b17:1;
+ UINT8 b18:1;
+ UINT8 b19:1;
+ UINT8 b20:1;
+ UINT8 b21:1;
+ UINT8 b22:1;
+ UINT8 b23:1;
+} bits;
+} UINT24_VAL, UINT24_BITS;
+
+
 typedef union
 {
 UINT32 Val;
@@ -18826,96 +18861,7 @@ struct
 } bits;
 } UINT32_VAL;
 
-
-
-typedef union
-{
-UINT64 Val;
-UINT32 d[2] ;
-UINT16 w[4] ;
-UINT8 v[8] ;
-struct 
-{
-UINT32 LD;
-UINT32 HD;
-} dword;
-struct 
-{
-UINT16 LW;
-UINT16 HW;
-UINT16 UW;
-UINT16 MW;
-} word;
-struct 
-{
- UINT8 b0:1;
- UINT8 b1:1;
- UINT8 b2:1;
- UINT8 b3:1;
- UINT8 b4:1;
- UINT8 b5:1;
- UINT8 b6:1;
- UINT8 b7:1;
- UINT8 b8:1;
- UINT8 b9:1;
- UINT8 b10:1;
- UINT8 b11:1;
- UINT8 b12:1;
- UINT8 b13:1;
- UINT8 b14:1;
- UINT8 b15:1;
- UINT8 b16:1;
- UINT8 b17:1;
- UINT8 b18:1;
- UINT8 b19:1;
- UINT8 b20:1;
- UINT8 b21:1;
- UINT8 b22:1;
- UINT8 b23:1;
- UINT8 b24:1;
- UINT8 b25:1;
- UINT8 b26:1;
- UINT8 b27:1;
- UINT8 b28:1;
- UINT8 b29:1;
- UINT8 b30:1;
- UINT8 b31:1;
- UINT8 b32:1;
- UINT8 b33:1;
- UINT8 b34:1;
- UINT8 b35:1;
- UINT8 b36:1;
- UINT8 b37:1;
- UINT8 b38:1;
- UINT8 b39:1;
- UINT8 b40:1;
- UINT8 b41:1;
- UINT8 b42:1;
- UINT8 b43:1;
- UINT8 b44:1;
- UINT8 b45:1;
- UINT8 b46:1;
- UINT8 b47:1;
- UINT8 b48:1;
- UINT8 b49:1;
- UINT8 b50:1;
- UINT8 b51:1;
- UINT8 b52:1;
- UINT8 b53:1;
- UINT8 b54:1;
- UINT8 b55:1;
- UINT8 b56:1;
- UINT8 b57:1;
- UINT8 b58:1;
- UINT8 b59:1;
- UINT8 b60:1;
- UINT8 b61:1;
- UINT8 b62:1;
- UINT8 b63:1;
-} bits;
-} UINT64_VAL;
-
-# 339
+# 343
 typedef void VOID;
 
 typedef char CHAR8;
@@ -19126,7 +19072,7 @@ struct
 } bits;
 } QWORD_VAL;
 
-# 113 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\flash.h"
+# 113 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\flash.h"
 extern void ReadFlash(unsigned long startaddr, unsigned int num_bytes, unsigned char *flash_array);
 
 # 120
@@ -19136,7 +19082,7 @@ extern void WriteBlockFlash(unsigned long startaddr, unsigned char num_blocks, u
 
 extern void WriteBytesFlash(unsigned long startaddr, unsigned int num_bytes, unsigned char *flash_array);
 
-# 775 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\i2c.h"
+# 775 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\i2c.h"
 void IdleI2C( void );
 
 void OpenI2C( unsigned char sync_mode, unsigned char slew );
@@ -19174,7 +19120,7 @@ unsigned char address,
 unsigned char *rdptr,
 unsigned char length );
 
-# 325 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\mwire.h"
+# 325 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\mwire.h"
 void OpenMwire( unsigned char sync_mode );
 
 unsigned char ReadMwire( unsigned char high_byte,
@@ -19186,7 +19132,7 @@ signed char WriteMwire( unsigned char data_out );
 # 354
 void getsMwire( unsigned char *rdptr, unsigned char length );
 
-# 126 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\portb.h"
+# 126 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\portb.h"
 void OpenPORTB( unsigned char config);
 
 # 176
@@ -19198,7 +19144,7 @@ void OpenRB1INT( unsigned char config);
 # 211
 void OpenRB2INT( unsigned char config);
 
-# 85 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\pwm.h"
+# 85 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\pwm.h"
 union PWMDC
 {
 unsigned int lpwm;
@@ -19222,7 +19168,7 @@ void SetOutputEPWM1 ( unsigned char output_config,
 unsigned char pwm_mode);
 void CloseEPWM1 (void);
 
-# 16 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\reset.h"
+# 16 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\reset.h"
 char isMCLR(void);
 void StatusReset(void);
 char isPOR(void);
@@ -19240,12 +19186,12 @@ char isWDTWU(void);
 
 char isLVD(void);
 
-# 687 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\rtcc.h"
+# 687 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\rtcc.h"
 void Open_RTCC(void);
 void Close_RTCC(void);
 unsigned char update_RTCC(void);
 
-# 97 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\sw_i2c.h"
+# 97 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\sw_i2c.h"
 void SWStopI2C ( void );
 void SWStartI2C ( void );
 void SWRestartI2C ( void );
@@ -19258,7 +19204,7 @@ signed char SWWriteI2C(  unsigned char data_out );
 signed char SWGetsI2C(  unsigned char *rdptr,  unsigned char length );
 signed char SWPutsI2C(  unsigned char *wrptr );
 
-# 84 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\sw_spi.h"
+# 84 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\sw_spi.h"
 void OpenSWSPI(void);
 
 
@@ -19270,7 +19216,7 @@ void SetCSSWSPI(void);
 
 void ClearCSSWSPI(void);
 
-# 47 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\sw_uart.h"
+# 47 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\sw_uart.h"
 void OpenUART(void);
 
 unsigned char ReadUART(void);
@@ -19286,7 +19232,7 @@ extern void DelayRXBitUART (void);
 extern void DelayRXHalfBitUART(void);
 extern void DelayTXBitUART (void);
 
-# 36 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\timers.h"
+# 36 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\timers.h"
 union Timers
 {
 unsigned int lt;
@@ -19318,7 +19264,7 @@ void WriteTimer3 ( unsigned int timer3);
 # 1179
 void SetTmrCCPSrc( unsigned char );
 
-# 568 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\usart.h"
+# 568 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\usart.h"
 union USART
 {
 unsigned char val;
@@ -19344,7 +19290,7 @@ void putrsUSART ( const  char *data);
 # 654
 void baudUSART ( unsigned char baudconfig);
 
-# 87 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\xlcd.h"
+# 87 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\xlcd.h"
 void OpenXLCD( unsigned char);
 
 # 92
@@ -19379,7 +19325,7 @@ extern void DelayFor18TCY(void);
 extern void DelayPORXLCD(void);
 extern void DelayXLCD(void);
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\delays.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\plib\delays.h"
 void Delay1TCYx(unsigned char);
 
 # 19
@@ -19394,16 +19340,22 @@ void Delay1KTCYx(unsigned char);
 # 37
 void Delay10KTCYx(unsigned char);
 
-# 18 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h"
-__attribute__((__unsupported__("The flash_write routine is no longer supported. Please use the peripheral library functions: WriteBytesFlash, WriteBlockFlash or WriteWordFlash"))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+# 18 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18.h"
+__attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+__attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 
 
-# 41
+# 42
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
+# 121
+__attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
+__attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
+__attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
 
-# 160
+
+# 151
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 #pragma intrinsic(_delaywdt)
@@ -19473,7 +19425,7 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config EBTRB = OFF
 
-# 49 "../../../Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h"
+# 49 "../LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h"
 typedef unsigned char BYTE;
 
 
@@ -20524,7 +20476,7 @@ BYTE CANisRxReady (void)
 return (RXB0CONbits.RXFUL || RXB1CONbits.RXFUL);
 }
 
-# 74 "../../../Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\delay.h"
+# 74 "../LaurTec_PIC_libraries_v_3.3.0/inc\delay.h"
 void delay_ms (unsigned int value_ms);
 
 # 88
@@ -20533,7 +20485,7 @@ void delay_s (unsigned char value_s);
 # 102
 void delay_set_quartz (unsigned char frequency);
 
-# 49 "../../../Desktop/LaurTec_PIC_libraries_v_3.3.1/src\delay.c"
+# 49 "../LaurTec_PIC_libraries_v_3.3.0/src\delay.c"
 volatile unsigned char delay_quartz_frequency_value = 16;
 volatile unsigned int clock_counter_reference = 0;
 
@@ -20571,7 +20523,10 @@ delay_quartz_frequency_value = frequency;
 
 }
 
-# 27 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdlib.h"
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdlib.h"
+typedef unsigned short wchar_t;
+
+# 15
 typedef struct {
 int rem;
 int quot;
@@ -20589,7 +20544,7 @@ unsigned long quot;
 unsigned long rem;
 } uldiv_t;
 
-# 65
+# 53
 extern double atof(const char *);
 extern double strtod(const char *, const char **);
 extern int atoi(const char *);
@@ -20616,7 +20571,7 @@ extern void * malloc(size_t);
 extern void free(void *);
 extern void * realloc(void *, size_t);
 
-# 98
+# 86
 extern int atexit(void (*)(void));
 extern char * getenv(const char *);
 extern char ** environ;
@@ -20626,7 +20581,6 @@ extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *,
 extern int abs(int);
 extern long labs(long);
 
-
 extern char * itoa(char * buf, int val, int base);
 extern char * utoa(char * buf, unsigned val, int base);
 
@@ -20638,64 +20592,52 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 165 "../../../Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\LCD_44780.h"
-void LCD_enable_pulse (void);
+# 164 "../LaurTec_PIC_libraries_v_3.3.0/inc\LCD_44780.h"
+void LCD_enable_pulse(void);
 
-# 184
-void LCD_send_command (unsigned char bit_3, unsigned char bit_2, unsigned char bit_1, unsigned char bit_0);
+# 183
+void LCD_send_command(unsigned char bit_3, unsigned char bit_2, unsigned char bit_1, unsigned char bit_0);
 
-# 193
+# 192
 void LCD_home(void);
 
-# 208
+# 207
 void LCD_shift(unsigned char shift, unsigned char number_of_shift);
 
-# 224
-void LCD_shift_cursor(unsigned char shift,unsigned char number_of_shift);
+# 223
+void LCD_shift_cursor(unsigned char shift, unsigned char number_of_shift);
 
-# 236
-void LCD_goto_line (unsigned char line);
+# 235
+void LCD_goto_line(unsigned char line);
 
-# 251
-void LCD_goto_xy (unsigned char x, unsigned char y);
+# 250
+void LCD_goto_xy(unsigned char x, unsigned char y);
 
-# 262
-void LCD_write_char (unsigned char value);
+# 261
+void LCD_write_char(unsigned char value);
 
-# 281
+# 280
 void LCD_write_message(const unsigned char *buffer);
 
-# 296
+# 295
 void LCD_write_string(unsigned char *buffer);
 
-# 316
+# 315
 void LCD_write_integer(int value, unsigned char number_of_digits, unsigned char zero_cleaning);
 
-# 325
-void LCD_clear (void);
+# 324
+void LCD_clear(void);
 
-# 341
+# 340
 void LCD_cursor(unsigned char active, unsigned char blinking);
 
-# 356
+# 355
 void LCD_backlight(unsigned char active);
 
-# 370
+# 369
 void LCD_initialize(unsigned char quartz_frequency);
 
-# 108 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdlib.h"
-extern char * itoa(char * buf, int val, int base);
-extern char * utoa(char * buf, unsigned val, int base);
-
-
-
-
-extern char * ltoa(char * buf, long val, int base);
-extern char * ultoa(char * buf, unsigned long val, int base);
-
-extern char * ftoa(float f, int * status);
-
-# 49 "../../../Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c"
+# 49 "../LaurTec_PIC_libraries_v_3.3.0/src\LCD_44780.c"
 void LCD_enable_pulse (void) {
 
 LATCbits.LATC1 = 1;
@@ -20883,17 +20825,7 @@ LCD_send_command (0,0,0,0);
 LCD_send_command (1,1,active,blinking);
 }
 
-
-
-
-void LCD_backlight (unsigned char active) {
-
-LATCbits.LATC4 = active;
-}
-
-
-
-
+# 283
 void LCD_initialize (unsigned char quartz_frequency) {
 
 delay_set_quartz (quartz_frequency);
@@ -20929,7 +20861,7 @@ LCD_cursor (0,0);
 
 }
 
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdarg.h"
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdarg.h"
 typedef void * va_list[1];
 
 #pragma intrinsic(__va_start)
@@ -20938,20 +20870,17 @@ extern void * __va_start(void);
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
 
-# 24 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h"
-extern int errno;
-
-# 55
+# 43 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdio.h"
 struct __prbuf
 {
 char * ptr;
 void (* func)(char);
 };
 
-# 17 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\conio.h"
+# 25 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\errno.h"
 extern int errno;
 
-
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\conio.h"
 extern void init_uart(void);
 
 extern char getch(void);
@@ -20961,11 +20890,11 @@ extern void ungetch(char);
 
 extern __bit kbhit(void);
 
-# 31
+# 23
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 100 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h"
+# 88 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -20974,7 +20903,7 @@ extern int cprintf(char *, ...);
 extern int _doprnt(struct __prbuf *, const register char *, register va_list);
 
 
-# 192
+# 180
 #pragma printf_check(vprintf) const
 #pragma printf_check(vsprintf) const
 
@@ -20992,7 +20921,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 42 "RemoteCan.c"
+# 43 "RemoteCan.c"
 void board_initialization(void);
 void PWR_Button_Polling(void);
 void F1_Button_Polling(void);
@@ -21035,11 +20964,14 @@ volatile unsigned int left_speed = 0;
 volatile unsigned int right_speed = 0;
 volatile unsigned char battery = 0;
 volatile unsigned long id = 0;
-BYTE data_speed_rx[7] = 0;
+volatile BYTE data_speed_rx[7] = 0;
+volatile BYTE collision_sensor_distance[2] = 0;
 
 
 volatile bit display_refresh = 0;
+volatile bit row_refresh = 0;
 volatile bit parking_message_E = 0;
+volatile bit collision_msg = 0;
 volatile unsigned char parking_message_ID = 0;
 volatile unsigned char str [12] = 0;
 volatile float actual_speed_kmh = 0;
@@ -21065,14 +20997,12 @@ volatile bit wait_low_3 = 0;
 volatile bit power_switch = 0;
 volatile bit F1_switch = 0;
 volatile bit F2_switch = 0;
-volatile bit FWD_sensor = 0;
-volatile bit BKWD_sensor = 0;
-volatile bit collision_risk = 0;
 volatile unsigned char dir = 0;
 volatile unsigned char switch_position = 0;
 volatile unsigned char set_steering = 0;
 volatile unsigned int set_speed = 0;
 volatile unsigned char JoystickValues[2] = 0;
+volatile unsigned char collision_risk_value = 0;
 volatile signed float JoystickConstants[2] = 0;
 
 __attribute__((interrupt("__high_priority"))) void ISR_alta(void) {
@@ -21123,9 +21053,10 @@ steering_correction = msg.data[0];
 }
 
 if (id == 0b00000010001) {
-FWD_sensor = (msg.data[0] & 0b01000000) >> 6;
-BKWD_sensor = (msg.data[0] & 0b00001000) >> 3;
+collision_sensor_distance[1] = msg.data[0];
+collision_sensor_distance[0] = msg.data[1];
 }
+
 if (id == 0xAA) {
 user_data = msg.data[1];
 user_data = ((user_data << 8) | msg.data[0]);
@@ -21139,7 +21070,7 @@ _delay((unsigned long)((10)*(16000000/4000000.0)));
 while (CANisTxReady() != 1);
 CANsendMessage(0b00000000100, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 
-# 192
+# 195
 }
 }
 }
@@ -21160,7 +21091,6 @@ PIR2bits.TMR3IF = 0;
 void main(void) {
 board_initialization();
 
-# 218
 JoystickConstants[0] = 0.703;
 JoystickConstants[1] = 20;
 
@@ -21210,19 +21140,9 @@ switch_position = 0;
 if (PORTAbits.RA3 == 0) {
 switch_position = 1;
 dir = 1;
-if (FWD_sensor == 1) {
-collision_risk = 1;
-} else {
-collision_risk = 0;
-}
 } else {
 switch_position = 2;
 dir = 0;
-if (BKWD_sensor == 1) {
-collision_risk = 1;
-} else {
-collision_risk = 0;
-}
 }
 }
 
@@ -21312,11 +21232,21 @@ steering_correction = 0;
 }
 
 
-if ((switch_position != 0)&&(collision_risk == 0)) {
+if (switch_position != 0) {
 if (JoystickValues[1] > 132) {
 set_speed = (JoystickValues[1] - 130)*(JoystickConstants[1]);
 data_brake [0] = 3;
 data_brake [1] = 0;
+
+
+collision_risk_value = (JoystickValues[1] - 130) / 10;
+if (collision_sensor_distance[dir] < collision_risk_value) {
+set_speed = 0;
+data_brake [0] = 0b00000000;
+collision_msg = 1;
+} else {
+collision_msg = 0;
+}
 } else {
 set_speed = 0;
 if (JoystickValues[1] <= 65) {
@@ -21421,6 +21351,12 @@ LCD_write_message("Data: ");
 display_refresh = 0;
 }
 
+if (collision_msg == 0) {
+if (row_refresh == 1) {
+LCD_goto_line(2);
+LCD_write_message("Direction:          ");
+row_refresh = 0;
+}
 
 LCD_goto_xy(12, 2);
 if (switch_position != 0) {
@@ -21431,6 +21367,10 @@ LCD_write_message("BKWD");
 }
 } else {
 LCD_write_message("P   ");
+}
+} else {
+row_refresh = 1;
+LCD_write_message("-> Safety brake ON<-");
 }
 
 
@@ -21576,7 +21516,7 @@ CANsendMessage(0b00000000110, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_
 
 void CAN_Rx(void) {
 
-# 652
+# 659
 if ((id == 0b00000001000)&&(RTR_Flag == 0)) {
 left_speed = data_speed_rx[1];
 left_speed = ((left_speed << 8) | (data_speed_rx[0]));

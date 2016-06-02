@@ -5,6 +5,7 @@
 #define LCD_PKG_DLY 2000   //[ms] multiple of 10 only
 #define LCD_4TH_ROW_MODE 1  /* 0 to visualize the parking messages and 1 to
                             visualize the data sent on CANBUS with the ID 0xAA */
+#define COLLSN_DIST_RTIO 10 //default: 10
 ////////////////////////////////////////////////////////////////////////////////
 
 #define LCD_DEFAULT
@@ -81,11 +82,14 @@ volatile unsigned int left_speed = 0;
 volatile unsigned int right_speed = 0;
 volatile unsigned char battery = 0;
 volatile unsigned long id = 0;
-BYTE data_speed_rx[7] = 0;
+volatile BYTE data_speed_rx[7] = 0; //WAT?
+volatile BYTE collision_sensor_distance[2] = 0;
 
 //variabili LCD
 volatile bit display_refresh = LOW;
+volatile bit row_refresh = LOW;
 volatile bit parking_message_E = LOW;
+volatile bit collision_msg = LOW;
 volatile unsigned char parking_message_ID = 0; //0=>GAP | 2=>PARK | 4=>PARKING | 6=>END
 volatile unsigned char str [12] = 0;
 volatile float actual_speed_kmh = 0;
@@ -111,14 +115,12 @@ volatile bit wait_low_3 = LOW;
 volatile bit power_switch = LOW;
 volatile bit F1_switch = LOW;
 volatile bit F2_switch = LOW;
-volatile bit FWD_sensor = LOW;
-volatile bit BKWD_sensor = LOW;
-volatile bit collision_risk = LOW;
 volatile unsigned char dir = 0;
 volatile unsigned char switch_position = 0;
 volatile unsigned char set_steering = 0;
 volatile unsigned int set_speed = 0;
 volatile unsigned char JoystickValues[2] = 0; //steering - speed
+volatile unsigned char collision_risk_value = 0;
 volatile signed float JoystickConstants[2] = 0;
 
 __interrupt(high_priority) void ISR_alta(void) {
@@ -168,10 +170,11 @@ __interrupt(high_priority) void ISR_alta(void) {
                 steering_correction = msg.data[0];
             }
 
-            if (id == SENSOR_DISTANCE) {
-                FWD_sensor = (msg.data[0] & 0b01000000) >> 6;
-                BKWD_sensor = (msg.data[0] & 0b00001000) >> 3;
+            if (id == SENSOR_DISTANCE) { //FWD => 6 ; BKWD => 3
+                collision_sensor_distance[FWD] = msg.data[0];
+                collision_sensor_distance[BKWD] = msg.data[1];
             }
+
             if (id == 0xAA) {
                 user_data = msg.data[1];
                 user_data = ((user_data << 8) | msg.data[0]);
@@ -208,12 +211,6 @@ __interrupt(low_priority) void ISR_bassa(void) {
 
 void main(void) {
     board_initialization();
-
-    //    LATDbits.LD6 = HIGH;
-    //    LATDbits.LD5 = HIGH;
-    //    delay_ms(500);
-    //    LATDbits.LD6 = LOW;
-    //    LATDbits.LD5 = LOW;
 
     JoystickConstants[X_AXIS] = 0.703;
     JoystickConstants[Y_AXIS] = SPD_CNST_STD;
@@ -257,26 +254,16 @@ void main(void) {
             display_refresh = HIGH;
         }
 
-        //Gestione switch tre posizioni + collision risk routine
+        //Gestione switch tre posizioni
         if (PORTAbits.RA2 == HIGH) {
             switch_position = HIGH_POS;
         } else {
             if (PORTAbits.RA3 == LOW) {
                 switch_position = MID_POS;
                 dir = FWD;
-                if (FWD_sensor == HIGH) {
-                    collision_risk = HIGH;
-                } else {
-                    collision_risk = LOW;
-                }
             } else {
                 switch_position = LOW_POS;
                 dir = BKWD;
-                if (BKWD_sensor == HIGH) {
-                    collision_risk = HIGH;
-                } else {
-                    collision_risk = LOW;
-                }
             }
         }
 
@@ -366,24 +353,34 @@ void main(void) {
         }
 
         //Speed
-        if ((switch_position != HIGH_POS)&&(collision_risk == LOW)) {
+        if (switch_position != HIGH_POS) {
             if (JoystickValues[Y_AXIS] > 132) {
                 set_speed = (JoystickValues[Y_AXIS] - 130)*(JoystickConstants[Y_AXIS]); //guardare
                 data_brake [0] = 3;
-                data_brake [1] = 0; 
+                data_brake [1] = 0;
+
+                //Anti-collision system routine
+                collision_risk_value = (JoystickValues[Y_AXIS] - 130) / COLLSN_DIST_RTIO;
+                if (collision_sensor_distance[dir] < collision_risk_value) {
+                    set_speed = 0;
+                    data_brake [0] = 0b00000000;
+                    collision_msg = HIGH;
+                } else {
+                    collision_msg = LOW;
+                }
             } else {
                 set_speed = 0;
                 if (JoystickValues[Y_AXIS] <= 65) {
                     data_brake [0] = 0b00000010;
-                    data_brake [1] = 0; 
+                    data_brake [1] = 0;
                 }
                 if (JoystickValues[Y_AXIS] <= 20) {
                     data_brake [0] = 0b00000001;
-                    data_brake [1] = 0; 
+                    data_brake [1] = 0;
                 }
                 if (JoystickValues[Y_AXIS] <= 5) {
                     data_brake [0] = 0b00000000;
-                    data_brake [1] = 0; 
+                    data_brake [1] = 0;
                 }
             }
         } else {
@@ -475,16 +472,26 @@ void LCD_Handler(void) {
         display_refresh = LOW;
     }
 
-    //Print direction data
-    LCD_goto_xy(12, 2);
-    if (switch_position != HIGH_POS) {
-        if (dir == FWD) {
-            LCD_write_message("FWD ");
+    if (collision_msg == LOW) {
+        if (row_refresh == HIGH) {
+            LCD_goto_line(2);
+            LCD_write_message("Direction:          ");
+            row_refresh = LOW;
+        }
+        //Print direction data
+        LCD_goto_xy(12, 2);
+        if (switch_position != HIGH_POS) {
+            if (dir == FWD) {
+                LCD_write_message("FWD ");
+            } else {
+                LCD_write_message("BKWD");
+            }
         } else {
-            LCD_write_message("BKWD");
+            LCD_write_message("P   ");
         }
     } else {
-        LCD_write_message("P   ");
+        row_refresh = HIGH;
+        LCD_write_message("-> Safety brake ON<-");
     }
 
     //Print speed data 
@@ -629,25 +636,25 @@ void CAN_Tx(void) {
 }
 
 void CAN_Rx(void) {
-//    if (id == ECU_STATE) {
-//        if (RTR_Flag == HIGH) { //Se è arrivata la richiesta presenza centraline
-//            pr_time_4 = time_counter;
-//            MotoreFlag = HIGH;
-//            AbsFlag = LOW; //resetta flag
-//            SterzoFlag = LOW; //resetta flag
-//        } else {
-//            if (data[0] == 0x01) {
-//                AbsFlag = HIGH;
-//            }
-//            if (data[0] == 0x02) {
-//                SterzoFlag = HIGH;
-//            }
-//        }
-//    }
-//
-//    if (pr_time_4 - time_counter > 450) {
-//        //CONTROLLO DEI FLAG DI RISPOSTA ECU
-//    }
+    //    if (id == ECU_STATE) {
+    //        if (RTR_Flag == HIGH) { //Se è arrivata la richiesta presenza centraline
+    //            pr_time_4 = time_counter;
+    //            MotoreFlag = HIGH;
+    //            AbsFlag = LOW; //resetta flag
+    //            SterzoFlag = LOW; //resetta flag
+    //        } else {
+    //            if (data[0] == 0x01) {
+    //                AbsFlag = HIGH;
+    //            }
+    //            if (data[0] == 0x02) {
+    //                SterzoFlag = HIGH;
+    //            }
+    //        }
+    //    }
+    //
+    //    if (pr_time_4 - time_counter > 450) {
+    //        //CONTROLLO DEI FLAG DI RISPOSTA ECU
+    //    }
 
     if ((id == ACTUAL_SPEED)&&(RTR_Flag == 0)) {
         left_speed = data_speed_rx[1];
