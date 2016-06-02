@@ -46,7 +46,6 @@ void F1_Button_Polling(void);
 void F2_Button_Polling(void);
 void Joystick_Polling(void);
 void CAN_Tx(void);
-void CAN_Rx(void);
 void LCD_Handler(void);
 void LCD_Gap(void); //Space found, continue forward till distance
 void LCD_Park(void); //Distance REACHED, Parking authorization required!
@@ -74,15 +73,12 @@ BYTE park_assist_state[8] = 0;
 
 //variabili can bus ricezione
 volatile bit RTR_Flag = LOW;
-volatile bit newMessageCan = LOW;
-volatile bit MotoreFlag = LOW;
-volatile bit AbsFlag = LOW;
-volatile bit SterzoFlag = LOW;
+//volatile bit newMessageCan = LOW;
+volatile bit low_battery = HIGH;
 volatile unsigned int left_speed = 0;
 volatile unsigned int right_speed = 0;
-volatile unsigned char battery = 0;
 volatile unsigned long id = 0;
-volatile BYTE data_speed_rx[7] = 0; //WAT?
+//volatile BYTE data_speed_rx[7] = 0; //WAT?
 volatile BYTE collision_sensor_distance[2] = 0;
 
 //variabili LCD
@@ -129,11 +125,13 @@ __interrupt(high_priority) void ISR_alta(void) {
             CANreceiveMessage(&msg);
             RTR_Flag = msg.RTR;
             id = msg.identifier;
-            newMessageCan = HIGH;
+
             if (id == ACTUAL_SPEED) {
-                for (unsigned char i = 0; i < 8; i++) {
-                    data_speed_rx[i] = msg.data[i];
-                }
+                left_speed = msg.data[1];
+                left_speed = ((left_speed << 8) | (msg.data[0]));
+                right_speed = msg.data[3];
+                right_speed = ((right_speed << 8) | (msg.data[2]));
+                actual_speed = (right_speed + left_speed) / 2;
             }
 
             if (id == PARK_ASSIST_STATE) {// 1=> SPAZIO 2=> GAP 3=> END 4=> ERR
@@ -188,6 +186,10 @@ __interrupt(high_priority) void ISR_alta(void) {
                     while (CANisTxReady() != 1);
                     CANsendMessage(ECU_STATE_REMOTECAN, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
                 }
+            }
+
+            if ((id == LOW_BATTERY)&&(RTR_Flag == HIGH)) {
+                low_battery = HIGH;
             }
         }
         PIR3bits.RXB1IF = LOW;
@@ -382,11 +384,6 @@ void main(void) {
             data_brake [0] = 0b00000000;
         }
 
-        if (newMessageCan == HIGH) {
-            CAN_Rx();
-            newMessageCan = LOW;
-        }
-
         if ((((time_counter - pr_time_2) >= 2) && (parking_message_ID < 2)) || (Can_Tx_Force == HIGH)) {
             if (Can_Tx_Force == HIGH) {
                 dir = FWD;
@@ -493,18 +490,23 @@ void LCD_Handler(void) {
     LCD_goto_xy(8, 3);
     LCD_write_string(str);
 
-    if (LCD_4TH_ROW_MODE == LOW) {
-        //Print parking data
-        LCD_goto_xy(14, 4);
-        if (parking_state == OFF) {
-            LCD_write_message("OFF    ");
+    if (low_battery == LOW) {
+        if (LCD_4TH_ROW_MODE == LOW) {
+            //Print parking data
+            LCD_goto_xy(14, 4);
+            if (parking_state == OFF) {
+                LCD_write_message("OFF    ");
+            } else {
+                LCD_write_message("SEARCH ");
+            }
         } else {
-            LCD_write_message("SEARCH ");
+            //Print user data sent with id 0xAA
+            LCD_goto_xy(7, 4);
+            LCD_write_integer(user_data, 0, LCD_ZERO_CLEANING_ON);
         }
     } else {
-        //Print user data sent with id 0xAA
-        LCD_goto_xy(7, 4);
-        LCD_write_integer(user_data, 0, LCD_ZERO_CLEANING_ON);
+        LCD_goto_line(4);
+        LCD_write_message("[!]  Low battery [!]");
     }
 }
 
@@ -628,40 +630,6 @@ void CAN_Tx(void) {
     while (CANisTxReady() != HIGH);
     CANsendMessage(BRAKE_SIGNAL, data_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
 
-}
-
-void CAN_Rx(void) {
-    //    if (id == ECU_STATE) {
-    //        if (RTR_Flag == HIGH) { //Se è arrivata la richiesta presenza centraline
-    //            pr_time_4 = time_counter;
-    //            MotoreFlag = HIGH;
-    //            AbsFlag = LOW; //resetta flag
-    //            SterzoFlag = LOW; //resetta flag
-    //        } else {
-    //            if (data[0] == 0x01) {
-    //                AbsFlag = HIGH;
-    //            }
-    //            if (data[0] == 0x02) {
-    //                SterzoFlag = HIGH;
-    //            }
-    //        }
-    //    }
-    //
-    //    if (pr_time_4 - time_counter > 450) {
-    //        //CONTROLLO DEI FLAG DI RISPOSTA ECU
-    //    }
-
-    if ((id == ACTUAL_SPEED)&&(RTR_Flag == 0)) {
-        left_speed = data_speed_rx[1];
-        left_speed = ((left_speed << 8) | (data_speed_rx[0]));
-        right_speed = data_speed_rx[3];
-        right_speed = ((right_speed << 8) | (data_speed_rx[2]));
-        actual_speed = (right_speed + left_speed) / 2;
-    }
-
-    if (id == LOW_BATTERY) { //?
-        battery = data[0];
-    }
 }
 
 void board_initialization(void) {
