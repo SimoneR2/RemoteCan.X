@@ -187,11 +187,6 @@ __interrupt(high_priority) void ISR_alta(void) {
                     __delay_us(10); //DELAY INUTILE!!
                     while (CANisTxReady() != 1);
                     CANsendMessage(ECU_STATE_REMOTECAN, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-
-                    //[!]CONTROLLARE QUESTA PARTE!
-                    //MotoreFlag = HIGH;
-                    //AbsFlag = LOW; //resetta flag
-                    //SterzoFlag = LOW; //resetta flag
                 }
             }
         }
@@ -353,7 +348,8 @@ void main(void) {
         }
 
         //Speed
-        if (switch_position != HIGH_POS) {
+        if ((switch_position != HIGH_POS)&&((collision_msg == LOW) || ((collision_msg == HIGH)&&(JoystickValues[Y_AXIS] > 130)&&(JoystickValues[Y_AXIS] < 132)))) {
+            collision_msg = LOW;
             if (JoystickValues[Y_AXIS] > 132) {
                 set_speed = (JoystickValues[Y_AXIS] - 130)*(JoystickConstants[Y_AXIS]); //guardare
                 data_brake [0] = 3;
@@ -365,8 +361,6 @@ void main(void) {
                     set_speed = 0;
                     data_brake [0] = 0b00000000;
                     collision_msg = HIGH;
-                } else {
-                    collision_msg = LOW;
                 }
             } else {
                 set_speed = 0;
@@ -491,6 +485,7 @@ void LCD_Handler(void) {
         }
     } else {
         row_refresh = HIGH;
+        LCD_goto_line(2);
         LCD_write_message("-> Safety brake ON<-");
     }
 
