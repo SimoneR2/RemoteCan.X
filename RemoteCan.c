@@ -5,7 +5,7 @@
 #define LCD_PKG_DLY 2000   //[ms] multiple of 10 only
 #define LCD_4TH_ROW_MODE 1  /* 0 to visualize the parking messages and 1 to
                             visualize the data sent on CANBUS with the ID 0xAA */
-#define COLLSN_DIST_RTIO 10 //default: 10
+#define COLLSN_DIST_RTIO 2 //default: 10
 ////////////////////////////////////////////////////////////////////////////////
 
 #define LCD_DEFAULT
@@ -74,7 +74,7 @@ BYTE park_assist_state[8] = 0;
 //variabili can bus ricezione
 volatile bit RTR_Flag = LOW;
 //volatile bit newMessageCan = LOW;
-volatile bit low_battery = HIGH;
+volatile bit low_battery = LOW;
 volatile unsigned int left_speed = 0;
 volatile unsigned int right_speed = 0;
 volatile unsigned long id = 0;
@@ -350,15 +350,16 @@ void main(void) {
         }
 
         //Speed
-        if ((switch_position != HIGH_POS)&&((collision_msg == LOW) || ((collision_msg == HIGH)&&(JoystickValues[Y_AXIS] > 130)&&(JoystickValues[Y_AXIS] < 132)))) {
-            collision_msg = LOW;
+        //if ((switch_position != HIGH_POS)&&((collision_msg == LOW) || ((collision_msg == HIGH)&&(JoystickValues[Y_AXIS] > 130)&&(JoystickValues[Y_AXIS] < 132)))) {
+        if ((switch_position != HIGH_POS)&&(collision_msg == LOW)) {
+            //collision_msg = LOW; DEBUG
             if (JoystickValues[Y_AXIS] > 132) {
                 set_speed = (JoystickValues[Y_AXIS] - 130)*(JoystickConstants[Y_AXIS]); //guardare
                 data_brake [0] = 3;
                 data_brake [1] = 0;
 
                 //Anti-collision system routine
-                collision_risk_value = (JoystickValues[Y_AXIS] - 130) / COLLSN_DIST_RTIO;
+                collision_risk_value = ((JoystickValues[Y_AXIS] - 130) / COLLSN_DIST_RTIO) + 4; //distanza di sicurezza
                 if (collision_sensor_distance[dir] < collision_risk_value) {
                     set_speed = 0;
                     data_brake [0] = 0b00000000;
@@ -382,6 +383,10 @@ void main(void) {
         } else {
             set_speed = 0;
             data_brake [0] = 0b00000000;
+            collision_risk_value = ((JoystickValues[Y_AXIS] - 130) / COLLSN_DIST_RTIO) + 4; //distanza di sicurezza
+            if (collision_sensor_distance[dir] > collision_risk_value) {
+                collision_msg = LOW;
+            }
         }
 
         if ((((time_counter - pr_time_2) >= 2) && (parking_message_ID < 2)) || (Can_Tx_Force == HIGH)) {
