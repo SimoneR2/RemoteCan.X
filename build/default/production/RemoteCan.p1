@@ -21062,9 +21062,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RemoteCan.c: 359: data_brake [1] = 0;
 "359
 [e = *U + &U _data_brake * -> -> -> 1 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 362: collision_risk_value = ((JoystickValues[1] - 130) / 2) + 4;
+[; ;RemoteCan.c: 362: collision_risk_value = ((JoystickValues[1] - 130) / 3) + 4;
 "362
-[e = _collision_risk_value -> + / - -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 130 `i -> 2 `i -> 4 `i `uc ]
+[e = _collision_risk_value -> + / - -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 130 `i -> 3 `i -> 4 `i `uc ]
 [; ;RemoteCan.c: 363: if (collision_sensor_distance[dir] < collision_risk_value) {
 "363
 [e $ ! < -> *U + &U _collision_sensor_distance * -> _dir `ux -> -> # *U &U _collision_sensor_distance `ui `ux `i -> _collision_risk_value `i 2468  ]
@@ -21149,9 +21149,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RemoteCan.c: 385: data_brake [0] = 0b00000000;
 "385
 [e = *U + &U _data_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _data_brake `ui `ux -> -> 0 `i `uc ]
-[; ;RemoteCan.c: 386: collision_risk_value = ((JoystickValues[1] - 130) / 2) + 4;
+[; ;RemoteCan.c: 386: collision_risk_value = ((JoystickValues[1] - 130) / 3) + 4;
 "386
-[e = _collision_risk_value -> + / - -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 130 `i -> 2 `i -> 4 `i `uc ]
+[e = _collision_risk_value -> + / - -> *U + &U _JoystickValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _JoystickValues `ui `ux `i -> 130 `i -> 3 `i -> 4 `i `uc ]
 [; ;RemoteCan.c: 387: if (collision_sensor_distance[dir] > collision_risk_value) {
 "387
 [e $ ! > -> *U + &U _collision_sensor_distance * -> _dir `ux -> -> # *U &U _collision_sensor_distance `ui `ux `i -> _collision_risk_value `i 2474  ]

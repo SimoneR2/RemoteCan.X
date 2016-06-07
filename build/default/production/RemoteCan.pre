@@ -21312,7 +21312,7 @@ data_brake [0] = 3;
 data_brake [1] = 0;
 
 
-collision_risk_value = ((JoystickValues[1] - 130) / 2) + 4;
+collision_risk_value = ((JoystickValues[1] - 130) / 3) + 4;
 if (collision_sensor_distance[dir] < collision_risk_value) {
 set_speed = 0;
 data_brake [0] = 0b00000000;
@@ -21336,7 +21336,7 @@ data_brake [1] = 0;
 } else {
 set_speed = 0;
 data_brake [0] = 0b00000000;
-collision_risk_value = ((JoystickValues[1] - 130) / 2) + 4;
+collision_risk_value = ((JoystickValues[1] - 130) / 3) + 4;
 if (collision_sensor_distance[dir] > collision_risk_value) {
 collision_msg = 0;
 }

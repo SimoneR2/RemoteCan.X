@@ -5,7 +5,7 @@
 #define LCD_PKG_DLY 2000   //[ms] multiple of 10 only
 #define LCD_4TH_ROW_MODE 1  /* 0 to visualize the parking messages and 1 to
                             visualize the data sent on CANBUS with the ID 0xAA */
-#define COLLSN_DIST_RTIO 2 //default: 10
+#define COLLSN_DIST_RTIO 3 //default: 10
 ////////////////////////////////////////////////////////////////////////////////
 
 #define LCD_DEFAULT

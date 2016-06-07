@@ -11,11 +11,6 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\simone\AppData\Local\Temp\s4go.obj
-idloc IDLOC 0 200000 200000 8 1
-reset_vec CODE 0 0 0 4 1
-end_init CODE 0 BE BE 4 1
-config CONFIG 0 300000 300000 E 1
 $dist/default/production\RemoteCan.X.production.obj
 intcodelo CODE 0 18 18 A6 1
 cinit CODE 0 15BB6 15BB6 42 1
@@ -95,6 +90,11 @@ idataBANK0 CODE 0 15FAE 15FAE 1 1
 dataBANK0 BANK0 1 ED ED 1 1
 bssCOMRAM COMRAM 1 1 1 28 1
 mediumconst MEDIUMCONST 0 FD5E FD5E 2A2 1
+$C:\Users\simone\AppData\Local\Temp\s354.obj
+idloc IDLOC 0 200000 200000 8 1
+reset_vec CODE 0 0 0 4 1
+end_init CODE 0 BE BE 4 1
+config CONFIG 0 300000 300000 E 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -1881,41 +1881,41 @@ $dist/default/production\RemoteCan.X.production.obj
 15B8A text33 CODE >10:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\itoa.c
 15B96 text33 CODE >12:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\itoa.c
 15BB4 text33 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\itoa.c
-15BB6 cinit CODE >2273:C:\Users\simone\AppData\Local\Temp\s4go.
-15BB6 cinit CODE >2275:C:\Users\simone\AppData\Local\Temp\s4go.
-15BB6 cinit CODE >2278:C:\Users\simone\AppData\Local\Temp\s4go.
-15BB6 cinit CODE >2466:C:\Users\simone\AppData\Local\Temp\s4go.
-15BBA cinit CODE >2467:C:\Users\simone\AppData\Local\Temp\s4go.
-15BBC cinit CODE >2468:C:\Users\simone\AppData\Local\Temp\s4go.
-15BBC cinit CODE >2469:C:\Users\simone\AppData\Local\Temp\s4go.
-15BBE cinit CODE >2470:C:\Users\simone\AppData\Local\Temp\s4go.
-15BC0 cinit CODE >2471:C:\Users\simone\AppData\Local\Temp\s4go.
-15BC2 cinit CODE >2474:C:\Users\simone\AppData\Local\Temp\s4go.
-15BC6 cinit CODE >2475:C:\Users\simone\AppData\Local\Temp\s4go.
-15BC8 cinit CODE >2476:C:\Users\simone\AppData\Local\Temp\s4go.
-15BC8 cinit CODE >2477:C:\Users\simone\AppData\Local\Temp\s4go.
-15BCA cinit CODE >2478:C:\Users\simone\AppData\Local\Temp\s4go.
-15BCC cinit CODE >2479:C:\Users\simone\AppData\Local\Temp\s4go.
-15BCE cinit CODE >2482:C:\Users\simone\AppData\Local\Temp\s4go.
-15BD0 cinit CODE >2483:C:\Users\simone\AppData\Local\Temp\s4go.
-15BD2 cinit CODE >2484:C:\Users\simone\AppData\Local\Temp\s4go.
-15BD4 cinit CODE >2487:C:\Users\simone\AppData\Local\Temp\s4go.
-15BD8 cinit CODE >2488:C:\Users\simone\AppData\Local\Temp\s4go.
-15BDA cinit CODE >2489:C:\Users\simone\AppData\Local\Temp\s4go.
-15BDA cinit CODE >2490:C:\Users\simone\AppData\Local\Temp\s4go.
-15BDC cinit CODE >2491:C:\Users\simone\AppData\Local\Temp\s4go.
-15BDE cinit CODE >2492:C:\Users\simone\AppData\Local\Temp\s4go.
-15BE0 cinit CODE >2497:C:\Users\simone\AppData\Local\Temp\s4go.
-15BE2 cinit CODE >2498:C:\Users\simone\AppData\Local\Temp\s4go.
-15BE4 cinit CODE >2499:C:\Users\simone\AppData\Local\Temp\s4go.
-15BE6 cinit CODE >2500:C:\Users\simone\AppData\Local\Temp\s4go.
-15BE8 cinit CODE >2501:C:\Users\simone\AppData\Local\Temp\s4go.
-15BEA cinit CODE >2502:C:\Users\simone\AppData\Local\Temp\s4go.
-15BEC cinit CODE >2503:C:\Users\simone\AppData\Local\Temp\s4go.
-15BEE cinit CODE >2504:C:\Users\simone\AppData\Local\Temp\s4go.
-15BF2 cinit CODE >2510:C:\Users\simone\AppData\Local\Temp\s4go.
-15BF2 cinit CODE >2511:C:\Users\simone\AppData\Local\Temp\s4go.
-15BF4 cinit CODE >2512:C:\Users\simone\AppData\Local\Temp\s4go.
+15BB6 cinit CODE >2273:C:\Users\simone\AppData\Local\Temp\s354.
+15BB6 cinit CODE >2275:C:\Users\simone\AppData\Local\Temp\s354.
+15BB6 cinit CODE >2278:C:\Users\simone\AppData\Local\Temp\s354.
+15BB6 cinit CODE >2466:C:\Users\simone\AppData\Local\Temp\s354.
+15BBA cinit CODE >2467:C:\Users\simone\AppData\Local\Temp\s354.
+15BBC cinit CODE >2468:C:\Users\simone\AppData\Local\Temp\s354.
+15BBC cinit CODE >2469:C:\Users\simone\AppData\Local\Temp\s354.
+15BBE cinit CODE >2470:C:\Users\simone\AppData\Local\Temp\s354.
+15BC0 cinit CODE >2471:C:\Users\simone\AppData\Local\Temp\s354.
+15BC2 cinit CODE >2474:C:\Users\simone\AppData\Local\Temp\s354.
+15BC6 cinit CODE >2475:C:\Users\simone\AppData\Local\Temp\s354.
+15BC8 cinit CODE >2476:C:\Users\simone\AppData\Local\Temp\s354.
+15BC8 cinit CODE >2477:C:\Users\simone\AppData\Local\Temp\s354.
+15BCA cinit CODE >2478:C:\Users\simone\AppData\Local\Temp\s354.
+15BCC cinit CODE >2479:C:\Users\simone\AppData\Local\Temp\s354.
+15BCE cinit CODE >2482:C:\Users\simone\AppData\Local\Temp\s354.
+15BD0 cinit CODE >2483:C:\Users\simone\AppData\Local\Temp\s354.
+15BD2 cinit CODE >2484:C:\Users\simone\AppData\Local\Temp\s354.
+15BD4 cinit CODE >2487:C:\Users\simone\AppData\Local\Temp\s354.
+15BD8 cinit CODE >2488:C:\Users\simone\AppData\Local\Temp\s354.
+15BDA cinit CODE >2489:C:\Users\simone\AppData\Local\Temp\s354.
+15BDA cinit CODE >2490:C:\Users\simone\AppData\Local\Temp\s354.
+15BDC cinit CODE >2491:C:\Users\simone\AppData\Local\Temp\s354.
+15BDE cinit CODE >2492:C:\Users\simone\AppData\Local\Temp\s354.
+15BE0 cinit CODE >2497:C:\Users\simone\AppData\Local\Temp\s354.
+15BE2 cinit CODE >2498:C:\Users\simone\AppData\Local\Temp\s354.
+15BE4 cinit CODE >2499:C:\Users\simone\AppData\Local\Temp\s354.
+15BE6 cinit CODE >2500:C:\Users\simone\AppData\Local\Temp\s354.
+15BE8 cinit CODE >2501:C:\Users\simone\AppData\Local\Temp\s354.
+15BEA cinit CODE >2502:C:\Users\simone\AppData\Local\Temp\s354.
+15BEC cinit CODE >2503:C:\Users\simone\AppData\Local\Temp\s354.
+15BEE cinit CODE >2504:C:\Users\simone\AppData\Local\Temp\s354.
+15BF2 cinit CODE >2510:C:\Users\simone\AppData\Local\Temp\s354.
+15BF2 cinit CODE >2511:C:\Users\simone\AppData\Local\Temp\s354.
+15BF4 cinit CODE >2512:C:\Users\simone\AppData\Local\Temp\s354.
 15BF8 text54 CODE >613:C:\Users\simone\Documents\GitHub\RemoteCan.X\RemoteCan.c
 15BF8 text54 CODE >614:C:\Users\simone\Documents\GitHub\RemoteCan.X\RemoteCan.c
 15C0A text54 CODE >615:C:\Users\simone\Documents\GitHub\RemoteCan.X\RemoteCan.c
@@ -2078,7 +2078,7 @@ _set_speed E5 0 BANK0 1 bssBANK0 dist/default/production\RemoteCan.X.production.
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\RemoteCan.X.production.obj
 __size_of_ISR_bassa 0 0 ABS 0 - dist/default/production\RemoteCan.X.production.obj
 _RXB1DLCbits F55 0 ABS 0 - dist/default/production\RemoteCan.X.production.obj
-__mediumconst FD5E 0 MEDIUMCONST 0 mediumconst C:\Users\simone\AppData\Local\Temp\s4go.obj
+__mediumconst FD5E 0 MEDIUMCONST 0 mediumconst C:\Users\simone\AppData\Local\Temp\s354.obj
 LCD_write_char@value 82 0 BANK0 1 cstackBANK0 dist/default/production\RemoteCan.X.production.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\RemoteCan.X.production.obj
 __size_of_LCD_send_command 0 0 ABS 0 - dist/default/production\RemoteCan.X.production.obj
@@ -2095,12 +2095,12 @@ _LATB F8A 0 ABS 0 - dist/default/production\RemoteCan.X.production.obj
 _LATC F8B 0 ABS 0 - dist/default/production\RemoteCan.X.production.obj
 _LATD F8C 0 ABS 0 - dist/default/production\RemoteCan.X.production.obj
 _LATE F8D 0 ABS 0 - dist/default/production\RemoteCan.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\simone\AppData\Local\Temp\s4go.obj
+___sp 0 0 STACK 2 stack C:\Users\simone\AppData\Local\Temp\s354.obj
 _data 116 0 BANK1 1 bssBANK1 dist/default/production\RemoteCan.X.production.obj
 _itoa 15B6A 0 CODE 0 text33 dist/default/production\RemoteCan.X.production.obj
 _main 11436 0 CODE 0 text0 dist/default/production\RemoteCan.X.production.obj
 _utoa 15378 0 CODE 0 text34 dist/default/production\RemoteCan.X.production.obj
-start BE 0 CODE 0 init C:\Users\simone\AppData\Local\Temp\s4go.obj
+start BE 0 CODE 0 init C:\Users\simone\AppData\Local\Temp\s354.obj
 ___flmul@cntr 8E 0 BANK0 1 cstackBANK0 dist/default/production\RemoteCan.X.production.obj
 ___flmul@sign 8F 0 BANK0 1 cstackBANK0 dist/default/production\RemoteCan.X.production.obj
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\RemoteCan.X.production.obj
@@ -2148,11 +2148,11 @@ __size_of_F1_Button_Polling 0 0 ABS 0 - dist/default/production\RemoteCan.X.prod
 _sprintf$4230 138 0 BANK1 1 cstackBANK1 dist/default/production\RemoteCan.X.production.obj
 utoa@c 81 0 BANK0 1 cstackBANK0 dist/default/production\RemoteCan.X.production.obj
 utoa@v 7F 0 BANK0 1 cstackBANK0 dist/default/production\RemoteCan.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\simone\AppData\Local\Temp\s4go.obj
-intlevel0 0 0 CODE 0 text C:\Users\simone\AppData\Local\Temp\s4go.obj
-intlevel1 0 0 CODE 0 text C:\Users\simone\AppData\Local\Temp\s4go.obj
-intlevel2 0 0 CODE 0 text C:\Users\simone\AppData\Local\Temp\s4go.obj
-intlevel3 0 0 CODE 0 text C:\Users\simone\AppData\Local\Temp\s4go.obj
+__accesstop 60 0 ABS 0 - C:\Users\simone\AppData\Local\Temp\s354.obj
+intlevel0 0 0 CODE 0 text C:\Users\simone\AppData\Local\Temp\s354.obj
+intlevel1 0 0 CODE 0 text C:\Users\simone\AppData\Local\Temp\s354.obj
+intlevel2 0 0 CODE 0 text C:\Users\simone\AppData\Local\Temp\s354.obj
+intlevel3 0 0 CODE 0 text C:\Users\simone\AppData\Local\Temp\s354.obj
 __end_of_LCD_Park 15944 0 CODE 0 text10 dist/default/production\RemoteCan.X.production.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\RemoteCan.X.production.obj
 __size_of__div_to_l_ 0 0 ABS 0 - dist/default/production\RemoteCan.X.production.obj
@@ -2197,8 +2197,8 @@ i2_CANsendMessage 123B2 0 CODE 0 text62 dist/default/production\RemoteCan.X.prod
 ___awdiv@dividend 78 0 BANK0 1 cstackBANK0 dist/default/production\RemoteCan.X.production.obj
 CANSetFilter@tamp 7C 0 BANK0 1 cstackBANK0 dist/default/production\RemoteCan.X.production.obj
 CANSetFilter@type 76 0 BANK0 1 cstackBANK0 dist/default/production\RemoteCan.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\simone\AppData\Local\Temp\s4go.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\simone\AppData\Local\Temp\s4go.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\simone\AppData\Local\Temp\s354.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\simone\AppData\Local\Temp\s354.obj
 __size_of___awtofl 0 0 ABS 0 - dist/default/production\RemoteCan.X.production.obj
 _CANCON F6F 0 ABS 0 - dist/default/production\RemoteCan.X.production.obj
 _CAN_Tx 1543C 0 CODE 0 text57 dist/default/production\RemoteCan.X.production.obj
@@ -2401,7 +2401,7 @@ __size_of_LCD_Parking 0 0 ABS 0 - dist/default/production\RemoteCan.X.production
 __size_of_LCD_clear 0 0 ABS 0 - dist/default/production\RemoteCan.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\RemoteCan.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\RemoteCan.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\simone\AppData\Local\Temp\s4go.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\simone\AppData\Local\Temp\s354.obj
 ___lbtofl 15D22 0 CODE 0 text6 dist/default/production\RemoteCan.X.production.obj
 __end_of_sprintf 11436 0 CODE 0 text12 dist/default/production\RemoteCan.X.production.obj
 ___lltofl 15D8E 0 CODE 0 text21 dist/default/production\RemoteCan.X.production.obj
@@ -2708,8 +2708,8 @@ __Lfardata 0 0 FARRAM 0 fardata dist/default/production\RemoteCan.X.production.o
 itoa@cp 88 0 BANK0 1 cstackBANK0 dist/default/production\RemoteCan.X.production.obj
 _Can_Tx_Force 250 -206 COMRAM 1 bitbssCOMRAM dist/default/production\RemoteCan.X.production.obj
 ___lwtofl@c 7C 0 BANK0 1 cstackBANK0 dist/default/production\RemoteCan.X.production.obj
-stackhi CFF 0 ABS 0 - C:\Users\simone\AppData\Local\Temp\s4go.obj
-stacklo 159 0 ABS 0 - C:\Users\simone\AppData\Local\Temp\s4go.obj
+stackhi CFF 0 ABS 0 - C:\Users\simone\AppData\Local\Temp\s354.obj
+stacklo 159 0 ABS 0 - C:\Users\simone\AppData\Local\Temp\s354.obj
 ?___lbtofl 7C 0 BANK0 1 cstackBANK0 dist/default/production\RemoteCan.X.production.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production\RemoteCan.X.production.obj
 ?___lltofl 7C 0 BANK0 1 cstackBANK0 dist/default/production\RemoteCan.X.production.obj
@@ -2875,7 +2875,7 @@ __Ltext62 0 0 ABS 0 text62 dist/default/production\RemoteCan.X.production.obj
 __Ltext63 0 0 ABS 0 text63 dist/default/production\RemoteCan.X.production.obj
 __Ltext64 0 0 ABS 0 text64 dist/default/production\RemoteCan.X.production.obj
 __Ltext65 0 0 ABS 0 text65 dist/default/production\RemoteCan.X.production.obj
-__ramtop D00 0 RAM 0 ramtop C:\Users\simone\AppData\Local\Temp\s4go.obj
+__ramtop D00 0 RAM 0 ramtop C:\Users\simone\AppData\Local\Temp\s354.obj
 _sprintf 10B2A 0 CODE 0 text12 dist/default/production\RemoteCan.X.production.obj
 _LCD_goto_xy 15F16 0 CODE 0 text38 dist/default/production\RemoteCan.X.production.obj
 __size_of_LCD_cursor 0 0 ABS 0 - dist/default/production\RemoteCan.X.production.obj

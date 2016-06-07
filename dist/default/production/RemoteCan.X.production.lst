@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.34 build -361300703 
-                                                                                               Fri Jun 03 16:27:42 2016
+                                                                                               Tue Jun 07 19:35:04 2016
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
      1                           	processor	18F4685
@@ -2747,7 +2747,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
   2732  011938  0E00               	movlw	0
   2733  01193A  6E22               	movwf	_data_brake+1,c
   2734                           
-  2735                           ;RemoteCan.c: 362: collision_risk_value = ((JoystickValues[1] - 130) / 2) + 4;
+  2735                           ;RemoteCan.c: 362: collision_risk_value = ((JoystickValues[1] - 130) / 3) + 4;
   2736  01193C  0E7E               	movlw	126
   2737  01193E  0100               	movlb	0	; () banked
   2738  011940  25E0               	addwf	(_JoystickValues+1)& (0+255),w,b	;volatile
@@ -2760,7 +2760,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
   2745  01194E  0E00               	movlw	0
   2746  011950  0100               	movlb	0	; () banked
   2747  011952  6F7B               	movwf	(___awdiv@divisor+1)& (0+255),b
-  2748  011954  0E02               	movlw	2
+  2748  011954  0E03               	movlw	3
   2749  011956  6F7A               	movwf	___awdiv@divisor& (0+255),b
   2750  011958  ECF1  F0A8         	call	___awdiv	;wreg free
   2751  01195C  0100               	movlb	0	; () banked
@@ -2892,7 +2892,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
   2877  0119E0  6E21               	movwf	_data_brake,c
   2878                           
   2879                           ; BSR set to: 0
-  2880                           ;RemoteCan.c: 386: collision_risk_value = ((JoystickValues[1] - 130) / 2) + 4;
+  2880                           ;RemoteCan.c: 386: collision_risk_value = ((JoystickValues[1] - 130) / 3) + 4;
   2881  0119E2  0E7E               	movlw	126
   2882  0119E4  0100               	movlb	0	; () banked
   2883  0119E6  25E0               	addwf	(_JoystickValues+1)& (0+255),w,b	;volatile
@@ -2905,7 +2905,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
   2890  0119F4  0E00               	movlw	0
   2891  0119F6  0100               	movlb	0	; () banked
   2892  0119F8  6F7B               	movwf	(___awdiv@divisor+1)& (0+255),b
-  2893  0119FA  0E02               	movlw	2
+  2893  0119FA  0E03               	movlw	3
   2894  0119FC  6F7A               	movwf	___awdiv@divisor& (0+255),b
   2895  0119FE  ECF1  F0A8         	call	___awdiv	;wreg free
   2896  011A02  0100               	movlb	0	; () banked
@@ -23354,7 +23354,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.34 build -361300703 
-Symbol Table                                                                                   Fri Jun 03 16:27:42 2016
+Symbol Table                                                                                   Tue Jun 07 19:35:04 2016
 
                                 _x 0261                                  _y 0262  
                                 _z 0263          __size_of_delay_set_quartz 000A  
