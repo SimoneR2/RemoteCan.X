@@ -20992,7 +20992,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 43 "RemoteCan.c"
+# 41 "RemoteCan.c"
 void board_initialization(void);
 void PWR_Button_Polling(void);
 void F1_Button_Polling(void);
@@ -21028,6 +21028,7 @@ BYTE park_assist_state[8] = 0;
 volatile bit RTR_Flag = 0;
 
 volatile bit low_battery = 0;
+volatile bit battery_charging = 0;
 volatile unsigned int left_speed = 0;
 volatile unsigned int right_speed = 0;
 volatile unsigned long id = 0;
@@ -21039,6 +21040,7 @@ volatile bit display_refresh = 0;
 volatile bit row_refresh = 0;
 volatile bit parking_message_E = 0;
 volatile bit collision_msg = 0;
+volatile bit LCD_4TH_ROW_MODE = 0;
 volatile unsigned char parking_message_ID = 0;
 volatile unsigned char str [12] = 0;
 volatile float actual_speed_kmh = 0;
@@ -21144,6 +21146,11 @@ CANsendMessage(0b00000000100, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME 
 if ((id == 0b00000001011)&&(RTR_Flag == 1)) {
 low_battery = 1;
 }
+
+if (id == 0b00000010010) {
+battery_charging = msg.data[0];
+low_battery = 0;
+}
 }
 PIR3bits.RXB1IF = 0;
 PIR3bits.RXB0IF = 0;
@@ -21166,6 +21173,10 @@ JoystickConstants[0] = 0.703;
 JoystickConstants[1] = 20;
 
 data_brake [1] = 0;
+
+if (PORTBbits.RB1 == 1) {
+LCD_4TH_ROW_MODE = 1;
+}
 
 while (1) {
 
@@ -21280,6 +21291,16 @@ PORTDbits.RD5 = 0;
 
 Joystick_Polling();
 
+if ((JoystickValues[1] < 10)&&(parking_state == 2)) {
+F1_switch = 0;
+parking_state = 0;
+parking_message_ID = 0;
+park_assist_state[0] = 0b00000000;
+while (!CANisTxReady());
+CANsendMessage(0b00000001100, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+Can_Tx_Force = 1;
+}
+
 
 data_steering [0] = 180 - (JoystickValues[0])*(JoystickConstants[0]);
 if (parking_state == 1) {
@@ -21304,20 +21325,11 @@ steering_correction = 0;
 
 
 
-if ((switch_position != 0)&&(collision_msg == 0)) {
-
+if (switch_position != 0) {
 if (JoystickValues[1] > 132) {
 set_speed = (JoystickValues[1] - 130)*(JoystickConstants[1]);
 data_brake [0] = 3;
 data_brake [1] = 0;
-
-
-collision_risk_value = ((JoystickValues[1] - 130) / 3) + 4;
-if (collision_sensor_distance[dir] < collision_risk_value) {
-set_speed = 0;
-data_brake [0] = 0b00000000;
-collision_msg = 1;
-}
 } else {
 set_speed = 0;
 if (JoystickValues[1] <= 65) {
@@ -21332,6 +21344,18 @@ if (JoystickValues[1] <= 5) {
 data_brake [0] = 0b00000000;
 data_brake [1] = 0;
 }
+}
+
+if ((JoystickValues[1] > 130)&&(parking_state == 0)) {
+
+collision_risk_value = ((JoystickValues[1] - 130) / 3) + 4;
+if (collision_sensor_distance[dir] < collision_risk_value) {
+set_speed = 0;
+data_brake [0] = 0b00000000;
+collision_msg = 1;
+}
+} else {
+collision_msg = 0;
 }
 } else {
 set_speed = 0;
@@ -21413,7 +21437,7 @@ LCD_write_message("Direction: ");
 LCD_goto_line(3);
 LCD_write_message("Speed: 0.00 Km/h");
 LCD_goto_line(4);
-if (1 == 0) {
+if (LCD_4TH_ROW_MODE == 0) {
 LCD_write_message("Park assist: ");
 } else {
 LCD_write_message("Data: ");
@@ -21448,8 +21472,8 @@ LCD_write_message("-> Safety brake ON<-");
 LCD_goto_xy(8, 3);
 LCD_write_string(str);
 
-if (low_battery == 0) {
-if (1 == 0) {
+if ((low_battery == 0) || (battery_charging == 0)) {
+if (LCD_4TH_ROW_MODE == 0) {
 
 LCD_goto_xy(14, 4);
 if (parking_state == 0) {
@@ -21464,7 +21488,11 @@ LCD_write_integer(user_data, 0, 0x01);
 }
 } else {
 LCD_goto_line(4);
+if (battery_charging == 1) {
+LCD_write_message("Battery charging... ");
+} else {
 LCD_write_message("[!]  Low battery [!]");
+}
 }
 }
 
