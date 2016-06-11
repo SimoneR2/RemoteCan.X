@@ -21005,6 +21005,7 @@ void LCD_Park(void);
 void LCD_Parking(void);
 void LCD_End(void);
 void LCD_Error(void);
+void Credits(void);
 
 
 volatile unsigned long time_counter = 0;
@@ -21066,11 +21067,13 @@ volatile bit wait_low_3 = 0;
 volatile bit power_switch = 0;
 volatile bit F1_switch = 0;
 volatile bit F2_switch = 0;
+volatile bit pwr_credits = 0;
 volatile unsigned char dir = 0;
 volatile unsigned char switch_position = 0;
 volatile unsigned char set_steering = 0;
 volatile unsigned int set_speed = 0;
 volatile unsigned char JoystickValues[2] = 0;
+volatile unsigned char center_value_Y = 0;
 volatile unsigned char collision_risk_value = 0;
 volatile signed float JoystickConstants[2] = 0;
 
@@ -21170,13 +21173,16 @@ void main(void) {
 board_initialization();
 
 JoystickConstants[0] = 0.703;
-JoystickConstants[1] = 20;
+JoystickConstants[1] = 25;
 
 data_brake [1] = 0;
 
 if (PORTBbits.RB1 == 1) {
 LCD_4TH_ROW_MODE = 1;
 }
+
+Joystick_Polling();
+center_value_Y = JoystickValues[1];
 
 while (1) {
 
@@ -21206,11 +21212,25 @@ LCD_write_message("====================");
 while (power_switch == 0) {
 if ((time_counter - pr_time_1) >= 30) {
 pr_time_1 = time_counter;
+if (pwr_credits == 0) {
 PORTDbits.RD7 = ~PORTDbits.RD7;
+} else {
+PORTDbits.RD6 = ~PORTDbits.RD6;
+PORTDbits.RD5 = ~PORTDbits.RD5;
+}
+}
+if (((PORTBbits.RB1 == 1)&&(PORTBbits.RB4 == 1))&&(pwr_credits == 0)) {
+pwr_credits = 1;
+PORTDbits.RD7 = 1;
+PORTDbits.RD6 = 1;
+Credits();
 }
 PWR_Button_Polling();
 delay_ms(10);
 }
+pwr_credits = 0;
+PORTDbits.RD6 = 0;
+PORTDbits.RD5 = 0;
 PORTDbits.RD7 = 0;
 display_refresh = 1;
 }
@@ -21234,7 +21254,7 @@ y = 0;
 if ((x == 0)&&(F2_switch == 0)) {
 space_available = 0;
 parking_state = 1;
-JoystickConstants[1] = 5;
+JoystickConstants[1] = 8;
 while (!CANisTxReady());
 park_assist_state[0] = 0b00000001;
 CANsendMessage(0b00000001100, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
@@ -21279,7 +21299,7 @@ PORTDbits.RD5 = 0;
 PORTDbits.RD6 = 0;
 if (y == 0) {
 parking_state = 0;
-JoystickConstants[1] = 20;
+JoystickConstants[1] = 25;
 while (!CANisTxReady());
 park_assist_state[0] = 0b00000000;
 CANsendMessage(0b00000001100, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
@@ -21326,8 +21346,8 @@ steering_correction = 0;
 
 
 if (switch_position != 0) {
-if (JoystickValues[1] > 132) {
-set_speed = (JoystickValues[1] - 130)*(JoystickConstants[1]);
+if (JoystickValues[1] > (center_value_Y + 2)) {
+set_speed = (JoystickValues[1] - center_value_Y + 2)*(JoystickConstants[1]);
 data_brake [0] = 3;
 data_brake [1] = 0;
 } else {
@@ -21346,13 +21366,15 @@ data_brake [1] = 0;
 }
 }
 
-if ((JoystickValues[1] > 130)&&(parking_state == 0)) {
+if ((JoystickValues[1] >= center_value_Y)&&(parking_state == 0)) {
 
-collision_risk_value = ((JoystickValues[1] - 130) / 3) + 4;
+collision_risk_value = ((JoystickValues[1] - center_value_Y) / 3) + 4;
 if (collision_sensor_distance[dir] < collision_risk_value) {
 set_speed = 0;
 data_brake [0] = 0b00000000;
 collision_msg = 1;
+} else {
+collision_msg = 0;
 }
 } else {
 collision_msg = 0;
@@ -21559,6 +21581,19 @@ LCD_goto_line(3);
 LCD_write_message("       FAILED!      ");
 LCD_goto_line(4);
 LCD_write_message("   due to an error  ");
+}
+
+void Credits(void) {
+LCD_initialize(16);
+LCD_clear();
+LCD_goto_line(1);
+LCD_write_message("=>    CREDITS!    <=");
+LCD_goto_line(2);
+LCD_write_message("  Massimo Clementi  ");
+LCD_goto_line(3);
+LCD_write_message("  Gianlorenzo Moser ");
+LCD_goto_line(4);
+LCD_write_message("  Simone Righetti   ");
 }
 
 void PWR_Button_Polling(void) {

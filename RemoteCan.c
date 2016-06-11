@@ -1,6 +1,6 @@
 // User defined parameters /////////////////////////////////////////////////////
-#define SPD_CNST_STD 20 //max value: 35
-#define SPD_CNST_PKG 5  //max value: 35
+#define SPD_CNST_STD 25 //max value: 35
+#define SPD_CNST_PKG 8  //max value: 35
 #define LCD_DLY 100   //[ms] multiple of 10 only
 #define LCD_PKG_DLY 2000   //[ms] multiple of 10 only
 #define COLLSN_DIST_RTIO 3 //default: 10
@@ -50,6 +50,7 @@ void LCD_Park(void); //Distance REACHED, Parking authorization required!
 void LCD_Parking(void); //Parking procedures wait...
 void LCD_End(void); //Parking procedures COMPLETED SUCCESSFULLY
 void LCD_Error(void); //Error occured
+void Credits(void);
 
 //variabili per delay non blocking
 volatile unsigned long time_counter = 0;
@@ -111,11 +112,13 @@ volatile bit wait_low_3 = LOW;
 volatile bit power_switch = LOW;
 volatile bit F1_switch = LOW;
 volatile bit F2_switch = LOW;
+volatile bit pwr_credits = LOW;
 volatile unsigned char dir = 0;
 volatile unsigned char switch_position = 0;
 volatile unsigned char set_steering = 0;
 volatile unsigned int set_speed = 0;
 volatile unsigned char JoystickValues[2] = 0; //steering - speed
+volatile unsigned char center_value_Y = 0;
 volatile unsigned char collision_risk_value = 0;
 volatile signed float JoystickConstants[2] = 0;
 
@@ -223,6 +226,9 @@ void main(void) {
         LCD_4TH_ROW_MODE = HIGH;
     }
 
+    Joystick_Polling();
+    center_value_Y = JoystickValues[Y_AXIS];
+
     while (1) {
 
         //Buttons Polling
@@ -251,11 +257,25 @@ void main(void) {
             while (power_switch == LOW) {
                 if ((time_counter - pr_time_1) >= 30) {
                     pr_time_1 = time_counter;
-                    PORTDbits.RD7 = ~PORTDbits.RD7;
+                    if (pwr_credits == LOW) {
+                        PORTDbits.RD7 = ~PORTDbits.RD7;
+                    } else {
+                        PORTDbits.RD6 = ~PORTDbits.RD6;
+                        PORTDbits.RD5 = ~PORTDbits.RD5;
+                    }
+                }
+                if (((PORTBbits.RB1 == HIGH)&&(PORTBbits.RB4 == HIGH))&&(pwr_credits == LOW)) {
+                    pwr_credits = HIGH;
+                    PORTDbits.RD7 = HIGH;
+                    PORTDbits.RD6 = HIGH;
+                    Credits();
                 }
                 PWR_Button_Polling();
                 delay_ms(10);
             }
+            pwr_credits = LOW;
+            PORTDbits.RD6 = LOW;
+            PORTDbits.RD5 = LOW;
             PORTDbits.RD7 = LOW; //Turn off ON/OFF switch backlight
             display_refresh = HIGH;
         }
@@ -371,8 +391,8 @@ void main(void) {
         //Speed
         //if ((switch_position != HIGH_POS)&&((collision_msg == LOW) || ((collision_msg == HIGH)&&(JoystickValues[Y_AXIS] > 130)&&(JoystickValues[Y_AXIS] < 132)))) {
         if (switch_position != HIGH_POS) {
-            if (JoystickValues[Y_AXIS] > 132) {
-                set_speed = (JoystickValues[Y_AXIS] - 130)*(JoystickConstants[Y_AXIS]); //guardare
+            if (JoystickValues[Y_AXIS] > (center_value_Y + 2)) {
+                set_speed = (JoystickValues[Y_AXIS] - center_value_Y + 2)*(JoystickConstants[Y_AXIS]); //guardare
                 data_brake [0] = 3;
                 data_brake [1] = 0;
             } else {
@@ -391,13 +411,15 @@ void main(void) {
                 }
             }
 
-            if ((JoystickValues[Y_AXIS] > 130)&&(parking_state == OFF)) {
+            if ((JoystickValues[Y_AXIS] >= center_value_Y)&&(parking_state == OFF)) {
                 //Anti-collision system routine
-                collision_risk_value = ((JoystickValues[Y_AXIS] - 130) / COLLSN_DIST_RTIO) + 4; //distanza di sicurezza
+                collision_risk_value = ((JoystickValues[Y_AXIS] - center_value_Y) / COLLSN_DIST_RTIO) + 4; //distanza di sicurezza
                 if (collision_sensor_distance[dir] < collision_risk_value) {
                     set_speed = 0;
                     data_brake [0] = 0b00000000;
                     collision_msg = HIGH;
+                } else {
+                    collision_msg = LOW;
                 }
             } else {
                 collision_msg = LOW;
@@ -604,6 +626,19 @@ void LCD_Error(void) {
     LCD_write_message("       FAILED!      ");
     LCD_goto_line(4);
     LCD_write_message("   due to an error  ");
+}
+
+void Credits(void) {
+    LCD_initialize(16);
+    LCD_clear();
+    LCD_goto_line(1);
+    LCD_write_message("=>    CREDITS!    <=");
+    LCD_goto_line(2);
+    LCD_write_message("  Massimo Clementi  ");
+    LCD_goto_line(3);
+    LCD_write_message("  Gianlorenzo Moser ");
+    LCD_goto_line(4);
+    LCD_write_message("  Simone Righetti   ");
 }
 
 void PWR_Button_Polling(void) {
