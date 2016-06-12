@@ -101,6 +101,7 @@ volatile bit space_available = LOW;
 volatile bit space_gap_reached = LOW;
 volatile bit steering_correction_dir = LOW;
 volatile bit parking_error = LOW;
+volatile bit user_stop = LOW;
 volatile unsigned char steering_correction = 0;
 volatile unsigned char parking_state = OFF;
 volatile signed long check = 0;
@@ -356,10 +357,13 @@ void main(void) {
 
         Joystick_Polling();
 
+        //Abort parking procedures by joystick brake
         if ((JoystickValues[Y_AXIS] < 10)&&(parking_state == PARKING)) {
             F1_switch = LOW;
             parking_state = OFF;
-            parking_message_ID = 0;
+            user_stop = HIGH;
+            parking_message_ID = 6;
+            pr_time_6 = time_counter + (LCD_PKG_DLY / 10);
             park_assist_state[0] = 0b00000000;
             while (!CANisTxReady());
             CANsendMessage(PARK_ASSIST_ENABLE, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
@@ -623,9 +627,16 @@ void LCD_Error(void) {
     LCD_goto_line(2);
     LCD_write_message(" Parking procedures ");
     LCD_goto_line(3);
-    LCD_write_message("       FAILED!      ");
-    LCD_goto_line(4);
-    LCD_write_message("   due to an error  ");
+    if (user_stop == LOW) {
+        LCD_write_message("       FAILED!      ");
+        LCD_goto_line(4);
+        LCD_write_message("   due to an error  ");
+    } else {
+        user_stop = LOW;
+        LCD_write_message("      ABORTED!      ");
+        LCD_goto_line(4);
+        LCD_write_message("    by the USER     ");
+    }
 }
 
 void Credits(void) {
