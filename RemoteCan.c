@@ -633,7 +633,7 @@ void LCD_Error(void) {
         LCD_write_message("   due to an error  ");
     } else {
         user_stop = LOW;
-        LCD_write_message("      ABORTED!      ");
+        LCD_write_message("      STOPPED!      ");
         LCD_goto_line(4);
         LCD_write_message("    by the USER     ");
     }
