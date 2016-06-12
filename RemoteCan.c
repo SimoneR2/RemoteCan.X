@@ -359,11 +359,13 @@ void main(void) {
 
         //Abort parking procedures by joystick brake
         if ((JoystickValues[Y_AXIS] < 10)&&(parking_state == PARKING)) {
-            F1_switch = LOW;
-            parking_state = OFF;
-            user_stop = HIGH;
+            
             parking_message_ID = 6;
+            parking_error = HIGH; //Error flag
+            user_stop = HIGH;
+            F1_switch = LOW; //Reset parking
             pr_time_6 = time_counter + (LCD_PKG_DLY / 10);
+            
             park_assist_state[0] = 0b00000000;
             while (!CANisTxReady());
             CANsendMessage(PARK_ASSIST_ENABLE, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
