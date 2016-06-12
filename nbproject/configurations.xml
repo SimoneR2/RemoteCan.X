@@ -32,7 +32,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>Simulator</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion></languageToolchainVersion>
+        <languageToolchainVersion>1.37</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>

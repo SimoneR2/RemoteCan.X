@@ -543,8 +543,10 @@ void LCD_Handler(void) {
     LCD_goto_xy(8, 3);
     LCD_write_string(str);
 
-    if ((low_battery == LOW) || (battery_charging == LOW)) {
+    if ((low_battery == LOW) && (battery_charging == LOW)) {
         if (LCD_4TH_ROW_MODE == LOW) {
+            LCD_goto_line(4);
+            LCD_write_message("Park assist: ");
             //Print parking data
             LCD_goto_xy(14, 4);
             if (parking_state == OFF) {
