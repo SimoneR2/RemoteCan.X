@@ -18,7 +18,6 @@
 #include "LCD_44780.h" 
 #include "LCD_44780.c"
 #include <stdio.h>
-//#include <math.h>
 
 #define HIGH 1
 #define LOW 0
@@ -37,7 +36,7 @@
 #define SEARCH 1
 #define PARKING 2
 
-//prototipi delle funzioni
+//Routine Declarations
 void board_initialization(void);
 void PWR_Button_Polling(void);
 void F1_Button_Polling(void);
@@ -52,7 +51,7 @@ void LCD_End(void); //Parking procedures COMPLETED SUCCESSFULLY
 void LCD_Error(void); //Error occured
 void Credits(void);
 
-//variabili per delay non blocking
+//Non-blocking delay variables
 volatile unsigned long time_counter = 0;
 volatile unsigned long pr_time_1 = 0;
 volatile unsigned long pr_time_2 = 0;
@@ -61,39 +60,37 @@ volatile unsigned long pr_time_4 = 0;
 volatile unsigned long pr_time_5 = 0;
 volatile unsigned long pr_time_6 = 0;
 
-//Variabili per can bus invio
+//CAN Tx variables
 CANmessage msg;
 volatile bit Can_Tx_Force = LOW;
 BYTE data_steering[8] = 0;
 BYTE data_speed [8] = 0;
 BYTE data_brake [8] = 0;
-BYTE data[8] = 0; //random
+BYTE data[8] = 0;
 BYTE park_assist_state[8] = 0;
 
-//variabili can bus ricezione
+//CAN Rx variables
 volatile bit RTR_Flag = LOW;
-//volatile bit newMessageCan = LOW;
 volatile bit low_battery = LOW;
 volatile bit battery_charging = LOW;
 volatile unsigned int left_speed = 0;
 volatile unsigned int right_speed = 0;
 volatile unsigned long id = 0;
-//volatile BYTE data_speed_rx[7] = 0; //WAT?
 volatile BYTE collision_sensor_distance[2] = 0;
 
-//variabili LCD
+//LCD variables
 volatile bit display_refresh = LOW;
 volatile bit row_refresh = LOW;
 volatile bit parking_message_E = LOW;
 volatile bit collision_msg = LOW;
 volatile bit LCD_4TH_ROW_MODE = LOW;
-volatile unsigned char parking_message_ID = 0; //0=>GAP | 2=>PARK | 4=>PARKING | 6=>END
+volatile unsigned char parking_message_ID = 0; //0=>GAP 2=>PARK 4=>PARKING 6=>END
 volatile unsigned char str [12] = 0;
 volatile float actual_speed_kmh = 0;
 volatile unsigned int user_data = 0;
 volatile unsigned int actual_speed = 0;
 
-//Variabili parcheggio
+//Parking variables
 volatile bit x = LOW;
 volatile bit y = LOW;
 volatile bit z = LOW;
@@ -106,7 +103,7 @@ volatile unsigned char steering_correction = 0;
 volatile unsigned char parking_state = OFF;
 volatile signed long check = 0;
 
-//variabili per il programma
+//Program variables
 volatile bit wait_low_1 = LOW;
 volatile bit wait_low_2 = LOW;
 volatile bit wait_low_3 = LOW;
@@ -124,7 +121,7 @@ volatile unsigned char collision_risk_value = 0;
 volatile signed float JoystickConstants[2] = 0;
 
 __interrupt(high_priority) void ISR_alta(void) {
-    if ((PIR3bits.RXB1IF == HIGH) || (PIR3bits.RXB0IF == HIGH)) { //RICEZIONE CAN
+    if ((PIR3bits.RXB1IF == HIGH) || (PIR3bits.RXB0IF == HIGH)) {
         if (CANisRxReady()) {
             CANreceiveMessage(&msg);
             RTR_Flag = msg.RTR;
@@ -148,7 +145,7 @@ __interrupt(high_priority) void ISR_alta(void) {
                 }
 
                 if (msg.data[0] == 2) {
-                    space_available = HIGH; //DEBUG
+                    space_available = HIGH;
                     space_gap_reached = HIGH;
                     Can_Tx_Force = HIGH;
                     parking_message_ID = 2;
@@ -183,10 +180,10 @@ __interrupt(high_priority) void ISR_alta(void) {
             }
 
             if (id == ECU_STATE_REMOTECAN) {
-                if (RTR_Flag == 1) { //Se è arrivata la richiesta presenza centraline
+                if (RTR_Flag == 1) {
                     pr_time_4 = time_counter;
                     data[0] = 0x03;
-                    __delay_us(10); //DELAY INUTILE!!
+                    __delay_us(10);
                     while (CANisTxReady() != 1);
                     CANsendMessage(ECU_STATE_REMOTECAN, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
                 }
@@ -207,7 +204,7 @@ __interrupt(high_priority) void ISR_alta(void) {
 }
 
 __interrupt(low_priority) void ISR_bassa(void) {
-    if (PIR2bits.TMR3IF == HIGH) { //interrupt timer, ogni 10mS
+    if (PIR2bits.TMR3IF == HIGH) {
         time_counter++;
         TMR3H = 0x63;
         TMR3L = 0xC0;
@@ -281,7 +278,7 @@ void main(void) {
             display_refresh = HIGH;
         }
 
-        //Gestione switch tre posizioni
+        //Three positions switch polling
         if (PORTAbits.RA2 == HIGH) {
             switch_position = HIGH_POS;
         } else {
@@ -294,7 +291,7 @@ void main(void) {
             }
         }
 
-        //Parking
+        //Parking state management
         if (F1_switch == HIGH) {
             y = LOW;
             if ((x == LOW)&&(F2_switch == LOW)) {
@@ -334,7 +331,7 @@ void main(void) {
                     PORTDbits.RD5 = LOW;
                 }
             }
-        } else { //RD6/RB4-- RD5/RB1
+        } else {
             x = LOW;
             z = LOW;
             parking_message_E = LOW;
@@ -357,22 +354,22 @@ void main(void) {
 
         Joystick_Polling();
 
-        //Abort parking procedures by joystick brake
+        //Abort parking procedures with joystick brake
         if ((JoystickValues[Y_AXIS] < 10)&&(parking_state == PARKING)) {
-            
+
             parking_message_ID = 6;
             parking_error = HIGH; //Error flag
             user_stop = HIGH;
             F1_switch = LOW; //Reset parking
             pr_time_6 = time_counter + (LCD_PKG_DLY / 10);
-            
+
             park_assist_state[0] = 0b00000000;
             while (!CANisTxReady());
             CANsendMessage(PARK_ASSIST_ENABLE, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
             Can_Tx_Force = HIGH;
         }
 
-        //Steering
+        //Steering routine
         data_steering [0] = 180 - (JoystickValues[X_AXIS])*(JoystickConstants[X_AXIS]);
         if (parking_state == SEARCH) {
             if (steering_correction_dir == HIGH) {
@@ -394,8 +391,7 @@ void main(void) {
             steering_correction = 0;
         }
 
-        //Speed
-        //if ((switch_position != HIGH_POS)&&((collision_msg == LOW) || ((collision_msg == HIGH)&&(JoystickValues[Y_AXIS] > 130)&&(JoystickValues[Y_AXIS] < 132)))) {
+        //Speed routine
         if (switch_position != HIGH_POS) {
             if (JoystickValues[Y_AXIS] > (center_value_Y + 2)) {
                 set_speed = (JoystickValues[Y_AXIS] - center_value_Y + 2)*(JoystickConstants[Y_AXIS]); //guardare
@@ -419,7 +415,7 @@ void main(void) {
 
             if ((JoystickValues[Y_AXIS] >= center_value_Y)&&(parking_state == OFF)) {
                 //Anti-collision system routine
-                collision_risk_value = ((JoystickValues[Y_AXIS] - center_value_Y) / COLLSN_DIST_RTIO) + 4; //distanza di sicurezza
+                collision_risk_value = ((JoystickValues[Y_AXIS] - center_value_Y) / COLLSN_DIST_RTIO) + 4; //safety distance
                 if (collision_sensor_distance[dir] < collision_risk_value) {
                     set_speed = 0;
                     data_brake [0] = 0b00000000;
@@ -433,7 +429,7 @@ void main(void) {
         } else {
             set_speed = 0;
             data_brake [0] = 0b00000000;
-            collision_risk_value = ((JoystickValues[Y_AXIS] - 130) / COLLSN_DIST_RTIO) + 4; //distanza di sicurezza
+            collision_risk_value = ((JoystickValues[Y_AXIS] - 130) / COLLSN_DIST_RTIO) + 4; //safety distance
             if (collision_sensor_distance[dir] > collision_risk_value) {
                 collision_msg = LOW;
             }
@@ -444,14 +440,14 @@ void main(void) {
                 dir = FWD;
                 set_speed = 0;
                 data_steering [0] = 90;
-                data_brake [0] = 0b00000000; //<== VALORE FRENATA CAMBIARE?
+                data_brake [0] = 0b00000000;
                 Can_Tx_Force = LOW;
             }
             pr_time_2 = time_counter;
             CAN_Tx();
         }
 
-        //LCD
+        //LCD Handler
         if (time_counter >= pr_time_6) {
             if ((time_counter - pr_time_3) >= (LCD_DLY / 10)) {
                 pr_time_3 = time_counter;
@@ -492,7 +488,6 @@ void main(void) {
 }
 
 void LCD_Handler(void) {
-    //ROUTINE PER RILEVARE LA VELOCITA' VIA CAN
     while (CANisTxReady() != HIGH);
     CANsendMessage(ACTUAL_SPEED, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_REMOTE_TX_FRAME & CAN_TX_PRIORITY_0);
 
@@ -731,17 +726,17 @@ void board_initialization(void) {
 
     //Interrupt Flags
     PIR2bits.TMR3IF = LOW;
-    PIR3bits.RXB1IF = 0; //azzera flag interrupt can bus buffer1
-    PIR3bits.RXB0IF = 0; //azzera flag interrupt can bus buffer0
+    PIR3bits.RXB1IF = 0;
+    PIR3bits.RXB0IF = 0;
 
     //Interrupts Priority
-    RCONbits.IPEN = HIGH; //abilita priorità interrupt
-    IPR3bits.RXB1IP = HIGH; //interrupt alta priorità per can
-    IPR3bits.RXB0IP = HIGH; //interrupt alta priorità per can
-    IPR2bits.TMR3IP = LOW; // interrupt bassa priorità TMR3
+    RCONbits.IPEN = HIGH;
+    IPR3bits.RXB1IP = HIGH;
+    IPR3bits.RXB0IP = HIGH;
+    IPR2bits.TMR3IP = LOW;
 
-    //Configurazione ADC======================================================
-    ADCON1 = 0b00001101; //RA0 and RA1 analogic, AVdd and AVss voltage reference (?)
+    //ADC Configurations
+    ADCON1 = 0b00001101; //RA0 and RA1 analogic
     ADCON0bits.CHS2 = 0;
     ADCON0bits.CHS1 = 0;
     ADCON0bits.CHS0 = 0;
@@ -753,14 +748,10 @@ void board_initialization(void) {
     ADCON2bits.ADCS0 = 1;
     ADCON2bits.ADFM = 0; //Left Justified
     ADCON0bits.ADON = HIGH;
-    //========================================================================
-    // LCD Initialize
+
     LCD_initialize(16);
-    //LCD_backlight(0);
     LCD_clear();
     LCD_goto_line(1);
-    //LCD_write_message("Wait...");
-    //delay_ms(300);
 
     PORTDbits.RD2 = 0;
     PORTDbits.RD3 = 0;
@@ -770,12 +761,12 @@ void board_initialization(void) {
     TMR3L = 0xC0;
 
     //Interrupts Enables
-    PIE3bits.RXB1IE = 1; //abilita interrupt ricezione can bus buffer1
-    PIE3bits.RXB0IE = 1; //abilita interrupt ricezione can bus buffer0
+    PIE3bits.RXB1IE = 1;
+    PIE3bits.RXB0IE = 1;
     PIE2bits.TMR3IE = HIGH;
 
 
-    T3CON = 0x01; //Timer Enable
+    T3CON = 0x01;
     LCD_clear();
     INTCONbits.GIEH = HIGH;
     INTCONbits.GIEL = HIGH;
