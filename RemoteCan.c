@@ -335,6 +335,7 @@ void main(void) {
             x = LOW;
             z = LOW;
             parking_message_E = LOW;
+            parking_message_ID = 0;
             F2_switch = LOW;
             space_available = LOW;
             space_gap_reached = LOW;
@@ -470,8 +471,8 @@ void main(void) {
                 }
             }
         } else {
-            if (parking_message_ID == 6) {
-                if (parking_error == HIGH) {
+            if ((parking_message_ID == 6)||(user_stop == HIGH)) {
+                if ((parking_error == HIGH)||(user_stop == HIGH)) {
                     parking_error = LOW;
                     LCD_Error();
                     while (CANisTxReady() != HIGH);

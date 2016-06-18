@@ -172,37 +172,37 @@ CAN_RX_BUFFER_2_OVFL 2
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"126 C:\Users\simone\Documents\GitHub\RemoteCan.X\RemoteCan.c
+"123 C:\Users\simone\Documents\GitHub\RemoteCan.X\RemoteCan.c
 [v _ISR_alta ISR_alta `IIH(v  1 e 1 0 ]
-"209
+"206
 [v _ISR_bassa ISR_bassa `IIL(v  1 e 1 0 ]
-"218
+"215
 [v _main main `(v  1 e 1 0 ]
-"492
+"491
 [v _LCD_Handler LCD_Handler `(v  1 e 1 0 ]
-"572
+"570
 [v _LCD_Gap LCD_Gap `(v  1 e 1 0 ]
-"585
+"583
 [v _LCD_Park LCD_Park `(v  1 e 1 0 ]
-"598
+"596
 [v _LCD_Parking LCD_Parking `(v  1 e 1 0 ]
-"611
+"609
 [v _LCD_End LCD_End `(v  1 e 1 0 ]
-"624
+"622
 [v _LCD_Error LCD_Error `(v  1 e 1 0 ]
-"644
+"642
 [v _Credits Credits `(v  1 e 1 0 ]
-"657
+"655
 [v _PWR_Button_Polling PWR_Button_Polling `(v  1 e 1 0 ]
-"667
+"665
 [v _F1_Button_Polling F1_Button_Polling `(v  1 e 1 0 ]
-"677
+"675
 [v _F2_Button_Polling F2_Button_Polling `(v  1 e 1 0 ]
-"687
+"685
 [v _Joystick_Polling Joystick_Polling `(v  1 e 1 0 ]
-"696
+"694
 [v _CAN_Tx CAN_Tx `(v  1 e 1 0 ]
-"714
+"712
 [v _board_initialization board_initialization `(v  1 e 1 0 ]
 "49 C:\Users\simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\delay.c
 [v _delay_quartz_frequency_value delay_quartz_frequency_value `VEuc  1 e 1 0 ]
@@ -1586,130 +1586,130 @@ CAN_RX_BUFFER_2_OVFL 2
 [v __powers_ _powers_ `C[13]d  1 e 52 0 ]
 "39
 [v __npowers_ _npowers_ `C[13]d  1 e 52 0 ]
-"56 C:\Users\simone\Documents\GitHub\RemoteCan.X\RemoteCan.c
+"55 C:\Users\simone\Documents\GitHub\RemoteCan.X\RemoteCan.c
 [v _time_counter time_counter `VEul  1 e 4 0 ]
-"57
+"56
 [v _pr_time_1 pr_time_1 `VEul  1 e 4 0 ]
-"58
+"57
 [v _pr_time_2 pr_time_2 `VEul  1 e 4 0 ]
-"59
+"58
 [v _pr_time_3 pr_time_3 `VEul  1 e 4 0 ]
-"60
+"59
 [v _pr_time_4 pr_time_4 `VEul  1 e 4 0 ]
-"61
+"60
 [v _pr_time_5 pr_time_5 `VEul  1 e 4 0 ]
-"62
+"61
 [v _pr_time_6 pr_time_6 `VEul  1 e 4 0 ]
 [s S853 . 15 `ul 1 identifier 4 0 `[8]uc 1 data 8 4 `uc 1 type 1 12 `uc 1 length 1 13 `uc 1 RTR 1 14 ]
-"65
+"64
 [v _msg msg `S853  1 e 15 0 ]
-"66
+"65
 [v _Can_Tx_Force Can_Tx_Force `VEb  1 e 0 0 ]
-"67
+"66
 [v _data_steering data_steering `[8]uc  1 e 8 0 ]
-"68
+"67
 [v _data_speed data_speed `[8]uc  1 e 8 0 ]
-"69
+"68
 [v _data_brake data_brake `[8]uc  1 e 8 0 ]
-"70
+"69
 [v _data data `[8]uc  1 e 8 0 ]
-"71
+"70
 [v _park_assist_state park_assist_state `[8]uc  1 e 8 0 ]
-"74
+"73
 [v _RTR_Flag RTR_Flag `VEb  1 e 0 0 ]
-"76
+"74
 [v _low_battery low_battery `VEb  1 e 0 0 ]
-"77
+"75
 [v _battery_charging battery_charging `VEb  1 e 0 0 ]
-"78
+"76
 [v _left_speed left_speed `VEui  1 e 2 0 ]
-"79
+"77
 [v _right_speed right_speed `VEui  1 e 2 0 ]
-"80
+"78
 [v _id id `VEul  1 e 4 0 ]
-"82
+"79
 [v _collision_sensor_distance collision_sensor_distance `VE[2]uc  1 e 2 0 ]
-"85
+"82
 [v _display_refresh display_refresh `VEb  1 e 0 0 ]
-"86
+"83
 [v _row_refresh row_refresh `VEb  1 e 0 0 ]
-"87
+"84
 [v _parking_message_E parking_message_E `VEb  1 e 0 0 ]
-"88
+"85
 [v _collision_msg collision_msg `VEb  1 e 0 0 ]
-"89
+"86
 [v _LCD_4TH_ROW_MODE LCD_4TH_ROW_MODE `VEb  1 e 0 0 ]
-"90
+"87
 [v _parking_message_ID parking_message_ID `VEuc  1 e 1 0 ]
-"91
+"88
 [v _str str `VE[12]uc  1 e 12 0 ]
-"92
+"89
 [v _actual_speed_kmh actual_speed_kmh `VEf  1 e 4 0 ]
-"93
+"90
 [v _user_data user_data `VEui  1 e 2 0 ]
-"94
+"91
 [v _actual_speed actual_speed `VEui  1 e 2 0 ]
-"97
+"94
 [v _x x `VEb  1 e 0 0 ]
-"98
+"95
 [v _y y `VEb  1 e 0 0 ]
-"99
+"96
 [v _z z `VEb  1 e 0 0 ]
-"100
+"97
 [v _space_available space_available `VEb  1 e 0 0 ]
-"101
+"98
 [v _space_gap_reached space_gap_reached `VEb  1 e 0 0 ]
-"102
+"99
 [v _steering_correction_dir steering_correction_dir `VEb  1 e 0 0 ]
-"103
+"100
 [v _parking_error parking_error `VEb  1 e 0 0 ]
-"104
+"101
 [v _user_stop user_stop `VEb  1 e 0 0 ]
-"105
+"102
 [v _steering_correction steering_correction `VEuc  1 e 1 0 ]
-"106
+"103
 [v _parking_state parking_state `VEuc  1 e 1 0 ]
-"107
+"104
 [v _check check `VEl  1 e 4 0 ]
-"110
+"107
 [v _wait_low_1 wait_low_1 `VEb  1 e 0 0 ]
-"111
+"108
 [v _wait_low_2 wait_low_2 `VEb  1 e 0 0 ]
-"112
+"109
 [v _wait_low_3 wait_low_3 `VEb  1 e 0 0 ]
-"113
+"110
 [v _power_switch power_switch `VEb  1 e 0 0 ]
-"114
+"111
 [v _F1_switch F1_switch `VEb  1 e 0 0 ]
-"115
+"112
 [v _F2_switch F2_switch `VEb  1 e 0 0 ]
-"116
+"113
 [v _pwr_credits pwr_credits `VEb  1 e 0 0 ]
-"117
+"114
 [v _dir dir `VEuc  1 e 1 0 ]
-"118
+"115
 [v _switch_position switch_position `VEuc  1 e 1 0 ]
-"119
+"116
 [v _set_steering set_steering `VEuc  1 e 1 0 ]
-"120
+"117
 [v _set_speed set_speed `VEui  1 e 2 0 ]
-"121
+"118
 [v _JoystickValues JoystickValues `VE[2]uc  1 e 2 0 ]
-"122
+"119
 [v _center_value_Y center_value_Y `VEuc  1 e 1 0 ]
-"123
+"120
 [v _collision_risk_value collision_risk_value `VEuc  1 e 1 0 ]
-"124
+"121
 [v _JoystickConstants JoystickConstants `VE[2]f  1 e 8 0 ]
-"218
+"215
 [v _main main `(v  1 e 1 0 ]
 {
-"490
+"489
 } 0
-"714
+"712
 [v _board_initialization board_initialization `(v  1 e 1 0 ]
 {
-"780
+"774
 } 0
 "218 C:\Users\simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
 [v _CANInitialize CANInitialize `(v  1 e 1 0 ]
@@ -1767,25 +1767,25 @@ CAN_RX_BUFFER_2_OVFL 2
 [v CANOperationMode@mode mode `E16743  1 a 1 17 ]
 "211
 } 0
-"657 C:\Users\simone\Documents\GitHub\RemoteCan.X\RemoteCan.c
+"655 C:\Users\simone\Documents\GitHub\RemoteCan.X\RemoteCan.c
 [v _PWR_Button_Polling PWR_Button_Polling `(v  1 e 1 0 ]
 {
-"665
+"663
 } 0
-"598
+"596
 [v _LCD_Parking LCD_Parking `(v  1 e 1 0 ]
 {
-"609
+"607
 } 0
-"585
+"583
 [v _LCD_Park LCD_Park `(v  1 e 1 0 ]
 {
-"596
+"594
 } 0
-"492
+"491
 [v _LCD_Handler LCD_Handler `(v  1 e 1 0 ]
 {
-"570
+"568
 } 0
 "492 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
@@ -2106,42 +2106,42 @@ CAN_RX_BUFFER_2_OVFL 2
 [v LCD_shift_cursor@shift shift `uc  1 a 1 30 ]
 "106
 } 0
-"572 C:\Users\simone\Documents\GitHub\RemoteCan.X\RemoteCan.c
+"570 C:\Users\simone\Documents\GitHub\RemoteCan.X\RemoteCan.c
 [v _LCD_Gap LCD_Gap `(v  1 e 1 0 ]
 {
-"583
+"581
 } 0
-"624
+"622
 [v _LCD_Error LCD_Error `(v  1 e 1 0 ]
 {
-"642
+"640
 } 0
-"611
+"609
 [v _LCD_End LCD_End `(v  1 e 1 0 ]
 {
-"622
+"620
 } 0
-"687
+"685
 [v _Joystick_Polling Joystick_Polling `(v  1 e 1 0 ]
 {
-"688
+"686
 [v Joystick_Polling@i i `uc  1 a 1 18 ]
-"694
+"692
 } 0
-"677
+"675
 [v _F2_Button_Polling F2_Button_Polling `(v  1 e 1 0 ]
 {
-"685
+"683
 } 0
-"667
+"665
 [v _F1_Button_Polling F1_Button_Polling `(v  1 e 1 0 ]
 {
-"675
+"673
 } 0
-"644
+"642
 [v _Credits Credits `(v  1 e 1 0 ]
 {
-"655
+"653
 } 0
 "178 C:\Users\simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/src\LCD_44780.c
 [v _LCD_write_message LCD_write_message `(v  1 e 1 0 ]
@@ -2238,10 +2238,10 @@ CAN_RX_BUFFER_2_OVFL 2
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 19 ]
 "53
 } 0
-"696 C:\Users\simone\Documents\GitHub\RemoteCan.X\RemoteCan.c
+"694 C:\Users\simone\Documents\GitHub\RemoteCan.X\RemoteCan.c
 [v _CAN_Tx CAN_Tx `(v  1 e 1 0 ]
 {
-"712
+"710
 } 0
 "294 C:\Users\simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
 [v _CANsendMessage CANsendMessage `(v  1 e 1 0 ]
@@ -2260,15 +2260,15 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 "1157
 } 0
-"209 C:\Users\simone\Documents\GitHub\RemoteCan.X\RemoteCan.c
+"206 C:\Users\simone\Documents\GitHub\RemoteCan.X\RemoteCan.c
 [v _ISR_bassa ISR_bassa `IIL(v  1 e 1 0 ]
 {
-"216
+"213
 } 0
-"126
+"123
 [v _ISR_alta ISR_alta `IIH(v  1 e 1 0 ]
 {
-"207
+"204
 } 0
 "294 C:\Users\simone/Desktop/LaurTec_PIC_libraries_v_3.3.1/inc\CANlib.h
 [v i2_CANsendMessage CANsendMessage `(v  1 e 1 0 ]

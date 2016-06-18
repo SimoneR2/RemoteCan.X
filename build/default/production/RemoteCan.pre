@@ -20793,7 +20793,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 41 "RemoteCan.c"
+# 40 "RemoteCan.c"
 void board_initialization(void);
 void PWR_Button_Polling(void);
 void F1_Button_Polling(void);
@@ -20828,13 +20828,11 @@ BYTE park_assist_state[8] = 0;
 
 
 volatile bit RTR_Flag = 0;
-
 volatile bit low_battery = 0;
 volatile bit battery_charging = 0;
 volatile unsigned int left_speed = 0;
 volatile unsigned int right_speed = 0;
 volatile unsigned long id = 0;
-
 volatile BYTE collision_sensor_distance[2] = 0;
 
 
@@ -21094,6 +21092,7 @@ PORTDbits.RD5 = 0;
 x = 0;
 z = 0;
 parking_message_E = 0;
+parking_message_ID = 0;
 F2_switch = 0;
 space_available = 0;
 space_gap_reached = 0;
@@ -21115,11 +21114,13 @@ Joystick_Polling();
 
 
 if ((JoystickValues[1] < 10)&&(parking_state == 2)) {
-F1_switch = 0;
-parking_state = 0;
-user_stop = 1;
+
 parking_message_ID = 6;
+parking_error = 1;
+user_stop = 1;
+F1_switch = 0;
 pr_time_6 = time_counter + (2000 / 10);
+
 park_assist_state[0] = 0b00000000;
 while (!CANisTxReady());
 CANsendMessage(0b00000001100, park_assist_state, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
@@ -21147,7 +21148,6 @@ data_steering[0] = 0;
 steering_correction_dir = 0;
 steering_correction = 0;
 }
-
 
 
 if (switch_position != 0) {
@@ -21228,8 +21228,8 @@ LCD_Handler();
 }
 }
 } else {
-if (parking_message_ID == 6) {
-if (parking_error == 1) {
+if ((parking_message_ID == 6)||(user_stop == 1)) {
+if ((parking_error == 1)||(user_stop == 1)) {
 parking_error = 0;
 LCD_Error();
 while (CANisTxReady() != 1);
@@ -21246,7 +21246,6 @@ parking_message_E = 0;
 }
 
 void LCD_Handler(void) {
-
 while (CANisTxReady() != 1);
 CANsendMessage(0b00000001000, data_speed, 8, CAN_CONFIG_STD_MSG & CAN_REMOTE_TX_FRAME & CAN_TX_PRIORITY_0);
 
@@ -21508,13 +21507,9 @@ ADCON2bits.ADCS0 = 1;
 ADCON2bits.ADFM = 0;
 ADCON0bits.ADON = 1;
 
-
 LCD_initialize(16);
-
 LCD_clear();
 LCD_goto_line(1);
-
-
 
 PORTDbits.RD2 = 0;
 PORTDbits.RD3 = 0;
